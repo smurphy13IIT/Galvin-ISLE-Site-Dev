@@ -1,8 +1,5 @@
 <<<<<<< HEAD
 # Galvin Library - Islandora Dev Site <!-- omit in toc -->
-=======
-# Galvin Library - Islandora Dev Site <!-- omit in toc -->
->>>>>>> 46796b0aa1cb9539f6eb1834062a5fd882f6db6f
 
 [![LICENSE](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](./LICENSE)
 

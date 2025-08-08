@@ -228,6 +228,8 @@ services:
             default:
                 aliases: # Allow access without using the `-dev` or `-prod` suffix.
                     - activemq
+        ports:
+            - "1883:1883"
     activemq-prod:
         <<: [*prod, *activemq]
         labels:
@@ -281,6 +283,8 @@ services:
             default:
                 aliases: # Allow access without using the `-dev` or `-prod` suffix.
                     - cantaloupe
+        ports:
+            - "8182:8182"
     cantaloupe-prod:
         <<: [*prod, *cantaloupe]
         labels:
@@ -405,6 +409,8 @@ services:
         depends_on:
             activemq-dev:
                 condition: service_healthy
+        ports:
+            - "8080:8080"
     fcrepo-prod:
         <<: [*prod, *fcrepo]
         environment:
@@ -452,6 +458,8 @@ services:
         depends_on:
             drupal-dev:
                 condition: service_healthy
+        ports:
+            - "8983:8983"
     solr-prod:
         <<: [*prod, *solr]
         labels:

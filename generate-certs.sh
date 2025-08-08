@@ -41,8 +41,10 @@ fi
   "*.islandora.info" \
   "islandora.info" \
   "dev.islandora.ca" \
+  "*.dev.voices.library.iit.edu" \
+  "dev.voices.library.iit.edu" \
   "localhost" \
-  "216.47.136.147" \
+  "216.47.157.191" \
   "127.0.0.1" \
   "::1"
 

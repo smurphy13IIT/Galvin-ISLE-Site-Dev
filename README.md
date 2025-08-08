@@ -39,7 +39,7 @@
 
 # Introduction
 
-This is the development and production infrastructure for INSTITUTION's SITE_NAME.
+This is the development and production infrastructure for Illinois Tech Galvin Library's development Islandora repository.
 
 # Requirements
 

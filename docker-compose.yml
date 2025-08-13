@@ -170,11 +170,6 @@ services:
             default:
                 aliases: # Allow access without using the `-dev` or `-prod` suffix.
                     - houdini
-        environment:
-            PHP_MEMORY_LIMIT: '1024M'
-            PHP_POST_MAX_SIZE: '1024M'
-            PHP_UPLOAD_MAX_FILESIZE: '2048M'
-            PHP_MAX_INPUT_TIME: '3600'
     houdini-prod:
         <<: [*prod, *houdini]
         secrets: *secrets-jwt-public

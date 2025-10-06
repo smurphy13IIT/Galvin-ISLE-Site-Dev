@@ -24,6 +24,19 @@
                     "type": "zip"
                 }
             }
+        },
+	{
+	    "type": "package",
+	    "package": {
+                "name": "mjordan/ip_range_access",
+	        "version": "1.0.1",
+	        "type": "drupal-module",
+	        "source": {
+                    "url": "https://github.com/mjordan/ip_range_access.git",
+	            "type": "git",
+	            "reference": "main"
+	        }
+	    }
         }
     ],
     "require": {
@@ -31,6 +44,7 @@
         "composer/installers": "^2.0",
         "cweagans/composer-patches": "^1.7",
         "discoverygarden/dgi_image_discovery": "^1",
+        "discoverygarden/embargo": "^1.7",
         "drupal/admin_toolbar": "^3.1",
         "drupal/advanced_search": "^2.1",
         "drupal/better_exposed_filters": "^7.0",
@@ -42,6 +56,8 @@
         "drupal/core-composer-scaffold": "^10.1",
         "drupal/core-recommended": "^10.1",
         "drupal/facets": "^2",
+        "drupal/feeds": "^3.0",
+        "drupal/feeds_ex": "^1.0@beta",
         "drupal/field_group": "^4",
         "drupal/field_permissions": "^1",
         "drupal/field_report": "^2.1",
@@ -53,6 +69,7 @@
         "drupal/openseadragon": "^2",
         "drupal/pathauto": "^1.12",
         "drupal/pdf": "^1.1",
+        "drupal/permissions_by_term": "^3.1",
         "drupal/rest_oai_pmh": "^2.0@beta",
         "drupal/search_api_solr": "^4.2",
         "drupal/taxonomy_manager": "^2.0",
@@ -61,10 +78,11 @@
         "drupal/views_data_export": "^1.2",
         "drupal/views_field_view": "^1.0@beta",
         "drupal/zurb_foundation": "^9.0@beta",
-        "drush/drush": "^13",
+        "drush/drush": "^13.6",
         "islandora-rdm/islandora_fits": "dev-8.x-1.x as 1.x-dev",
         "islandora/views_nested_details": "^1.0",
         "library/pdf.js": "^5",
+        "mjordan/ip_range_access": "^1.0.1",
         "mjordan/islandora_workbench_integration": "dev-main"
     },
     "conflict": {

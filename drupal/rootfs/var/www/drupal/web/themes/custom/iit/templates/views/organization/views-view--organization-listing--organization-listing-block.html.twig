@@ -1,0 +1,44 @@
+{% set classes = [
+  dom_id ? 'js-view-dom-id-' ~ dom_id,
+  'listing listing--directory-office global-spacing--large',
+] %}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {{ title }}
+  {{ title_suffix }}
+
+  <div class="grid-container search-tabs global-spacing--medium">
+    <ul>
+      <li><a href="{{ structure_settings.profile_listing_url }}">{{ 'Find a Person'|t }}</a></li>
+      <li><a href="{{ structure_settings.organization_listing_url }}"
+             class="active-tab">{{ 'Find an Office or Department'|t }}</a></li>
+      <li><a href="{{ structure_settings.media_experts_url }}">{{ 'Find a Media Expert'|t }}</a></li>
+    </ul>
+  </div>
+
+  <div class="listing__form  listing__form--alpha listing__form--directory">
+    <div class="grid-container">
+      {{ exposed }}
+      {{ header }}
+    </div>
+  </div>
+
+
+  {{ attachment_before }}
+
+  <div class="grid-container">
+    {{ rows }}
+    {{ empty }}
+    {{ pager }}
+  </div>
+  {{ attachment_after }}
+  {{ more }}
+
+  {% if footer %}
+    <footer>
+      {{ footer }}
+    </footer>
+  {% endif %}
+
+  {{ feed_icons }}
+</div>

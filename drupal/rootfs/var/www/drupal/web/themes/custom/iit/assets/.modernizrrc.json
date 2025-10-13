@@ -1,0 +1,10 @@
+{
+  "feature-detects": [
+    "test/inputtypes",
+    "test/touchevents",
+    "test/css/objectfit",
+    "test/elem/details",
+    "test/elem/picture",
+    "test/img/srcset"
+  ]
+}

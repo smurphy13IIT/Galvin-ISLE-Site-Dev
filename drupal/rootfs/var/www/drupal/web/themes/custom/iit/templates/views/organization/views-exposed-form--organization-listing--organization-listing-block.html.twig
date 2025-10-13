@@ -1,0 +1,18 @@
+{% if q is not empty %}
+{{ q }}
+{% endif %}
+<div class="grid-x grid-margin-x directory-office-form">
+  <div class="cell initial-12 medium-4 columns">
+    <div class="listing__form__submit-container">
+      {{ form.title }}
+      {{ form.actions }}
+    </div>
+  </div>
+  <div class="cell initial-12 medium-4 columns">
+    {{ form.organization_type }}
+  </div>
+</div>
+<div class="alpha-filter">
+  {{ form.title_1 }}
+</div>
+{{ form|without('title', 'organization_type', 'title_1', 'actions') }}

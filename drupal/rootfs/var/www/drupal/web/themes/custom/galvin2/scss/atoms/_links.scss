@@ -1,0 +1,76 @@
+a {
+    &.phone {
+        &:before {
+            content: fa-content($fa-var-phone-alt);
+            font-family: $font-awesome;
+            font-size: 1em;
+            font-weight: 900;
+            color: $black;
+            margin-right: 0.3125rem;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    &.email {
+        &:before {
+            content: fa-content($fa-var-envelope);
+            font-family: $font-awesome;
+            font-size: 1em;
+            font-weight: 900;
+            color: $black;
+            margin-right: 0.3125rem;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    &.chat {
+        &:before {
+            content: fa-content($fa-var-comment-dots);
+            font-family: $font-awesome;
+            font-size: 1em;
+            font-weight: 900;
+            color: $black;
+            margin-right: 0.3125rem;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    &.clock {
+        &:before {
+            content: fa-content($fa-var-clock);
+            font-family: $font-awesome;
+            font-size: 1em;
+            font-weight: 900;
+            color: $black;
+            margin-right: 0.5rem;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    &.suggestion {
+        &:before {
+            content: fa-content($fa-var-lightbulb);
+            font-family: $font-awesome;
+            font-size: 1em;
+            font-weight: 900;
+            color: $black;
+            margin-right: 0.3125rem;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}

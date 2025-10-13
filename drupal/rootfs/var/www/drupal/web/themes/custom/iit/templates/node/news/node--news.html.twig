@@ -1,0 +1,73 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+
+{% block content %}
+  <article class="news news--detail detail-page">
+    <section class="hero global-spacing--xlarge hero--no-img">
+      <div class="hero__content">
+        <div class="hero__content__inner">
+          <div class='grid-x grid-margin-x'>
+            <div class="global-spacing--xsmall hero__content__inner-content cell initial-12">
+              <h1>{{ node.label }}</h1>
+            </div>
+            {% if content.field_news_subhead|render %}
+              <div class='cell initial-12 medium-8'>
+                <p>{{ content.field_news_subhead }}</p>
+              </div>
+            {% endif %}
+            <div class='hero__content__inner-details cell initial-12 medium-4'>
+              <div class='detail-page__meta'>
+                <h2 class='visually-hidden'>{{ 'Date'|t }}</h2>
+                <span class="date"><i class='fi flaticon-calendar'></i>{{ content.field_news_date }}</span>
+              </div>
+              {% if content.field_news_author|render %}
+                <div class='detail-page__meta'>
+                  <h2 class='visually-hidden'>{{ 'Author'|t }}</h2>
+                  <span><i class='fi flaticon-author'></i> {{ 'By'|t }} {{ content.field_news_author }}</span>
+                </div>
+              {% endif %}
+            </div>
+            <div class="hero__content__inner-breadcrumbs cell initial-12">
+              {{ breadcrumbs }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% if content.field_news_video|render %}
+      <section class='section--detail-page-image section--detail-page-image--video global-spacing--large'>
+        <div>
+          {{ content.field_news_image }}
+          {{ content.field_news_video }}
+        </div>
+      </section>
+    {% elseif content.field_news_image|render %}
+      <section class='section--detail-page-image global-spacing--large'>
+        {{ content.field_news_image }}
+      </section>
+    {% endif %}
+
+    <section class='section--wysiwyg section--wysiwyg--detail-page global-spacing--xlarge'>
+      <div class='grid-container'>
+        <div class='grid-container__inner full-wysiwyg'>
+          {{ content.body }}
+
+          {% if news_tags %}
+            <div class="listing-item__tags tags">
+              <h2 class="tags__heading show-for-sr">{{ 'Tags'|t }}:</h2>
+              {{ oho_macros.list(news_tags) }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+
+    {{ content.field_gallery }}
+
+    {% if news_listing %}
+      <section class="section--related-news global-spacing--xlarge section--cards">
+        {{ news_listing }}
+      </section>
+    {% endif %}
+  </article>
+{% endblock %}

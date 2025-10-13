@@ -1,0 +1,11 @@
+<section class='section--accordion global-spacing--xlarge'>
+  {% if content.field_component_title|render or content.field_component_body|render %}
+    {% include '@iit/includes/section-heading.html.twig' with {
+      title: content.field_component_title,
+      description: content.field_component_body
+    } %}
+  {% endif %}
+  <div class='grid-container'>
+    {{ content.field_expandable_items }}
+  </div>
+</section>

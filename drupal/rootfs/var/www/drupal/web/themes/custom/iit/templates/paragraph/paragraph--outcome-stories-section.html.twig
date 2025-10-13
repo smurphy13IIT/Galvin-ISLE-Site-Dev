@@ -1,0 +1,28 @@
+<section class='global-spacing--xlarge section--background--gray section--outcomes section--background'>
+  <div class='section--outcomes__sliders'>
+    <div aria-hidden='true' class='medium-order-3 outcomes-slider-container outcomes-slider-container--content sequence-anim-parent'>
+      {% if content.field_component_title|render %}
+        <h2 class="outcome-title global-spacing--small">{{ content.field_component_title }}</h2>
+      {% else %}
+        <h2 class="outcome-title global-spacing--small">{{ 'Our alumni hit the ground running'|t }}</h2>
+      {% endif %}
+
+      <div class='outcomes-slider outcomes-slider--content sequence-anim-parent'>
+        {{ story_content_items }}
+      </div>
+    </div>
+
+    <div data-delay='50' class='medium-order-2 outcomes-slider-container outcomes-slider-container--primary sequence-anim-parent'>
+      <div class='outcomes-slider outcomes-slider--primary sequence-anim-parent'>
+        {{ content.field_oss_stories }}
+      </div>
+    </div>
+
+    <div aria-hidden='true' class='medium-order-1 outcomes-slider-container outcomes-slider-container--images sequence-anim-parent'>
+      <div class='outcomes-slider outcomes-slider--images sequence-anim-parent'>
+        {{ story_image_items }}
+      </div>
+    </div>
+
+  </div>
+</section>

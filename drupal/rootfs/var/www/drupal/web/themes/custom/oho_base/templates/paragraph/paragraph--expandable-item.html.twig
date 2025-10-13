@@ -1,0 +1,10 @@
+<div class="accordion-drop-down">
+  <button type="button" class="accordion-drop-down__toggle btn">
+    {{ content.field_component_title }}
+    <span class="show-for-sr">{{ 'Click to Open'|t }}</span>
+    <svg version="1.1" class="accordion-drop-down__icon plus" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 30 30" style="enable-background:new 0 0 30 30;" xml:space="preserve"><rect class="vertical" x="14" width="2" height="30"/><rect class="horizontal" y="14" width="30" height="2"/></svg>
+  </button>
+  <div class="accordion-drop-down__toggled-content">
+    {{ content.field_component_body }}
+  </div>
+</div>

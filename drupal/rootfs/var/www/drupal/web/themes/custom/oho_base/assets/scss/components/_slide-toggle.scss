@@ -1,0 +1,80 @@
+////
+/// @group components
+/// Styles for slide-toggle.
+////
+
+/// All Styles
+/// ----------
+.slide-toggle {
+  --slide-toggle-offset: 0;
+  --slide-toggle-scale: 1;
+  position: relative;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &:after {
+    position: absolute;
+    display: block;
+    // Keeping this in pixels because slide-toggle.js scales off this value.
+    width: 100px;
+    content: '';
+    transition: transform $primary-transition;
+    transform-origin: 0 0;
+  }
+
+  &__button {
+    margin: 0;
+    transition: color $primary-transition;
+    background-color: transparent;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  /// Line
+  /// ----
+  &--line {
+    border-bottom: .0625em solid $black;
+
+    &:after {
+      bottom: 0;
+      height: .3125em;
+      transform:
+        translate(var(--slide-toggle-offset), 50%)
+        scale(var(--slide-toggle-scale), 1);
+      background-color: $primary-color;
+    }
+
+    .slide-toggle__button {
+      color: $text-color;
+
+      &[aria-selected='true'] {
+        color: $primary-color;
+      }
+    }
+  }
+
+  /// Pill
+  /// ----
+  &--pill {
+    padding: 1em;
+    background-color: $primary-color--dark;
+
+    &:after {
+      top: 1em;
+      bottom: 1em;
+      transform:
+        translateX(calc(var(--slide-toggle-offset) - 1em))
+        scale(var(--slide-toggle-scale), 1);
+      background-color: $primary-color--light;
+    }
+
+    .slide-toggle__button {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}

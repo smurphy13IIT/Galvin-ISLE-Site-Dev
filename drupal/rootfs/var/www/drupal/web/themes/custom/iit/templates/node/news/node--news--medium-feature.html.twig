@@ -1,0 +1,13 @@
+<div class="cell initial-12 medium-4">
+  <article class="card card--unbounded">
+    <a href="{{ url }}" class="card__media">
+      {{ content.field_news_image }}
+      {% include base_path ~ directory ~ '/assets/img/play-button.svg' %}
+    </a>
+    <div class="card__content">
+      <div class="card__content__inner">
+        <h3 class="arrow-link"><a href="{{ url }}">{{ node.label }}</a></h3>
+      </div>
+    </div>
+  </article>
+</div>

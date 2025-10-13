@@ -1,0 +1,142 @@
+////
+/// @group components
+/// Styles for the checkerboard.
+////
+
+.checkerboards {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.checkerboard-item {
+  position: relative;
+  z-index: 1;
+
+  &:nth-child(n+2) .checkerboard-item__media {
+    @include breakpoint(medium up) {
+      margin-top: rem-calc(-$spacing--default);
+    }
+  }
+
+  &__title {
+    @extend %global-spacing--xsmall;
+  }
+
+  &__media,
+  &__info {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    p:not(:last-child) {
+      @extend %global-spacing--small;
+    }
+  }
+
+  figure {
+    display: block;
+    margin: 0;
+  }
+
+  &__media {
+    position: relative;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    max-width: none;
+    @include breakpoint(medium up) {
+      @include box-shadow;
+    }
+  }
+
+  &__info {
+    @include breakpoint(medium up) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__info-wrap {
+    padding: rem-calc(20 20 30);
+    @include breakpoint(small up) {
+      padding: rem-calc(20 20 40);
+    }
+  }
+
+  &__info-wrap > .btn:last-child {
+    margin-bottom: 0;
+  }
+
+  &:last-child .checkerboard-item__info-wrap {
+    padding-bottom: 0;
+  }
+
+  @include breakpoint(medium up) {
+    display: flex;
+
+    &__image-gallery:nth-child(even) {
+      position: relative;
+      flex-direction: row-reverse;
+    }
+
+    &:nth-child(odd) {
+      position: relative;
+      flex-direction: row-reverse;
+    }
+
+    &__image {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &__media {
+      flex: 0 0 60%;
+      width: 60%;
+      max-width: 60%;
+    }
+
+    &__info {
+      flex: 0 0 40%;
+      align-items: center;
+      width: 40%;
+      max-width: 40%;
+    }
+
+    &__info-wrap {
+      padding: rem-calc(20 30 80 30);
+      max-width: rem-calc(466);
+    }
+
+    &__description {
+      font-size: rem-calc(15);
+
+      & + & {
+        margin-bottom: rem-calc(40);
+      }
+    }
+  }
+}
+
+/// ------- ONLY CHILD SECTION OPTIONS nth-of-type doesn't work for classes
+.section--checkerboard ~  .section--checkerboard {
+  .checkerboard-item:only-child {
+    @include breakpoint(medium up) {
+      flex-direction: row;
+    }
+  }
+}
+.section--checkerboard ~  .section--checkerboard ~  .section--checkerboard {
+  .checkerboard-item:only-child {
+    @include breakpoint(medium up) {
+      flex-direction: row-reverse;
+    }
+  }
+}
+.section--checkerboard ~  .section--checkerboard ~  .section--checkerboard ~  .section--checkerboard {
+  .checkerboard-item:only-child {
+    @include breakpoint(medium up) {
+      flex-direction: row;
+    }
+  }
+}

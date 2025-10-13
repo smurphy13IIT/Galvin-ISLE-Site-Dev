@@ -1,0 +1,1 @@
+{"version":3,"sources":["dates.scss","dates.css"],"names":[],"mappings":"AAAA;EACI,cAAc;EACd,2CAA2C;EAC3C,gBAAgB;ACCpB","file":"../scss/dates.css","sourcesContent":[".date {\n    display: block;\n    font-family: canada-type-gibson, sans-serif;\n    font-weight: 600;\n}",".date {\n  display: block;\n  font-family: canada-type-gibson, sans-serif;\n  font-weight: 600;\n}\n"]}

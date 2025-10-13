@@ -1,0 +1,129 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+{% set online = content.field_program_online['#items'].value == '1' %}
+{% set stem = content.field_program_stem_designated['#items'].value == '1' %}
+{% set f1eligible = content.field_program_f1_visa_eligible['#items'].value == '1' %}
+<article class="landing-page">
+
+  {{ hero }}
+
+  <section class='section--program-detail-intro global-spacing--xlarge'>
+    <div class='grid-container'>
+      <div class='grid-x grid-margin-x'>
+        <div class='initial-12 medium-4 cell medium-order-2 global-spacing--xlarge program-detail-sidebar'>
+          <article class='program-detail__meta global-spacing--medium'>
+          <dl>
+            <div class='program-detail__meta__item'>
+              <dt class='eyebrow'>{{ 'Program Type'|t }}</dt>
+              <dd class='program-detail__meta__item__row'>{{ content.field_program_types }}</dd>
+            </div>
+
+            <div class='program-detail__meta__item'>
+              <dt class='eyebrow'>{{ 'Degree'|t }}</dt>
+              <dd class='program-detail__meta__item__row'>{{ content.field_program_degrees }}</dd>
+            </div>
+
+            {% if content.field_program_organizations|render %}
+              <div class='program-detail__meta__item'>
+                <dt class='eyebrow'>{{ 'Department'|t }}</dt>
+                <dd class='program-detail__meta__item__row'>{{ oho_macros.field_wrapper(content.field_program_organizations, 'span', 'arrow-link h4') }}</dd>
+              </div>
+            {% endif %}
+
+            <div class='program-detail__meta__item'>
+              <dt class='eyebrow'>{{ 'College'|t }}</dt>
+              <dd class='program-detail__meta__item__row'>{{ oho_macros.field_wrapper(content.field_program_schools, 'span', 'arrow-link h4') }}</dd>
+            </div>
+
+            {# {% if online %}
+              <div class='program-detail__meta__item'>
+                <dt class='eyebrow'>{{ 'Available Online'|t }}</dt>
+                <dd class='program-detail__meta__item__row'><span class="h4">{{ 'Yes'|t }}</span></dd>
+              </div>
+            {% endif %} #}
+
+            {% if content.field_program_modality|render %}
+              <div class='program-detail__meta__item'>
+                <dt class='eyebrow'>{{ 'Program Modality'|t }}</dt>
+                <dd class='program-detail__meta__item__row'>{{ content.field_program_modality }}</dd>
+              </div>
+            {% endif %}
+
+            {% if stem %}
+              <div class='program-detail__meta__item'>
+                <dt class='eyebrow'>{{ 'STEM Designated'|t }}</dt>
+                <dd class='program-detail__meta__item__row'>
+                  {# <span class='tool-tip-container'>
+                    <span tabindex='0' title='{{ 'Students in STEM-designated degree programs are eligible for Curricular Practical Training (CPT) and/or Optional Practical Training (OPT) opportunities.'|t }}' class='popper tooltip-link h4'>
+                     <span class="h4">{{ 'Yes'|t }}</span>
+                    </span>
+                  </span> #}
+                  <span class="h4">{{ 'Yes'|t }}</span>
+                  <span class="stem-info-link"><a href="/blog/benefits-stem-designated-degree">{{ 'Learn more about STEM designated programs and their advantage for international students.'|t }}</a></span>
+                </dd>
+              </div>
+            {% endif %}
+
+            {% if f1eligible %}
+              <div class='program-detail__meta__item'>
+                <dt class='eyebrow'>{{ 'Meets F-1 Visa Requirements'|t }}</dt>
+                <dd class='program-detail__meta__item__row'>
+                  <span class='tool-tip-container'>
+                    <span tabindex='0' title='{{ 'This program meets F-1 full‑time on-ground status requirements.'|t }}' class='popper tooltip-link h4'>
+                     <span class="h4">{{ 'Yes'|t }}</span>
+                    </span>
+                  </span>
+                </dd>
+              </div>
+            {% endif %}
+          </dl>
+          </article>
+
+          <div class="program-detail__cta">
+          {{ drupal_block('block_content:b4494217-e667-48ed-af8a-dfe563256565') }}
+          </div>
+        </div>
+
+        <div class='initial-12 medium-8 cell medium-order-1'>
+          <article class="clearfix full-wysiwyg">
+
+            {{ content.field_program_about }}
+
+            <h2>{{ 'Program Overview'|t }}</h2>
+            {{ content.field_program_overview }}
+
+            {% if content.field_program_career_paths_desc|render %}
+              <h2>{{ 'Career Opportunities'|t }}</h2>
+              {{ content.field_program_career_paths_desc }}
+            {% endif %}
+
+            {% if content.field_lightcast_widget_embed|render %}
+              <section class="global-spacing--large lightcast-widget">
+                {{ content.field_lightcast_widget_embed }}
+                {{ drupal_block('block_content:c6643ae8-bfbe-4f1c-867d-684b55467d6e') }}
+              </section>
+            {% endif %}
+
+            <section class='section--accordion global-spacing--xlarge'>
+              <div class='grid-container'>
+                {% include '@iit/includes/accordion.html.twig' with {
+                  title: 'Curriculum'|t,
+                  body: content.field_program_curriculum_desc,
+                } %}
+
+                {% include '@iit/includes/accordion.html.twig' with {
+                  title: 'Admission Requirements'|t,
+                  body: content.field_program_adm_reqs_desc,
+                } %}
+              </div>
+            </section>
+
+            {{ content.field_program_additional_body }}
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{ content.field_page_components }}
+
+</article>

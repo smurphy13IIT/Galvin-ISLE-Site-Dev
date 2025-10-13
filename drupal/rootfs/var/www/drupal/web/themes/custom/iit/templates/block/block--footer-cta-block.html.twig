@@ -1,0 +1,18 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+<section class="section--background section--background--red section--footer-sock" aria-labelledby="footer-cta-label">
+  <div class="section-heading global-spacing">
+    <div class="grid-container">
+      <h2 class="section-heading__heading" id="footer-cta-label">{{ content.field_component_title }}</h2>
+      <div class="grid-x">
+        {% if content.field_component_body|render %}
+          <div class="global-spacing--small cell initial-12">
+            <span class="section-heading__subheading">{{ content.field_component_body }}</span>
+          </div>
+        {% endif %}
+        <div class="cell initial-12">
+          {{ oho_macros.link_field_link(content.field_fctab_cta_links, 'btn btn--white') }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

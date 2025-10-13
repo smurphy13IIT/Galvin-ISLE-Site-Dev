@@ -1,0 +1,510 @@
+////
+/// @group utilites
+/// Functions and mixins for theme styles.
+////
+
+/// General
+/// -------
+
+/// Creates a background color gradient that moves on hover.
+///
+/// @param {Color} $start-color - The start color of the gradient.
+/// @param {Color} $end-color - The end color of the gradient.
+/// Source: https://stackoverflow.com/a/17212432
+@mixin animation-bgcolor-swipe(
+  $start-color: $accent-orange,
+  $end-color: $accent-red
+) {
+  background-image: linear-gradient(to left, $start-color 50%, $end-color 50%);
+  background-position: right bottom;
+  background-size: 200% 100%;
+
+  &:hover {
+    background-position: left bottom;
+  }
+}
+
+/// Generates rules for button styles.
+@mixin btn {
+  display: inline-block;
+  padding: rem-calc(16.5 20);
+  //transition: background $primary-transition;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $white;
+  background-color: $primary-color;
+  font-family: $sans-serif;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  font-size: rem-calc(16);
+
+  @include breakpoint(tiny down) {
+    &:not(.vaf__item) {
+      justify-content: center;
+    }
+  }
+
+  &:not(:last-child) {
+    @include margins-bottom(10,10,20);
+  }
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    background-color: $secondary-color;
+    color: #fff;
+    outline: none;
+  }
+}
+
+@mixin btn-light {
+  color: $primary-color;
+  background-color: $white;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    background-color: $brand-red;
+    color: $white;
+  }
+}
+
+
+// Rules for Eyebrow text
+@mixin eyebrow {
+  font-size: rem-calc(18);
+  letter-spacing: rem-calc(0.18);
+  text-transform: uppercase;
+  font-weight: 600;
+  @include global-spacing--xsmall;
+  font-family: $sans-serif;
+  line-height: 1.3;
+}
+
+/// Generates Font Awesome font rules.
+@mixin font-awesome {
+  font-family: $font-awesome;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/// Generates a link arrow.
+@mixin link-arrow {
+  display: block;
+  position: relative;
+  a {
+    display: inline;
+    color: $black;
+    &:hover {
+      text-decoration: none;
+      &:after {
+        padding-left: rem-calc(10)
+      }
+    }
+    &:after {
+        font-family: "Flaticon";
+      content: $flaticon-long-arrow;
+      font-weight: 800;
+      transition: padding-left .3s ease;
+      padding-left: rem-calc(5);
+      color: $primary-color;
+    }
+  }
+}
+
+/// Generates left float rules for objects in WYSIWYGs.
+@mixin obj-left {
+  margin: rem-calc(20 0);
+  float: none;
+
+  @include breakpoint(tiny) {
+    float: left;
+    margin: 0;
+    padding: .625em 35px .625em 0;
+
+    figcaption {
+      padding: 0 35px .625em 0;
+    }
+  }
+}
+
+/// Generates right float rules for objects in WYSIWYGs.
+@mixin obj-right {
+  margin: rem-calc(20 0);
+  float: none;
+
+  @include breakpoint(tiny) {
+    float: right;
+    margin: 0;
+    padding: .625em 0 .625em 2em;
+
+    figcaption {
+      padding: 0 0 .625em 35px;
+    }
+  }
+}
+
+/// Generates centering rules for objects in WYSIWYGs.
+@mixin obj-center {
+  margin: 2.5em auto;
+}
+
+/// Generates placeholder selectors for all major browsers.
+@mixin placeholder {
+
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    // Gecko adds an opacity by default. Remove it.
+    opacity: 1;
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+/// Generates rules for only showing items to a screen reader.
+@mixin show-for-sr {
+  position: absolute !important; // stylelint-disable-line
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+}
+
+/// Grid
+//------
+
+@mixin padded-row {
+  @include grid-row()
+}
+
+.padded-row {
+  @include grid-row()
+}
+
+
+/// Generate grid columns on a selector.
+///
+/// @param {Boolean} $-up-screens - The breakpoint to use?
+/// @todo Needs work, is this even a good idea with XY Grid?
+/// Source: https://foundation.zurb.com/forum/posts/1026-include-multiple-column-mixins
+@mixin grid-columns(
+  $small-up-screens: false,
+  $medium-up-screens: false,
+  $large-up-screens: false,
+  $xlarge-up-screens: false,
+  $xxlarge-up-screens: false,
+  $small-only-screens: false,
+  $medium-only-screens: false,
+  $large-only-screens: false,
+  $xlarge-only-screens: false,
+  $xxlarge-only-screens: false
+) {
+  // Small and up screens
+  @if $small-up-screens {
+    @include grid-column($small-up-screens);
+  }
+  // Medium and up screens
+  @if $medium-up-screens {
+    @include breakpoint(medium) {
+      @include grid-column($medium-up-screens);
+    }
+  }
+  // Large and up screens
+  @if $large-up-screens {
+    @include breakpoint(large) {
+      @include grid-column($large-up-screens);
+    }
+  }
+  // XLarge and up screens
+  @if $xlarge-up-screens {
+    @include breakpoint(xlarge) {
+      @include grid-column($xlarge-up-screens);
+    }
+  }
+  // XXLarge and up screens
+  @if $xxlarge-up-screens {
+    @include breakpoint(xxlarge) {
+      @include grid-column($xxlarge-up-screens);
+    }
+  }
+  // Small only screens
+  @if $small-only-screens {
+    @include breakpoint(small only) {
+      @include grid-column($small-only-screens);
+    }
+  }
+  // Medium only screens
+  @if $medium-only-screens {
+    @include breakpoint(medium only) {
+      @include grid-column($medium-only-screens);
+    }
+  }
+  // Large only screens
+  @if $large-only-screens {
+    @include breakpoint(large only) {
+      @include grid-column($large-only-screens);
+    }
+  }
+  // XLarge only screens
+  @if $xlarge-only-screens {
+    @include breakpoint(xlarge only) {
+      @include grid-column($xlarge-only-screens);
+    }
+  }
+  // XXLarge only screens
+  @if $xxlarge-only-screens {
+    @include breakpoint(xxlarge only) {
+      @include grid-column($xxlarge-only-screens);
+    }
+  }
+}
+
+/// Spacing
+/// -------
+
+/// Generate bottom margins automatically per breakpoint.
+///
+/// @param {Number} $-value - Values for each breakpoint.-
+/// @todo How does this work with customizable breakpoints? Can we somehow
+///   leverage that map here?
+@mixin margins-bottom($small-value, $medium-value, $large-value) {
+  margin-bottom: rem-calc($small-value);
+
+  @include breakpoint(medium) {
+    margin-bottom: rem-calc($medium-value);
+  }
+
+  @include breakpoint(large) {
+    margin-bottom: rem-calc($large-value);
+  }
+}
+
+/// Generate top margins automatically per breakpoint.
+///
+/// @param {Number} $-value - Values for each breakpoint.-
+/// @todo How does this work with customizable breakpoints? Can we somehow
+///   leverage that map here?
+@mixin margins-top($small-value, $medium-value, $large-value) {
+  margin-top: rem-calc($small-value);
+
+  @include breakpoint(medium) {
+    margin-top: rem-calc($medium-value);
+  }
+
+  @include breakpoint(large) {
+    margin-top: rem-calc($large-value);
+  }
+}
+
+
+@mixin bottoms($small-value, $medium-value, $large-value) {
+  margin-top: rem-calc($small-value);
+
+  @include breakpoint(medium) {
+    margin-top: rem-calc($medium-value);
+  }
+
+  @include breakpoint(large) {
+    margin-top: rem-calc($large-value);
+  }
+}
+
+/// Generate bottom padding automatically per breakpoint.
+///
+/// @param {Number} $-value - Values for each breakpoint.-
+/// @todo How does this work with customizable breakpoints? Can we somehow
+///   leverage that map here?
+@mixin paddings-bottom($small-value, $medium-value, $large-value) {
+  padding-bottom: rem-calc($small-value);
+
+  @include breakpoint(medium) {
+    padding-bottom: rem-calc($medium-value);
+  }
+
+  @include breakpoint(large) {
+    padding-bottom: rem-calc($large-value);
+  }
+}
+
+/// Generate top padding automatically per breakpoint.
+///
+/// @param {Number} $-value - Values for each breakpoint.-
+/// @todo How does this work with customizable breakpoints? Can we somehow
+///   leverage that map here?
+@mixin paddings-top($small-value, $medium-value, $large-value) {
+  padding-top: rem-calc($small-value);
+
+  @include breakpoint(medium) {
+    padding-top: rem-calc($medium-value);
+  }
+
+  @include breakpoint(large) {
+    padding-top: rem-calc($large-value);
+  }
+}
+
+/// Generate horizontal padding automatically per breakpoint.
+///
+/// @param {Number} $-value - Values for each breakpoint.-
+/// @todo How does this work with customizable breakpoints? Can we somehow
+///   leverage that map here?
+@mixin paddings-left-right($small-value, $medium-value, $large-value) {
+  padding-right: rem-calc($small-value);
+  padding-left: rem-calc($small-value);
+
+  @include breakpoint(medium) {
+    padding-right: rem-calc($small-value);
+    padding-left: rem-calc($small-value);
+  }
+
+  @include breakpoint(large) {
+    padding-right: rem-calc($large-value);
+    padding-left: rem-calc($large-value);
+  }
+}
+
+/// Typography
+/// ----------
+
+/// Generate font sizes automatically per breakpoint.
+///
+/// @param {Number} $-value - Values for each breakpoint.-
+/// @todo How does this work with customizable breakpoints? Can we somehow
+///   leverage that map here?
+@mixin font-sizes($small-value, $medium-value, $large-value) {
+  font-size: rem-calc($small-value);
+
+  @include breakpoint(medium) {
+    font-size: rem-calc($medium-value);
+  }
+
+  @include breakpoint(large) {
+    font-size: rem-calc($large-value);
+  }
+}
+
+/// Generate line heights automatically per breakpoint.
+///
+/// @param {Number} $-value - Values for each breakpoint.-
+/// @todo How does this work with customizable breakpoints? Can we somehow
+///   leverage that map here?
+@mixin line-heights($small-value, $medium-value, $large-value) {
+  line-height: rem-calc($small-value);
+
+  @include breakpoint(medium) {
+    line-height: rem-calc($medium-value);
+  }
+
+  @include breakpoint(large) {
+    line-height: rem-calc($large-value);
+  }
+}
+
+$box-shadow-common: 0px 2px 10px 0px rgba(0,0,0,0.3);
+$box-shadow--less: 0 1px 3px 0 rgba(0,0,0,0.16);
+
+@mixin box-shadow() {
+  box-shadow: $box-shadow-common;
+}
+/// easily call a flex column when setting odd widths (most useful for calc())
+@mixin flex-column($width) {
+  flex: 0 0 $width;
+  max-width: $width;
+  width: $width;
+}
+
+// multi line divier mixin
+@mixin line-divider($background, $accent-color, $accent-width) {
+  position: relative;
+  background: $background;
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    max-width: $accent-width;
+    background: $accent-color
+  }
+}
+@mixin offset-text-rule($selector, $text-background, $border-color) {
+  display: block;
+  > #{$selector} {
+    position: relative;
+    display: inline;
+    padding-right: rem-calc(5);
+    background: $text-background;
+    &:after {
+      content: '';
+      height: rem-calc(1);
+      width: 100%;
+      left: 0;
+      bottom: rem-calc(10);
+      margin: auto;
+      background: $border-color;
+      position: absolute;
+      z-index: 2;
+    }
+  }
+}
+
+/// small body
+@mixin small-body() {
+  @include font-sizes(14,14,16);
+}
+
+@mixin section-fade() {
+  position: relative;
+  &:before {
+    content: "";
+    width: 100%;
+    height: rem-calc(3);
+    opacity: 0.15;
+    background-image: linear-gradient(180deg, #000000 0%, rgba(0,0,0,0.00) 100%);
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+
+@mixin column-indent {
+  padding-left: 8.33333%;
+  max-width: calc(#{$global-width} + 8.33333%);
+}
+
+@mixin social-media-links {
+    .social-media {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: inline-block;
+    &:not(:last-child) {
+      margin-right: rem-calc(10);
+    }
+      //Hide the text
+      i {
+          //text-indent: -9999px;
+      }
+  }
+
+  a {
+    display: block;
+    //transition: color $primary-transition;
+    font-size: rem-calc(27);
+    line-height: 1;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+}
+}
+

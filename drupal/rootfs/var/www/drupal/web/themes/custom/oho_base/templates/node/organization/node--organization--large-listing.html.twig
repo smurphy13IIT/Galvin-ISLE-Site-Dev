@@ -1,0 +1,31 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+<div class="row">
+  <div class="columns small-12 medium-6">
+    <h4 class="grid-list-item__title">
+      <a href="{{ url }}">{{ label }}</a>
+    </h4>
+    <span>{{ content.field_organization_type }}</span>
+  </div>
+
+  {% if content.field_organization_phone_number|render or
+      content.field_organization_email|render or
+      content.field_organization_location|render %}
+    <div class="columns small-12 medium-3">
+      {% if content.field_organization_phone_number|render %}
+        <span class="fas fa-phone">
+          {{ content.field_organization_phone_number }}
+        </span>
+      {% endif %}
+      {% if content.field_organization_email|render %}
+        <span class="fas fa-envelope">
+          {{ content.field_organization_email }}
+        </span>
+      {% endif %}
+      {% if content.field_organization_location|render %}
+        <span class="far fa-map-marker-alt">
+          {{ content.field_organization_location }}
+        </span>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>

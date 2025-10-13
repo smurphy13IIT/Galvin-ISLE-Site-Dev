@@ -1,0 +1,29 @@
+<section class="grid-container section--image-gallery global-spacing--large">
+  <div class='featured-gallery-item global-spacing--small'>
+    <div class='grid-x grid-margin-x'>
+      <div class='initial-12 cell medium-7'>
+        {{ content.field_gallery_featured_image }}
+      </div>
+      <div class='initial-12 cell medium-5'>
+        <h2>{{ content.field_component_title }}</h2>
+        {{ content.field_component_body }}
+      </div>
+    </div>
+  </div>
+
+  <div class="more-less">
+    <button class="more-less__toggle btn" data-button-open-text="{{ 'LOAD MORE'|t }}"
+    data-button-close-text="{{ 'SEE LESS'|t }}" data-button-open-class="more-less-open"></button>
+    <div class="image-grid glide grid-container full">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+          {{ content.field_gallery_items }}
+        </ul>
+      </div>
+      <div class='glide-controls'>
+        <a type="button" class="next fal fa-chevron-right" data-glide-dir=">"></a>
+        <a type="button" class="prev far fa-chevron-left" data-glide-dir="<"></a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,164 @@
+////
+/// @group menus
+/// Main menu styles.
+////
+
+.main-menu {
+
+  /// All Breakpoints
+  /// ---------------
+  li,
+  a {
+    display: block;
+  }
+
+  a {
+    color: $white;
+    font-family: $sans-serif;
+    font-size: 1.125rem;
+    font-weight: 600;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .menu-item--active-trail > a {
+    // Always use the active trail color.
+    color: $primary-color !important; // stylelint-disable-line
+  }
+
+  /// Mobile
+  /// -----
+  @include breakpoint(medium down) {
+
+    /// All Levels
+    /// ----------
+    ul {
+      width: 100%;
+    }
+
+    li + li {
+      border-top: 1px solid $gray;
+    }
+
+    a {
+      padding: .5em 3em .5em .5em;
+      background-color: $gray--dark;
+    }
+
+    /// Second Level
+    /// ------------
+    ul ul {
+      display: none;
+
+      li + li {
+        border-top-color: $gray--dark;
+      }
+
+      a {
+        color: $text-color;
+        background-color: $gray;
+      }
+    }
+  }
+
+  /// Desktop
+  /// -----
+  @include breakpoint(large) {
+
+    /// All Levels
+    /// ----------
+    ul {
+      display: flex;
+      width: 100%;
+    }
+
+    li {
+      flex: 1 0 auto;
+
+      &:hover {
+
+        > a {
+          color: $text-color;
+          background-color: $gray;
+        }
+
+        > ul {
+          display: block;
+        }
+      }
+    }
+
+    a {
+      padding: .5em;
+      text-align: center;
+      background-color: $gray--dark;
+
+      &:focus {
+        color: $text-color;
+        background-color: $gray;
+      }
+    }
+
+    /// Second Level
+    /// ------------
+    ul {
+
+      // Change the number here to include more right side dropdowns.
+      > li:nth-last-child(-n+1) > ul {
+        right: 0;
+      }
+
+      ul {
+        position: absolute;
+        display: none;
+        width: auto;
+        min-width: 16rem;
+
+        li:hover > a {
+          background-color: $gray--light;
+        }
+
+        a {
+          padding: .5em 1em;
+          text-align: left;
+          color: $text-color;
+          background-color: $gray;
+
+          &:focus {
+            background-color: $gray--light;
+          }
+        }
+      }
+    }
+
+    /// Sticky Behavior
+    /// ---------------
+    &--sticky {
+      position: fixed;
+      z-index: 10;
+      top: 0;
+      // 100% minus the desktop padding.
+      width: calc(100% - #{rem-calc(30)});
+      // Global width minus the desktop padding.
+      max-width: $global-width - rem-calc(30);
+      transition: transform $primary-transition;
+      transform: translateY(-100%);
+
+      /// Logged-in Adjustments
+      /// ---------------------
+      .toolbar-horizontal.toolbar-fixed {
+        top: rem-calc(39);
+      }
+
+      .toolbar-horizontal.toolbar-fixed.toolbar-tray-open & {
+        top: rem-calc(79);
+      }
+    }
+
+    &--show {
+      transform: translateY(0);
+    }
+  }
+}

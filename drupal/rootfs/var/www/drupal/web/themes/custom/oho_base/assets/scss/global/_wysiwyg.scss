@@ -1,0 +1,31 @@
+////
+/// @group global
+/// Styles neede to format content created in the WYSIWYG editor.
+////
+
+.obj-right,
+.align-right {
+  @include obj-right;
+
+  img {
+    display: block;
+  }
+}
+
+.obj-left,
+.align-left {
+  @include obj-left;
+
+  img {
+    display: block;
+  }
+}
+
+.obj-center,
+.align-center {
+  @include obj-center;
+
+  img {
+    display: block;
+  }
+}

@@ -1,0 +1,10 @@
+features:
+   comment_user_picture: true
+   favicon: true
+   logo: true
+   name: true
+   node_user_picture: true
+settings:
+  oho_base_breadcrumbs_display_home: true
+  oho_base_breadcrumbs_display_starting_level: 1
+langcode: en

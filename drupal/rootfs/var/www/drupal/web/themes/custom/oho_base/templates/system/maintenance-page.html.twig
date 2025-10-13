@@ -1,0 +1,34 @@
+<div class="page maintenance-page">
+  <div class="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">{{ 'Skip to main content'|t }}</a>
+  </div>
+
+  <header data-directional-scroll-reveal="true" data-sticky-container class="site-header">
+    <div class="header-main">
+      <div class="row">
+        <div class="header__logo">
+          <a href="/"><img width="200" height="184" src="{{ base_path ~ directory }}/assets/img/oho.png" alt="{{ 'OHO Logo'|t }}"></a>
+        </div>
+      </div>
+    </div>
+  </header><!-- /header -->
+
+  {% if page.highlighted %}
+    <div class="system-region">
+      <div class="padded-row">
+        {{ page.highlighted }}
+      </div>
+    </div>
+  {% endif %}
+
+  <main id="main-content" class="main-content">
+    <div id="main-content" class="content">
+      <article class="hero hero--no-img">
+        <div class="hero__content">
+          <h1>{{ title }}</h1>
+          <p>{{ page.content }}</p>
+        </div>
+      </article>
+    </div>
+  </main>
+</div>

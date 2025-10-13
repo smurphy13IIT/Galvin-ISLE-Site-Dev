@@ -1,0 +1,9 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+<section class="section--global-spacing">
+  <h2>{{ content.field_component_title }}</h2>
+  {{ content.field_component_body }}
+  <div class="row">
+    {{ content.field_diff_section_diffs }}
+  </div>
+  {{ oho_macros.link_field_link(content.field_component_link, 'btn') }}
+</section>

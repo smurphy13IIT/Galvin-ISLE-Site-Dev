@@ -1,0 +1,199 @@
+////
+/// @group components
+/// Styles for the image grid.
+////
+
+/// Horizontal Featured Image
+/// ---------------------
+.featured-gallery-item {
+  .grid-x {
+    align-items: center;
+  }
+  .medium-7 {
+    @include breakpoint(small down) {
+      display: none;
+    }
+  }
+  .medium-5 {
+    @include breakpoint(medium up) {
+      padding-left: rem-calc($spacing--xlarge);
+    }
+  }
+}
+/// Image Grid Container
+/// ---------------------
+.image-grid {
+
+  @include breakpoint(small) {
+
+    .glide__slides {
+      @include xy-grid;
+      @include xy-gutters($grid-margin-gutters, margin, left right, true);
+    }
+
+    .glide-controls {
+      display: none;
+    }
+  }
+  .glide__track {
+    position: relative;
+  }
+
+  .glide__arrows {
+    button {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      height: rem-calc(32);
+      width: rem-calc(32);
+      &:after {
+        padding: 0;
+      }
+    }
+  }
+}
+
+.section--image-gallery {
+
+  .more-less {
+    overflow: hidden;
+  }
+
+  [data-glide-el="controls"] {
+    @include breakpoint(tiny down) {
+      display: block;
+    }
+  }
+  @include breakpoint(tiny down) {
+    img {
+      width: 100%;
+      max-width: none;
+    }
+  }
+
+  .checkerboard-item__media {
+    margin-top: 0;
+  }
+  .more-less {
+    @include breakpoint(small down) {
+      max-height: none;
+      overflow: visible;
+      &:after {
+        display: none;
+      }
+    }
+  }
+  .more-less__toggle {
+    @include breakpoint(small down) {
+      display: none;
+    }
+  }
+  [data-glide-el="controls"] {
+    @include breakpoint(medium up) {
+      display: none;
+    }
+  }
+  .prev, .next {
+    top: 50%;
+    transform: translateY(-50%);
+    right: rem-calc(-20);
+  }
+  .prev {
+    right: auto;
+    left: rem-calc(-20);
+  }
+}
+
+/// Image Grid Item
+/// ---------------
+.image-grid-item {
+
+  &__link {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    line-height: 1;
+    img {
+      display: block;
+    }
+
+    &:before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: block;
+      content: '';
+      transition: background-color $primary-transition;
+      background-color: rgba($link-color, 0);
+    }
+
+    &:hover,
+    &:focus {
+
+      &:before {
+        background-color: rgba($link-color, .333);
+      }
+    }
+  }
+
+  &__expand {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    padding: .5em;
+    background-color: $white;
+    font-size: rem-calc(20);
+  }
+
+  .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: rem-calc(45);
+    height: rem-calc(45);
+    transform: translate(-50%, -50%);
+  }
+
+  // Slider only.
+  @include breakpoint(tiny down) {
+    padding: 0;
+
+    &__toggle {
+      display: none;
+    }
+  }
+
+  // Shuffle only.
+  @include breakpoint(small) {
+    @include xy-cell-base;
+    @include xy-cell(3);
+    display: block;
+    height: auto;
+    padding-bottom: map-get($grid-column-gutter, medium);
+
+    &__toggle {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: .5em .5625em;
+      text-align: center;
+      color: $primary-color;
+      background-color: $white;
+      font-size: 1.25rem;
+
+      &:before {
+        @include font-awesome;
+        content: fa-content($fa-var-expand-alt);
+        font-weight: 300;
+      }
+
+      &:hover {
+        background-color: $white;
+      }
+    }
+  }
+}

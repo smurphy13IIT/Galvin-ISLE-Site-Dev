@@ -1,0 +1,37 @@
+////
+/// @group wrapper
+/// Sock styles.
+////
+
+.sock {
+  margin-top: 4rem;
+  background-color: $gray--dark;
+
+  &__links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+
+    li {
+      display: inline-block;
+    }
+
+    a {
+      display: block;
+      margin: 0 .5em;
+      padding: 1em;
+      text-decoration: none;
+      color: $white;
+      font-family: $sans-serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+
+      &:hover,
+      &:focus {
+        color: $link-color;
+        background-color: $gray;
+      }
+    }
+  }
+}

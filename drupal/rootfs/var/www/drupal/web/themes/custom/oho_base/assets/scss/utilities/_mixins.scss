@@ -1,0 +1,352 @@
+////
+/// @group utilites
+/// Functions and mixins for theme styles.
+////
+
+/// General
+/// -------
+
+/// Creates a background color gradient that moves on hover.
+///
+/// @param {Color} $start-color - The start color of the gradient.
+/// @param {Color} $end-color - The end color of the gradient.
+/// Source: https://stackoverflow.com/a/17212432
+@mixin animation-bgcolor-swipe(
+  $start-color: $accent-orange,
+  $end-color: $accent-red
+) {
+  background-image: linear-gradient(to left, $start-color 50%, $end-color 50%);
+  background-position: right bottom;
+  background-size: 200% 100%;
+
+  &:hover {
+    background-position: left bottom;
+  }
+}
+
+/// Generates rules for button styles.
+@mixin btn {
+  display: inline-block;
+  margin-bottom: 1.25em;
+  padding: 1em 1.5em;
+  transition: background $primary-transition;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $white;
+  background-color: $primary-color;
+  font-family: $sans-serif;
+  font-weight: 600;
+  line-height: 1;
+
+  &:hover {
+    text-decoration: none;
+    background-color: $primary-color--dark;
+  }
+}
+
+@mixin btn-light {
+  display: inline-block;
+  margin-bottom: 1.25em;
+  padding: 1em 1.5em;
+  transition: background $primary-transition;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: $primary-color;
+  border: .0625em solid $gray;
+  background-color: $white;
+  font-family: $sans-serif;
+  font-weight: 600;
+  line-height: 1;
+
+  &:hover {
+    text-decoration: none;
+    background-color: $gray;
+  }
+}
+
+/// Generates Font Awesome font rules.
+@mixin font-awesome {
+  font-family: $font-awesome;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/// Generates a link arrow.
+@mixin link-arrow {
+
+  &:after {
+    padding-left: .25em;
+    content: '\00BB';
+  }
+}
+
+/// Generates left float rules for objects in WYSIWYGs.
+@mixin obj-left {
+  margin-bottom: 1.25em;
+
+  @include breakpoint(medium) {
+    float: left;
+    margin: 0;
+    padding: .625em 2em .625em 0;
+
+    figcaption {
+      padding: 0 1em .625em 0;
+    }
+  }
+}
+
+/// Generates right float rules for objects in WYSIWYGs.
+@mixin obj-right {
+  margin-bottom: 1.25em;
+
+  @include breakpoint(medium) {
+    float: right;
+    margin: 0;
+    padding: .625em 0 .625em 2em;
+
+    figcaption {
+      padding: 0 0 .625em 2em;
+    }
+  }
+}
+
+/// Generates centering rules for objects in WYSIWYGs.
+@mixin obj-center {
+  margin: 2.5em auto;
+}
+
+/// Generates placeholder selectors for all major browsers.
+@mixin placeholder {
+
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    // Gecko adds an opacity by default. Remove it.
+    opacity: 1;
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+/// Generates rules for only showing items to a screen reader.
+@mixin show-for-sr {
+  position: absolute !important; // stylelint-disable-line
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+}
+
+/// Grid
+//------
+
+/// Generate grid columns on a selector.
+///
+/// @param {Boolean} $-up-screens - The breakpoint to use?
+/// @todo Needs work, is this even a good idea with XY Grid?
+/// Source: https://foundation.zurb.com/forum/posts/1026-include-multiple-column-mixins
+@mixin grid-columns(
+  $small-up-screens: false,
+  $medium-up-screens: false,
+  $large-up-screens: false,
+  $xlarge-up-screens: false,
+  $xxlarge-up-screens: false,
+  $small-only-screens: false,
+  $medium-only-screens: false,
+  $large-only-screens: false,
+  $xlarge-only-screens: false,
+  $xxlarge-only-screens: false
+) {
+  // Small and up screens
+  @if $small-up-screens {
+    @include grid-column($small-up-screens);
+  }
+  // Medium and up screens
+  @if $medium-up-screens {
+    @include breakpoint(medium) {
+      @include grid-column($medium-up-screens);
+    }
+  }
+  // Large and up screens
+  @if $large-up-screens {
+    @include breakpoint(large) {
+      @include grid-column($large-up-screens);
+    }
+  }
+  // XLarge and up screens
+  @if $xlarge-up-screens {
+    @include breakpoint(xlarge) {
+      @include grid-column($xlarge-up-screens);
+    }
+  }
+  // XXLarge and up screens
+  @if $xxlarge-up-screens {
+    @include breakpoint(xxlarge) {
+      @include grid-column($xxlarge-up-screens);
+    }
+  }
+  // Small only screens
+  @if $small-only-screens {
+    @include breakpoint(small only) {
+      @include grid-column($small-only-screens);
+    }
+  }
+  // Medium only screens
+  @if $medium-only-screens {
+    @include breakpoint(medium only) {
+      @include grid-column($medium-only-screens);
+    }
+  }
+  // Large only screens
+  @if $large-only-screens {
+    @include breakpoint(large only) {
+      @include grid-column($large-only-screens);
+    }
+  }
+  // XLarge only screens
+  @if $xlarge-only-screens {
+    @include breakpoint(xlarge only) {
+      @include grid-column($xlarge-only-screens);
+    }
+  }
+  // XXLarge only screens
+  @if $xxlarge-only-screens {
+    @include breakpoint(xxlarge only) {
+      @include grid-column($xxlarge-only-screens);
+    }
+  }
+}
+
+/// Spacing
+/// -------
+
+/// Generate bottom margins automatically per breakpoint.
+///
+/// @param {Number} $-value - Values for each breakpoint.-
+/// @todo How does this work with customizable breakpoints? Can we somehow
+///   leverage that map here?
+@mixin margins-bottom($small-value, $medium-value, $large-value) {
+  margin-bottom: rem-calc($small-value);
+
+  @include breakpoint(medium) {
+    margin-bottom: rem-calc($medium-value);
+  }
+
+  @include breakpoint(large) {
+    margin-bottom: rem-calc($large-value);
+  }
+}
+
+/// Generate top margins automatically per breakpoint.
+///
+/// @param {Number} $-value - Values for each breakpoint.-
+/// @todo How does this work with customizable breakpoints? Can we somehow
+///   leverage that map here?
+@mixin margins-top($small-value, $medium-value, $large-value) {
+  margin-top: rem-calc($small-value);
+
+  @include breakpoint(medium) {
+    margin-top: rem-calc($medium-value);
+  }
+
+  @include breakpoint(large) {
+    margin-top: rem-calc($large-value);
+  }
+}
+
+/// Generate bottom padding automatically per breakpoint.
+///
+/// @param {Number} $-value - Values for each breakpoint.-
+/// @todo How does this work with customizable breakpoints? Can we somehow
+///   leverage that map here?
+@mixin paddings-bottom($small-value, $medium-value, $large-value) {
+  padding-bottom: rem-calc($small-value);
+
+  @include breakpoint(medium) {
+    padding-bottom: rem-calc($medium-value);
+  }
+
+  @include breakpoint(large) {
+    padding-bottom: rem-calc($large-value);
+  }
+}
+
+/// Generate top padding automatically per breakpoint.
+///
+/// @param {Number} $-value - Values for each breakpoint.-
+/// @todo How does this work with customizable breakpoints? Can we somehow
+///   leverage that map here?
+@mixin paddings-top($small-value, $medium-value, $large-value) {
+  padding-top: rem-calc($small-value);
+
+  @include breakpoint(medium) {
+    padding-top: rem-calc($medium-value);
+  }
+
+  @include breakpoint(large) {
+    padding-top: rem-calc($large-value);
+  }
+}
+
+/// Generate horizontal padding automatically per breakpoint.
+///
+/// @param {Number} $-value - Values for each breakpoint.-
+/// @todo How does this work with customizable breakpoints? Can we somehow
+///   leverage that map here?
+@mixin paddings-left-right($small-value, $medium-value, $large-value) {
+  padding-right: rem-calc($small-value);
+  padding-left: rem-calc($small-value);
+
+  @include breakpoint(medium) {
+    padding-right: rem-calc($small-value);
+    padding-left: rem-calc($small-value);
+  }
+
+  @include breakpoint(large) {
+    padding-right: rem-calc($large-value);
+    padding-left: rem-calc($large-value);
+  }
+}
+
+/// Typography
+/// ----------
+
+/// Generate font sizes automatically per breakpoint.
+///
+/// @param {Number} $-value - Values for each breakpoint.-
+/// @todo How does this work with customizable breakpoints? Can we somehow
+///   leverage that map here?
+@mixin font-sizes($small-value, $medium-value, $large-value) {
+  font-size: rem-calc($small-value);
+
+  @include breakpoint(medium) {
+    font-size: rem-calc($medium-value);
+  }
+
+  @include breakpoint(large) {
+    font-size: rem-calc($large-value);
+  }
+}
+
+/// Generate line heights automatically per breakpoint.
+///
+/// @param {Number} $-value - Values for each breakpoint.-
+/// @todo How does this work with customizable breakpoints? Can we somehow
+///   leverage that map here?
+@mixin line-heights($small-value, $medium-value, $large-value) {
+  line-height: rem-calc($small-value);
+
+  @include breakpoint(medium) {
+    line-height: rem-calc($medium-value);
+  }
+
+  @include breakpoint(large) {
+    line-height: rem-calc($large-value);
+  }
+}

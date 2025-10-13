@@ -1,0 +1,21 @@
+////
+/// @group components
+/// Styles for the OHO Jump Nav.
+////
+
+.jump-nav {
+  position: fixed;
+  top: 20rem;
+  padding: 0;
+  list-style: none;
+
+  &__link {
+    transition: color $primary-transition;
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    &--active {
+      color: $accent-orange;
+    }
+  }
+}

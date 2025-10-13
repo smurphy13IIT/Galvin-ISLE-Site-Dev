@@ -1,0 +1,32 @@
+<div class="small-12 medium-4 differentiator--container">
+  <article class="differentiator">
+    <div class="differentiator__upper">
+      <span aria-hidden="true" class="differentiator-line"></span>
+      {% if content.field_component_image|render %}
+        <div class="differentiator__upper__content differentiator__upper__content--image">
+          {{ content.field_component_image }}
+        </div>
+      {% elseif content.field_component_icon_image|render %}
+        <div class="differentiator__upper__content differentiator__upper__content--icon">
+          {{ content.field_component_icon_image }}
+        </div>
+      {% else %}
+        <div class="differentiator__upper__content differentiator__upper__content--number">
+          <span class="differentiator__upper__content--number">{{ content.field_differentiator_value }}</span>
+        </div>
+      {% endif %}
+    </div>
+    <div class="differentiator__content">
+      {% if content.field_component_title_link|render %}
+        <h3 class="arrow-link"><a href="{{ content.field_component_title_link }}">
+            {{ content.field_component_title }}
+          </a></h3>
+      {% else %}
+        <h3>{{ content.field_component_title }}</h3>
+      {% endif %}
+      {% if content.field_component_subtitle|render %}
+        <p>{{ content.field_component_subtitle }}</p>
+      {% endif %}
+    </div>
+  </article>
+</div>

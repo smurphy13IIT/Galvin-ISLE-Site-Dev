@@ -1,0 +1,18 @@
+<div class="cell initial-12 medium-4">
+  <article class="news news--related">
+    <div class="grid-x grid-margin-x">
+      {% if content.field_news_image|render %}
+        <div class="cell intial-12 medium-4 large-12 medium-order-2 large-order-1">
+          <div class="news-display__item__image">
+            <a href="{{ url }}">{{ content.field_news_image }}</a>
+          </div>
+        </div>
+      {% endif %}
+      <div class="cell small-12 medium-8 large-12 medium-order-1 large-order-2">
+        <h3 class="news__title"><a href="{{ url }}">{{ label }}</a></h3>
+        <p class="news__date date">{{ content.field_news_date }}</p>
+        <div class="news__teaser"><p>{{ content.body }}</p></div>
+      </div>
+    </div>
+  </article>
+</div>

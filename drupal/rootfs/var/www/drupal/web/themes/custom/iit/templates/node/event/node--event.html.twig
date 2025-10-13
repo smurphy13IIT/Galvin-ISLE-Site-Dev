@@ -1,0 +1,108 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+
+{% block content %}
+  <article class="event event--detail detail-page">
+    <section class="hero global-spacing--xlarge hero--no-img">
+      <div class="hero__content">
+        <div class="hero__content__inner">
+          <div class="grid-x grid-margin-x">
+            <div class="global-spacing--xsmall hero__content__inner-content cell initial-12 medium-8 medium-order-1">
+              <h1>{{ node.label }}</h1>
+            </div>
+            <div class='cell initial-12 medium-8 medium-order-3'>
+              <div class='event--detail__date'>
+                <p>{{ content.field_event_date }}</p>
+              </div>
+              {% if node.body.summary %}
+                <p>{{ node.body.summary }}</p>
+              {% endif %}
+            </div>
+
+            <div class='hero__content__inner-details cell initial-12 medium-4 medium-order-2'>
+              <div class='detail-page__meta'>
+                <h2 class='visually-hidden'>{{ 'Time'|t }}</h2>
+                <span class="listing-item__text time">
+                  <span class="listing-item__event-time">
+                    {{ event_start_time }}
+                    {% if content.field_event_end_date|render %}
+                      - {{ content.field_event_end_date }}
+                    {% endif %}
+                  </span>
+                </span>
+              </div>
+
+              {% if content.field_event_locations|render %}
+                <div class='detail-page__meta'>
+                  <h2 class='visually-hidden'>{{ 'Locations'|t }}</h2>
+                  {{ oho_macros.field_wrapper(content.field_event_locations, 'span', 'listing-item__text-location') }}
+                </div>
+              {% endif %}
+
+            </div>
+            <div class="hero__content__inner-breadcrumbs medium-order-4 cell initial-12">
+              {{ breadcrumbs }}
+            </div>
+          </div>
+      </div>
+    </section>
+
+    {% if content.field_event_video|render %}
+      <section class='section--detail-page-image section--detail-page-image--video global-spacing--large'>
+        <div>
+          {{ content.field_event_image }}
+          {{ content.field_event_video }}
+        </div>
+      </section>
+    {% elseif content.field_event_image|render %}
+      <section class='section--detail-page-image global-spacing--large'>
+        {{ content.field_event_image }}
+      </section>
+    {% endif %}
+
+    <section class='section--wysiwyg section--wysiwyg--detail-page global-spacing--xlarge full-wysiwyg'>
+      <div class='grid-container'>
+        <div class='grid-container__inner'>
+          {{ content.body }}
+
+          {{ oho_macros.link_field_link(content.field_event_register_link, 'btn btn--external') }}
+
+          {% if event_types %}
+            <div class="listing-item__tags tags">
+              <h2 class="tags__heading show-for-sr">{{ 'Tags'|t }}:</h2>
+              {{ oho_macros.list(event_types) }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+
+    {% if event_contact or show_campus_directions %}
+      <section class="section--event-info global-spacing--medium grid-container">
+        <div class='grid-x grid-margin-x section--event-info__inner'>
+          {% if event_contact %}
+            <div class='cell initial-12 medium-6'>
+              <span class="section--event-info__inner__contact">
+                {% include '@iit/includes/lined-section-heading.html.twig' with {
+                  title: 'Event Contact'|t
+                } %}
+              </span>
+              {{ event_contact }}
+            </div>
+          {% endif %}
+
+          {% if show_campus_directions %}
+            <div class='cell initial-12 medium-6'>
+              {{ drupal_block('block_content:7adabfd8-2a9a-477e-842d-1207de7169d6') }}
+            </div>
+          {% endif %}
+        </div>
+      </section>
+    {% endif %}
+
+    {% if event_listing %}
+      <section class="grid-container global-spacing--large section--events-feature sequence-anim-parent">
+        {{ event_listing }}
+      </section>
+    {% endif %}
+  </article>
+{% endblock %}

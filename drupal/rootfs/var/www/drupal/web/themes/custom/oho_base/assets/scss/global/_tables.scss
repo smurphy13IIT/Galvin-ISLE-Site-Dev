@@ -1,0 +1,71 @@
+////
+/// @group global
+/// Styles for tables.
+////
+
+table {
+  margin-bottom: 2.5rem;
+  border-top: 1px solid $gray;
+  font-family: $sans-serif;
+  font-size: .875rem;
+
+  &[align='left'] { // stylelint-disable-line
+    float: none;
+
+    @include breakpoint(medium) {
+      float: left;
+      margin-right: 2em;
+    }
+  }
+
+  &[align='right'] { // stylelint-disable-line
+    float: none;
+
+    @include breakpoint(medium) {
+      float: right;
+      margin-left: 2em;
+    }
+  }
+
+  .fooicon {
+    font-family: $font-awesome !important; // stylelint-disable-line
+    font-weight: 600;
+  }
+
+  .footable-toggle {
+    margin-right: .5rem;
+  }
+}
+
+thead {
+  color: $black;
+  border-right: 1px solid $gray;
+  border-left: 1px solid $gray;
+  font-size: 1.125rem;
+
+  th {
+    background: $primary-color;
+  }
+}
+
+tbody {
+  border-top: 0;
+  border-left: 1px solid $gray;
+}
+
+tr {
+  border-bottom: 1px solid $gray;
+}
+
+th {
+  padding: 1em 1.25em;
+  border-right: 1px solid $gray;
+  border-bottom: 0;
+  background: $gray--light;
+  font-weight: 600;
+}
+
+td {
+  padding: 1em 1.25em;
+  border-right: 1px solid $gray;
+}

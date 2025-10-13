@@ -1,0 +1,23 @@
+{#
+  /**
+   * Template to display a landing nav.
+   *
+   * Variables:
+   *  - title (string): Title. Required.
+   *  - child_nav (array): A nav render array.
+   */
+#}
+<section class='section--background section--landing-nav section--background--gray--light global-spacing--xlarge'>
+  <div class='grid-container'>
+    <h2 class='global-spacing--small'>{{ 'More in'|t }} {{ title }}</h2>
+    <nav class="landing-nav" data-menu-open-text="Open the %s submenu" data-menu-close-text="Close the %s submenu">
+      <button class="sidebar-menu__toggle landing-nav__toggle" data-button-open-text="{{ 'Click to expose navigation links on mobile'|t }}" data-button-close-text="{{ 'Click to hide navigation links on mobile'|t }}" data-button-open-class="landing-nav-open" data-button-disable-at="1025">
+        {{ 'More in'|t }} {{ title }}
+        <span class="show-for-sr">{{ 'Click to expose navigation links on mobile'|t }}</span>
+      </button>
+      <div class='landing-nav__links'>
+        {{ child_nav }}
+      </div>
+    </nav>
+  </div>
+</section>

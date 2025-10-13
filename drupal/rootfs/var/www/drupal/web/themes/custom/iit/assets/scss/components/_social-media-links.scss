@@ -1,0 +1,28 @@
+////
+/// @group components
+/// Social media link styles.
+////
+
+.social-media {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: inline-block;
+    &:not(:last-child) {
+      margin-right: rem-calc(10);
+    }
+  }
+
+  a {
+    display: block;
+    transition: color $primary-transition;
+    font-size: rem-calc(27);
+    line-height: 1;
+
+    &:hover {
+      color: $accent-yellow;
+    }
+  }
+}

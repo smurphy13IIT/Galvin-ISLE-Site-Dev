@@ -1,0 +1,18 @@
+////
+/// @group D8
+/// Styles for OHO Alert.
+////
+
+.oho-alert {
+  padding: 1.5em;
+  background-color: $accent-yellow;
+
+  .fa {
+    color: $accent-orange;
+    font-size: 3.5em;
+  }
+
+  a {
+    color: $text-color;
+  }
+}

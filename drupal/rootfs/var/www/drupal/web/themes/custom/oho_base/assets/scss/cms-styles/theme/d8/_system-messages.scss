@@ -1,0 +1,45 @@
+////
+/// @group D8
+/// System message styles for Drupal 8.
+////
+
+.messages {
+  margin: 2em 0;
+  padding: 1em;
+  border: 1px solid;
+  border-radius: .25em;
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li + li {
+    margin-top: .5em;
+  }
+
+  a {
+    text-decoration: underline;
+    color: inherit;
+    font-weight: 700;
+  }
+
+  &--status {
+    color: $message-success;
+    border-color: lighten($message-success, 20%);
+    background: lighten($message-success, 40%);
+  }
+
+  &--error {
+    color: $message-alert;
+    border-color: lighten($message-alert, 20%);
+    background: lighten($message-alert, 40%);
+  }
+
+  /// Alert Active
+  /// ------------
+  .has-alert & {
+    position: absolute;
+  }
+}

@@ -1,0 +1,6 @@
+{{ content|without('field_component_title', 'body', 'field_pelcb_podcast_id') }}
+<div class="grid-container global-spacing--large pocast-intro">
+  <h2>{{ content.field_component_title }}</h2>
+  <div class="intro-text">{{ content.body }}</div>
+  {% include '@iit/includes/podcast-episode-embed.html.twig' with { episode_id: episode_id } %}
+</div>

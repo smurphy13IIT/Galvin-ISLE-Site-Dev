@@ -1,0 +1,222 @@
+////
+/// @group components
+/// Styles for the concentration teaser.
+////
+
+.photo-box__teaser {
+  float: left;
+  width: calc(100vw - 6rem); // 100% - 4rem margins - 2rem of other card
+
+  + .photo-box__teaser {
+    margin-left: 2rem;
+  }
+
+  @include breakpoint(medium only) {
+    width: calc(50vw - 4rem);
+  }
+
+  @include breakpoint(large) {
+    width: 360px; // don't know why it isn't behaving but this is a fix
+  }
+}
+
+//
+// Carousels
+//
+@include breakpoint(large) {
+
+  .section--photo-boxes {
+
+    .listing-slick {
+      display: flex;
+    }
+  }
+}
+
+.section--photo-boxes {
+  overflow-x: hidden;
+
+  .listing-slick {
+    @include breakpoint(small only) {
+      right: 1rem;
+    }
+
+    @include breakpoint(medium only) {
+      right: -1rem;
+    }
+  }
+
+  .slick-list {
+    overflow: visible !important; // stylelint-disable-line
+  }
+
+  .slick-track {
+    display: flex;
+  }
+
+  .btn {
+    display: inline-block;
+    margin: rem(60) auto 0;
+  }
+}
+
+.photo-box__teaser {
+
+  a {
+    text-align: center;
+    text-decoration: none;
+  }
+
+  div {
+    background-color: rgba(0, 0, 0, .5);
+    background-size: cover;
+    -webkit-background-blend-mode: multiply;
+    background-blend-mode: multiply;
+  }
+
+  h3,
+  p {
+    color: $white;
+  }
+
+  h3 {
+    position: relative;
+    font-size: 1.4rem;
+    line-height: 1.285;
+  }
+
+  span {
+    display: block;
+    margin-bottom: .25rem;
+    text-transform: uppercase;
+    color: $white;
+    font-size: .8rem;
+    font-weight: 600;
+  }
+
+  a p {
+    margin-bottom: 0;
+    font-family: $serif;
+  }
+}
+
+.photo-box--small {
+
+  div {
+    padding: 2rem;
+  }
+
+  h3 {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+}
+
+.photo-box--large {
+  max-width: 100%;
+
+  div {
+    padding: 3rem;
+  }
+
+  h3 {
+    margin-bottom: 3rem;
+    font-size: 1.4rem;
+    line-height: 1.285;
+  }
+}
+
+.no-touch .photo-box__teaser a:hover {
+
+  div {
+    background-color: rgba(149, 31, 36, .9);
+  }
+
+  h3:after {
+    position: absolute;
+    bottom: -1rem;
+    left: calc((100% - 11rem) / 2);
+    display: block;
+    width: 11rem;
+    height: 1px;
+    content: '';
+    background: $white;
+  }
+}
+
+.photo-box--large a:hover h3:after {
+  bottom: -1.5rem;
+  left: calc((100% - 18rem) / 2);
+  width: 18rem;
+}
+
+// displaying them with flex
+.photo-box__teasers--small,
+.photo-box__teasers--large {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @media screen and (min-width: 42em) {
+    margin-right: -1rem;
+    margin-left: -1rem;
+  }
+}
+
+.photo-box__teasers--large {
+  position: relative;
+
+  @media screen and (max-width: 39.99em) {
+    margin-bottom: 4rem;
+
+    &:after {
+      position: absolute;
+      bottom: -2rem;
+      left: 3rem;
+      clear: both;
+      width: calc(100% - 6rem);
+      height: 1px;
+      content: '';
+      background-color: #999999;
+    }
+  }
+}
+
+.photo-box--large {
+  flex: 0 auto;
+  width: 100%;
+  height: auto;
+  margin: 1rem;
+
+  @media screen and (min-width: 42em) and (max-width: 68.49em) {
+    width: 60%;
+  }
+
+  @media screen and (min-width: 68.5em) {
+    width: 46.33%;
+  }
+}
+
+.photo-box__teaser.photo-box--large {
+  margin-left: 1rem; // this overrides the margin added for slick presentations
+}
+
+.photo-box__teasers--small .photo-box--small {
+  flex: 0 auto;
+  width: 100%;
+  height: auto;
+  margin: 1rem;
+
+  @media screen and (min-width: 40em) and (max-width: 1079px) {
+    width: 44%;
+  }
+
+  @media screen and (min-width: 1080px) and (max-width: 1159px) {
+    width: 28%;
+  }
+
+  @media screen and (min-width: 1160px) {
+    width: 29.75%;
+  }
+}

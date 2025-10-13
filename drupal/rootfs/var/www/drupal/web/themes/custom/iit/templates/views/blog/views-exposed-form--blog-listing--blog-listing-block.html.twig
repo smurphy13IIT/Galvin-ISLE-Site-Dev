@@ -1,0 +1,20 @@
+{% if q is not empty %}
+  {{ q }}
+{% endif %}
+
+<div class="grid-x grid-margin-x">
+  <div class="cell initial-12 columns">
+    <div class="listing__form__submit-container">
+      {{ form.search }}
+      {{ form.actions }}
+    </div>
+  </div>
+  <div class="cell initial-12 medium-4 columns">
+    {{ form.category }}
+  </div>
+  <div class="cell initial-12 medium-4 columns">
+    {{ form.tags }}
+  </div>
+
+  {{ form|without('search', 'category', 'tags', 'actions') }}
+</div>

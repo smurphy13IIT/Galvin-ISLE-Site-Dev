@@ -1,0 +1,28 @@
+{% if q is not empty %}
+  {{ q }}
+{% endif %}
+
+<div class="grid-x grid-margin-x grid-x--align-bottom">
+  <div class="cell initial-12 medium-4 columns">
+    <div class="listing__form__submit-container">
+      {{ form.search }}
+    </div>
+  </div>
+  <div class="cell initial-12 medium-8 columns event-date-cell">
+    {{ form.date_wrapper.date_wrapper.date }}
+  </div>
+  <div class="cell initial-12 medium-4 columns">
+    {{ form.school }}
+  </div>
+  <div class="cell initial-12 medium-4 columns">
+    {{ form.organization }}
+  </div>
+  <div class="cell initial-12 medium-4 columns">
+    {{ form.type }}
+  </div>
+  <div class="cell initial-12 medium-12 columns">
+    {{ form.actions }}
+  </div>
+
+  {{ form|without('search', 'date_wrapper', 'school', 'organization', 'type', 'actions') }}
+</div>

@@ -1,0 +1,21 @@
+{% set description = content.field_component_body|render %}
+{% set webform = content.field_ws_webform|render %}
+{% set embed_code = content.field_component_embed|render %}
+
+<div class='initial-12 medium-4 cell medium-order-2'>
+  <div class='marketing-form'>
+    <h2>{{ content.field_component_title }}</h2>
+
+    {% if description %}
+      <p>{{ description }}</p>
+    {% endif %}
+
+    {% if webform %}
+      {{ webform }}
+    {% elseif embed_code %}
+      <div id="marketing-landing-page-sidebar">
+        {{ embed_code }}
+      </div>
+    {% endif %}
+  </div>
+</div>

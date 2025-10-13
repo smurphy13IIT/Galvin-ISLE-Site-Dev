@@ -1,0 +1,96 @@
+////
+/// @group components
+/// Styles for the image grid.
+////
+
+/// Imaage Grid Container
+/// ---------------------
+.image-grid {} // stylelint-disable-line
+
+/// Image Grid Item
+/// ---------------
+.image-grid-item {
+
+  &__link {
+    position: relative;
+    display: table;
+    margin: 0 auto;
+    line-height: 1;
+
+    &:before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: block;
+      content: '';
+      transition: background-color $primary-transition;
+      background-color: rgba($link-color, 0);
+    }
+
+    &:hover,
+    &:focus {
+
+      &:before {
+        background-color: rgba($link-color, .333);
+      }
+    }
+  }
+
+  &__expand {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    padding: .5em;
+    background-color: $white;
+    font-size: rem-calc(20);
+  }
+
+  .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: rem-calc(45);
+    height: rem-calc(45);
+    transform: translate(-50%, -50%);
+  }
+
+  // Slider only.
+  @include breakpoint(tiny down) {
+    padding: 0;
+
+    &__toggle-text {
+      display: none;
+    }
+  }
+
+  // Shuffle only.
+  @include breakpoint(small) {
+    padding-bottom: map-get($grid-column-gutter, medium);
+
+    &__toggle-text {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: .5em;
+      transition:
+        opacity 0 linear,
+        transform $primary-transition;
+      transform: translateY(100%);
+      text-align: center;
+      opacity: 0;
+      color: $white;
+      font-size: 1.25rem;
+
+      .image-grid-item__link:hover & {
+        transition:
+          opacity 0 linear $primary-transition-time,
+          transform $primary-transition;
+        transform: translateY(0);
+      }
+    }
+  }
+}

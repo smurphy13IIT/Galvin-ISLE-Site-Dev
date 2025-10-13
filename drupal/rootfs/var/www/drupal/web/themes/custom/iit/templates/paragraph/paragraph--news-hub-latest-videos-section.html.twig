@@ -1,0 +1,12 @@
+<section class='section--background section--background--gray--light global-spacing--xlarge section--videos section--cards'>
+  <div class="grid-container">
+    <div class='global-spacing'>
+      {% include '@iit/includes/lined-section-heading.html.twig' with {
+        title: content.field_component_title,
+        link_field: content.field_component_link
+      } %}
+    </div>
+
+    {{ latest_videos }}
+  </div>
+</section>

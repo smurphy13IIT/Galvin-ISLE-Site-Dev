@@ -1,0 +1,110 @@
+////
+/// @group wrapper
+/// Header search styles.
+////
+
+/// All Styles & Mobile
+/// -------------------
+.site-search {
+  position: relative;
+  order: -1;
+
+  .search-block-form {
+    position: relative;
+    width: 100%;
+    padding: .5em;
+
+    label {
+      @include show-for-sr;
+    }
+
+    input {
+      width: 100%;
+      margin: 0;
+      padding: .5em 5em .5em .5em;
+      border: 0;
+
+      @include placeholder {
+        color: $gray--dark;
+      }
+    }
+
+    button {
+      position: absolute;
+      top: .5em;
+      right: .5em;
+      bottom: .5em;
+      margin: 0;
+      padding: .5em;
+    }
+  }
+
+  &__toggle {
+    display: none;
+  }
+
+  /// Desktop
+  /// -------
+  @include breakpoint(large) {
+    order: 0;
+
+    .search-block-form {
+      width: auto;
+      padding: 1em;
+    }
+
+    &__toggle {
+      display: block;
+      margin: 0;
+      padding: .5em;
+      transition: color $primary-transition;
+      background-color: transparent;
+
+      &:before {
+        content: fa-content($fa-var-search);
+        transition: color $primary-transition;
+        color: $link-color;
+        font-family: $font-awesome;
+        font-size: 1.5em;
+        font-weight: 400;
+      }
+
+      &:hover {
+        background-color: transparent;
+
+        &:before {
+          color: $primary-color--dark;
+        }
+      }
+
+      .search-panel-open & {
+        background-color: $gray--light;
+      }
+    }
+
+    .search-block-form {
+      position: absolute;
+      z-index: 1;
+      top: 100%;
+      right: 0;
+      display: none;
+      background-color: $gray--light;
+
+      // Open, or when JavaScript doesn't load for some reason, open the search.
+      .search-panel-open &,
+      :root:not(.oho-js) & {
+        display: block;
+      }
+
+      input {
+        width: 20em;
+      }
+
+      button {
+        top: 1em;
+        right: 1em;
+        bottom: 1em;
+      }
+    }
+  }
+}

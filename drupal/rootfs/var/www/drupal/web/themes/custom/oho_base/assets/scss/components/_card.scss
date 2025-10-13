@@ -1,0 +1,74 @@
+////
+/// @group components
+/// Styles for cards.
+////
+
+@mixin triangle-notch($direction, $size, $color) {
+  border: none;
+
+  @if $direction == 'right' {
+    top: rem-calc(40);
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+  }
+
+  @else if $direction == 'left' {
+    top: rem-calc(40);
+    border-top: $size solid transparent;
+    border-right: $size solid $color;
+    border-bottom: $size solid transparent;
+  }
+
+  @else if $direction == 'top' {
+    bottom: 0;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $color;
+    border-left: $size solid transparent;
+  }
+
+  @else if $direction == 'bottom' {
+    bottom: 0;
+    border-top: $size solid $color;
+    border-right: $size solid transparent;
+    border-left: $size solid transparent;
+  }
+}
+
+.card__content {
+  position: relative;
+  width: 100%;
+  padding: rem-calc(30);
+  color: $text-color;
+  background: $white;
+  font-size: rem-calc(20);
+
+  @media (min-width: rem-calc(769)) {
+    flex: 1 1 350px;
+    max-width: rem-calc(350);
+  }
+
+  &:after {
+    content: '';
+  }
+}
+
+.card__img {
+  display: block;
+  width: 100%;
+
+  @media (min-width: rem-calc(769)) {
+    flex: 1 1 calc(100% - 350px);
+    max-width: calc(100% - 350px);
+  }
+
+  img {
+    display: block;
+
+    @media (min-width: rem-calc(769)) {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

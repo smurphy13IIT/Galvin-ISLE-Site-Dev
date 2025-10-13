@@ -1,0 +1,18 @@
+{% if q is not empty %}
+{{ q }}
+{% endif %}
+<div class="grid-x grid-margin-x college-people-form">
+  <div class="cell initial-12 medium-4 columns">
+    <div class="listing__form__submit-container">
+      {{ form.search }}
+      {{ form.actions }}
+    </div>
+  </div>
+  <div class="cell initial-12 medium-4 columns">
+    {{ form.profile_type }}
+  </div>
+</div>
+<div class="alpha-filter">
+  {{ form.last_name }}
+</div>
+{{ form|without('search', 'profile_type', 'last_name', 'actions') }}

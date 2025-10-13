@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Default theme implementation for the OHO Nav menu.
+ *
+ * Available variables:
+ * - nav_title: The nav title.
+ * - nav: The nav.
+ *
+ * @see template_preprocess_oho_nav()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if nav_title|render %}
+    <h3>
+    {% if nav_title['#url'] %}
+      <span class='arrow-link'>
+        {{ nav_title }}
+      </span>
+    {% else %}
+      {{ nav_title }}
+    {% endif %}
+    </h3>
+{% endif %}
+
+{{ nav }}

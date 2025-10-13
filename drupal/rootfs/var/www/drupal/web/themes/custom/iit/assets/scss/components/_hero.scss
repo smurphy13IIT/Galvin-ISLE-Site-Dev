@@ -1,0 +1,412 @@
+////
+/// @group components
+/// Styles for hero images.
+////
+
+$hero-content-width: rem-calc(930);
+$hero-overlay: linear-gradient(180deg, rgba(0,0,0,0.00) 3%, #000000 95%);
+$hero-background-fallback: $white;
+
+// Hero Text Stlyes
+$title-font: $serif;
+$subtitle-font: $sans-serif;
+
+/*
+GLOBAL HERO STYLES
+-------------------
+*/
+
+.parallax-mask {
+  position: relative;
+  z-index: 3;
+  background: $white;
+  @include clearfix();
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+
+  @include breakpoint(medium) {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: $hero-background-fallback;
+    max-height: calc(100vh - 250px);
+  }
+  .breadcrumbs,
+  .eyebrow {
+    @include breakpoint(medium) {
+      text-shadow: 0 2px 4px rgba(0,0,0,0.50);
+    }
+  }
+  .podcast {
+    @include  margins-top(20,20,40);
+    @include margins-bottom(15,0,0);
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    &:after {
+      padding-left: rem-calc(7);
+      font-size: rem-calc(13);
+      color: $accent-yellow;
+      font-family: $font-awesome;
+      content: fa-content($fa-var-chevron-right);
+      line-height: 1.2;
+    }
+    @include breakpoint(medium) {
+      color: #fff;
+    }
+  }
+}
+
+.hero__media {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+
+  img {
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+}
+
+.hero__content {
+  z-index: 3;
+  padding: rem-calc(20 20 0);
+  @include grid-row;
+  width: 100%;
+  @include breakpoint(medium) {
+    display: flex;
+    align-self: flex-end;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .grid-container {
+    width: 100%;
+  }
+  @include breakpoint(small down) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &__inner-intro-title {
+    @extend %h4;
+    color: $primary-color;
+    display: inline-block;
+    position: relative;
+  }
+
+  &__inner-intro-title::after {
+    content: "";
+    right: -26.8em;
+    left: 100%;
+    margin-left: .4em;
+    position: absolute;
+    display: block;
+    border-bottom: 1px solid #d8d8d8;
+    bottom: 12px;
+  }
+
+  h1,
+  p {
+    @include breakpoint(medium) {
+      color: $white;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.50);
+    }
+  }
+
+  h1 {
+    font-family: $title-font;
+    margin-bottom: 0;
+    &:not(:last-child) {
+      margin-bottom: rem-calc($spacing--small);
+    }
+  }
+
+  p {
+    @extend %intro-text;
+    max-width: $hero-content-width;
+    font-family: $subtitle-font;
+  }
+
+  @include breakpoint(medium) {
+    position: absolute;
+    color: $white;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.hero__overlay {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: $hero-overlay;
+  opacity: 0.75;
+
+  @include breakpoint(small down) {
+    display: none;
+  }
+}
+
+/*
+BASIC HERO With Image *Most Common* (No masking) -- Most effective with Title, and Image only
+------------------------
+*/
+.hero--no-img {
+  background: $hero-background-fallback;
+  @include paddings-top(30,40,80);
+  @include paddings-bottom(30,40,80);
+  margin-bottom: 0;
+  height: auto;
+  max-height: none;
+  .breadcrumbs,
+  .eyebrow {
+    text-shadow: none;
+  }
+  .eyebrow {
+    color: $brand-red;
+  }
+  .hero__content {
+    padding: 0;
+    position: relative;
+    max-width: none;
+    width: 100%;
+    @include grid-row();
+    padding: rem-calc(0 20);
+
+    h1,
+    p {
+      color: $text-color;
+      text-align: left;
+      width: 100%;
+      max-width: rem-calc(930);
+      margin-left: 0;
+      margin-right: 0;
+      text-shadow: none;
+    }
+  }
+}
+
+/*
+HERO VIDEO IMAGE WITH PARALLAX
+------------------------
+*/
+.hero--video {
+  img {
+    @include breakpoint(medium) {
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  .video-feature,
+  video {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    display: block;
+    @include breakpoint(small down) {
+      display: none;
+    }
+  }
+}
+
+.hero .hero__positions {
+  color: $text-color;
+  @extend %global-spacing--xxsmall;
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+  }
+  ul > li {
+    margin-bottom: rem-calc(5);
+    &:before {
+      border-radius: 0;
+      content: fa-content($fa-var-square);
+      font-weight: 600;
+      font-family: $font-awesome;
+      font-size: 7px !important;
+      margin-right: rem-calc(15);
+      width: auto;
+      @include breakpoint(small down) {
+        margin-right: rem-calc(7);
+      }
+    }
+    &:not(:last-child) {
+      margin-right: rem-calc(15);
+    }
+    &:first-child:before {
+      display: none;
+    }
+  }
+}
+
+.detail-page--faculty .hero__positions ul {
+  @include breakpoint(small down) {
+    display: block;
+  }
+  li {
+    @include breakpoint(small down) {
+      display: flex;
+      &:before {
+        margin-top: rem-calc(10);
+      }
+    }
+  }
+  li:first-child:before {
+    @include breakpoint(small down) {
+      display: inline;
+    }
+  }
+}
+
+/// ------- COLLEGES HERO
+// --- when a hero comes before the college intro hero intro
+.page--school-subsection {
+
+  .hero--no-img {
+    padding-top: 0;
+  }
+}
+.hero--colleges {
+  z-index: 11; // for the sticky menu
+  max-height: rem-calc(380);
+  //overflow: visible !important;
+  overflow: visible;
+  @include breakpoint(medium down) {
+    max-height: none;
+    display: block;
+  }
+  .hero__content {
+    padding-left: 0;
+    padding-right: 0;
+    @include breakpoint(medium down) {
+      background-color: $brand-gray;
+      padding-bottom: rem-calc(20);
+      position: relative;
+    }
+  }
+}
+.page--school .hero--colleges {
+  max-height: none;
+  @include breakpoint(large up) {
+    max-height: 72vh;
+  }
+  .hero__overlay {
+    @include breakpoint(medium down) {
+      display: none;
+    }
+  }
+}
+.page--school .hero--no-img {
+  padding: 0;
+}
+
+.hero--img,
+.hero--video {
+  .hero__content {
+    @include breakpoint(medium up) {
+      padding-bottom: rem-calc($spacing--large);
+      display: flex;
+      align-self: flex-end;
+    }
+
+    p a {
+      @include breakpoint(medium up) {
+        color: #fff;
+        text-decoration: underline;
+      }
+      &:hover {
+        @include breakpoint(medium up) {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+.hero--home {
+  margin-bottom: 0;
+  background: #000;
+  height: 70vh;
+  display: flex;
+  @include breakpoint(medium up) {
+    max-height: none;
+  }
+  video,
+  img,
+  .hero__media {
+    position: fixed;
+    top: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    object-fit: cover;
+    @include breakpoint(medium up) {
+      min-height: 100vh;
+    }
+  }
+  .hero__content {
+    bottom: auto;
+    align-self: flex-end;
+    padding-bottom: 50px;
+    @include breakpoint(medium up) {
+      @include column-indent;
+      align-self: center;
+      padding-bottom: 0;
+    }
+    @include breakpoint(small down) {
+      position: relative;
+      z-index: 3;
+    }
+    .hero__content__inner {
+      @include breakpoint(medium up) {
+        max-width: rem-calc(930);
+      }
+      transition: transform 1.2s cubic-bezier(.82, .06, .14, .97), opacity .8s cubic-bezier(.82, .06, .14, .97), blur 1s cubic-bezier(.82, .06, .14, .97);
+      transform: translateY(10%);
+      filter: blur(10px);
+      opacity: 0;
+
+      &.sequence-anim-item--active {
+        transform: none;
+        opacity: 1;
+        filter: none;
+      }
+
+    }
+    h1 {
+      color: $white;
+      font-size: 42px;
+      @include breakpoint(medium) {
+        font-size: 72px;
+      }
+      @include breakpoint(large) {
+        font-size: 110px;
+      }
+    }
+
+    p {
+      color: $white;
+    }
+  }
+  .hero__overlay {
+    background-image: linear-gradient(180deg, rgba(0,0,0,0.00) 18%, rgba(0,0,0,0.75) 56%);
+    opacity: .94;
+    display: block;
+  }
+}

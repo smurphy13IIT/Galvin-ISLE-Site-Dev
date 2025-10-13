@@ -1,0 +1,17 @@
+{% if filters|render %}
+  <div {{ attributes }}>
+    <div class='grid-container'>
+      <div class="grid-x grid-padding-x active-filters global-spacing--medium">
+        <div class='cell initial-12 medium-2'>
+          {{ heading }}
+        </div>
+        <div class="cell initial-12 medium-8">
+          {{ filters }}
+        </div>
+        <div class="cell initial-12 medium-2">
+          {{ reset_button }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

@@ -1,0 +1,18 @@
+////
+/// @group components-micro
+/// Date styles.
+////
+
+.date {
+  display: block;
+  margin-bottom: .75rem;
+  font-family: $sans-serif;
+  font-weight: 600;
+
+  &:before {
+    margin-right: .5rem;
+    content: fa-content($fa-var-calendar);
+    font-family: $font-awesome;
+    font-weight: 400;
+  }
+}

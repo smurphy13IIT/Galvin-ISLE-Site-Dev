@@ -1,0 +1,24 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+<div class="cell initial-12 small-4">
+  <article class="card card--unbounded card--related-podcast">
+    {% if content.field_podcast_ep_image|render %}
+      <div class="card__media">
+        {{ content.field_podcast_ep_image }}
+      </div>
+    {% endif %}
+
+    <div class="card__content">
+      <div class="card__content__inner">
+        <h3 class="arrow-link"><a href="{{ url }}">{{ node.label }}</a></h3>
+        <span class="card__content__inner-icon"><i class='fi flaticon-podcast'></i> {{ 'Episode'|t }} {{ content.field_podcast_ep_episode_number }}</span>
+
+        {% if subject_tags %}
+          <div class="listing-item__tags tags">
+            <h2 class="tags__heading show-for-sr">{{ 'Tags'|t }}:</h2>
+            {{ oho_macros.list(subject_tags) }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </article>
+</div>

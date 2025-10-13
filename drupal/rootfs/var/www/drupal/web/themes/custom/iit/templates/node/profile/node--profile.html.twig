@@ -1,0 +1,161 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+<article class='detail-page detail-page--faculty global-spacing--xlarge'>
+  <div class='grid-container'>
+    <div class='grid-x grid-padding-x'>
+      <section class="hero section--global-spacing hero--no-img initial-12 small-12 small-order-1">
+        <div class="hero__content">
+          <div class="hero__content__inner">
+            <h1>{{ node.label }}</h1>
+            <div class='hero__positions'>
+              {{ oho_macros.field_list(content.field_profile_position) }}
+            </div>
+            {% if profile_types or content.field_profile_organizations|render %}
+              <div class="listing-item__tags tags">
+                <h2 class="tags__heading show-for-sr">{{ 'Tags:'|t }}</h2>
+                {{ oho_macros.list(profile_types) }}
+                {{ oho_macros.field_list(content.field_profile_organizations) }}
+              </div>
+            {% endif %}
+          </div>
+          {{ breadcrumbs }}
+        </div>
+      </section>
+      {% apply spaceless %}
+        <div class='cell initial-12 medium-9 medium-order-2 tiny-order-3 detail-page--faculty__wysiwyg-column full-wysiwyg'>
+          {{ content.body }}
+          {% if content.field_profile_education|render %}
+            <h2>{{ 'Education'|t }}</h2>
+            {{ content.field_profile_education }}
+          {% endif %}
+          {% if content.field_profile_research|render %}
+            <h2>{{ 'Research Interests'|t }}</h2>
+            {{ content.field_profile_research }}
+          {% endif %}
+          {% if content.field_profile_prof_affiliations|render %}
+            <h2>{{ 'Professional Affiliations & Memberships'|t }}</h2>
+            {{ content.field_profile_prof_affiliations }}
+          {% endif %}
+          {% if content.field_profile_awards|render %}
+            <h2>{{ 'Awards'|t }}</h2>
+            {{ content.field_profile_awards }}
+          {% endif %}
+          {% if content.field_profile_publications|render %}
+            <h2>{{ 'Publications'|t }}</h2>
+            {{ content.field_profile_publications }}
+          {% endif %}
+          {% if content.field_profile_projects|render %}
+            <h2>{{ 'Projects'|t }}</h2>
+            {{ content.field_profile_projects }}
+          {% endif %}
+          {% if content.field_profile_books|render %}
+            <h2>{{ 'Books'|t }}</h2>
+            {{ content.field_profile_books }}
+          {% endif %}
+          {% if content.field_profile_grants|render %}
+            <h2>{{ 'Grants'|t }}</h2>
+            {{ content.field_profile_grants }}
+          {% endif %}
+          {% if content.field_profile_patents|render %}
+            <h2>{{ 'Patents'|t }}</h2>
+            {{ content.field_profile_patents }}
+          {% endif %}
+          {% if content.field_profile_community_service|render %}
+            <h2>{{ 'Community Service'|t }}</h2>
+            {{ content.field_profile_community_service }}
+          {% endif %}
+          {% if content.field_profile_editorial_boards|render %}
+            <h2>{{ 'Editorial Boards'|t }}</h2>
+            {{ content.field_profile_editorial_boards }}
+          {% endif %}
+          {% if content.field_profile_activities|render %}
+            <h2>{{ 'Professional Activities'|t }}</h2>
+            {{ content.field_profile_activities }}
+          {% endif %}
+          {% if content.field_profile_affiliations|render %}
+            <h2>{{ 'Affiliations'|t }}</h2>
+            {{ content.field_profile_affiliations }}
+          {% endif %}
+          {% if content.field_profile_aoe_description|render %}
+            <h2>{{ 'Expertise'|t }}</h2>
+            {{ content.field_profile_aoe_description }}
+          {% endif %}
+          {% if content.field_profile_additional_info|render %}
+            <h2>{{ 'Additional Info'|t }}</h2>
+            {{ content.field_profile_additional_info }}
+          {% endif %}
+        </div>
+      {% endapply %}
+      {% if profile_image or email or website_links or phone_number or
+          fax_number or cv_file_url or office_location or office_hours or
+          expertise_tags %}
+        <div class='cell initial-12 medium-3 medium-order-3 tiny-order-2 global-spacing detail-page--faculty__sidebar-column'>
+          <article class='contact-card'>
+            {% if profile_image %}
+              <div class='contact-card__media'>
+                {{ profile_image }}
+              </div>
+            {% endif %}
+
+            <div class='contact-card__content'>
+              <h3 class='contant-card__title'>{{ 'Contact Information'|t }}</h3>
+              {% if email %}
+                <span class="profile-item__contact__item email">
+                  <i class="fas fa-envelope"></i> <span class="person-email">{{ email }}</span>
+                </span>
+              {% endif %}
+              {% if website_links %}
+                <div class="profile-item__contact__item--multi profile-item__contact__item profile-item__contact__item--multi--website">
+                  {{ oho_macros.field_list(content.field_profile_website_links) }}
+                </div>
+              {% endif %}
+              {% if phone_number %}
+                <span class="profile-item__contact__item phone">
+                  <i class="fi flaticon-phone"></i> <span>{{ oho_macros.field_subset(content.field_profile_phone_number, 1, 1) }}</span>
+                </span>
+              {% endif %}
+              {% if fax_number %}
+                <span class="profile-item__contact__item fax">
+                  <i class="fas fa-fax"></i><span>{{ fax_number }}</span>
+                </span>
+              {% endif %}
+              {% if office_location %}
+                <span class="profile-item__contact__item location">
+                  <i class="fas fa-map-marker-alt"></i><span>{{ office_location }}</span>
+                </span>
+              {% endif %}
+              {% if cv_file_url %}
+                <span class="profile-item__contact__item download">
+                  <i class="fi flaticon-download"></i><span><a href='{{ cv_file_url }}' target='_blank'>{{ 'Download CV'|t }}</a></span>
+                </span>
+              {% endif %}
+              {% if office_hours %}
+                <span class="profile-item__contact__item hours">
+                  <i class="far fa-clock"></i><span>{{ office_hours }}</span>
+                </span>
+              {% endif %}
+            </div>
+          </article>
+
+          {% if expertise_tags %}
+            <article class='media-card'>
+              <div class='media-card__inner media-card__inner--upper'>
+                <h4 class='h5'>{{ 'Available for media interviews on the following topics'|t }}:</h4>
+                <div class='tags'>
+                  {{ oho_macros.list(expertise_tags) }}
+                </div>
+              </div>
+
+              {# Print the Media Contact Block media_contact_block using its UUID #}
+              {{ drupal_block('block_content:c8cd1f36-766e-4437-bb27-6db6a219ca36') }}
+            </article>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</article>
+<section class="global-spacing--xlarge">
+  <div class="grid-container">
+    {{ related_in_the_media }}
+  </div>
+</section>

@@ -1,0 +1,194 @@
+////
+/// @group global
+/// Base styles for form elements for any CMS.
+////
+
+/// Global Form Element Resets
+/// --------------------------
+/// Get all major rendering engines to the same starting point.
+
+// Text inputs and buttons.
+// Uses Foundation's util/selector/text-inputs() method.
+#{text-inputs()},
+[type='file'],
+[type='image'],
+[type='submit'],
+button,
+textarea {
+  // Remove all user-agent set appearance.
+  appearance: none;
+  // Webkit
+  margin: 0;
+  // Webkit and Blink
+  padding: 0;
+  // Blink, Gecko, and Webkit
+  border-width: .0625em;
+  border-style: solid;
+  border-color: inherit;
+  border-radius: 0;
+  // Blink, Gecko, and Webkit
+  font-family: $sans-serif;
+  // Less than 16px or equivalent here causes Webkit on mobile to zoom in when
+  // selecting a field.
+  font-size: 1rem;
+}
+
+// Selects.
+select {
+  // Remove all user-agent set appearance.
+  appearance: none;
+  // Webkit
+  margin: 0;
+  // Blink, Gecko, and Webkit
+  border-width: .0625em;
+  border-style: solid;
+  border-color: inherit;
+  border-radius: 0;
+  // Blink, Gecko, and Webkit
+  font-family: $sans-serif;
+  // Less than 16px or equivalent here causes Webkit on mobile to zoom in when
+  // selecting a field.
+  font-size: 1rem;
+}
+
+// Checkboxes and radios.
+[type='checkbox'],
+[type='radio'] {
+  // Blink, Gecko, and Webkit
+  margin: 0;
+}
+
+// Fieldsets.
+fieldset {
+  // Webkit
+  margin: 0;
+  // Webkit and Blink
+  padding: 0;
+  // Blink, Gecko, and Webkit
+  border-width: .0625em;
+  border-style: solid;
+  border-color: inherit;
+}
+
+/// Buttons
+/// -------
+button,
+[type='submit'] {
+  @include btn;
+  // Blink, Gecko, and Webkit all need cursor added back on [type='submit'].
+  cursor: pointer;
+  // If there is no button border, we need to remove the border added from the
+  // reset.
+  border: 0;
+}
+
+/// Labels
+/// ------
+label {
+  display: block;
+  color: $gray--dark;
+  font-family: $sans-serif;
+  font-weight: 400;
+}
+
+/// Text Inputs
+/// -----------
+#{text-inputs()},
+[type='file'],
+[type='image'],
+textarea {
+  margin: .125em 0 1em;
+  padding: .5em;
+  color: $text-color;
+  border-color: $gray--dark;
+
+  @include placeholder {
+    color: $gray--dark;
+    font-family: $sans-serif;
+  }
+}
+
+/// Selects
+/// -------
+select {
+  margin: .125em 0 1em;
+  padding: .5em 2em .5em .5em;
+  color: $text-color;
+  border-color: $gray--dark;
+  background-color: $white;
+  // This is a basic triangle. We need to convert the # in the color to it's
+  // HTML encoded form, '%23', for Blink and Gecko.
+  // stylelint-disable
+  // Disable linting so we can break the svg across lines for readability.
+  background-image:
+    url(
+'data:image/svg+xml;utf8,
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="20" height="10">
+        <polygon points="10,10 20,0 0,0" fill="#{str-insert(str-slice(quote($gray--dark), 2), '%23', 1)}"/>
+      </svg>'
+);
+  // stylelint-enable
+  background-repeat: no-repeat;
+  background-position: calc(100% - .625em) 50%;
+  background-size: 1em;
+  font-family: $sans-serif;
+}
+
+/// Checkboxes and Radios
+/// ---------------------
+[type='checkbox'],
+[type='radio'] {
+  cursor: pointer;
+
+  + label {
+    display: inline-block;
+    margin: 1em 0 1em .25em;
+    cursor: pointer;
+    vertical-align: middle;
+    color: $text-color;
+  }
+}
+
+/// Fieldsets
+/// ---------
+fieldset {
+  margin-bottom: .75em;
+  padding: .5em;
+  border-color: $gray--dark;
+  font-family: $sans-serif;
+}
+
+legend {
+  margin-bottom: -.5em;
+  font-weight: 400;
+}
+
+/// States
+/// ------
+#{text-inputs()},
+[type='file'],
+[type='image'],
+select,
+textarea {
+  transition:
+    background-color $primary-transition,
+    border-color $primary-transition,
+    box-shadow $primary-transition;
+
+  &:disabled {
+    background-color: $gray--light;
+  }
+}
+
+// Invalid styles, but not when the placeholder is present to avoid empty
+// fields from presenting an error before user interaction.
+#{text-inputs()},
+[type='file'],
+[type='image'],
+textarea {
+
+  &:not(:empty):invalid {
+    border-color: $accent-red;
+    box-shadow: 0 0 0 .0625em $accent-red;
+  }
+}

@@ -1,0 +1,44 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+<article class="listing-item">
+  <div class="grid-x grid-margin-x">
+    <div class="cell initial-12 medium-1">
+      {{ content.field_event_date }}
+    </div>
+    <div class="cell initial-12 medium-4 medium-order-1">
+      {% if content.field_event_image|render %}
+        <a class="listing-item__image" href="{{ url }}">
+          {{ content.field_event_image }}
+        </a>
+      {% endif %}
+    </div>
+    <div class="cell initial-12 medium-7">
+      <div class="listing-item__content">
+        <h3 class="listing-item__title"><a href="{{ url }}">{{ label }}</a></h3>
+
+        <span class="timestamp">
+          <i class="far fa-clock"></i>
+          {{ event_start_time }}
+          {% if content.field_event_end_date|render %}
+            {{ 'to'|t }} {{ content.field_event_end_date }}
+          {% endif %}
+        </span>
+
+        {% if content.field_event_location|render %}
+          <span>
+            <i class="far fa-map-marker-alt"></i>
+            {{ content.field_event_location }}
+          </span>
+        {% endif %}
+
+        <div class="listing-item__teaser"><p>{{ content.body }}</p></div>
+
+        {% if event_tags %}
+          <div class="listing-item__tags tags">
+            <h2 class="tags__heading show-for-sr">{{ 'Tags'|t }}:</h2>
+            {{ oho_macros.list(event_tags) }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</article>

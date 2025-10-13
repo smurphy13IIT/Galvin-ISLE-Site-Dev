@@ -1,0 +1,42 @@
+{%
+  set classes = [
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {{ title }}
+  {{ title_suffix }}
+
+  <div style="display:none;">
+    {{ exposed }}
+  </div>
+
+  {{ header }}
+
+  {{ attachment_before }}
+
+  {% if rows %}
+    <div id="program-compare-modal" style="display:none;">
+      <div class="grid-container">
+        <div class="grid-x grid-margin-x">
+          {{ rows }}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {{ empty }}
+  {{ pager }}
+
+  {{ attachment_after }}
+  {{ more }}
+
+  {% if footer %}
+    <footer>
+      {{ footer }}
+    </footer>
+  {% endif %}
+
+  {{ feed_icons }}
+</div>

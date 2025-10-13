@@ -1,0 +1,8 @@
+<li class="image-grid-item glide__slide">
+  <a class="image-grid-item__link" href="{{ media_url }}" data-fancybox="image-grid" data-caption="{{ content.field_component_caption }}">
+    {{ content.field_component_image }}
+    {% if is_video %}
+      {% include base_path ~ directory ~ '/assets/img/play-button.svg' %}
+    {% endif %}
+  </a>
+</li>

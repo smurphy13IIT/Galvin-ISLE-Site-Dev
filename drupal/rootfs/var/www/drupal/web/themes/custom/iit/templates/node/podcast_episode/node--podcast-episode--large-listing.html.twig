@@ -1,0 +1,29 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+<article class="listing-item listing-item--podcast">
+  <div class="grid-x grid-margin-x">
+    {% if content.field_podcast_ep_image|render %}
+      <div class="cell initial-12 medium-4 medium-order-1">
+        <a class="listing-item__image" href="{{ url }}">
+          {{ content.field_podcast_ep_image }}
+        </a>
+      </div>
+    {% endif %}
+
+    <div class="cell initial-12 medium-8">
+      <div class="listing-item__content">
+        <h2 class="h3 listing-item__title arrow-link global-spacing--medium"><a href="{{ url }}">{{ node.label }}</a></h2>
+        <div class='listing-item__meta'>
+          <span class="eyebrow"><i class='fi flaticon-podcast'></i> {{ 'Episode'|t }} {{ content.field_podcast_ep_episode_number }}</span>
+        </div>
+        <p>{{ content.body }}</p>
+
+        {% if subject_tags %}
+          <div class="listing-item__tags tags">
+            <h2 class="tags__heading show-for-sr">{{ 'Tags'|t }}:</h2>
+            {{ oho_macros.list(subject_tags) }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</article>

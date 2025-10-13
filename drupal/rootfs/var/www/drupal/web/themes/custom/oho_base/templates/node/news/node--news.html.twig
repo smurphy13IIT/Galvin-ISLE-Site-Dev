@@ -1,0 +1,43 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+
+{% block content %}
+  <article class="news news--detail">
+    <h1 class="news__title">{{ label }}</h1>
+    <p class="news__date date">{{ content.field_news_date }}</p>
+    {% if content.field_news_author|render %}
+      <p class="news__author">{{ content.field_news_author }}</p>
+    {% endif %}
+
+    {% if node.body.summary %}
+      <p class="news__intro-text intro-text">{{ node.body.summary }}</p>
+    {% endif %}
+
+    {% if content.field_news_video|render %}
+      <figure class="news__featured-image featured-image">
+        {{ content.field_news_video }}
+        {{ content.field_news_image }}
+      </figure>
+    {% elseif content.field_news_image|render %}
+      <figure class="news__featured-image featured-image">
+        {{ content.field_news_image }}
+      </figure>
+    {% endif %}
+
+    <section class="clearfix">
+      <div class="grid-x grid-margin-x align-center">
+        <div class="cell large-8">
+          {{ content.body }}
+        </div>
+      </div>
+    </section>
+
+    {% if news_tags %}
+      <div class="tags news__tags">
+        <h2 class="tags__heading show-for-sr">{{ 'Tags'|t }}:</h2>
+        {{ oho_macros.list(news_tags) }}
+      </div>
+    {% endif %}
+  </article>
+
+  {{ related_news }}
+{% endblock %}

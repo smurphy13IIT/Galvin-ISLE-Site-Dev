@@ -1,0 +1,16 @@
+<section class="global-spacing--xlarge section--background section--background--gray section--profile-feature section--slider">
+  {% include '@iit/includes/section-heading.html.twig' with {
+    title: content.field_component_title|render ? content.field_component_title : 'Featured Faculty'|t,
+    description: content.field_component_body,
+    link_field: content.field_component_link
+  } %}
+
+  <div class="slider-outer">
+    <div data-slider-type="offsetCards" class="grid-container grid-container--profile-slider">
+      <div class="controls"></div>
+      <div class="slick-init">
+          {{ content.field_ps_profiles }}
+      </div>
+    </div>
+  </div>
+</section>

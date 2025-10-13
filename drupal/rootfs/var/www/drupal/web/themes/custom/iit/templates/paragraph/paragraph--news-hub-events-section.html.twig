@@ -1,0 +1,13 @@
+<section class="grid-container global-spacing--large section--events-feature sequence-anim-parent">
+  <div class='global-spacing--small'>
+    {% include '@iit/includes/lined-section-heading.html.twig' with {
+      title: content.field_component_title,
+      link_url: structure_settings.event_listing_url,
+      link_text: 'View All Events'|t
+    } %}
+  </div>
+
+  <div class="grid-x grid-margin-x">
+    {{ content.field_nhes_featured_events }}
+  </div>
+</section>

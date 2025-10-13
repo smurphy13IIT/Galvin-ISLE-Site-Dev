@@ -1,0 +1,12 @@
+{% if event_listing %}
+  <section class="grid-container global-spacing--xlarge section--events-feature sequence-anim-parent">
+    <div class='global-spacing--small'>
+      {% include '@iit/includes/lined-section-heading.html.twig' with {
+        title: content.field_component_title|render ? content.field_component_title : 'Events'|t,
+        link_field: content.field_component_link
+      } %}
+    </div>
+
+    {{ event_listing }}
+  </section>
+{% endif %}

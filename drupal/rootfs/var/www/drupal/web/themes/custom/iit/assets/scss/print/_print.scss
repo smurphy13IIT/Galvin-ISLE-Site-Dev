@@ -1,0 +1,93 @@
+////
+/// @group print
+/// Print styles.
+////
+
+.print-only {
+  display: none !important; // stylelint-disable-line
+}
+
+@media print {
+  @page {
+    margin: 1cm; // stylelint-disable-line
+  }
+  // stylelint-disable
+  * {
+    color: $black !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a[href]:after {
+    content: ' (' attr(href) ')';
+  }
+
+  abbr[title]:after {
+    content: ' (' attr(title) ')';
+  }
+  // Don't show links for images, or javascript/internal links
+  .ir a:after,
+  a[href^='javascript:']:after,
+  a[href^='#']:after {
+    content: '';
+  }
+
+  a[href]:after {
+    display: none;
+  }
+  // stylelint-enable
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+
+    /* h5bp.com/t */
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important; // stylelint-disable-line
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  .hide-on-print {
+    display: none !important; // stylelint-disable-line
+  }
+
+  .print-only {
+    display: block !important; // stylelint-disable-line
+  }
+
+  .hide-for-print {
+    display: none !important; // stylelint-disable-line
+  }
+
+  .show-for-print {
+    display: inherit !important; // stylelint-disable-line
+  }
+}

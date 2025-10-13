@@ -1,0 +1,18 @@
+{% if message %}
+  <section{{ attributes.addClass('alert--site-wide') }}>
+    <div class="grid-container">
+      <div class="grid-x grid-margin-x">
+        <div class="cell initial-2 medium-2 large-1 oho-alert--icon">
+          {% if message_type == 'notice' %}
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
+          {% else %}
+            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+          {% endif %}
+        </div>
+        <div class="cell initial-10 medium-8 large-9 oho-alert--desc">
+          {{ message }}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endif %}

@@ -1,0 +1,44 @@
+////
+/// @group components
+/// Styles for animations.
+////
+
+.oho-animate {
+  transition:
+    opacity $primary-animation,
+    transform $primary-animation;
+  transform: none;
+  opacity: 1;
+
+  /// Animations
+  /// ----------
+  /// The default animation state is visible. Only in conjunction with the
+  /// .oho-animate--ready class do the animations take effect. Animation is
+  /// triggered by removing .oho-animate--ready.
+  &--ready {
+    // The transition when adding .oho-animate--ready is none, so that there is
+    // no visible reversed transition when loading the page with an element
+    // already in view.
+    transition: none;
+
+    &.fade-in-up {
+      transform: translateY(5rem);
+      opacity: 0;
+    }
+
+    &.fade-in-right {
+      transform: translateX(5rem);
+      opacity: 0;
+    }
+
+    &.fade-in-down {
+      transform: translateY(-5rem);
+      opacity: 0;
+    }
+
+    &.fade-in-left {
+      transform: translateX(-5rem);
+      opacity: 0;
+    }
+  }
+}

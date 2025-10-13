@@ -1,0 +1,356 @@
+////
+/// @group global
+/// Base styles for form elements for any CMS.
+////
+
+/// Global Form Element Resets
+/// --------------------------
+/// Get all major rendering engines to the same starting point.
+
+// Text inputs and buttons.
+// Uses Foundation's util/selector/text-inputs() method.
+#{text-inputs()},
+[type='file'],
+[type='image'],
+[type='submit'],
+select,
+form button,
+textarea {
+  // Remove all user-agent set appearance.
+  appearance: none;
+  // Webkit
+  margin: 0;
+  // Webkit and Blink
+  padding: 0;
+  // Blink, Gecko, and Webkit
+  border-width: .0625em;
+  border-style: solid;
+  border-color: inherit;
+  border-radius: 0;
+  // Blink, Gecko, and Webkit
+  font-family: $sans-serif;
+  // Less than 16px or equivalent here causes Webkit on mobile to zoom in when
+  // selecting a field.
+  font-size: rem-calc(16);
+  color: $brand-gray;
+  line-height: rem-calc(25);
+  padding: rem-calc(5 20);
+  @include placeholder() {
+    color: $brand-gray;
+    font-size: rem-calc(16);
+    line-height: rem-calc(25);
+
+  }  
+}
+
+
+// Checkboxes and radios.
+[type='checkbox'],
+[type='radio'] {
+  // Blink, Gecko, and Webkit
+  margin: 0;
+}
+
+// Fieldsets.
+fieldset {
+  // Webkit
+  margin: 0;
+  // Webkit and Blink
+  padding: 0;
+  // Blink, Gecko, and Webkit
+  border-width: .0625em;
+  border-style: solid;
+  border-color: inherit;
+}
+
+/// Buttons
+/// -------
+button,
+[type='submit'] {
+  @include btn;
+  // Blink, Gecko, and Webkit all need cursor added back on [type='submit'].
+  cursor: pointer;
+  // If there is no button border, we need to remove the border added from the
+  // reset.
+  border: 0;
+}
+
+/// Labels
+/// ------
+label {
+  display: block;
+  color: $dark-gray;
+  font-family: $sans-serif;
+  font-weight: 400;
+  @extend %global-spacing--xxsmall;
+}
+
+/// Text Inputs
+/// -----------
+#{text-inputs()},
+[type='file'],
+[type='image'],
+textarea {
+  padding: 1em;
+  color: $black;
+  border: none;
+  box-shadow: $box-shadow--less;
+}
+
+/// Selects
+/// -------
+select {
+  padding: .5em 2em .5em 1em;
+  appearance: none;
+  cursor: pointer;
+  background-color: $white;
+  box-shadow: $box-shadow--less; 
+  border: none;
+  background-image: url('../images/chevron-right.svg');
+  // stylelint-enable
+  background-repeat: no-repeat;
+  background-position: right rem-calc(20) center;
+  background-size: 1em;
+}
+
+/// Checkboxes and Radios
+/// ---------------------
+[type='checkbox'],
+[type='radio'] {
+  cursor: pointer;
+
+  + label {
+    display: inline-block;
+    margin: 1em 0 1em .25em;
+    cursor: pointer;
+    vertical-align: middle;
+    color: $black;
+  }
+}
+
+/// Fieldsets
+/// ---------
+fieldset {
+  margin-bottom: .75em;
+  padding: .5em;
+  border-color: $dark-gray;
+  font-family: $sans-serif;
+}
+
+legend {
+  margin-bottom: -.5em;
+  font-weight: 400;
+}
+
+/// States
+/// ------
+#{text-inputs()},
+[type='file'],
+[type='image'],
+select,
+textarea {
+  transition:
+    background-color $primary-transition,
+    border-color $primary-transition,
+    box-shadow $primary-transition;
+
+  &:disabled {
+    background-color: $light-gray;
+  }
+}
+
+// Invalid styles, but not when the placeholder is present to avoid empty
+// fields from presenting an error before user interaction.
+#{text-inputs()},
+[type='file'],
+[type='image'],
+textarea {
+
+  &:not(:empty):invalid {
+    border-color: $primary-color;
+    box-shadow: 0 0 0 .0625em $primary-color;
+  }
+}
+
+/// Dates
+
+input[type="date"] {
+  background-image: url("../images/calendar-icon.svg");
+  background-position: right rem-calc(20) center;
+  background-repeat: no-repeat;
+  padding-right: rem-calc(50);
+  background-size: rem-calc(16);
+}
+
+
+form {
+  .grid-x {
+    width: 100%;
+  }
+}
+
+#ui-datepicker-div {
+  background: $white;
+  box-shadow: $box-shadow--less;
+}
+.ui-datepicker-next,
+.ui-datepicker-prev {
+  text-align: center;
+}
+.ui-datepicker-next:after {
+  content: fa-content($fa-var-chevron-right);
+  font-family: $font-awesome;
+}
+.ui-datepicker-prev:after {
+  content: fa-content($fa-var-chevron-left);
+  font-family: $font-awesome;
+}
+.ui-datepicker td span, .ui-datepicker td a {
+  text-align: center;
+}
+
+.form-item {
+  max-width: none;
+}
+
+label {
+  color: $black;
+}
+
+#{text-inputs()},
+[type='file'],
+[type='image'],
+select {
+  width: 100%;
+  height:60px;
+}
+
+[data-drupal-selector='edit-reset'] {
+  @include btn-light;
+}
+
+// Display flex removes the additional spacing due to white-space between
+// inline-block submits.
+.form-actions {
+  display: flex;
+}
+
+.form-item {
+  @extend %global-spacing--small;
+}
+
+[type='submit'] {
+  margin: 0;
+
+  + [type='submit'] {
+    margin-left: 1em;
+  }
+}
+
+body {
+  /// EMBED SECTION OVERRIDES
+  .wForm {
+    padding: 0;
+    margin-left: rem-calc(-6);
+  }
+  .wFormContainer {
+    max-width: none !important;
+    width: 100% !important;
+    * {
+      font-family: $sans-serif !important;
+      font-size: rem-calc(16);
+    }
+
+  }
+  .section.inline {
+    flex-wrap: wrap;
+    @include breakpoint(medium) {
+      display: flex;
+      flex-wrap: nowrap;
+    }
+  }
+  .wForm .inline div.oneField {
+    @include flex-column(100%);
+    @include breakpoint(medium) {
+      @include flex-column(50%);
+    }
+  }
+  .wForm .inputWrapper {
+    width: 100%;
+  }
+  .wForm .oneField input {
+    border: none;
+  }
+  .wForm fieldset {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    &:not(:last-of-type) {
+      margin-bottom: rem-calc(40);
+    }
+  }
+  .wForm fieldset legend {
+    //@extend %eyebrow;
+    margin: 0 !important;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+  .wForm textarea {
+    font-family: $sans-serif;
+    border: none;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16);
+  width: 100%;
+  }
+  .wForm .field-hint-inactive .hint {
+    color: $medium-gray;
+    opacity: 1;
+    font-size: rem-calc(15);
+  }
+  .wForm .preField,
+  .wForm .inlineLabel {
+    font-size: rem-calc(16);
+  }
+}
+body {
+  #submit_button {
+    @include btn;
+    border: none;
+    border-radius: 0;
+    padding: 1.25rem !important;
+    margin-top: rem-calc(20);
+  }
+  #google-captcha {
+    br {
+      display: none;
+    }
+  }
+}
+
+.section--marketing-intro {
+  .grid-margin-x  .medium-4 {
+    @include breakpoint(small down) {
+      margin: 0;
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+}
+.marketing-form {
+  padding: rem-calc(20 30);
+  background: $light-gray;
+  @include small-body();
+  margin-bottom: rem-calc(40);
+  h2 {
+    @include font-sizes(20,24,24);
+    line-height: 1.3;
+    margin-bottom: rem-calc(5);
+  }
+  label {
+    @include small-body();
+    font-weight: bold;
+  }
+  .form-item {
+    margin-bottom: rem-calc(25);
+  }
+}

@@ -1,0 +1,17 @@
+////
+/// @group components-micro
+/// Styles for buttons.
+////
+
+.btn {
+  @include btn;
+
+  &--light {
+    color: $primary-color--light;
+    background: $white;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}

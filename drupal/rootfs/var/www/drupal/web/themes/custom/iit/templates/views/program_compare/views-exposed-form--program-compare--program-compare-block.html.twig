@@ -1,0 +1,17 @@
+{% if q is not empty %}
+{{ q }}
+{% endif %}
+
+<div class="compare-items">
+  <div class="compare-item">
+    {{ form.compare_id1 }}
+  </div>
+  <div class="compare-item">
+    {{ form.compare_id2 }}
+  </div>
+  <div class="compare-item">
+    {{ form.compare_id3 }}
+  </div>
+</div>
+
+{{ form|without('compare_id1', 'compare_id2', 'compare_id3') }}

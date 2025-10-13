@@ -1,0 +1,26 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+<article class="listing-item">
+  <div class="grid-x grid-margin-x">
+    {% if content.field_story_image|render %}
+      <div class="cell initial-12 small-4 small-order-1">
+        <a class="listing-item__image" href="{{ url }}">
+          {{ content.field_story_image }}
+        </a>
+      </div>
+    {% endif %}
+    <div class="cell initial-12 small-8">
+      <div class="listing-item__content">
+        <h2 class="h3 listing-item__title arrow-link global-spacing--medium"><a href="{{ url }}">{{ node.label }}</a>
+        </h2>
+        <span class="listing-item__sub-title eyebrow listing-item__meta">{{ content.field_story_subject_degree_year }}</span>
+        <p>{{ content.body }}</p>
+        {% if story_topics %}
+          <div class="listing-item__tags tags">
+            <h2 class="tags__heading show-for-sr">{{ 'Tags'|t }}:</h2>
+            {{ oho_macros.list(story_topics) }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</article>

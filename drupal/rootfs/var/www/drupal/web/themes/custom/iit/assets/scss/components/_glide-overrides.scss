@@ -1,0 +1,20 @@
+////
+/// @group components
+/// Overrides to Glide's Default Rules
+////
+.section--slider {
+  overflow: hidden;
+}
+
+.glide__slides {
+  white-space: normal;
+}
+
+[data-slider-type='offsetCards'] {
+
+  .glide__slides,
+  .glide__track {
+    overflow: visible;
+  }
+
+}

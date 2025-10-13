@@ -1,0 +1,32 @@
+{#
+  /**
+   * Template to override the block display of departments directory view.
+* This custom template adds Foundation grid classes and other theme related elements around the view content.
+   */
+#}
+
+
+<div class="grid-container">
+<div class="cell initial-12 medium-12 medium-order-3 tiny-order-2 global-spacing detail-page--faculty__sidebar-column">
+    <div class="grid-container">
+    {% if header %}
+    <header>
+      {{ header }}
+    </header>
+  {% endif %}
+    
+     {% if rows -%}
+    {{ rows }}
+  {% elseif empty -%}
+    {{ empty }}
+  {% endif %}
+    
+    {% if footer %}
+    <footer>
+      {{ footer }}
+    </footer>
+  {% endif %}
+    
+    </div>
+    </div>
+</div>

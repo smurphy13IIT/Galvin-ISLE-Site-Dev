@@ -1,0 +1,105 @@
+{#
+/**
+ * @file
+ * A library of useful macros.
+ *
+ * Available macros:
+ * - list: Print an array as an unordered list with the given list and item classes.
+ * - field_list: Print field items as an unordered list with the given list and item classes.
+ * - field_list_multiple: Print field items from multiple fields as an unordered list with the given list and item classes.
+ * - subset: Print a subset of the given array.
+ * - field_subset: Print a subset of field items.
+ * - wrap_items: Print an array and wrap each item in the specified tag with the given classes.
+ * - field_wrapper: Print field items wrapped in the specified tag with the given classes.
+ * - link_field_link: Print each link in the specified field with the given classes.
+ * - link_field_list: Print the link field as an unordered list with the given list, item, and link classes.
+ */
+#}
+
+{# Print an array as an unordered list with the given list and item classes. #}
+{# Note: The li tag content is intentionally on one line to eliminate extra white space. #}
+{% macro list(list_array, list_classes, list_item_classes) %}
+  {% if list_array %}
+    <ul{% if list_classes %} class="{{ list_classes }}"{% endif %}>
+      {% for list_item in list_array %}
+        <li{% if list_item_classes %} class="{{ list_item_classes }}"{% endif %}>{{ list_item }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}
+
+{# Print field items as an unordered list with the given list and item classes. #}
+{% macro field_list(field, list_classes, list_item_classes) %}
+  {% import _self as oho_macros %}
+  {{ oho_macros.list(field|field_value, list_classes, list_item_classes) }}
+{% endmacro %}
+
+{# Print field items from multiple fields as an unordered list with the given list and item classes. #}
+{% macro field_list_multiple(fields, list_classes, list_item_classes) %}
+  {% import _self as oho_macros %}
+  {% set list_array = [] %}
+  {% for field in fields %}
+    {% if field[0] is defined %}
+      {% set list_array = list_array|merge(field|field_value) %}
+    {% endif %}
+  {% endfor %}
+  {{ oho_macros.list(list_array, list_classes, list_item_classes) }}
+{% endmacro %}
+
+{# Print a subset of the given array. #}
+{% macro subset(items_array, start, total) %}
+  {% for item in items_array %}
+    {% if loop.index >= start and loop.index <= total %}
+      {{ item }}
+    {% endif %}
+  {% endfor %}
+{% endmacro %}
+
+{# Print a subset of field items. #}
+{% macro field_subset(field, start, total) %}
+  {% import _self as oho_macros %}
+  {{ oho_macros.subset(field|field_value, start, total) }}
+{% endmacro %}
+
+{# Print an array and wrap each item in the specified tag with the given classes. #}
+{# Note: The wrap tag content is intentionally on one line to eliminate extra white space. #}
+{% macro wrap_items(items_array, wrap_tag, wrap_classes) %}
+  {% for item in items_array %}
+    <{{ wrap_tag }}{% if wrap_classes %} class="{{ wrap_classes }}"{% endif %}>{{ item }}</{{ wrap_tag }}>
+  {% endfor %}
+{% endmacro %}
+
+{# Print field items wrapped in the specified tag with the given classes. #}
+{% macro field_wrapper(field, wrap_tag, wrap_classes) %}
+  {% import _self as oho_macros %}
+  {{ oho_macros.wrap_items(field|field_value, wrap_tag, wrap_classes) }}
+{% endmacro %}
+
+{# Print each link in the specified field with the given classes. #}
+{% macro link_field_link(link_field, link_classes) %}
+  {% if link_field[0] is defined %}
+    {% import _self as oho_macros %}
+    {% for link_item in link_field|field_value %}
+      {{ oho_macros._link_field_item_link(link_item, link_classes) }}
+    {% endfor %}
+  {% endif %}
+{% endmacro %}
+
+{# Print the link field as an unordered list with the given list, item, and link classes. #}
+{% macro link_field_list(link_field, list_classes, list_item_classes, link_classes) %}
+  {% if link_field[0] is defined %}
+    {% import _self as oho_macros %}
+    <ul{% if list_classes %} class="{{ list_classes }}"{% endif %}>
+      {% for link_item in link_field|field_value %}
+        <li{% if list_item_classes %} class="{{ list_item_classes }}"{% endif %}>
+          {{ oho_macros._link_field_item_link(link_item, link_classes) }}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}
+
+{# Print the link item with the given classes. #}
+{% macro _link_field_item_link(link_item, link_classes) %}
+  {{ link(link_item['#title'], link_item['#url'], {'class': [link_classes]}) }}
+{% endmacro %}

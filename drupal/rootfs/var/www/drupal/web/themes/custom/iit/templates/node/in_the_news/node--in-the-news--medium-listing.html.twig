@@ -1,0 +1,16 @@
+{% set summary = content.field_itn_summary|render %}
+
+<article class="cell large-4 related-in-the-media">
+  <span class="date"><i class="fi flaticon-calendar"></i>{{ content.field_itn_publish_date }}</span>
+  <h3 class="external-link">
+    <a href="{{ content.field_itn_article_link }}"
+      target="_blank"
+      aria-label="{{ node.label }} {{ 'opens in new window'|t }}">
+      {{ node.label }}
+    </a>
+  </h3>
+  <span class="listing-item__media-subtitle eyebrow listing-item__meta">{{ content.field_itn_source }}</span>
+  {% if summary %}
+    <p>{{ summary }}</p>
+  {% endif %}
+</article>

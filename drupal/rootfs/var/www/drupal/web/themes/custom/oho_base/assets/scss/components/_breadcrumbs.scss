@@ -1,0 +1,131 @@
+////
+/// @group components
+/// Styles for breadcrumbs.
+////
+
+/// Base Breadcrumbs
+/// ----------------
+.breadcrumbs {
+  display: flex;
+  overflow: hidden;
+  margin: 1em 0;
+  padding: 0;
+  list-style: none;
+  font-family: $sans-serif;
+  font-size: 1rem;
+
+  li {
+    display: inline-block;
+
+    &:nth-child(n+2):before {
+      @include font-awesome;
+      padding: .666em;
+      content: fa-content($fa-var-chevron-right);
+      font-size: .75em;
+    }
+  }
+}
+
+/// Chevron Breadcrumbs
+/// -------------------
+/// Remove if not using.
+.breadcrumbs--chevron {
+
+  /// Desktop
+  /// -------
+  @include breakpoint(medium) {
+    padding-left: .5em;
+
+    li {
+      position: relative;
+
+      + li {
+        margin-left: .25em;
+      }
+
+      &:before,
+      &:after {
+        position: absolute;
+        z-index: -1;
+        right: 0;
+        left: 0;
+        display: block;
+        margin: 0;
+        // Overriding the default styles without making unneccessaly
+        // specificity.
+        content: '' !important; // stylelint-disable-line
+        transition:
+          background-color $primary-transition,
+          border $primary-transition;
+        border: .0625em solid $primary-color--dark;
+        background-color: $primary-color--light;
+        // Overriding the default styles without making unneccessaly
+        // specificity.
+        font-size: 1rem !important; // stylelint-disable-line
+      }
+
+      &:before {
+        top: 0;
+        bottom: 50%;
+        transform: skew(30deg);
+        border-bottom: 0;
+      }
+
+      &:after {
+        top: 50%;
+        bottom: 0;
+        transform: skew(-30deg);
+        border-top: 0;
+      }
+
+      &:hover {
+
+        &:before,
+        &:after {
+          background-color: $primary-color--dark;
+        }
+      }
+
+      // Home icon.
+      &:first-child {
+
+        a {
+          position: relative;
+          font-size: 0;
+
+          &:before {
+            @include font-awesome;
+            display: inline-block;
+            padding: .5rem 1rem;
+            content: fa-content($fa-var-home);
+            vertical-align: middle;
+            font-size: 1rem;
+            font-weight: 900;
+          }
+        }
+      }
+    }
+
+    .active {
+      padding: .5em 1em;
+
+      &:before,
+      &:after {
+        // Active item should never have a hover style.
+        background-color: $white !important; // stylelint-disable-line
+      }
+
+      a {
+        padding: 0;
+        color: $black;
+      }
+    }
+
+    a {
+      display: block;
+      padding: .5em 1em;
+      text-decoration: none;
+      color: $white;
+    }
+  }
+}

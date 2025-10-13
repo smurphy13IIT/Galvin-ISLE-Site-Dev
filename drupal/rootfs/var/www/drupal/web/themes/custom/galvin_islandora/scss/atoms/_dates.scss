@@ -1,0 +1,23 @@
+////
+/// @group components-micro
+/// Date styles.
+////
+
+.date {
+  display: block;
+  font-family: $sans-serif;
+  font-weight: 400;
+  color: $dark-gray;
+  i {
+    margin-right: rem-calc(5);
+  }
+    
+    time:before {
+        //font-family: $font-awesome;
+        //content: fa-content($fa-var-calendar-alt);
+        font-family: "Flaticon";
+        content: "\f116";
+        margin-right: rem-calc(5);
+        font-weight: 400;
+    }
+}

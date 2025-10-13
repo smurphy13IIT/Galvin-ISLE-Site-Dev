@@ -1,0 +1,31 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+<article class='profile-item profile-item-office--horizontal'>
+  <div class='profile-item__meta profile-item__column'>
+    <div class="listing-item__tags tags">
+      <h2 class="tags__heading show-for-sr">{{ 'Tags'|t }}:</h2>
+      {{ oho_macros.list(organization_type) }}
+    </div>
+    <h3 class='arrow-link'><a href="{{ url }}">{{ node.label }}</a></h3>
+    {{ content.field_intro_text }}
+  </div>
+
+  {% if content.field_organization_phone_numbers|render or
+        content.field_organization_fax_number|render or
+        content.field_organization_email|render or
+        content.field_organization_location|render %}
+    <div class='profile-item__contact profile-item__column'>
+      {% if content.field_organization_phone_numbers|render %}
+        <span class="profile-item__contact__item phone"><i class='fi flaticon-phone'></i> <span>{{ oho_macros.field_subset(content.field_organization_phone_numbers, 1, 1) }}</span></span>
+      {% endif %}
+      {% if content.field_organization_fax_number|render %}
+        <span class="profile-item__contact__item fax"><i class="fas fa-fax"></i><span>{{ content.field_organization_fax_number }}</span></span>
+      {% endif %}
+      {% if content.field_organization_email|render %}
+        <span class="profile-item__contact__item email"><i class='fas fa-envelope'></i> <span class="person-email">{{ content.field_organization_email }}</span></span>
+      {% endif %}
+      {% if content.field_organization_location|render %}
+        <span class="profile-item__contact__item location"><i class="fas fa-map-marker-alt"></i><span> {{ content.field_organization_location }}</span></span>
+      {% endif %}
+    </div>
+  {% endif %}
+</article>

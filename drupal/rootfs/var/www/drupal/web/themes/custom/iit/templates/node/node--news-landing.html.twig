@@ -1,0 +1,30 @@
+<article>
+  {{ hero }}
+
+  <section class="global-spacing--xlarge section--cards section--cards-grid">
+    {{ recent_news }}
+  </section>
+
+  {{ content.field_nl_explore_news_section }}
+
+  {{ content.field_nl_latest_videos_section }}
+
+  {{ content.field_checkerboard }}
+
+  {{ content.field_nl_events_section }}
+
+  {% if content.field_nl_itm_section|render or
+        content.field_nl_journalists_section|render %}
+    <section class='section--news-hub-media global-spacing--xlarge'>
+      <div class='grid-container'>
+        <div class='grid-x grid-margin-x'>
+          {{ content.field_nl_itm_section }}
+
+          {{ content.field_nl_journalists_section }}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  {{ content.field_checkerboard2 }}
+</article>

@@ -1,0 +1,59 @@
+////
+/// @group components
+/// Styles for the cookie banner.
+////
+
+.cookie-compliance-popup {
+  position: fixed;
+  z-index: 999;
+  right: 0;
+  bottom: 0;
+  padding: 2em;
+  left: 0;
+  background-color: $gray--dark;
+
+  h2,
+  p {
+    padding-top: 13px;
+    @extend %h5;
+    text-align: center;
+    font-family: $sans-serif;
+    color: $white;
+  }
+  button {
+    background-image: none;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    text-shadow: none;
+    @include btn; 
+  }
+  button:not(:last-child) {
+    margin-right: 20px;
+  }
+  #popup-buttons {
+    float: none;
+    max-width: none;
+    padding-left: rem-calc(20);
+
+    @include breakpoint(medium up) {
+      text-align: right;
+    }
+  }
+}
+.eu-cookie-compliance-message {
+  float: none;
+  max-width: 100%;
+  margin: 0;
+}
+@include breakpoint(medium down) {
+  .agree-button, .find-more-button {
+    width: 100%;
+  }
+  .eu-cookie-compliance-message > div {
+    padding: 0px;
+  }
+  .cookie-content {
+    @include margins-bottom($spacing--small, $spacing--medium, $spacing--default);
+  }
+}

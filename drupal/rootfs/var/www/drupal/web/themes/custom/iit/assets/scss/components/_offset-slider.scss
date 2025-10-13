@@ -1,0 +1,142 @@
+////
+/// @group components
+/// Styles for an offset slider.
+////
+
+//
+// Offset Slider
+//
+// Limitations:
+//  1. This is setup to work only on full-width pages, as we use vw.
+//  2. The items need to be flexible in width. Fixed width items are
+//     not supported.
+//
+.offset-slider {
+  overflow-x: hidden;
+  // We want to see outside the slick container, so the edge of the next slide
+  // is visible. We move overflow-x hidden to the whole section's wrapper.
+  .slick-list {
+    overflow: visible !important; // stylelint-disable-line
+  }
+  // Move the slider to the left, to account for the shifting of slides.
+  // This is not an arbitrary value. It is half the width of the full-width
+  // item, minus the margin of one side. In this case, (8rem - 1rem)/2 = 3.5rem;q
+  .slick-track {
+    left: -3.5rem;
+  }
+  // The subtracted value in the width is the amount of the next slide shown.
+  &__item {
+    width: calc(100vw - 8rem);
+    margin: 0 1rem;
+
+    > img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  // At 640, we flush align left and change the slide widths.
+  // The subtracted value in the width is again the amount of the next slide shown.
+  @include breakpoint(medium) {
+
+    .slick-track {
+      left: 0;
+    }
+
+    &__item {
+      width: calc(50vw - 6rem);
+    }
+  }
+
+  @include breakpoint(large) {
+    // At 1024 we float the three item slider manually, because slick will not
+    // initialize. Calculate the 1/3 width, minus margins, and pull the
+    // container out by the margins so the items sit flush.
+    &--three {
+      margin: 0 -1rem;
+
+      .offset-slider__item {
+        float: left;
+        width: calc(33.333% - 2rem);
+      }
+    }
+    // At 1024, we only need to adjust the items width and the amount
+    // of the next slide shown.
+    &--unlimited {
+
+      .offset-slider__item {
+        width: calc(33.333vw - 4rem);
+      }
+    }
+  }
+}
+
+@mixin mobile-offset-slider() {
+  @include breakpoint(small only) {
+    padding: rem-calc(0 0 0 20);
+
+    .slick-slide {
+      width: 100%;
+      max-width: calc(100vw - 120px);
+      padding: 0;
+      transition: opacity 600ms ease;
+      opacity: .6 !important; // stylelint-disable-line
+
+      &[aria-hidden='true'] {
+        opacity: 0 !important; // stylelint-disable-line
+      }
+
+      &.slick-active {
+        opacity: 1 !important; // stylelint-disable-line
+      }
+
+      &[aria-hidden='false'] + .slick-slide {
+        opacity: 0 !important; // stylelint-disable-line
+      }
+
+      img {
+        width: 100%;
+        max-width: none;
+      }
+    }
+  }
+}
+
+.mobile-offset-slider,
+.slider-row {
+  @include mobile-offset-slider();
+  position: relative;
+}
+// These styles are too global.
+//
+// .slick-arrow {
+//   height: rem-calc(30);
+//   width: rem-calc(30);
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   margin: auto;
+//   right: rem-calc(20);
+//   background: none;
+//   border: none;
+//   box-shadow: none;
+//   font-size: 0;
+//   border-radius: 50%;
+//   border: rem-calc(2) solid $link-color;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   &:after {
+//     font-family: $font-awesome;
+//     content: "\f054";
+//     font-size: rem-calc(15);
+//     width: rem-calc(7);
+//     height: rem-calc(13);
+//     display: block;
+//     font-weight: 900;
+//     color: #ccc;
+//   }
+// }
+// .slick-prev {
+//   display: none !important; // stylelint-disable-line
+// }

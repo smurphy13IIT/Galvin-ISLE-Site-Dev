@@ -1,0 +1,19 @@
+{{ hero }}
+
+{% if content.body|render or content.webform|render %}
+  <div class="main-content grid-container grid-x grid-margin-x">
+    <div class="cell medium-auto global-spacing--xlarge">
+      <article class="basic-page">
+        <section class="clearfix">
+          <article class="clearfix full-wysiwyg">
+
+            {{ content.body }}
+
+            {{ content.webform }}
+
+          </article>
+        </section>
+      </article>
+    </div>
+  </div>
+{% endif %}

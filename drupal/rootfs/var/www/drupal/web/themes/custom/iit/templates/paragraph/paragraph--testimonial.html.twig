@@ -1,0 +1,15 @@
+<article class='testimonial-item'>
+  <div class="section-testimonial__slides">
+    <blockquote class="quote-icon">
+      <div class="quote-text">{{ content.field_component_body }}</div>
+    </blockquote>
+    {% if content.field_component_title|render %}
+      <p class="author" ><b>{{ content.field_component_title }}</b></p>
+    {% endif %}
+    {% if content.field_component_image|render %}
+      <div class="author__img">
+        {{ content.field_component_image }}
+      </div>
+    {% endif %}
+  </div>
+</article>

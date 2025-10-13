@@ -1,0 +1,14 @@
+////
+/// @group D8
+/// Custom page styles for Drupal 8.
+////
+
+.user-login-form,
+.page--utility .main-content {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  .form-item {
+    max-width: rem-calc(300);
+  }
+}

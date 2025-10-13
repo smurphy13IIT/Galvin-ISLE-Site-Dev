@@ -1,0 +1,109 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+<article class="landing-page">
+
+  {{ hero }}
+
+  {% if child_nav %}
+    {% include '@iit/includes/landing-nav.html.twig' with {
+      title: node.label,
+      child_nav: child_nav,
+    } %}
+  {% endif %}
+
+  <section class='section--body section--wysiwyg global-spacing--xlarge'>
+    <div class='grid-container'>
+      <div class='section--body__container section--wysiwyg__container'>
+        <article class="clearfix full-wysiwyg">
+          {{ content.body }}
+          {{ content.field_expandable_section }}
+        </article>
+      </div>
+    </div>
+  </section>
+
+  {{ content.field_page_components }}
+
+  <section class="section-contact-panel section-contact-panel--office-detail">
+    <div class="grid-container section-contact-panel__inner">
+      <h2>{{ 'Contact'|t }} {{ node.label }}</h2>
+
+      <div class="grid-x or grid-margin-x">
+        {% if phone_numbers or fax_number or email or other_contact_info %}
+          <div class='initial-6 medium-3 cell'>
+            {% if phone_numbers %}
+              <div class='section-contact-panel__content-chunk'>
+                <h3 class='eyebrow'>{{ 'Phone'|t }}</h3>
+                {{ oho_macros.field_wrapper(content.field_organization_phone_numbers, 'span') }}
+              </div>
+            {% endif %}
+
+            {% if fax_number %}
+              <div class='section-contact-panel__content-chunk'>
+                <h3 class='eyebrow'>{{ 'Fax'|t }}</h3>
+                <span>{{ fax_number }}</span>
+              </div>
+            {% endif %}
+
+            {% if email %}
+              <div class='section-contact-panel__content-chunk'>
+                <h3 class='eyebrow'>{{ 'Email'|t }}</h3>
+                <span>{{ email }}</span>
+              </div>
+            {% endif %}
+
+            {% if other_contact_info %}
+              <div class='section-contact-panel__content-chunk'>
+                <h3 class='eyebrow'>{{ 'Other Contact Info'|t }}</h3>
+                {{ other_contact_info }}
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        <div class='initial-6 medium-3 cell'>
+          <div class='section-contact-panel__content-chunk'>
+            <h3 class='eyebrow'>{{ 'Department Type'|t }}</h3>
+            {{ oho_macros.wrap_items(organization_type, 'span') }}
+          </div>
+
+          {% if school %}
+            <div class='section-contact-panel__content-chunk'>
+              <h3 class='eyebrow'>{{ 'College'|t }}</h3>
+              {{ school }}
+            </div>
+          {% endif %}
+        </div>
+
+        {% if office_location or social_media_links %}
+          <div class='initial-6 medium-3 cell'>
+            {% if office_location %}
+              <div class='section-contact-panel__content-chunk'>
+                <h3 class='eyebrow'>{{ 'Office Location'|t }}</h3>
+                {{ office_location }}
+              </div>
+            {% endif %}
+
+            {% if social_media_links %}
+              <div class='section-contact-panel__content-chunk'>
+                <h3 class='eyebrow'>{{ 'Social Media'|t }}</h3>
+                  <div class='social-media'>
+                    {{ oho_macros.field_list(content.field_organization_social_media, ‘social-media’) }}
+                  </div>
+              </div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if office_hours %}
+          <div class='initial-6 medium-3 cell'>
+            <div class='section-contact-panel__content-chunk'>
+              <h3 class='eyebrow'>{{ 'Office Hours'|t }}</h3>
+              {{ office_hours }}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+</article>

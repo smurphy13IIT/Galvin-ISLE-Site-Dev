@@ -1,0 +1,18 @@
+{% set mobile_number = content.field_mcb_mobile_number|render %}
+
+<div class='media-card__inner media-card__inner--lower'>
+  <div class="media-card__inner--lower__title-area">
+    <h4 class='h6'>{{ 'For media inquiries, please contact'|t }}</h4>
+    <div>{{ content.field_mcb_name }}</div>
+    <div>{{ content.field_mcb_position }}</div>
+  </div>
+  <span class="profile-item__contact__item email"><i class="fas fa-envelope"></i> <span class="person-email">{{ content.field_mcb_email }}</span></span>
+  <span class="profile-item__contact__item phone"><i class="fi flaticon-phone"></i> <span>{{ content.field_mcb_phone_number }}</span></span>
+
+  {% if mobile_number %}
+    <span class="profile-item__contact__item phone">
+      <i class="fi flaticon-phone"></i>
+      <span>{{ mobile_number }} ({{ 'Mobile'|t }})</span>
+    </span>
+  {% endif %}
+</div>

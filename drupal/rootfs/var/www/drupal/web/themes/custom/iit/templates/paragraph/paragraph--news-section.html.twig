@@ -1,0 +1,14 @@
+{% if news_listing %}
+  <section class="global-spacing--xlarge section--cards section--cards-grid sequence-anim-parent">
+    <div class='global-spacing--small'>
+      <div class='grid-container'>
+        {% include '@iit/includes/lined-section-heading.html.twig' with {
+          title: content.field_component_title|render ? content.field_component_title : 'News'|t,
+          link_field: content.field_component_link
+        } %}
+      </div>
+    </div>
+
+    {{ news_listing }}
+  </section>
+{% endif %}

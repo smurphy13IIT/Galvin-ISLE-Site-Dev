@@ -1,0 +1,87 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the Illinois Institute of Technology theme.
+ */
+
+/**
+ * Implements template_preprocess_html().
+ */
+function iit_preprocess_html(&$vars) {
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+   //  Add a class to the body with the group id if the node is a group member.
+//    if ($groups = \Drupal::service('oho_group.group_service')->getEntityGroups($node, [])) {
+  //    foreach ($groups as $group) {
+    //    $vars['attributes']['class'][] = 'group-' . $group->id();
+     // }
+    //} 
+ }  
+}
+
+/**
+ * Implements template_preprocess_page().
+ */
+function iit_preprocess_page(&$vars) {
+  $vars['preprocess_wrapper_classes'] = [];
+  $vars['preprocess_content_classes'] = [];
+  $vars['display_discover_logo'] = FALSE;
+
+/**   Check whether this is a node page
+   Need the is_object when viewing past revisions. */
+ $is_node = isset($vars['node']) && is_object($vars['node']);
+  if ($is_node) {
+    /** Hide the discover logo on marketing landing pages.*/
+    if ($vars['node']->bundle() == 'marketing_landing') {
+      $vars['display_discover_logo'] = FALSE;
+    }
+
+     /** Add a class to school subsection pages. */
+    //$school_groups = \Drupal::service('oho_group.group_service')->getEntityGroups($vars['node'], ['school']);
+    //if (!empty($school_groups)) {
+     // $vars['preprocess_page_classes'][] = 'page--school-subsection';
+   // }
+ }
+}
+
+/**
+ * Implements template_preprocess_node().
+ */
+function iit_preprocess_maintenance_page(&$vars) {
+   /** Build the hero. */
+  $vars['hero'] = [
+    '#theme' => 'hero',
+    '#overlay' => TRUE,
+    '#title' => t('Site Under Maintenance'),
+    '#subtitle' => $vars['page']['content'],
+  ];
+}
+
+/**
+ * Implements template_preprocess_breadcrumb().
+ */
+function iit_preprocess_breadcrumb(&$vars) {
+  if (isset($vars['breadcrumb']) && !empty($vars['breadcrumb']) && !\Drupal::service('router.admin_context')->isAdminRoute()) {
+    $node = \Drupal::request()->get('node');
+    if (!empty($node) && is_object($node)) {
+      /**  Add a class to the current page breadcrumb. */
+      $count = count($vars['breadcrumb']);
+      $vars['breadcrumb'][$count - 1]['class'] = 'active';
+
+      // For school subsection pages.
+      $school_groups = \Drupal::service('oho_group.group_service')->getEntityGroups($node, ['school']);
+      if (!empty($school_groups)) {
+         /** Remove the home breadcrumb. */
+        unset($vars['breadcrumb'][0]);
+      }
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_views_active_filters().
+ */
+function iit_preprocess_views_active_filters(&$vars) {
+  /** Add a class to the heading. */
+  $vars['heading']['#attributes']['class'] .= ' h6';
+}

@@ -1,0 +1,16 @@
+////
+/// @group components-micro
+/// Styles for section headings.
+////
+
+.section-heading {
+  margin-bottom: 30px;
+
+  &__heading {
+    margin-bottom: 10px;
+  }
+
+  &__subheading {
+    font-size: 20px;
+  }
+}

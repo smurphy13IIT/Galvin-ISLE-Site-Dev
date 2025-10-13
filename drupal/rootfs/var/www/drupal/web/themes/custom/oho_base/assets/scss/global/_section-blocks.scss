@@ -1,0 +1,19 @@
+////
+/// @group global
+/// Styles for sections blocks.
+////
+
+.section--banded {
+  @include paddings-top(40, 60, 100);
+  @include paddings-bottom(40, 60, 100);
+  background: $gray;
+}
+
+.section--global-spacing {
+  @include margins-bottom(40, 60, 100);
+}
+
+// BLOCK GRID
+section [class*='block-grid-'] > li {
+  padding-bottom: 2.5rem;
+}

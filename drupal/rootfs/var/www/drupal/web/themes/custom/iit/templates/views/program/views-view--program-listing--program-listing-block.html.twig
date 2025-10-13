@@ -1,0 +1,38 @@
+{%
+  set classes = [
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+    'listing listing-programs global-spacing--large',
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {{ title }}
+  {{ title_suffix }}
+
+  <div class="listing__form listing__form--programs">
+    <div class="grid-container">
+      {{ exposed }}
+    </div>
+  </div>
+
+  {{ header }}
+
+  {{ attachment_before }}
+
+  <div class='grid-container'>
+    {{ rows }}
+    {{ empty }}
+    {{ pager }}
+  </div>
+
+  {{ attachment_after }}
+  {{ more }}
+
+  {% if footer %}
+    <footer>
+      {{ footer }}
+    </footer>
+  {% endif %}
+
+  {{ feed_icons }}
+</div>

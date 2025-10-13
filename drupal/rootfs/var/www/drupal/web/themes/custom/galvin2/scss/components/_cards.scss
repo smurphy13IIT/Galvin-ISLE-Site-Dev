@@ -1,0 +1,669 @@
+////
+/// @group components
+/// Styles for cards.
+////
+
+$card-heading-scope: 'h2, h3' !default;
+$content-item-scope: 'p, span' !default;
+
+@mixin card($size, $direction) {
+
+    // Direction
+    //size
+    @if $size=='large' {
+        .card__content__inner {
+            padding: rem-calc(40);
+            font-size: rem-calc(17);
+        }
+
+        a {
+            font-weight: 600;
+        }
+
+        #{$card-heading-scope} {
+            font-size: rem-calc(30);
+            margin-bottom: rem-calc(5);
+        }
+
+        #{$content-item-scope},
+        #{$card-heading-scope} {
+            display: block;
+        }
+    }
+
+    @if $size=='medium' {
+        .card__media {
+            margin-bottom: rem-calc($spacing--small);
+        }
+
+        .card__content__inner {
+            padding: rem-calc(30);
+            font-size: rem-calc(16);
+        }
+
+        #{$card-heading-scope} {
+            font-size: rem-calc(24);
+        }
+
+        #{$content-item-scope},
+        #{$card-heading-scope} {
+            display: block;
+        }
+    }
+
+    @if $size=='small' {
+        .card__media {
+            margin-bottom: rem-calc($spacing--xsmall);
+        }
+
+        .card__content__inner {
+            font-size: rem-calc(16);
+        }
+
+        #{$card-heading-scope} {
+            font-size: rem-calc(16);
+            line-height: 1.3;
+            margin-bottom: rem-calc(5);
+        }
+
+        #{$content-item-scope},
+        #{$card-heading-scope} {
+            display: block;
+        }
+    }
+
+    #{$card-heading-scope} {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    @if $direction=='horizontal' {
+        display: flex;
+
+        .card__media {
+            @include flex-column(35%);
+            margin-bottom: 0;
+        }
+
+        .card__content {
+            flex: auto;
+
+            @if $size=='small' {
+                padding-left: rem-calc(20);
+            }
+
+            @else {
+                padding-left: rem-calc(40);
+            }
+        }
+    }
+}
+
+// ----------- Styles shared by all card types
+.card {
+    width: 100%;
+    @include card('medium', 'vertical');
+
+    &__content {
+        display: flex;
+    }
+
+    &__content__inner {
+        background: #fff;
+        box-shadow: none;
+        width: 100%;
+    }
+
+    &__content__inner-icon {
+        font-weight: bold;
+        text-transform: uppercase;
+
+        i {
+            margin-right: rem-calc(5);
+        }
+    }
+
+    &__media {
+        position: relative;
+    }
+
+    img {
+        max-width: none;
+        width: 100%;
+        display: block;
+    }
+
+    .full-wysiwyg a:not(.btn) {
+        display: inline;
+    }
+
+    .full-wysiwyg .btn {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+// ------------- Assignment
+// large
+.card--large {
+    @include breakpoint(medium up) {
+        @include card('large', 'vertical');
+    }
+}
+
+.card--large.card--horizontal {
+    @include breakpoint(medium up) {
+        @include card('large', 'horizontal');
+    }
+}
+
+// medium
+.card--medium {
+    @include breakpoint(medium up) {
+        @include card('medium', 'vertical');
+    }
+}
+
+.card--medium.card--horizontal {
+    @include breakpoint(small down) {
+        @include card('small', 'horizontal');
+    }
+
+    @include breakpoint(medium up) {
+        @include card('medium', 'horizontal');
+    }
+}
+
+// small
+.card--small {
+    @include breakpoint(medium up) {
+        @include card('small', 'vertical');
+    }
+}
+
+.card--small.card--horizontal {
+    @include breakpoint(medium up) {
+        @include card('small', 'horizontal');
+    }
+}
+
+// --------------- Unbounded
+.card.card--unbounded {
+    .card__content__inner {
+        padding: 0;
+        box-shadow: none;
+        background: none;
+    }
+}
+
+// --------------- Grid Rows
+.card-grid-row {
+    max-width: rem-calc(1320);
+
+    @include breakpoint(medium up) {
+        display: grid;
+        grid-gap: rem-calc(35);
+        justify-content: center;
+        align-content: end;
+        grid-template-areas: "first first first first first second second""first first first first first third third"". even even even odd odd odd";
+        position: relative;
+    }
+
+    @include breakpoint(medium up) {
+        // transform: translateX(-50px);
+    }
+
+    @media screen and (min-width: rem-calc(1300)) {
+        //transform: translateX(-69px);
+    }
+
+    /*.card--news {
+    &:nth-child(even) {
+      @include breakpoint(medium up) {
+        grid-area: even;
+        grid-row: auto;
+      }
+    }
+    &:nth-child(odd) {
+      @include breakpoint(medium up) {
+        grid-area: odd;
+        grid-row: auto;
+      }
+    }
+  }*/
+
+    .card--medium,
+    .card--news__item-1,
+    .news-item-1 {
+        @include breakpoint(medium up) {
+            //grid-area: first;
+            transform: none;
+            grid-row-start: 1;
+            grid-row-end: 3;
+            grid-column-start: 1;
+            grid-column-end: 6;
+            
+            a {
+                display: inline;
+            }
+        }
+    }
+
+    .card--small,
+    .news-item-2,
+
+    .news-item-3 {
+        @include breakpoint(medium up) {
+            grid-area: second;
+            grid-row: auto;
+            max-width: rem-calc(350);
+            transform: none;
+        }
+
+        .card__content p {
+            @include breakpoint(medium up) {
+                display: none;
+            }
+        }
+    }
+}
+
+.podcast-icon {
+    font-weight: bold;
+    text-transform: uppercase;
+
+    i {
+        margin-right: rem-calc(5);
+    }
+}
+
+/// -------- NEWS CARDS
+.card--news {
+    position: relative;
+    margin-top: 1.1rem;
+    border: none;
+
+    .tags {
+        ul > li:before {
+            font-family: $font-awesome;
+            content: fa-content($fa-var-chevron-right);
+            color: $secondary-color;
+        }
+    }
+
+    &.news-item-1 {
+
+
+        @include breakpoint(medium) {
+            background-color: $black;
+            min-height: rem-calc(650);
+        }
+
+        @include breakpoint(small down) {
+            @include card('medium', 'vertical');
+
+            .card__content__inner {
+                padding: 0 1.25rem;
+            }
+        }
+
+        @include breakpoint(medium up) {
+            @include card('large', 'vertical');
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+
+            .card__media {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    max-height: rem-calc(475);
+                    opacity: 0.89;
+                    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000000 100%);
+                }
+
+                img {
+                    object-fit: cover;
+                    height: 100%;
+                }
+            }
+
+            .card__content {
+                position: relative;
+                bottom: 0;
+                right: 0;
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+
+                h2,
+                p,
+                a {
+                    color: $white;
+                }
+
+                h3 a:after {
+                    color: $secondary-color;
+                }
+            }
+
+            .card__content__inner {
+                padding: rem-calc(0 100 50 155);
+                background: none;
+
+
+
+            }
+        }
+    }
+
+    // next 2 are small cards
+    &.news-small,
+    &.news-item-2,
+    &.news-item-3 {
+        @include breakpoint(medium up) {
+            @include card('small', 'vertical');
+        }
+    }
+
+    &:not(:last-of-type) {
+        @include breakpoint(small down) {
+            margin-bottom: rem-calc($spacing--medium);
+        }
+    }
+
+    h3 {
+
+        font-size: 1rem;
+    }
+
+    .tags {
+        a {
+            color: $black;
+        }
+
+        li:before {
+            font-family: $font-awesome;
+            content: fa-content($fa-var-chevron-right);
+            color: $secondary-color;
+        }
+    }
+
+    // On the news-hub page we can have 4 extra -- and they're slightly different
+    &:nth-of-type(n+5) {
+        @media screen and (min-width: rem-calc(1300)) {
+            width: rem-calc(545);
+        }
+
+        @include breakpoint(medium up) {
+            @include card('small', 'horizontal');
+            max-width: 100%;
+            transform: translateX(-24px);
+            align-items: center;
+
+            .card__media {
+                margin-bottom: 0;
+            }
+
+            .card__content {
+                padding-left: rem-calc(35);
+
+                p {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    // small cards mobile styling
+
+    &.news-small,
+    &.news-item-2,
+    &.news-item-3 {
+        @include breakpoint(small down) {
+            @include card('small', 'horizontal');
+            flex-direction: row-reverse;
+
+            .card__media {
+                max-width: 35%;
+                float: right;
+            }
+
+            .card__content {
+                padding-right: rem-calc(20);
+                padding-left: rem-calc(20);
+
+
+            }
+        }
+    }
+}
+
+/// Specialties Card
+.section--specializations {
+    .grid-margin-x {
+        @include margins-bottom(-$spacing--small, -$spacing--medium, -$spacing--default);
+    }
+}
+
+.card--specializations {
+    h3 {
+        margin-bottom: rem-calc(5);
+    }
+
+    p {
+        @include small-body();
+        color: $brand-gray;
+    }
+}
+
+.section--cards {
+
+    .medium-4 {
+        max-width: rem-calc(350);
+
+        &:not(:last-child) {
+            margin-bottom: rem-calc($spacing--medium);
+        }
+
+        &:not(:nth-last-child(-n+3)) {
+            @include breakpoint(medium up) {
+                margin-bottom: rem-calc($spacing--medium);
+            }
+        }
+    }
+
+    .full-wysiwyg ul li:before {
+        color: $secondary-color;
+    }
+}
+
+
+
+
+
+/* .card--news {
+
+    min-height: 40.625rem;
+    position: relative;
+    margin-top: 2.1875rem;
+    
+    @include breakpoint(medium down) {
+     
+        .card-image {
+            flex: 0 0 35%;
+max-width: 35%;
+width: 35%;
+margin-bottom: 0;
+            float: right;
+        }
+        
+    }
+
+
+
+    p {
+        display: none;
+    }
+
+    .tags > ul {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: "Source Sans Pro", sans-serif;
+
+        > li {
+            display: inline-flex;
+            line-height: 1.3;
+            align-items: center;
+            font-size: 1rem;
+
+            &:not(:last-child) {
+                margin-right: .9375rem;
+
+            }
+
+            &:before {
+                padding-right: .3125rem;
+                font-size: .75rem;
+                color: $secondary-color;
+                margin-top: .25rem;
+                font-family: $font-awesome;
+                content: fa-content($fa-var-angle-right);
+
+            }
+        }
+
+    }
+}
+
+.news-item-1 {
+
+
+   .card--news {
+
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+
+        .card-image {
+           position: absolute;
+            height: 100%;
+            width: 100%;
+
+           /* &:before {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                max-height: 29.6875rem;
+                opacity: .89;
+                font-size: 1.0625rem;
+                background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 100%)
+            } 
+
+            img {
+               // object-fit: cover;
+                // height: 100%;
+            }
+
+        } 
+
+
+        h3 {
+            font-size: 1.875rem;
+            margin-bottom: 0.3125rem;
+            display: block;
+        }
+
+        a {
+            color: $white;
+            display: block;
+            font-weight: 600;
+
+            &:after {
+                color: $secondary-color;
+            }
+        }
+
+        p {
+            color: $white;
+            display: block;
+        }
+    
+    
+    @include breakpoint(large up) {
+         .card-content {
+            position: relative;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            //padding: 1.25rem;
+            padding: 0 6.25rem 3.125rem 9.6875rem;
+            background: none;
+        }   
+    }
+    
+    
+     @include breakpoint(medium down) {
+     
+        .card-image {
+            position: absolute;
+            height: 100%;
+            max-width: 100%;
+        }
+         
+         .card-content { 
+         padding: 0 1.8765em;
+         }
+         
+         a,p {
+             color: $black;
+             font-weight: 400;
+             
+             &:after {
+                 color: $primary-color;
+             }
+         }
+        
+    }
+    
+}
+} 
+
+
+
+    .card--news {
+
+        h3 {
+            font-size: 1rem;
+            line-height: 1.3;
+            margin-bottom: 0.3125rem;
+            display: block;
+        }
+        
+        card-image {
+            position: relative;
+        }
+
+        p {
+            display: none;
+        }
+
+        a {
+            color: $dark-gray;
+        }
+    } */

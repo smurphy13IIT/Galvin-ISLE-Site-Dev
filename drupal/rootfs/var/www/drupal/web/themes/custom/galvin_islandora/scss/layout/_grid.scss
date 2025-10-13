@@ -1,0 +1,83 @@
+/*section:not(.grid-container, .section--program-detail-intro, .section--checkerboard, [class="clearfix"], .section--detail-page-image) {
+  min-width: 100%;
+  width: 100%;
+  overflow: hidden;
+} */
+
+/// Individual Spacing Values in px
+/// -------------------------
+$spacing--xxsmall: 10;
+$spacing--xsmall: 15;
+$spacing--small: 20;
+$spacing--medium: 30;
+$spacing--default: 40;
+$spacing--large: 50;
+$spacing--xlarge: 60;
+$spacing--xxlarge: 80;
+$spacing--xxxlarge: 100;
+
+/// Vertical Section Spacing
+/// -------------------------
+.section--global-spacing--xxsmall,
+%section--global-spacing--xxsmall,
+.global-spacing--xxsmall,
+%global-spacing--xxsmall {
+  margin-bottom: rem-calc($spacing--xxsmall);
+}
+@mixin global-spacing--xsmall {
+  @include margins-bottom($spacing--xxsmall, $spacing--xsmall, $spacing--small);
+}
+
+.section--global-spacing--xsmall,
+%section--global-spacing--xsmall,
+.global-spacing--xsmall,
+%global-spacing--xsmall {
+  @include global-spacing--xsmall;
+}
+.section--global-spacing--small,
+%section--global-spacing--small,
+.global-spacing--small,
+%global-spacing--small {
+  @include margins-bottom($spacing--small, $spacing--medium, $spacing--medium);
+}
+
+@mixin global-spacing--medium {
+  @include margins-bottom($spacing--small, $spacing--medium, $spacing--default);
+}
+.section--global-spacing--medium,
+%section--global-spacing--medium,
+.global-spacing--medium,
+%global-spacing--medium {
+  @include global-spacing--medium;
+}
+
+@mixin global-spacing {
+  @include margins-bottom($spacing--medium, $spacing--default, $spacing--xlarge);
+}
+.section--global-spacing,
+%section--global-spacing,
+.global-spacing,
+%global-spacing {
+  @include global-spacing;
+}
+
+@mixin global-spacing--large {
+  @include margins-bottom($spacing--medium, $spacing--default, $spacing--xxlarge);
+}
+.section--global-spacing--large,
+%section--global-spacing--large,
+.global-spacing--large,
+%global-spacing--large {
+  @include global-spacing--large;
+}
+
+@mixin global-spacing--xlarge {
+  @include margins-bottom($spacing--large, $spacing--xxlarge, $spacing--xxxlarge);
+}
+
+.section--global-spacing--xlarge,
+%section--global-spacing--xlarge,
+.global-spacing--xlarge,
+%global-spacing--xlarge {
+  @include global-spacing--xlarge;
+}

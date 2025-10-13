@@ -1,0 +1,290 @@
+////
+/// @group content types
+/// Base styles for story elements.
+////
+
+.outcome-title {
+  font-family: $sans-serif;
+  font-weight: 600;
+  color: $brand-red;
+  @include font-sizes(26,30,30);
+}
+.featured-person {
+  .grid-x {
+    align-items: center;
+  }
+  &__media {
+    @include breakpoint(small down) {
+      margin-bottom: rem-calc(30);
+    }
+  }
+  p {
+    @include font-sizes(24,28,28);
+    line-height: 1.45;
+    font-weight: $serif;
+    font-weight: 300;
+  }
+  &__name {
+    font-weight: 600;
+    font-size: rem-calc(18);
+    display: block;
+  }
+  &__degree {
+    @include small-body();
+  }
+}
+
+.section--outcomes {
+  z-index: 6;
+  .slick-list {
+    padding: 0 !important;
+    //overflow: visible;
+  }
+  .outcome-title {
+    color: $white;
+
+    font-family: $serif;
+    font-weight: normal;
+
+    @include font-sizes(24,34,34);
+    @include breakpoint(medium up) {
+      border-bottom: rem-calc(2) solid $brand-gray;
+      max-width: rem-calc(330);
+      padding-bottom: rem-calc(25);
+      margin-bottom: rem-calc(25);
+    }
+  }
+  .featured-person {
+    color: $white;
+    @include breakpoint(large up) {
+      display: flex !important;
+    }
+    p {
+      @include small-body();
+      font-family: $serif;
+    }
+    .arrow-link {
+      a {
+        color: $accent-yellow;
+        font-weight: 600;
+        @extend %h4;
+        font-family: $white;
+        &:after {
+          color: $white;
+        }
+      }
+    }
+    .featured-person__content {
+      max-width: rem-calc(330);
+    }
+    .featured-person__media {
+      @include breakpoint(small down) {
+        max-height: 43vh;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.section--outcomes {
+  overflow: hidden;
+  position: relative;
+  @include breakpoint(medium up) {
+    padding: 0;
+  }
+  &__sliders {
+    @include breakpoint(medium up) {
+      display: flex;
+      //max-width: rem-calc(1620);
+      margin: auto;
+      align-items: center;
+    }
+  }
+}
+
+/// there are 3 different sliders for desktop to manage the grid and floating title
+/// In mobile we ONLY see PRIMARY
+.outcomes-slider-container {
+  position: relative;
+  padding-left: rem-calc(20);
+  @include breakpoint(medium up) {
+    padding: rem-calc(0 40 0 20);
+  }
+  .slick-list {
+    @include breakpoint(large up) {
+      transform: rotate3d(0, 1, 0, 180deg);
+    }
+  }
+  .slick-slide {
+    transition: opacity .4s ease;
+    @include breakpoint(large up) {
+      transform: rotate3d(0, 1, 0, 180deg);
+      transition: opacity .4s ease, transform .8s ease;
+      will-change: transform;
+    }
+  }
+  .slick-active {
+    opacity: 1;
+  }
+  .grid-margin-x {
+    @include breakpoint(medium up) {
+      margin: 0;
+    }
+  }
+  .grid-margin-x > .cell {
+    @include breakpoint(medium up) {
+      @include flex-column(100%);
+      margin: 0;
+    }
+  }
+  .slider__arrow {
+    width: rem-calc(42);
+    height: rem-calc(42);
+    padding: 10px !important;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    top: 33%;
+    @include breakpoint(medium up) {
+      top: 50%;
+    }
+    &:after {
+      padding: 0;
+    }
+  }
+  &--content {
+    @include breakpoint(medium up) {
+      @include flex-column(50%);
+      padding: rem-calc(40 0);
+    }
+    @include breakpoint(large up) {
+      @include flex-column(33%);
+    }
+    div {
+      @include breakpoint(small down) {
+        display: none;
+      }
+    }
+  }
+  &--primary {
+    z-index: 3;
+    @include breakpoint(medium up) {
+      @include flex-column(50%);
+      position: relative;
+    }
+    @include breakpoint(large up) {
+      @include flex-column(33%);
+      max-width: rem-calc(535);
+    }
+  }
+  &--images {
+    @include flex-column(33%);
+    padding-left: 0;
+    @include breakpoint(medium down) {
+      display: none;
+    }
+  }
+}
+.section--outcomes {
+  .slider__arrow--prev {
+    left: rem-calc(-20);
+    @include breakpoint(medium up) {
+      left: 0;
+    }
+  }
+}
+.outcomes-slider--primary {
+  .slick-slide {
+    padding-right: rem-calc(20);
+    @include breakpoint(medium up) {
+      padding-right: 0;
+    }
+  }
+  .medium-8 {
+    @include breakpoint(medium up) {
+      height: 0;
+      width: 0;
+      overflow: hidden;
+    }
+  }
+  .featured-person__media {
+    @include breakpoint(medium up) {
+      padding: rem-calc(0 20);
+    }
+  }
+}
+
+.outcomes-slider--images {
+  .slick-slide {
+    @include breakpoint(large up) {
+      max-width: rem-calc(230);
+      opacity: 0;
+      padding: rem-calc(0 5);
+      &.slick-active,
+      &.slick-active ~ .slick-slide {
+        opacity: .3;
+      }
+    }
+  }
+}
+
+///
+/// Outcomes section overlapping background
+///
+@include breakpoint(medium up) {
+  .section--outcomes {
+    background: none;
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      height: calc(100% - 60px);
+      width: 100%;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      background: $gray;
+    }
+  }
+}
+
+/// If a background section PRECEEDS outcomes only medium up
+/// we add back the bottom 30px and position the pseudo underlay to the bottom
+/// We add some extra negative margins to fill the 30px space (xlarge spacing behavior is global for components)
+@include breakpoint(medium up) {
+  .section--background + .section--outcomes.global-spacing--xlarge {
+    box-shadow: inset 0px 30px 0px 0px $gray;
+  }
+  .section--background--red + .section--outcomes.global-spacing--xlarge {
+    box-shadow: inset 0px 30px 0px 0px $brand-red;
+  }
+  .section--background--gray--light + .section--outcomes.global-spacing--xlarge {
+    box-shadow: inset 0px 30px 0px 0px $gray--light;
+  }
+  .section--background--gray--dark + .section--outcomes.global-spacing--xlarge {
+    box-shadow: inset 0px 30px 0px 0px $gray--dark;
+  }
+}
+
+/// If a background section PROCEEDS outcomes only medium up
+/// We add some extra padding and negative margins to fill the 30px space
+@include breakpoint(medium up) {
+  .section--outcomes + .section--background.global-spacing--xlarge {
+    margin-top: calc(-#{$spacing--xxlarge}px - 30px);
+    padding-top: calc(#{$spacing--xxlarge}px + 30px);
+  }
+}
+@include breakpoint(large up) {
+  .section--outcomes + .section--background.global-spacing--xlarge {
+    margin-top: calc(-#{$spacing--xxxlarge}px - 30px);
+    padding-top: calc(#{$spacing--xxxlarge}px + 30px);
+  }
+}
+
+/// If outcomes is last
+@include breakpoint(medium up) {
+  .section--outcomes:last-child {
+    margin-bottom: rem-calc(-$spacing--medium) !important;
+  }
+}

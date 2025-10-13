@@ -1,0 +1,26 @@
+////
+/// @group wrapper
+/// Main footer styles.
+////
+
+.site-footer {
+  padding: 1rem 0;
+  background-color: $gray;
+
+  p {
+    margin-bottom: 0;
+    font-family: $sans-serif;
+  }
+
+  &__address {
+    text-align: center;
+  }
+
+  &__social-media {
+    //
+  }
+
+  &__copyright {
+    text-align: center;
+  }
+}

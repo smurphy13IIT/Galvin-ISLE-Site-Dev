@@ -1,0 +1,43 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+
+{% block content %}
+  <article class="profile profile--detail">
+    <h1 class="profile__title">{{ label }}</h1>
+    {{ oho_macros.field_list(content.field_profile_position) }}
+
+    <section class="clearfix">
+      <div class="grid-x grid-margin-x align-center">
+        <div class="cell large-4">
+          {{ content.field_profile_image }}
+
+          {% if content.field_profile_phone_number|render or
+              content.field_profile_email|render or
+              content.field_profile_office_location|render %}
+            <div class="contact">
+              <h2>{{ 'Contact Information'|t }}</h2>
+              {% if content.field_profile_email|render %}
+                <span class="fas fa-envelope">
+                  {{ content.field_profile_email }}
+                </span>
+              {% endif %}
+              {% if content.field_profile_phone_number|render %}
+                <span class="fas fa-phone">
+                  {{ content.field_profile_phone_number }}
+                </span>
+              {% endif %}
+              {% if content.field_profile_office_location|render %}
+                <span class="far fa-map-marker-alt">
+                  {{ content.field_profile_office_location }}
+                </span>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="cell large-8">
+          {{ content.body }}
+        </div>
+      </div>
+    </section>
+  </article>
+{% endblock %}

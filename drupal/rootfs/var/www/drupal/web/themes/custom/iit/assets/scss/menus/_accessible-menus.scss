@@ -1,0 +1,110 @@
+////
+/// @group menus
+/// Styles for the accessible menu JavaScript.
+////
+
+/// Styles for all sizes
+/// ---------------------
+.accessible-menu {
+
+  li {
+    position: relative;
+  }
+
+  .menu-item {
+
+    &__button {
+      position: absolute;
+      border: none;
+      background-color: transparent;
+    }
+
+    &--open {
+
+      > ul {
+        display: block;
+      }
+    }
+  }
+}
+.site-header .accessible-menu .menu-item--open > ul {
+  display: block !important;
+}
+/// -------
+
+/// Condensed Menu
+/// -------------------
+@mixin condensed-accessible-menu() {
+  .menu-item {
+    &__button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: rem-calc(60);
+      height: rem-calc(54);
+      margin: 0;
+      padding: .375em;
+      color: transparent;
+      font-size: 0;
+      text-align: right;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:before {
+        display: inline-block;
+        width: 100%;
+        content: fa-content($fa-var-angle-right);
+        color: $brand-red;
+        font-family: $font-awesome;
+        font-weight: 400;
+        line-height: rem-calc(37);
+        font-size: 1.5rem;
+      }
+    }
+    &--open {
+      > .menu-item__button:before {
+        content: fa-content($fa-var-angle-down);
+        color: $brand-gray;
+      }
+    }
+  }
+}
+// -------
+
+/// Large Menu
+/// -------------------
+@mixin large-accessible-menu() {
+  .accessible-menu .menu-item__button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: rem-calc(20);
+    height: rem-calc(20);
+    padding: 0;
+    transition: opacity $primary-transition;
+    opacity: 0;
+    font-size: 0;
+    z-index: -1;
+
+    &:before {
+      width: 100%;
+      content: fa-content($fa-var-chevron-down);
+      color: $white;
+      font-family: $font-awesome;
+      font-size: 16px;
+    }
+
+    &:focus {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    &--open {
+      > .menu-item__button:before {
+        content: fa-content($fa-var-chevron-up);
+      }
+    }
+  }
+}

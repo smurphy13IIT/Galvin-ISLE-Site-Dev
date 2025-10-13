@@ -1,0 +1,53 @@
+////
+/// @group D8
+/// Admin tabs styles for Drupal 8.
+////
+
+.admin-tabs {
+  position: fixed;
+  z-index: 10;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 1em;
+  border-top: 2px solid $gray--dark;
+  border-left: 2px solid $gray--dark;
+  background: $white;
+
+  ul {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    display: inline-block;
+
+    + li {
+      margin-left: .5em;
+    }
+  }
+
+  a {
+    display: block;
+    margin: 0;
+    padding: .5em 1em;
+    transition: background-color $primary-transition;
+    text-decoration: none;
+    color: $white;
+    border-radius: .25em;
+    background-color: $primary-color--dark;
+
+    &:hover {
+      background-color: $primary-color;
+    }
+
+    // Disabling the selector-no-qualifying-type warning here, because there is
+    // no class we can attach this to and pulling this rule out would require us
+    // to use !important anyway.
+    &.is-active { // stylelint-disable-line
+      background-color: $primary-color--light;
+    }
+  }
+}

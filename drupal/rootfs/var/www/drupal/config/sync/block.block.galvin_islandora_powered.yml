@@ -1,0 +1,22 @@
+uuid: 65cd7991-4c57-4501-b097-4b0ca63e0565
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - galvin_islandora
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: galvin_islandora_powered
+theme: galvin_islandora
+region: header_cta_nav
+weight: 3
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

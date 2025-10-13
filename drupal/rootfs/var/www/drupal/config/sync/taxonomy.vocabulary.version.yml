@@ -1,0 +1,9 @@
+uuid: cbd36ae1-0127-40e9-8465-b2584b68fa2b
+langcode: en
+status: true
+dependencies: {  }
+name: Version
+vid: version
+description: 'Version of article'
+weight: 0
+new_revision: false

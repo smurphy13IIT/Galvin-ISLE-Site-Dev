@@ -1,0 +1,9 @@
+uuid: d0b65079-dc73-4dfa-8e92-918c1c78d576
+langcode: en
+status: true
+dependencies: {  }
+name: Department
+vid: department
+description: 'Affiliated Illinois Tech departments for repository objects and people'
+weight: 0
+new_revision: false

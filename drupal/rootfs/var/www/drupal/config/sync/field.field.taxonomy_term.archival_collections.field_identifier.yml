@@ -1,0 +1,19 @@
+uuid: 1fd3df0a-5c60-4a1a-bf7e-ba7a0afb2306
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_identifier
+    - taxonomy.vocabulary.archival_collections
+id: taxonomy_term.archival_collections.field_identifier
+field_name: field_identifier
+entity_type: taxonomy_term
+bundle: archival_collections
+label: identifier
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

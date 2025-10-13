@@ -1,0 +1,25 @@
+uuid: 3f0cd94a-a17d-4642-8ee4-ccc3a8ccf120
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - oho_base
+_core:
+  default_config_hash: hXaAu73YeChkBnJ_uWW_ehlhZVTiu-nIMOAEU2mXsGk
+id: oho_base_branding
+theme: oho_base
+region: secondary_nav
+weight: -6
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

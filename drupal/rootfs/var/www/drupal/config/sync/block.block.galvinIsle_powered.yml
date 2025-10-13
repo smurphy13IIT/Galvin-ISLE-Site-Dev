@@ -1,0 +1,22 @@
+uuid: 9caa3bbc-5f24-4b3c-bdae-5184261fc780
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - galvinIsle
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: galvinIsle_powered
+theme: galvinIsle
+region: meta_header
+weight: 0
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

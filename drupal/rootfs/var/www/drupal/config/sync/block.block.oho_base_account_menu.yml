@@ -1,0 +1,27 @@
+uuid: 2779e2bb-a141-4d99-96e9-c80f0868ebd3
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - oho_base
+_core:
+  default_config_hash: 6IFAC3qIfKON-TCvIwSOD46i3w6gG_wvEspLN3EBBkA
+id: oho_base_account_menu
+theme: oho_base
+region: secondary_nav
+weight: -4
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

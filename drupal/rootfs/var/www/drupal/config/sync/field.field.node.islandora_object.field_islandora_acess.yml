@@ -1,0 +1,29 @@
+uuid: 6b8584ca-ba35-42df-a986-8f145ccbe9b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_islandora_acess
+    - node.type.islandora_object
+    - taxonomy.vocabulary.islandora_access_level
+id: node.islandora_object.field_islandora_acess
+field_name: field_islandora_acess
+entity_type: node
+bundle: islandora_object
+label: 'Islandora Acess'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:filter_existing_terms'
+  handler_settings:
+    target_bundles:
+      islandora_access_level: islandora_access_level
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

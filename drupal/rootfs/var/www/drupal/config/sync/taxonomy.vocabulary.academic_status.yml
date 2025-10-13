@@ -1,0 +1,9 @@
+uuid: f3413503-de43-420c-b89b-9bd920e2b890
+langcode: en
+status: true
+dependencies: {  }
+name: 'Academic Status'
+vid: academic_status
+description: 'Academic status of repository object creator'
+weight: 0
+new_revision: false

@@ -1,0 +1,22 @@
+uuid: 2ea761f0-2a6c-488a-98ed-252eb79fbad7
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - oho_base
+_core:
+  default_config_hash: C56E_bDHzcxDMshZXwecI-cVknewe__rAwYeLmla_wM
+id: oho_base_help
+theme: oho_base
+region: content
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

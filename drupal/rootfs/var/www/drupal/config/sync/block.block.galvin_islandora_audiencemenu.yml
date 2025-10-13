@@ -1,0 +1,31 @@
+uuid: 5e1877f5-0181-4ec9-b743-a571fabf0024
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.audience-menu
+  module:
+    - islandora
+    - system
+  theme:
+    - galvin_islandora
+id: galvin_islandora_audiencemenu
+theme: galvin_islandora
+region: secondary_nav
+weight: -20
+provider: null
+plugin: 'system_menu_block:audience-menu'
+settings:
+  id: 'system_menu_block:audience-menu'
+  label: 'Audience Menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  media_source_mimetype:
+    id: media_source_mimetype
+    negate: false
+    context_mapping: {  }
+    mimetype: ''

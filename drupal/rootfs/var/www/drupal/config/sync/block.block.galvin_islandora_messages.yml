@@ -1,0 +1,22 @@
+uuid: e5a47025-5e81-4fde-8281-b08bb0dabcfc
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - galvin_islandora
+_core:
+  default_config_hash: BZ5tpW7H8X4PVGRm3MImTIHd2tN0eF7zOtp4SpRYUA0
+id: galvin_islandora_messages
+theme: galvin_islandora
+region: highlighted
+weight: -23
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

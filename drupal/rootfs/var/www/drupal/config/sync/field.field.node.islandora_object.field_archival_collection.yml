@@ -1,0 +1,29 @@
+uuid: 3661a6bf-4c97-4d46-8309-9b09cb9ea9cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_archival_collection
+    - node.type.islandora_object
+    - taxonomy.vocabulary.archival_collections
+id: node.islandora_object.field_archival_collection
+field_name: field_archival_collection
+entity_type: node
+bundle: islandora_object
+label: 'Archival Collection'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:filter_existing_terms'
+  handler_settings:
+    target_bundles:
+      archival_collections: archival_collections
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

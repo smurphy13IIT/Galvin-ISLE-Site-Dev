@@ -1,0 +1,23 @@
+uuid: 97b48fda-d67a-4bee-bc33-0eba7a4b9703
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_uri
+    - taxonomy.vocabulary.archival_collections
+  module:
+    - link
+id: taxonomy_term.archival_collections.field_uri
+field_name: field_uri
+entity_type: taxonomy_term
+bundle: archival_collections
+label: URI
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

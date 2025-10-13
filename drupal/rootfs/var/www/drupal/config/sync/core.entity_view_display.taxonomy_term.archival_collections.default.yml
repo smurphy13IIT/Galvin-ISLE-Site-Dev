@@ -1,0 +1,57 @@
+uuid: 3192fc6d-b4d8-4b79-8b8b-660aa7cabf94
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.archival_collections.feeds_item
+    - field.field.taxonomy_term.archival_collections.field_identifier
+    - field.field.taxonomy_term.archival_collections.field_location
+    - field.field.taxonomy_term.archival_collections.field_uri
+    - taxonomy.vocabulary.archival_collections
+  module:
+    - link
+    - text
+id: taxonomy_term.archival_collections.default
+targetEntityType: taxonomy_term
+bundle: archival_collections
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_identifier:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_location:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_uri:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  feeds_item: true
+  langcode: true
+  search_api_excerpt: true

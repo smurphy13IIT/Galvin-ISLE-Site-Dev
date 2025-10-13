@@ -1,0 +1,46 @@
+uuid: 6e7435f2-5334-4939-84ea-eb8b26efc435
+langcode: en
+status: false
+dependencies:
+  config:
+    - facets.facet.subject_temporal_swc
+  module:
+    - context
+    - facets
+    - islandora
+  theme:
+    - galvin_islandora
+id: galvin_islandora_subjecttemporalswc
+theme: galvin_islandora
+region: header_cta_nav
+weight: 0
+provider: null
+plugin: 'facet_block:subject_temporal_swc'
+settings:
+  id: 'facet_block:subject_temporal_swc'
+  label: 'Temporal Subject'
+  label_display: visible
+  provider: facets
+  context_mapping: {  }
+  block_id: subjecttemporalswc
+visibility:
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid
+  context_all:
+    id: context_all
+    negate: null
+    values: collection
+  media_source_mimetype:
+    id: media_source_mimetype
+    negate: false
+    context_mapping: {  }
+    mimetype: ''

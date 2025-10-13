@@ -1,0 +1,9 @@
+uuid: 9bbfd119-9147-402d-994d-d09a50957946
+langcode: en
+status: true
+dependencies: {  }
+name: 'Archival Collections'
+vid: archival_collections
+description: null
+weight: 0
+new_revision: false

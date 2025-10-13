@@ -1,0 +1,20 @@
+uuid: 5261204d-8ced-42a3-bda5-0a00be827517
+langcode: en
+status: true
+dependencies:
+  theme:
+    - iit
+_core:
+  default_config_hash: tS1kHkuBQNDSVEzKTHhm4u00uNOm0EfJrtrN95qtXTY
+id: iit_page_title
+theme: iit
+region: content
+weight: -50
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

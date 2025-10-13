@@ -22,6 +22,13 @@ conditions:
       node: '@node.node_route_context:node'
     uri: 'http://mozilla.github.io/pdf.js'
     logic: and
+  media_has_mimetype:
+    id: media_has_mimetype
+    negate: false
+    uuid: ee3dad13-aa00-4868-8afc-a6701cc0acd0
+    context_mapping:
+      node: '@node.node_route_context:node'
+    mimetypes: application/pdf
 reactions:
   blocks:
     id: blocks
@@ -37,6 +44,74 @@ reactions:
         weight: '0'
         custom_id: views_block_media_display_blocks_pdfjs
         theme: olivero
+        css_class: ''
+        unique: 0
+        context_id: pdfjs
+        context_mapping: {  }
+        views_label: ''
+        items_per_page: none
+        third_party_settings: {  }
+      333665cb-04f4-4d74-a9e9-15c0ca71b5c7:
+        uuid: 333665cb-04f4-4d74-a9e9-15c0ca71b5c7
+        id: 'views_block:media_display_blocks-pdfjs'
+        label: ''
+        provider: views
+        label_display: visible
+        region: content
+        weight: '0'
+        custom_id: views_block_media_display_blocks_pdfjs
+        theme: galvinIsle
+        css_class: ''
+        unique: 0
+        context_id: pdfjs
+        context_mapping: {  }
+        views_label: ''
+        items_per_page: none
+        third_party_settings: {  }
+      bac4c369-db78-4578-9cea-39fbce93dfe2:
+        uuid: bac4c369-db78-4578-9cea-39fbce93dfe2
+        id: 'views_block:media_display_blocks-pdfjs'
+        label: ''
+        provider: views
+        label_display: '0'
+        region: content_above
+        weight: '0'
+        custom_id: views_block_media_display_blocks_pdfjs
+        theme: galvin_islandora
+        css_class: ''
+        unique: 0
+        context_id: pdfjs
+        context_mapping: {  }
+        views_label: ''
+        items_per_page: none
+        third_party_settings: {  }
+      2bc58230-2e06-458b-8a90-15a799670099:
+        uuid: 2bc58230-2e06-458b-8a90-15a799670099
+        id: 'views_block:media_display_blocks-pdfjs'
+        label: ''
+        provider: views
+        label_display: visible
+        region: content
+        weight: '0'
+        custom_id: views_block_media_display_blocks_pdfjs
+        theme: zurb_foundation
+        css_class: ''
+        unique: 0
+        context_id: pdfjs
+        context_mapping: {  }
+        views_label: ''
+        items_per_page: none
+        third_party_settings: {  }
+      acd952f6-5a67-44e3-8651-84da4f9133ea:
+        uuid: acd952f6-5a67-44e3-8651-84da4f9133ea
+        id: 'views_block:media_display_blocks-pdfjs'
+        label: ''
+        provider: views
+        label_display: visible
+        region: content
+        weight: '0'
+        custom_id: views_block_media_display_blocks_pdfjs
+        theme: iit
         css_class: ''
         unique: 0
         context_id: pdfjs

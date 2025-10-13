@@ -1,0 +1,81 @@
+uuid: 74bc2c28-6087-43b4-8a85-50a7cf8072dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.archival_collections.feeds_item
+    - field.field.taxonomy_term.archival_collections.field_identifier
+    - field.field.taxonomy_term.archival_collections.field_location
+    - field.field.taxonomy_term.archival_collections.field_uri
+    - taxonomy.vocabulary.archival_collections
+  module:
+    - link
+    - path
+    - text
+id: taxonomy_term.archival_collections.default
+targetEntityType: taxonomy_term
+bundle: archival_collections
+mode: default
+content:
+  description:
+    type: text_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_identifier:
+    type: string_textfield
+    weight: 102
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_location:
+    type: string_textfield
+    weight: 101
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_uri:
+    type: link_default
+    weight: 101
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 100
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  feeds_item: true

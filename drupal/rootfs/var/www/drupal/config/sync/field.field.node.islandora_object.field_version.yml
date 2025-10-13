@@ -1,0 +1,29 @@
+uuid: 8dde1a43-6dd5-4819-9a5d-811a75ad7f20
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_version
+    - node.type.islandora_object
+    - taxonomy.vocabulary.version
+id: node.islandora_object.field_version
+field_name: field_version
+entity_type: node
+bundle: islandora_object
+label: Version
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:filter_existing_terms'
+  handler_settings:
+    target_bundles:
+      version: version
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,11 @@
+uuid: 2354107d-b803-40ef-a633-109297c7d037
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.academic_status
+id: taxonomy_term.academic_status
+target_entity_type_id: taxonomy_term
+target_bundle: academic_status
+default_langcode: site_default
+language_alterable: false

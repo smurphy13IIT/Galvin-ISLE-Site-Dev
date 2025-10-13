@@ -1,0 +1,22 @@
+uuid: f9fa4c25-0cfe-4578-a60b-4b3b141e2ce3
+langcode: en
+status: true
+dependencies:
+  theme:
+    - oho_base
+_core:
+  default_config_hash: ESYMyEtJWIpA1zdPm3_ZghkGppH4KLd18_1R9Yc7DEg
+id: oho_base_local_tasks
+theme: oho_base
+region: content
+weight: -40
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: true
+visibility: {  }

@@ -1,0 +1,20 @@
+uuid: 5201d0d7-7730-4869-b4e2-20b29025be5e
+langcode: en
+status: true
+dependencies:
+  theme:
+    - galvinIsle
+_core:
+  default_config_hash: Q9_2whdOj1YIomfvsIfopROW4FT_X5pY0DjdOiOaQ5U
+id: galvinIsle_primary_admin_actions
+theme: galvinIsle
+region: highlighted
+weight: -6
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

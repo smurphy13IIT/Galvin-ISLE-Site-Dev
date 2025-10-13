@@ -1,0 +1,46 @@
+uuid: 3c8a8d0b-76ca-4472-aebb-0a15d11b814e
+langcode: en
+status: false
+dependencies:
+  config:
+    - facets.facet.physical_form_swc
+  module:
+    - context
+    - facets
+    - islandora
+  theme:
+    - galvin_islandora
+id: galvin_islandora_physicalformswc
+theme: galvin_islandora
+region: header_cta_nav
+weight: -8
+provider: null
+plugin: 'facet_block:physical_form_swc'
+settings:
+  id: 'facet_block:physical_form_swc'
+  label: 'Physical Form'
+  label_display: visible
+  provider: facets
+  context_mapping: {  }
+  block_id: physicalformswc
+visibility:
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid
+  context_all:
+    id: context_all
+    negate: null
+    values: collection
+  media_source_mimetype:
+    id: media_source_mimetype
+    negate: false
+    context_mapping: {  }
+    mimetype: ''

@@ -1,0 +1,20 @@
+uuid: 011563fd-0703-4c5d-a308-f3ae0f460267
+langcode: en
+status: true
+dependencies:
+  theme:
+    - galvin_islandora
+_core:
+  default_config_hash: Q9_2whdOj1YIomfvsIfopROW4FT_X5pY0DjdOiOaQ5U
+id: galvin_islandora_primary_admin_actions
+theme: galvin_islandora
+region: content_above
+weight: -20
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

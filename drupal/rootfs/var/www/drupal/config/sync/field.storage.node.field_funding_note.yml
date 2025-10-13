@@ -1,0 +1,21 @@
+uuid: 39572bc0-3087-4e7d-a101-a28f73c5f0a6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_funding_note
+field_name: field_funding_note
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,27 @@
+uuid: 93890761-1e73-4af3-85cb-bad1bce84374
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - oho_base
+_core:
+  default_config_hash: Xx6wRMs8VX0_djh4L2KXPUzC-k-yHkYRYHpaK5x7HyA
+id: oho_base_footer
+theme: oho_base
+region: secondary_nav
+weight: -6
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: 'Footer menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

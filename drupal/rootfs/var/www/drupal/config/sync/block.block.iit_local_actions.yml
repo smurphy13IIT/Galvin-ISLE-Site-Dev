@@ -1,0 +1,20 @@
+uuid: 82ab5999-6ec3-4995-8cd0-798924c3783b
+langcode: en
+status: true
+dependencies:
+  theme:
+    - iit
+_core:
+  default_config_hash: iL16bexVNDVUyQ-OkjHI1SxNSSwo4di1lgHNiIpamvk
+id: iit_local_actions
+theme: iit
+region: content
+weight: -20
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

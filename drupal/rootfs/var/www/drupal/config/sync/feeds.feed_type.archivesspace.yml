@@ -1,0 +1,111 @@
+uuid: 973fb37a-7dc7-414b-86b9-721ec2d76323
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.archival_collections.field_identifier
+    - field.field.taxonomy_term.archival_collections.field_uri
+    - taxonomy.vocabulary.archival_collections
+  module:
+    - feeds_ex
+    - feeds_log
+    - taxonomy
+third_party_settings:
+  feeds_log:
+    status: true
+    operations:
+      created: created
+      updated: updated
+      deleted: deleted
+      skipped: skipped
+      failed: failed
+      cleaned: cleaned
+    items:
+      created: created
+      updated: updated
+      deleted: deleted
+      skipped: skipped
+      failed: failed
+    source: true
+label: Archivesspace
+id: archivesspace
+description: 'Archivesspace import feed'
+help: ''
+import_period: 604800
+fetcher: http
+fetcher_configuration:
+  auto_detect_feeds: false
+  use_pubsubhubbub: false
+  always_download: false
+  fallback_hub: ''
+  request_timeout: 30
+parser: xml
+parser_configuration:
+  context:
+    value: /OAI-PMH/ListRecords/record
+  source_encoding:
+    - auto
+  display_errors: false
+  line_limit: 100
+  use_tidy: false
+processor: 'entity:taxonomy_term'
+processor_configuration:
+  values:
+    vid: archival_collections
+  langcode: en
+  insert_new: 1
+  update_existing: 2
+  update_non_existent: _delete
+  skip_hash_check: false
+  skip_validation: false
+  skip_validation_types: {  }
+  authorize: false
+  revision: false
+  expire: -1
+  owner_feed_author: false
+  owner_id: 0
+custom_sources:
+  name:
+    label: name
+    machine_name: name
+    value: 'metadata/oai_dcterms:dcterms/dcterms:title'
+    raw: true
+    inner: true
+    type: xml
+  uri:
+    label: uri
+    machine_name: uri
+    value: 'metadata/oai_dcterms:dcterms/dcterms:identifier[2]'
+    raw: true
+    inner: true
+    type: xml
+  identifier_dcterms_identifier_1:
+    label: identifier
+    machine_name: identifier_dcterms_identifier_1
+    value: 'metadata/oai_dcterms:dcterms/dcterms:identifier[1]'
+    raw: true
+    inner: true
+    type: xml
+mappings:
+  -
+    target: name
+    map:
+      value: name
+    settings:
+      language: null
+    unique: {  }
+  -
+    target: field_uri
+    map:
+      uri: uri
+      title: uri
+    settings:
+      language: null
+  -
+    target: field_identifier
+    map:
+      value: identifier_dcterms_identifier_1
+    settings:
+      language: null
+    unique:
+      value: 1

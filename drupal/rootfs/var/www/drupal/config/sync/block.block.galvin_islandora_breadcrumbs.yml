@@ -1,0 +1,22 @@
+uuid: 28babb60-51c8-4846-9700-6def0cd0c67a
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - galvin_islandora
+_core:
+  default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
+id: galvin_islandora_breadcrumbs
+theme: galvin_islandora
+region: header_cta_nav
+weight: 2
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

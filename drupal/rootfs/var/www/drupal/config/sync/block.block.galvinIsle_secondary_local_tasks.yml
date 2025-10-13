@@ -1,0 +1,22 @@
+uuid: 455ecff6-2ba1-4498-b644-e1f6583e9321
+langcode: en
+status: true
+dependencies:
+  theme:
+    - galvinIsle
+_core:
+  default_config_hash: ydSxdq7R66I8UMC460rOzlfzvlUL4VRbdwc6z9DWaUI
+id: galvinIsle_secondary_local_tasks
+theme: galvinIsle
+region: highlighted
+weight: -3
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }

@@ -1,0 +1,9 @@
+uuid: 86f3c37a-6293-4aea-ae73-48444b051278
+langcode: en
+status: true
+dependencies: {  }
+name: 'Access Condition'
+vid: access_condition
+description: 'Controlled vocabulary that indicates access conditions of an object'
+weight: 0
+new_revision: false

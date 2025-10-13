@@ -1,0 +1,11 @@
+uuid: 14cd3d5e-8c63-4c7e-b65c-9fbd284c6048
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.islandora_access_level
+id: taxonomy_term.islandora_access_level
+target_entity_type_id: taxonomy_term
+target_bundle: islandora_access_level
+default_langcode: site_default
+language_alterable: false

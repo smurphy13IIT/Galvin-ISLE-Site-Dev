@@ -1,0 +1,25 @@
+uuid: 5ed189e0-1d6d-4149-9abc-731678fe42ed
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - iit
+_core:
+  default_config_hash: hXaAu73YeChkBnJ_uWW_ehlhZVTiu-nIMOAEU2mXsGk
+id: iit_branding
+theme: iit
+region: header_cta_nav
+weight: -6
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  label_display: '0'
+  provider: system
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

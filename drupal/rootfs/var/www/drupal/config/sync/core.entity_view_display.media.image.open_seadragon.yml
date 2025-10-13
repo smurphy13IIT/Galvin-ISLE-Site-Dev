@@ -29,6 +29,14 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  field_mime_type:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
 hidden:
   created: true
   field_file_size: true
@@ -36,7 +44,6 @@ hidden:
   field_height: true
   field_media_of: true
   field_media_use: true
-  field_mime_type: true
   field_original_name: true
   field_width: true
   langcode: true

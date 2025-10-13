@@ -23,6 +23,7 @@ settings:
   authority_sources:
     marcform: 'MARC form of item term list'
     other: Other
+    aat: 'Art & Architecture Thesaurus'
   title: 1
   link_type: 16
 field_type: authority_link

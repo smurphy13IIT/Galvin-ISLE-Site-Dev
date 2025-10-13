@@ -1,0 +1,9 @@
+uuid: 81836fcc-e91a-4ce3-b7a5-4c85285144e1
+langcode: en
+status: true
+dependencies: {  }
+name: Rights
+vid: rights
+description: 'Rightsstatements.org or Creative Commons license statements'
+weight: 0
+new_revision: false

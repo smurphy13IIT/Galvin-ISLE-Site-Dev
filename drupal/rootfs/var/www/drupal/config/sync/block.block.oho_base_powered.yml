@@ -1,0 +1,22 @@
+uuid: 7802440e-81e8-4394-bc9e-7bfdfdbb84e4
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - oho_base
+_core:
+  default_config_hash: iLsnkroCNXMJqpfxJPPEnV9pCoAbnxLOr4-1Aai7zUA
+id: oho_base_powered
+theme: oho_base
+region: secondary_nav
+weight: -6
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

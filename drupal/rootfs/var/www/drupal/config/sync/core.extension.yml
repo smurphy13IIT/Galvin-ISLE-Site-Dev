@@ -34,9 +34,13 @@ module:
   dgi_image_discovery: 0
   dynamic_page_cache: 0
   editor: 0
+  embargo: 0
   eva: 0
   facets: 0
   facets_summary: 0
+  feeds: 0
+  feeds_ex: 0
+  feeds_log: 0
   field: 0
   field_group: 0
   field_permissions: 0
@@ -58,6 +62,7 @@ module:
   islandora_breadcrumbs: 0
   islandora_core_feature: 0
   islandora_fits: 0
+  islandora_hierarchical_access: 0
   islandora_iiif: 0
   islandora_image: 0
   islandora_mirador: 0
@@ -89,7 +94,7 @@ module:
   path: 0
   path_alias: 0
   pdf: 0
-  pgsql: 0
+  permissions_by_term: 0
   prepopulate: 0
   rdf: 0
   responsive_image: 0
@@ -99,7 +104,6 @@ module:
   search_api_solr: 0
   serialization: 0
   shortcut: 0
-  sqlite: 0
   syslog: 0
   system: 0
   taxonomy: 0
@@ -124,4 +128,10 @@ module:
 theme:
   olivero: 0
   claro: 0
+  stable9: 0
+  zurb_foundation: 0
+  oho_base: 0
+  iit: 0
+  galvinIsle: 0
+  galvin_islandora: 0
 profile: minimal

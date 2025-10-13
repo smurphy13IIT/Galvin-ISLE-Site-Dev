@@ -1,0 +1,80 @@
+////
+/// @group menus
+/// Styles for landing page menu.
+////
+
+.section--landing-nav {
+  background: $medium-gray;
+  @include paddings-top($spacing--medium, $spacing--default, $spacing--large);
+  @include paddings-bottom($spacing--medium, $spacing--default, $spacing--large);
+  h2 {
+    @include font-sizes(20,24,24);
+    @include breakpoint(small down) {
+      @include show-for-sr;
+    }
+  }
+  button {
+    margin-bottom: 0;
+    &:hover {
+      background-color: $accent-yellow;
+    }
+  }
+  ul {
+    @include breakpoint(medium up) {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: rem-calc(-20);
+      margin-right: rem-calc(-20);
+    }
+  }
+  li {
+    @include breakpoint(small down) {
+      &:not(:last-child) {
+        border-bottom: rem-calc(1) solid $light-gray;
+      }
+    }
+    @include breakpoint(medium up) {
+      margin-bottom: rem-calc(20);
+      @include flex-column(33.33333%);
+      display: flex;
+      padding: rem-calc(0 20);
+    }
+  }
+  ul {
+    padding: 0;
+    @include breakpoint(small down) {
+      background: $white;
+      padding: rem-calc(0 20);
+    }
+  }
+  a {
+    display: block;
+    @include breakpoint(small down) {
+      padding: rem-calc(10 0);
+    }
+    @include breakpoint(medium up) {
+      @include btn;
+      @include btn-light;
+      background: #FFFFFF;
+      box-shadow: 0 1px 3px 0 rgba(0,0,0,0.20);
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+.landing-nav {
+  @include breakpoint(medium up) {
+    margin-bottom: rem-calc(-20);
+  }
+}
+.landing-nav__links {
+  @include breakpoint(small down) {
+    display: none;
+  }
+}
+
+.landing-nav-open .landing-nav__links {
+  display: block;
+}

@@ -1,0 +1,19 @@
+<article class="news-landing">
+  <h1>{{ label }}</h1>
+
+  <section>
+    <div class="row">
+      <div class="columns small-12 medium-9 large-9">
+        {{ content.field_nl_featured_news }}
+      </div>
+      <div class="columns small-12 medium-3 large-3">
+        {{ content.field_nl_secondary_featured_news }}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    {{ recent_news }}
+    <a href="{{ structure_settings.news_listing_url }}" class="btn">{{ 'View All News'|t }}</a>
+  </section>
+</article>

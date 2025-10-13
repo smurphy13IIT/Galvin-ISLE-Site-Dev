@@ -1,0 +1,37 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+<article class="checkerboard-item">
+  <div class="checkerboard-item__media compat-object-fit-container">
+    {% if content.field_component_video|render %}
+      <a data-fancybox href="{{ content.field_component_video }}">
+        {{ content.field_component_image }}
+        <svg width="496px" height="496px" viewBox="0 0 496 496" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="caret-circle-right" fill="#FFFFFF" fill-rule="nonzero">
+              <g id="Shape">
+                <path d="M248,0 C385,0 496,111 496,248 C496,385 385,496 248,496 C111,496 0,385 0,248 C0,111 111,0 248,0 Z M220.5,379.5 L343.5,256.5 C348.2,251.8 348.2,244.2 343.5,239.5 L220.5,116.5 C212.9,108.9 200,114.3 200,125 L200,371 C200,381.7 212.9,387.1 220.5,379.5 Z"></path>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </a>
+    {% else %}
+      {{ content.field_component_image }}
+    {% endif %}
+    <p>{{ content.field_component_caption }}</p>
+  </div>
+  <div class="checkerboard-item__info">
+    <div class="checkerboard-item__info__inner">
+      <h2>
+        {% if content.field_component_title_link|render %}
+          <a href="{{ content.field_component_title_link }}">
+            {{ content.field_component_title }}
+          </a>
+        {% else %}
+          {{ content.field_component_title }}
+        {% endif %}
+      </h2>
+      {{ content.field_component_body }}
+      {{ oho_macros.link_field_link(content.field_component_link, 'btn') }}
+    </div>
+  </div>
+</article>

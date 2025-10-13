@@ -1,0 +1,201 @@
+////
+/// @group components
+/// Styles for the testimonials.
+////
+
+.section--testimonial {
+  overflow: hidden;
+
+  blockquote {
+    @include paddings-left-right(0,100,100);
+    @include font-sizes(16,24,24);
+    padding-bottom: 0;
+    @extend %global-spacing--medium;
+    &:before {
+      @include font-sizes(40,55,55);
+    }
+  }
+  .slick-slider {
+    .slick-list {
+      padding: 0 !important;
+    }
+    .slick-prev, .slick-next {
+      cursor: pointer;
+      position: absolute;
+      z-index: 4;
+      width: auto;
+      height: rem-calc(38);
+      width: rem-calc(38);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0 !important;
+      font-weight: bold;
+      user-select: none;
+      background: $brand-red;
+      color: #fff;
+      right: 0;
+      position: absolute;
+      top: rem-calc(83);
+      transition: ease background 1s;
+
+      @include breakpoint(medium up) {
+        top: 50%;
+        font-size: rem-calc(20);
+        color: $brand-gray;
+        background: none;
+        margin-top: -30px;
+      }
+
+      &:after {
+        content: "\f054";
+        font-size: rem-calc(15);
+        font-family: $font-awesome;
+      }
+      &:before {
+        display: none;
+      }
+    }
+    .slick-prev {
+      left: auto;
+      right: 0;
+
+      @include breakpoint(medium up) {
+        left: 0;
+        right: auto;
+      }
+      @include breakpoint(small down) {
+        top: rem-calc(125);
+      }
+
+      &:after {
+        content: fa-content($fa-var-chevron-left);
+      }
+    }
+
+    .slick-prev:hover, .slick-next:hover {
+      text-decoration: none;
+      color: $text-color;
+      background: $accent-yellow;
+    }
+    .slick-slide {
+      transition: opacity .4s ease;
+      opacity: 0;
+
+      @include breakpoint (small only) {
+        padding: rem-calc(0 40);
+      }
+
+      &.slick-active {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  width: auto;
+  height: rem-calc(38);
+  width: rem-calc(38);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: rem-calc(15);
+  font-weight: bold;
+  user-select: none;
+  background: $brand-red;
+  color: #fff;
+  right: 0;
+  position: absolute;
+  top: rem-calc(83);
+  transition: ease background 1s;
+
+  @include breakpoint(medium up) {
+    top: 50%;
+    font-size: rem-calc(20);
+    color: $brand-gray;
+    background: none;
+    margin-top: -30px;
+  }
+}
+.prev {
+  @include breakpoint(medium up) {
+    left: 0;
+    right: auto;
+  }
+  @include breakpoint(small down) {
+    top: rem-calc(125);
+  }
+}
+
+.prev:hover, .next:hover {
+  text-decoration: none;
+  color: $text-color;
+  background: $accent-yellow;
+}
+
+.quote-icon:before {
+  @extend %global-spacing--medium ;
+  position: relative;
+  top: auto;
+  left: auto;
+  @include breakpoint(medium) {
+    text-align: center;
+  }
+}
+.author {
+  @include breakpoint(medium up) {
+    text-align: center;
+  }
+}
+
+.author__img {
+  display: block;
+  width: rem-calc(90);
+  height: rem-calc(90);
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @include breakpoint(medium up) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.quote-text {
+  font-family: $serif-alternate;
+  padding-right: rem-calc(50);
+  @include breakpoint(medium up) {
+    text-align: center;
+    padding-right: 0;
+  }
+}
+
+.section-testimonial__slides {
+  @include breakpoint(small down) {
+    display: flex;
+    flex-direction: column;
+    .quote-icon {
+      order: 1;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .author {
+      order: 3;
+    }
+    .author__img {
+      order: 2;
+      margin-bottom: rem-calc(10);
+    }
+  }
+}

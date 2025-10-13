@@ -1,0 +1,48 @@
+{%
+  set classes = [
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+    'listing listing--college-people',
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {{ title }}
+  {{ title_suffix }}
+
+  <div class="grid-container search-tabs global-spacing--medium">
+    <ul>
+      <li><a href="{{ structure_settings.profile_listing_url }}" class="active-tab">{{ 'See Full Illinois Tech Directory'|t }}</a></li>
+    </ul>
+  </div>
+
+  <div class="listing__form listing__form--alpha listing__form--school">
+    <div class="grid-container">
+      {{ exposed }}
+    </div>
+  </div>
+
+  {% if header %}
+    <header>
+      {{ header }}
+    </header>
+  {% endif %}
+
+  {{ attachment_before }}
+
+  <div class="grid-container global-spacing--large">
+    {{ rows }}
+    {{ empty }}
+    {{ pager }}
+  </div>
+
+  {{ attachment_after }}
+  {{ more }}
+
+  {% if footer %}
+    <footer>
+      {{ footer }}
+    </footer>
+  {% endif %}
+
+  {{ feed_icons }}
+</div>

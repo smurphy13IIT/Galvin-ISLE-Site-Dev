@@ -1,0 +1,90 @@
+{#
+  /**
+   * Template to override the page display of staff directory view.
+* This custom template adds Foundation grid classes, a view-specific menu and other theme related elements around the view content.
+   */
+#}
+
+
+{#
+/**
+ * @file
+ * Theme override for main view template.
+ *
+ * Available variables:
+ * - attributes: Remaining HTML attributes for the element.
+ * - css_name: A CSS-safe version of the view name.
+ * - css_class: The user-specified classes names, if any.
+ * - header: The optional header.
+ * - footer: The optional footer.
+ * - rows: The results of the view query, if any.
+ * - empty: The content to display if there are no rows.
+ * - pager: The optional pager next/prev links to display.
+ * - exposed: Exposed widget form/info to display.
+ * - feed_icons: Optional feed icons to display.
+ * - more: An optional link to the next page of results.
+ * - title: Title of the view, only used when displaying in the admin preview.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the view title.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the view title.
+ * - attachment_before: An optional attachment view to be displayed before the
+ *   view content.
+ * - attachment_after: An optional attachment view to be displayed after the
+ *   view content.
+ * - dom_id: Unique id for every view being printed to give unique class for
+ *   JavaScript.
+ *
+ * @see template_preprocess_views_view()
+ */
+#}
+{%
+  set classes = [
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+    {{ title_prefix }}
+    {{ title }}
+    {{ title_suffix }}
+
+    {% if header %}
+    <header>
+        {{ header }}
+    </header>
+    {% endif %}
+    <div class="grid-container search-tabs global-spacing--medium">
+        <ul>
+            <li><a href="{{ url('view.staff_directory.page_1') }}" class="active-tab">{{ 'Find a Person'|t }}</a></li>
+            <li><a href="{{ url('view.departments_directory.page_1') }}">{{ 'Find an Office or Department'|t }}</a></li>
+            <li><a href="{{ url('view.subject_specialties.page_2') }}">{{ 'Find a Subject Specialist'|t }}</a></li>
+
+        </ul>
+    </div>
+    <div class="listing__form listing__form--alpha global-spacing--large">
+        <div class="grid-container">
+            {{ exposed }}
+            {{ attachment_before }}
+        </div>
+    </div>
+    <div class="grid-container">
+
+        {% if rows -%}
+        {{ rows }}
+        {% elseif empty -%}
+        {{ empty }}
+        {% endif %}
+        {{ pager }}
+    </div>
+
+    {{ attachment_after }}
+    {{ more }}
+
+    {% if footer %}
+    <footer>
+        {{ footer }}
+    </footer>
+    {% endif %}
+
+    {{ feed_icons }}
+    </div>

@@ -1,0 +1,23 @@
+{#
+  /**
+   * Template to display a lined section heading.
+   *
+   * Variables:
+   *  - title (string): Title. Required.
+   *  - body (string): Body.
+   */
+#}
+<div class="accordion " data-accordion-open-text="{{ 'Click to Open'|t }}" data-accordion-close-text="{{ 'Click to Close'|t }}">
+  <button class="accordion__button btn">
+    <span class="show-for-sr"></span>
+    <span class="accordion__button-text">{{ title }}</span>
+    <svg class='accordion__icon' version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      viewBox="0 0 10 17" style="enable-background:new 0 0 10 17;" xml:space="preserve">
+    <path class="accordion__icon-path" class="st0" d="M9.7,9.2l-7.3,7.5c-0.4,0.4-0.9,0.4-1.3,0l-0.9-0.9c-0.4-0.4-0.4-1,0-1.3
+      l5.8-6l-5.8-6c-0.4-0.4-0.4-1,0-1.3l0.9-0.9c0.4-0.4,0.9-0.4,1.3,0l7.3,7.5C10.1,8.2,10.1,8.8,9.7,9.2z"/>
+    </svg>
+  </button>
+  <div class="accordion__content">
+    {{ body }}
+  </div>
+</div>

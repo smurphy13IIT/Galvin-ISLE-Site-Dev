@@ -1,0 +1,17 @@
+{# Note: The twig calls are intentionally spaces as they are to eliminate extra white space. #}
+{% if label_hidden %}
+{% for item in items %}{{ item.content }}{% endfor %}
+{% else %}
+  <div{{ attributes }}>
+    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
+    {% if multiple %}
+      <div>
+    {% endif %}
+    {% for item in items %}
+      <div{{ item.attributes }}>{{ item.content }}</div>
+    {% endfor %}
+    {% if multiple %}
+      </div>
+    {% endif %}
+  </div>
+{% endif %}

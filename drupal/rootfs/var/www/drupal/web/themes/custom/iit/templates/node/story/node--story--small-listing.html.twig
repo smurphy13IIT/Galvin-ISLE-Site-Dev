@@ -1,0 +1,15 @@
+<div class="cell initial-12 medium-4">
+  <article class="card card--unbounded card--related-story">
+    {% if content.field_story_image|render %}
+      <div class="card__media">{{ content.field_story_image }}</div>
+    {% endif %}
+    <div class="card__content">
+      <div class="card__content__inner">
+        <h3 class="arrow-link"><a href="{{ url }}">{{ node.label }}</a></h3>
+        {% if content.field_story_subject_degree_year|render %}
+          <p><b>{{ content.field_story_subject_degree_year }}</b></p>
+        {% endif %}
+      </div>
+    </div>
+  </article>
+</div>

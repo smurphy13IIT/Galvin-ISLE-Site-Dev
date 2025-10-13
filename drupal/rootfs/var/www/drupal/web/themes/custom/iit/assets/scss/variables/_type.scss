@@ -1,0 +1,19 @@
+////
+/// @group variables
+/// Site-wide typefaces.
+////
+
+/// Typeface Definitions
+/// --------------------
+
+/// Typefaces
+/// @type String
+$serif: 'Roboto Slab', serif;
+$serif-alternate: 'Source Serif Pro', serif;
+$sans-serif: 'Source Sans Pro', sans-serif;
+//$font-awesome: 'Font Awesome 6 Pro'; // stylelint-disable-line
+
+/// Alternate Naming
+$roboto: $serif;
+$source-serif: $serif-alternate;
+$source-sans: $sans-serif;

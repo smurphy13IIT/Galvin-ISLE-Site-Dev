@@ -1,0 +1,115 @@
+////
+/// @group pages
+/// Global listing page styles.
+////
+
+/// Form Styles
+/// -----------
+.listing {
+
+  form {
+    @include clearfix;
+    padding: 1em;
+    border: .0625em solid $gray;
+    background-color: $gray--light;
+  }
+
+  .form-item {
+    max-width: none;
+  }
+
+  label {
+    color: $text-color;
+  }
+
+  #{text-inputs()},
+  [type='file'],
+  [type='image'],
+  select {
+    width: 100%;
+  }
+
+  [data-drupal-selector='edit-reset'] {
+    @include btn-light;
+  }
+
+  // Display flex removes the additional spacing due to white-space between
+  // inline-block submits.
+  .form-actions {
+    display: flex;
+  }
+
+  [type='submit'] {
+    margin: 0;
+    padding: .625em 1em;
+
+    + [type='submit'] {
+      margin-left: 1em;
+    }
+  }
+
+  @include breakpoint(small) {
+
+    form {
+      display: flex;
+      align-items: flex-end;
+    }
+
+    #{text-inputs()},
+    [type='file'],
+    [type='image'],
+    select {
+      margin-bottom: 0;
+    }
+
+    .form-item,
+    .form-actions {
+      max-width: 16em;
+      margin-bottom: 0;
+    }
+
+    .form-item {
+      flex: 0 1 auto;
+
+      + .form-item,
+      + .form-actions {
+        margin-left: 1em;
+      }
+    }
+
+    .form-actions {
+      flex: 0 0 auto;
+    }
+  }
+}
+
+/// Result Styles
+/// -------------
+.listing-item {
+  width: 100%;
+  margin-top: 2rem;
+
+  & + & {
+    padding-top: 2rem;
+    border-top: .0625em solid $gray;
+  }
+
+  &__image {
+    margin-bottom: 1.25rem;
+  }
+
+  &__title {
+    margin-bottom: .25rem;
+  }
+
+  &__teaser {
+    margin-bottom: .75rem;
+  }
+
+  @include breakpoint (medium) {
+
+    &__image {
+      margin: 0;
+    }
+  }
+}

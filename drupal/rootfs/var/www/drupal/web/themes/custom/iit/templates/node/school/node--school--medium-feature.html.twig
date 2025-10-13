@@ -1,0 +1,28 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+<section class="section-contact-panel">
+  <div class="grid-container section-contact-panel__inner">
+    <h2>{{ node.label }}</h2>
+    <div class="grid-x">
+      <div class="cell initial-12 medium-9 ">
+        <span class="section-contact-panel__inner-add">
+          {{ content.field_school_location }}
+        </span>
+        <div class='section-contact-panel__detail'>
+          <span class="section-contact-panel__detail__item">
+            <i class="fi flaticon-phone"></i> <span>{{ content.field_school_phone_number }}</span>
+          </span>
+
+          {% if content.field_school_email|render %}
+            <span class="section-contact-panel__detail__item person-email">
+              <i class='fas fa-envelope'></i> <span class="email">{{ content.field_school_email }}<span>
+            </span>
+          {% endif %}
+        </div>
+      </div>
+      <div class="cell initial-12 medium-3">
+         <span class="section-contact-panel__inner__social-media">{{ content.field_school_social_media_title }}</span>
+         {{ oho_macros.field_list(content.field_school_social_media_links, 'social-media') }}
+      </div>
+    </div>
+  </div>
+</section>

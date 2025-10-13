@@ -1,4 +1,13 @@
 vendor
-web
+web/*
 .idea
 config/sync/.htaccess
+
+# un-ignore custom module and theme directories
+!web/modules/
+!web/themes/
+
+!web/modules/custom/
+!web/modules/custom/**
+!web/themes/custom/
+!web/themes/custom/**

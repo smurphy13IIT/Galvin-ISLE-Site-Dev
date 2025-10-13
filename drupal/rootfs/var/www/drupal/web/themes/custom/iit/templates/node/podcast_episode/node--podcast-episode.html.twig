@@ -1,0 +1,68 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+
+{% block content %}
+  <article class="podcast podcast--detail detail-page">
+    <section class="hero global-spacing--xlarge hero--no-img">
+      <div class="hero__content">
+        <div class="hero__content__inner">
+          <div class="grid-x grid-margin-x">
+            <div class="global-spacing--xsmall hero__content__inner-content cell initial-12">
+              <h1>{{ node.label }}</h1>
+            </div>
+
+            <div class="cell initial-12 medium-8 pocast-intro">
+              {% if node.body.summary %}
+                <p class="intro-text">{{ node.body.summary }}</p>
+              {% endif %}
+              {% include '@iit/includes/podcast-episode-embed.html.twig' with { episode_id: episode_id } %}
+              {{ breadcrumbs }}
+            </div>
+
+            <div class='cell initial-12 medium-4'>
+              <div class='detail-page__meta'>
+                <h2 class='visually-hidden'>{{ 'Date'|t }}</h2>
+                <span class="date"><i class='fi flaticon-calendar'></i>{{ content.field_podcast_ep_date }}</span>
+                <span class="podcast-icon"><i class="fi flaticon-podcast"></i> {{ 'Episode'|t }} {{ content.field_podcast_ep_episode_number }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% if content.field_podcast_ep_video|render %}
+      <section class='section--detail-page-image section--detail-page-image--video global-spacing--large'>
+        <div class='section--detail-page__media-container'>
+          {{ content.field_podcast_ep_video }}
+        </div>
+      </section>
+    {% elseif content.field_podcast_ep_image|render %}
+      <section class='section--detail-page-image global-spacing--large'>
+        <div class='section--detail-page__media-container'>
+          {{ content.field_podcast_ep_image }}
+        </div>
+      </section>
+    {% endif %}
+
+    <section class='section--wysiwyg section--wysiwyg--detail-page global-spacing--xlarge'>
+      <div class='grid-container'>
+        <div class='grid-container__inner full-wysiwyg'>
+          {{ content.body }}
+
+          {% if subject_tags %}
+            <div class="listing-item__tags tags">
+              <h2 class="tags__heading show-for-sr">{{ 'Tags'|t }}:</h2>
+              {{ oho_macros.list(subject_tags) }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+
+    {% if podcast_episode_listing %}
+      <section class="section--related-podcast global-spacing--xlarge section--cards">
+        {{ podcast_episode_listing }}
+      </section>
+    {% endif %}
+  </article>
+{% endblock %}

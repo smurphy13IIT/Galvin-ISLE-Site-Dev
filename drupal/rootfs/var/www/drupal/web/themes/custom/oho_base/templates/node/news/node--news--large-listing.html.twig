@@ -1,0 +1,26 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+<article class="listing-item">
+  <div class="grid-x grid-margin-x">
+    <div class="cell initial-12 medium-4 medium-order-1">
+      {% if content.field_news_image|render %}
+        <a class="listing-item__image" href="{{ url }}">
+          {{ content.field_news_image }}
+        </a>
+      {% endif %}
+    </div>
+    <div class="cell initial-12 medium-8">
+      <div class="listing-item__content">
+        <h3 class="listing-item__title"><a href="{{ url }}">{{ label }}</a></h3>
+        <p class="listing-item__date date">{{ content.field_news_date }}</p>
+        <div class="listing-item__teaser"><p>{{ content.body }}</p></div>
+
+        {% if news_tags %}
+          <div class="listing-item__tags tags">
+            <h2 class="tags__heading show-for-sr">{{ 'Tags'|t }}:</h2>
+            {{ oho_macros.list(news_tags) }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</article>

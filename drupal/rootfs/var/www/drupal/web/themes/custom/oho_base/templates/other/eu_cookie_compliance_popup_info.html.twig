@@ -1,0 +1,26 @@
+<article class="cookie-compliance-popup">
+  <div class="eu-cookie-compliance-banner eu-cookie-compliance-banner-info">
+    <div class ="popup-content info eu-cookie-compliance-content">
+      <div id="popup-text" class="eu-cookie-compliance-message">
+        <div class="grid-container">
+          <div class="grid-x">
+            <div class="cell small-12 medium-6">
+              {{ message }}
+            </div>
+            <div class="cell small-12 medium-6">
+              <div id="popup-buttons" class="eu-cookie-compliance-buttons">
+                <button type="button" class="btn {{ primary_button_class }}">{{ agree_button }}</button>
+                {% if disagree_button %}
+                  <button type="button" class="find-more-button eu-cookie-compliance-more-button">{{ disagree_button }}</button>
+                {% endif %}
+                {% if secondary_button_label %}
+                  <button type="button" class="{{ secondary_button_class }}" >{{ secondary_button_label }}</button>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

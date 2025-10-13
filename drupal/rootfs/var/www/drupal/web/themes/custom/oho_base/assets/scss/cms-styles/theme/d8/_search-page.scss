@@ -1,0 +1,64 @@
+////
+/// @group D8
+/// Search page and results styles for Drupal 8.
+////
+
+.page--search .main-content {
+
+  h2 {
+    margin-bottom: .5em;
+  }
+
+  .search-form {
+
+    .form-item {
+      display: inline-block;
+    }
+
+    label {
+      display: block;
+    }
+
+    [type='search'] {
+      width: 100%;
+      font-size: 1rem;
+    }
+
+    button {
+      @include btn;
+      margin: 0;
+      padding: .75em 1em;
+      border: 0;
+    }
+
+    a {
+      @include link-arrow;
+      display: inline-block;
+      margin-bottom: 1.25em;
+    }
+  }
+
+  .search-results {
+    padding: 0;
+    list-style: none;
+  }
+
+  .search-result {
+
+    + .search-result {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid $gray;
+    }
+
+    &__title {
+      margin-bottom: .25em;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    &__snippet {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{%
+  set classes = [
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+    'listing',
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {{ title }}
+  {{ title_suffix }}
+
+  {{ exposed }}
+
+  {% if header %}
+    <header>
+      {{ header }}
+    </header>
+  {% endif %}
+
+  {{ attachment_before }}
+
+  {{ rows }}
+  {{ empty }}
+  {{ pager }}
+
+  {{ attachment_after }}
+  {{ more }}
+
+  {% if footer %}
+    <footer>
+      {{ footer }}
+    </footer>
+  {% endif %}
+
+  {{ feed_icons }}
+</div>

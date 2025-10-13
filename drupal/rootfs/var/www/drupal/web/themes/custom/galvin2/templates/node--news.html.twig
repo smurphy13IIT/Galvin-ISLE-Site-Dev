@@ -1,0 +1,50 @@
+
+{#
+  /**
+   * Template to display a news item node.
+* This custom template adds theme-related classes and Foundation grid container elements around the content.
+   */
+#}
+
+{% block content %}
+<article class="news news--detail detail-page">
+
+ {% if content.field_news_video|render %}
+      <section class='section--detail-page-image section--detail-page-image--video global-spacing--large'>
+        <div class="grid-container">
+          {{ content.field_image }}
+          {{ content.field_news_video }}
+        </div>
+      </section>
+    {% elseif content.field_image|render %}
+      <section class='section--detail-page-image global-spacing--large'>
+          <div class="grid-container">
+        {{ content.field_image }}
+          </div>
+      </section>
+    {% endif %}
+
+    <section class='section--wysiwyg section--wysiwyg--detail-page global-spacing--xlarge'>
+      <div class='grid-container'>
+        <div class='grid-container__inner full-wysiwyg'>
+          {{ content.body }}
+
+          {% if content.field_tags %}
+            <div class="listing-item__tags tags">
+              <h2 class="tags__heading show-for-sr">{{ 'Tags'|t }}:</h2>
+              {{ content.field_tags }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+
+    {{ content.field_gallery }}
+
+    {% if news_listing %}
+      <section class="section--related-news global-spacing--xlarge section--cards">
+        {{ news_listing }}
+      </section>
+    {% endif %}
+  </article>
+{% endblock %}

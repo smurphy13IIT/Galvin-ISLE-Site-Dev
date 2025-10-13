@@ -1,0 +1,67 @@
+////
+/// @group content-types
+/// Blog-specific styles.
+////
+
+/// All View Modes
+/// --------------
+
+.section--blog-detail-header {
+    @include paddings-top(30,40,60);
+    @include paddings-bottom(30,40,60);
+
+    .blog-detail-header--headline {
+        h1 {
+            @include font-sizes(28,42,52);
+            margin-bottom: 0;
+            max-width: 58.125rem;
+        }
+    }
+
+    .blog-detail-header--byline {
+        color: #444444;
+        @include font-sizes(14,15,16);
+    }
+}
+
+.blog-detail-header--breadcrumbs {
+    @include breakpoint(small down) {
+      order: -1;
+    }
+
+    .breadcrumbs {
+        @include margins-bottom(20,0,0);
+        @include margins-top(0,20,20);
+    }
+}
+
+.section--blog-detail-media  {
+    .grid-container__inner {
+        max-width: 46.25rem;
+    }
+}
+
+.section--blog-detail-media--featured-image {
+    img {
+        display: block;
+    }
+}
+
+.section--blog-detail-media--featured-video {
+    .media-embed--video  {
+        min-width: auto;
+    }
+}
+
+.blog-detail-media--featured-caption {
+    color: #767676;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    padding: 0.625rem 0;
+    border-bottom: 1px solid #e4e4e4;
+
+    a {
+        color: #767676;
+        text-decoration: underline;
+    }
+}

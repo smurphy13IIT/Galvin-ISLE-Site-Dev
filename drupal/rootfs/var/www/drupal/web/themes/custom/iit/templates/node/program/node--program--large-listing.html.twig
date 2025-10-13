@@ -1,0 +1,57 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+<article class='program-large-list listing-item'>
+  <div class='grid-x grid-margin-x'>
+    <div class='cell initial-12 medium-12'>
+      <h2 class='h3 listing-item__title arrow-link global-spacing--medium'>
+        <a href="{{ url }}">{{ node.label }}</a>
+      </h2>
+    </div>
+    <div class='cell initial-12 medium-3 inlnine-spans'>
+      <h3 class='eyebrow'>{{ 'Program Type'|t }}</h3>
+      {{ content.field_program_types }}
+    </div>
+    <div class='cell initial-12 medium-2 inlnine-spans'>
+      <h3 class='eyebrow'>{{ 'Degree'|t }}</h3>
+      {{ content.field_program_degrees }}
+    </div>
+    <div class='cell initial-12 medium-4 college-school'>
+      <h3 class='eyebrow'>{{ 'College/School'|t }}</h3>
+      {{ oho_macros.field_wrapper(content.field_program_schools, 'span') }}
+    </div>
+    <div class='cell initial-12 medium-2'>
+      <h3 class='eyebrow'>{{ 'Program Modality'|t }}</h3>
+      {{ content.field_program_modality }}
+    </div>
+    {% if online or stem or f1eligible %}
+    <div class="cell initial-12 medium-12">
+      <ul class="program-listing-attributes">
+        {# {% if online %}
+          <li class='program-attribute'>
+            <span><span class='visually-hidden'>{{ 'This program is available '|t }}</span>{{ 'Online'|t }}</span>
+          </li>
+        {% endif %} #}
+        {% if stem %}
+          <li class='program-attribute'>
+            <span>{{ 'STEM Designated'|t }}</span>
+          </li>
+        {% endif %}
+        {% if f1eligible %}
+          <li class='program-attribute'>
+              <span class='tool-tip-container'>
+                <span tabindex='0' title='{{ 'This program meets F-1 full-time on-ground status requirements.'|t }}' class='popper tooltip-link h4'>
+                  {{ 'Meets F-1 Visa Requirements'|t }}
+                </span>
+              </span>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+    {% endif %}
+    <div class='program-large-list__compare-cell cell initial-12 medium-12'>
+      <div class="compare-checkbox-item form-type-checkbox">
+        <input id="program-{{ node.id }}" type="checkbox" value="{{ node.id }}">
+        <label for="program-{{ node.id }}">{{ 'Compare'|t }} {{ node.label }}</label>
+      </div>
+    </div>
+  </div>
+</article>

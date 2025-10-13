@@ -1,0 +1,136 @@
+////
+/// @group components
+/// Styles for the featured links section.
+////
+
+.featured-links--container {
+    @include breakpoint(medium) {
+        display: grid;
+        grid-template-columns: 1fr 2.33fr;
+        grid-template-rows: auto auto;
+        row-gap: 2rem;
+        column-gap: 2rem;
+    }
+
+    @include breakpoint(large) {
+        column-gap: 3rem;
+    }
+
+    .fls--no-title.fls--no-desc & {
+        @include breakpoint(medium) {
+            row-gap: 0;
+        }
+    }
+
+    .fls--no-title.fls--no-img & {
+        @include breakpoint(medium) {
+            row-gap: 0;
+        }
+    }
+}
+
+.featured-links--section-title {
+    .fls--no-desc & {
+        @include breakpoint(medium) {
+            grid-column: span 2;
+        }
+    }
+
+    .fls--no-img & {
+        @include breakpoint(medium) {
+            grid-column: span 2;
+        }
+    }
+}
+
+.featured-links--description-wrapper {
+    margin-bottom: 1.5rem;
+    @include breakpoint(medium) {
+        margin-bottom: 0;
+    }
+
+    .fls--no-img & {
+        @include breakpoint(medium) {
+            grid-row-end: -1;
+            grid-row-start: 2;
+        }
+    }
+
+    .fls--no-title.fls--has-img & {
+        @include breakpoint(medium) {
+            grid-column: span 2;
+        }
+    }
+}
+
+.featured-links--links-wrapper {
+    margin-bottom: 1.5rem;
+
+    @include breakpoint(medium) {
+        grid-row-end: -1;
+        grid-column-start: 1;
+    }
+}
+
+.featured-links--links-title {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.625rem;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    @include font-sizes(24,26,28);
+
+    &::before {
+        content: "\f054";
+        color: #fff;
+        font-family: "Font Awesome 5 Pro";
+        font-size: 1rem;
+        background-color:#cc0000;
+        display: flex;
+        width: 1.5rem;
+        height: 1.5rem;
+        justify-content: center;
+        align-items: center;
+        margin-right: 0.8rem;
+        margin-top: 0.125rem;
+        flex-shrink: 0;
+
+        @include breakpoint(medium) {
+            margin-top: 0.1875rem;
+        }
+        @include breakpoint(large) {
+            margin-top: 0.3125rem;
+        }
+    }
+}
+
+.featured-links--list {
+    padding-left: 0;
+}
+
+.featured-links--links-title + .featured-links--list {
+    padding-left: 2.3rem;
+}
+
+.featured-links--item {
+    border-bottom: 1px solid #ccc;
+    padding: 0.625rem 0;
+}
+
+.featured-links--link {
+    @include font-sizes(20,20,22);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.featured-links--img-wrapper {
+    position: relative;
+
+    .fls--has-img & {
+        @include breakpoint(medium) {
+            grid-row-end: -1;
+            grid-column-start: 2;
+        }
+    }
+}

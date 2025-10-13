@@ -1,0 +1,442 @@
+// styles for .site-header region, most borrowed from the IIT (iit.edu) theme.
+////
+/// @group wrapper
+/// Main header styles.
+////
+/// Header heights.
+/// When the header becomes sticky we preserve the space so the content doesn’t shift up
+/// @type Number
+$mobile-header-height: rem-calc(62);
+$desktop-header-height: rem-calc(250);
+
+
+/// Header Styles
+/// -------------
+.site-header {
+    height: rem-calc(76);
+    background: $white;
+    position: relative;
+    z-index: 12;
+
+    @include breakpoint(large) {
+        height: $desktop-header-height !important;
+    }
+
+    &__tagline {
+        position: absolute;
+        z-index: 1;
+        right: rem-calc(20);
+        top: rem-calc(60);
+    }
+}
+
+.site-header__sticky-container {
+    height: $mobile-header-height !important;
+    background-color: $white;
+    position: relative;
+    z-index: 5;
+
+    .is-stuck {
+        border-bottom: rem-calc(2) solid #c00;
+    }
+
+    > .grid-container {
+        position: relative;
+        min-height: 100%;
+    }
+
+    // All ULs and LIs in the header (all menu items) need these rules set.
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: block;
+    }
+
+    li {
+        position: relative;
+    }
+
+    .site-header__logo {
+        display: none; /// there are condensed and large logos, we unhide the appropriate one within each mixin
+    }
+
+
+    @include breakpoint(medium down) {
+
+        // When JavaScript doesn't load for some reason.
+        & {
+            height: auto;
+        }
+    }
+
+    /// Header Buttons
+    /// There are 2 separate btn containers because of their positions in sticky desktop vs sticky mobile.
+    /// It would get hidden in sticky if the buttons only lived within the menu
+    .header-btns--sticky {
+        position: absolute;
+        z-index: 4;
+        display: none;
+        top: rem-calc(10);
+        right: rem-calc(90);
+
+        @include breakpoint(large up) {
+            display: flex;
+        }
+
+        .btn {
+            padding: rem-calc(12.5 35);
+            margin: 0;
+            text-transform: none;
+            font-size: rem-calc(16);
+            letter-spacing: 0;
+        }
+
+        .btn:not(:last-child) {
+            margin-right: rem-calc(5);
+        }
+    }
+
+    .header-btns--mobile {
+        order: 5;
+        padding: rem-calc(10 30 0);
+
+        @include breakpoint(large up) {
+            display: none;
+        }
+
+        .btn:not(:last-child) {
+            margin-bottom: rem-calc(20);
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+        }
+    }
+}
+
+/// Fixed Header
+/// -----------
+/// A fixed header is triggered by the following class on the .page element.
+/// This class can be added via front-matter to any page template individually,
+/// or site-wide by editing the page_classes array in layouts/page.html.twig.
+.site-header__sticky-container.sticky-header {
+    position: fixed;
+}
+
+.fixed-header {
+
+    .site-header {
+        position: relative;
+        z-index: 1000;
+        top: 0;
+        right: 0;
+        left: 0; /// Logged-in Adjustments
+
+        /// ---------------------
+        /// Note, there is a gap on mobile in the flats onsly, but this is only
+        /// because the incorrect classes are applied, as the JavaScript detection
+        /// isn't running and changing .toolbar-horizontal to .toolbar-vertical.
+        .toolbar-vertical.toolbar-fixed &,
+        .toolbar-horizontal.toolbar-fixed & {
+            top: rem-calc(39);
+        }
+
+        // The specificity here is greater than what we normally allow, but there's
+        // no way to do this with less class specificity, so we're ignoring the
+        // selectors.
+        .toolbar-horizontal.toolbar-fixed.toolbar-tray-open & {
+            // stylelint-disable-line
+            top: rem-calc(79);
+        }
+    }
+
+    &.site-header--sticky {
+        position: static;
+        width: auto;
+        transform: translateX(0);
+    }
+}
+
+.site-header__main {
+
+    @include breakpoint(tiny down) {
+        width: 100vw;
+    }
+}
+
+/// Bottom Menu Area
+/// ----------------
+.site-header__bottom {
+    position: relative;
+    z-index: 1;
+}
+
+
+/// Condensed/Mobile Header
+/// ---------------------------
+@mixin condensed-header() {
+
+    z-index: 10;
+    top: 0;
+    transition: transform $primary-transition;
+    width: 100%;
+    background: $white;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.30);
+
+    li {
+        overflow: hidden;
+    }
+
+    .site-header__tagline {
+        display: none;
+    }
+
+    .grid-container {
+        position: static;
+    }
+
+    .site-header__logo--condensed {
+        display: block;
+        padding-top: rem-calc(10);
+        max-width: rem-calc(340); // max-width: 20rem;
+    }
+
+    .hours-block-header {
+        display: none;
+
+
+
+    }
+
+    /// Logged-in Adjustments
+    /// ---------------------
+    .toolbar-horizontal.toolbar-fixed {
+        top: rem-calc(39);
+    }
+
+    .toolbar-horizontal.toolbar-fixed.toolbar-tray-open & {
+        top: rem-calc(79);
+    }
+
+    &--show {
+        transform: translateY(0);
+    }
+
+    .site-header__top {
+        order: 3;
+        position: relative;
+        display: block;
+
+        &__inner {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+    }
+
+    .site-header__bottom {
+        order: 2;
+    }
+
+    .site-header__main {
+        position: absolute;
+        z-index: 1;
+        top: $mobile-header-height;
+        right: 0;
+        display: none;
+        width: rem-calc(320);
+        background: $light-gray;
+        height: calc(100vh - #{$mobile-header-height});
+        overflow: auto;
+        box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.18);
+
+        &.mobile-menu-open {
+            display: flex;
+            align-items: flex-start;
+
+            + .mobile-menu-button {
+                display: none;
+
+                &:before {
+                    content: fa-content($fa-var-times);
+                    display: block;
+                    color: $brand-red !important;
+                }
+
+                svg {
+                    display: none;
+                }
+
+            }
+
+        }
+
+        &__inner {
+            display: flex;
+            flex-wrap: wrap;
+
+            > div {
+                @include flex-column(100%);
+            }
+        }
+    }
+
+    /// Mobile Menu Button
+    /// ------------------
+    .mobile-menu-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        display: block !important;
+        width: $mobile-header-height;
+        height: $mobile-header-height;
+        margin: 0;
+        padding: 0;
+        background: none;
+
+        &:before {
+            opacity: 1;
+            content: fa-content($fa-var-times);
+            transition: color 250ms ease-in-out;
+            font-family: $font-awesome;
+            font-size: 2em;
+            font-weight: 900;
+            display: none;
+
+            .mobile-menu-open & {}
+        }
+
+        &:hover {
+            background: none;
+
+            svg path {
+                fill: $brand-red;
+            }
+
+            &:before {
+                color: $brand-red;
+            }
+        }
+
+        svg {
+            max-width: rem-calc(25);
+            height: rem-calc(60);
+        }
+
+        path {
+            fill: $brand-gray;
+        }
+
+        // When JavaScript doesn't load for some reason, hide the button.
+    }
+
+    /// Bottom Menu Area
+    /// ----------------
+    .site-header__bottom {
+        flex: 0 0 auto;
+    }
+}
+
+/// Large Header
+/// --------------
+@mixin large-header() {
+    border-top: rem-calc(60) solid $brand-gray;
+
+    .site-header__logo--large {
+        max-width: rem-calc(640);
+        display: inline-block;
+        padding: rem-calc(23 0);
+
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    .hours-block-header {
+        display: block;
+        padding-top: 1em;
+
+        .today h5 {
+            margin-bottom: auto;
+        }
+
+        .open {
+            color: #009900;
+            font-weight: bold;
+
+        }
+
+        .closed {
+            color: #c00;
+            font-weight: bold;
+        }
+
+        #after6 {
+            font-size: .85rem;
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+
+    .mobile-menu-button {
+        display: none;
+    }
+
+    .header-btns {
+        display: none;
+    }
+
+    /// Top Menu Area
+    /// -------------
+    .site-header__top {
+        position: absolute;
+        top: rem-calc(-60);
+        right: 0;
+        display: flex;
+        z-index: 2;
+        align-items: center;
+        width: 100%;
+        justify-content: flex-end;
+        padding: rem-calc(10 0);
+
+        .site-header__top__inner,
+        .site-header__top__inner > div {
+            max-width: rem-calc(1200);
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+    }
+}
+
+
+// ------ Small overrides for Mobile
+body {
+    @include breakpoint(medium down) {
+
+        .site-header__-container {
+            height: rem-calc(76);
+            border-bottom: rem-calc(2) solid #c00;
+        }
+
+        .site-header__sticky-container .site-header__logo--condensed {
+            padding-top: rem-calc(15);
+        }
+
+        .site-header__sticky-container .mobile-menu-button {
+            height: rem-calc(73);
+        }
+    }
+
+    @include breakpoint(small down) {
+        .site-header__sticky-container .site-header__logo--condensed {
+            max-width: rem-calc(250);
+        }
+    }
+
+}

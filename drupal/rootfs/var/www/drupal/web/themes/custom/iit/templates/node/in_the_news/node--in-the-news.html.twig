@@ -1,0 +1,27 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+<article class="listing-item">
+  <div class="grid-x grid-margin-x">
+    <div class="cell initial-12 medium-8">
+      <div class="listing-item__content">
+        <h2 class="h3 listing-item__title global-spacing--medium external-link">
+          <a href="{{ content.field_itn_article_link }}" target="_blank" aria-label="{{ 'opens in new window'|t }}">
+            {{ node.label }}
+          </a>
+        </h2>
+        
+        <span class="listing-item__media-subtitle eyebrow listing-item__meta">{{ content.field_itn_source }}</span>
+
+        {% if content.field_itn_summary|render %}
+          <p>{{ content.field_itn_summary }}</p>
+        {% endif %}
+
+        {% if subject_tags %}
+          <div class="listing-item__tags tags">
+            <h2 class="tags__heading show-for-sr">{{ 'Tags'|t }}:</h2>
+            {{ oho_macros.list(subject_tags) }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</article>

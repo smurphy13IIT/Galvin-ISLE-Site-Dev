@@ -1,0 +1,397 @@
+////
+/// @group components
+/// Styles for cards.
+////
+
+$card-heading-scope: 'h2, h3' !default;
+$content-item-scope: 'p, span, a' !default;
+
+@mixin card($size, $direction) {
+  // Direction
+  //size
+  @if $size == 'large' {
+    .card__content__inner {
+      padding: rem-calc(40);
+      font-size: rem-calc(17);
+    }
+    a {
+      font-weight: 600;
+    }
+    #{$card-heading-scope} {
+      font-size: rem-calc(30);
+      margin-bottom: rem-calc(5);
+    }
+    #{$content-item-scope},
+    #{$card-heading-scope} {
+      display: block;
+    }
+  }
+  @if $size == 'medium' {
+    .card__media {
+        margin-bottom: rem-calc($spacing--small);
+    }
+    .card__content__inner {
+      padding: rem-calc(30);
+      font-size: rem-calc(16);
+    }
+    #{$card-heading-scope} {
+      font-size: rem-calc(24);
+    }
+    #{$content-item-scope},
+    #{$card-heading-scope} {
+      display: block;
+    }
+  }
+  @if $size == 'small' {
+    .card__media {
+      margin-bottom: rem-calc($spacing--xsmall);
+    }
+    .card__content__inner {
+      font-size: rem-calc(16);
+    }
+    #{$card-heading-scope} {
+      font-size: rem-calc(16);
+      line-height: 1.3;
+      margin-bottom: rem-calc(5);
+    }
+    #{$content-item-scope},
+    #{$card-heading-scope} {
+      display: block;
+    }
+  }
+  #{$card-heading-scope} {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  @if $direction == 'horizontal' {
+    display: flex;
+    .card__media {
+      @include flex-column(35%);
+      margin-bottom: 0;
+    }
+    .card__content {
+      flex: auto;
+
+      @if $size == 'small' {
+        padding-left: rem-calc(20);
+      } @else {
+        padding-left: rem-calc(40);
+      }
+    }
+  }
+}
+
+// ----------- Styles shared by all card types
+.card {
+  width: 100%;
+  @include card('medium', 'vertical');
+  &__content {
+    display: flex;
+  }
+  &__content__inner {
+    background: #fff;
+    box-shadow: $box-shadow-common;
+    width: 100%;
+  }
+  &__content__inner-icon {
+    font-weight: bold;
+    text-transform: uppercase;
+    i {
+      margin-right: rem-calc(5);
+    }
+  }
+  &__media {
+    position: relative;
+  }
+  img {
+    max-width: none;
+    width: 100%;
+    display: block;
+  }
+  .full-wysiwyg a:not(.btn) {
+    display: inline;
+  }
+  .full-wysiwyg .btn {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+// ------------- Assignment
+// large
+.card--large {
+  @include breakpoint(medium up) {
+    @include card('large', 'vertical');
+  }
+}
+.card--large.card--horizontal {
+  @include breakpoint(medium up) {
+    @include card('large', 'horizontal');
+  }
+}
+// medium
+.card--medium {
+  @include breakpoint(medium up) {
+    @include card('medium', 'vertical');
+  }
+}
+.card--medium.card--horizontal {
+  @include breakpoint(small down) {
+    @include card('small', 'horizontal');
+  }
+  @include breakpoint(medium up) {
+    @include card('medium', 'horizontal');
+  }
+}
+// small
+.card--small {
+  @include breakpoint(medium up) {
+    @include card('small', 'vertical');
+  }
+}
+.card--small.card--horizontal {
+  @include breakpoint(medium up) {
+    @include card('small', 'horizontal');
+  }
+}
+
+// --------------- Unbounded
+.card.card--unbounded {
+  .card__content__inner {
+    padding: 0;
+    box-shadow: none;
+    background: none;
+  }
+}
+// --------------- Grid Rows
+.card-grid-row {
+  max-width: rem-calc(1320);
+  @include breakpoint(medium up) {
+    display: grid;
+    grid-gap: rem-calc(35);
+    justify-content: center;
+    align-content: end;
+    grid-template-areas: "first first first first first second second" "first first first first first third third" ". even even even odd odd odd";
+    position: relative;
+  }
+  @include breakpoint(medium up) {
+    transform: translateX(-50px);
+  }
+  @media screen and (min-width: rem-calc(1300)) {
+    transform: translateX(-69px);
+  }
+
+  .card--news {
+    &:nth-child(even) {
+      @include breakpoint(medium up) {
+        grid-area: even;
+        grid-row: auto;
+      }
+    }
+    &:nth-child(odd) {
+      @include breakpoint(medium up) {
+        grid-area: odd;
+        grid-row: auto;
+      }
+    }
+  }
+
+  .card--medium,
+  .card--news:first-child {
+    @include breakpoint(medium up) {
+      grid-area: first;
+      transform: none;
+    }
+  }
+  .card--small,
+  .card--news:nth-child(2),
+  .card--news:nth-child(3) {
+    @include breakpoint(medium up) {
+      grid-area: second;
+      grid-row: auto;
+      max-width: rem-calc(350);
+      transform: none;
+    }
+    .card__content p {
+      @include breakpoint(medium up) {
+        display: none;
+      }
+    }
+  }
+}
+
+.podcast-icon {
+  font-weight: bold;
+  text-transform: uppercase;
+  i {
+    margin-right: rem-calc(5);
+  }
+}
+
+/// -------- NEWS CARDS
+.card--news {
+  position: relative;
+  // first card is 'large' for desktop and 'medium' for mobile
+  &:first-child {
+
+    @include breakpoint(medium) {
+      background-color: $text-color;
+      min-height: rem-calc(650);
+    }
+
+    @include breakpoint(small down) {
+      @include card('medium', 'vertical');
+      .card__content__inner {
+        padding: 0;
+      }
+    }
+    @include breakpoint(medium up) {
+      @include card('large', 'vertical');
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      .card__media {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        &:before {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          max-height: rem-calc(475);
+          opacity: 0.89;
+          background-image: linear-gradient(180deg, rgba(0,0,0,0.00) 0%, #000000 100%);
+        }
+        img {
+          object-fit: cover;
+          height: 100%;
+        }
+      }
+      .card__content {
+        position: relative;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        h2, p, a {
+          color: $white;
+        }
+        h3 a:after {
+          color: $accent-yellow;
+        }
+      }
+      .card__content__inner {
+        padding: rem-calc(0 100 50 155);
+        background: none;
+      }
+    }
+  }
+  // next 2 are small cards
+  &:nth-child(2),
+  &:nth-child(3) {
+    @include breakpoint(medium up) {
+      @include card('small', 'vertical');
+    }
+  }
+  &:not(:last-child) {
+    @include breakpoint(small down) {
+      margin-bottom: rem-calc($spacing--medium);
+    }
+  }
+  .tags {
+    a {
+      color: $gray;
+    }
+    li:before {
+      font-family: $font-awesome;
+      content: fa-content($fa-var-chevron-right);
+      color: $accent-yellow;
+    }
+  }
+
+  // On the news-hub page we can have 4 extra -- and they're slightly different
+  &:nth-child(n+4) {
+    @media screen and (min-width: rem-calc(1300)) {
+      width: rem-calc(545);
+    }
+    @include breakpoint(medium up) {
+      @include card('small', 'horizontal');
+      max-width: 100%;
+      transform: translateX(-24px);
+      align-items: center;
+      .card__media {
+        margin-bottom: 0;
+      }
+      .card__content {
+        padding-left: rem-calc(35);
+        p {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // in mobile all the items after the first are the same
+  &:nth-child(n+2) {
+    @include breakpoint(small down) {
+      @include card('small', 'horizontal');
+      flex-direction: row-reverse;
+      .card__content {
+        padding-right: rem-calc(20);
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+/// Specialties Card
+.section--specializations {
+  .grid-margin-x {
+    @include margins-bottom(-$spacing--small, -$spacing--medium, -$spacing--default);
+  }
+}
+.card--specializations {
+  h3  {
+    margin-bottom: rem-calc(5);
+  }
+  p {
+    @include small-body();
+    color: $brand-gray;
+  }
+}
+
+.section--cards {
+
+  .medium-4 {
+    max-width: rem-calc(350);
+    &:not(:last-child) {
+      margin-bottom: rem-calc($spacing--medium);
+    }
+    &:not(:nth-last-child(-n+3)) {
+      @include breakpoint(medium up) {
+        margin-bottom: rem-calc($spacing--medium);
+      }
+    }
+  }
+  .full-wysiwyg ul li:before {
+    color: $accent-yellow;
+  }
+}
+
+.card--related-podcast h3 {
+  @include font-sizes(19,21,24);
+}
+
+.section--related-podcast {
+  .cell:not(:last-child) {
+    @include breakpoint(tiny down) {
+      margin-bottom: rem-calc(40);
+    }
+  }
+}

@@ -1,0 +1,87 @@
+/**
+ * OHO Interactive WYSIWYG stylesheet.
+ * Version 2019-04-08
+ * https://www.oho.com
+ */
+
+/// Import order:
+/// 1.  Encoding
+/// 2.  Variables
+/// 3.  Foundation
+/// 4.  Utilites
+/// 5.  WYSIWYG
+/// 6.  WYSIWYG Styles
+
+/// Encoding
+/// --------
+@charset 'UTF-8';
+
+/// Variables
+/// ---------
+@import 'variables/*.scss';
+
+/// Foundation
+/// ----------
+/// Source: http://foundation.zurb.com/docs/
+/// Note: We're only importing Foundation's function's and mixins, not
+/// generating CSS.
+@import 'foundation';
+
+/// Utilities
+/// ---------
+@import 'utilities/*.scss';
+
+/// Global
+/// --------------
+@import 'global/section-blocks';
+@import 'global/custom-icons';
+@import 'global/type';
+@import 'global/tables';
+@import 'global/wysiwyg';
+
+/// Atoms
+/// --------------
+@import 'atoms/buttons';
+
+/// WYSIWYG Styles
+/// --------------
+.cke_editable {
+  font-size: 17px !important;
+  line-height: 1.5;
+}
+.cke_editable ul li:before {
+  margin-right: -0.2em;
+  margin-bottom: .2em;
+  content: "\2022";
+  display: inline-block;
+  width: 1em;
+  color: $brand-red;
+  font-size: 1.8em;
+  line-height: .5;
+  vertical-align: middle;
+}
+
+.cke_editable li:not(:first-child) {
+  margin-top: 0.625rem;
+}
+
+.cke_editable ul ul li::before {
+  margin-left: 1.2em;
+  margin-right: -0.9em;
+  margin-bottom: .3em;
+  content: "\2d";
+  display: inline-block;
+  width: 2em;
+  color:$brand-red;
+  font-size: 1.8em;
+  vertical-align: middle;
+  line-height: .5;
+}
+
+img {
+  max-width: 100%;
+}
+
+.cke_editable .btn {
+  min-height: 0;
+}

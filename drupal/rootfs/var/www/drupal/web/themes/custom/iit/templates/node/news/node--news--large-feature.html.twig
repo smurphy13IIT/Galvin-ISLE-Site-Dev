@@ -1,0 +1,20 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+<article class="card card--unbounded card--news sequence-anim-item pop-in-small">
+  {% if content.field_news_image|render %}
+    <div class="card__media">
+      {{ content.field_news_image }}
+    </div>
+  {% endif %}
+  <div class="card__content">
+    <div class="card__content__inner">
+      <h3 class="arrow-link"><a href="{{ url }}">{{ node.label }}</a></h3>
+      <p>{{ content.body }}</p>
+      {% if subject_tags %}
+        <div class="listing-item__tags tags">
+          <h2 class="tags__heading show-for-sr">{{ 'Tags'|t }}:</h2>
+          {{ oho_macros.list(subject_tags) }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</article>

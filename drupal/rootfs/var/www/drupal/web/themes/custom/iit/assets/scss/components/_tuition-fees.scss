@@ -1,0 +1,21 @@
+////
+/// @group components
+/// Styles for tuition and fees
+////
+
+/// since this is effectively an accordion - it should match
+/// The animation duration, in ms. Should align with the value in accordion.js
+/// so that the border bottom doesn't appear too soon.
+/// @type Number
+$accordion-animation-duration: 400ms;
+
+.costs__textrow,
+.costs__accordion-button {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .costs__amount {
+    width: 8rem;
+  }
+}

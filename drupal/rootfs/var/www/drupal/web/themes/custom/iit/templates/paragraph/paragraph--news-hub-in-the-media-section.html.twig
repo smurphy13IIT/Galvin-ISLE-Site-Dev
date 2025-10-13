@@ -1,0 +1,11 @@
+<div class='cell initial-12 medium-8'>
+  <div class='global-spacing--small'>
+    {% include '@iit/includes/lined-section-heading.html.twig' with {
+      title: content.field_component_title,
+      link_url: structure_settings.in_the_news_listing_url,
+      link_text: 'View All In the Media'|t
+    } %}
+  </div>
+
+  {{ latest_in_the_media }}
+</div>

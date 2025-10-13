@@ -1,0 +1,58 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+
+{% block content %}
+  <article class="event event--detail">
+    <h1 class="event__title">{{ label }}</h1>
+
+    <div class="grid-x grid-margin-x align-center">
+      <div class="cell large-1">
+        {{ content.field_event_date }}
+      </div>
+      <div class="cell large-11">
+        <span class="timestamp">
+          <i class="far fa-clock"></i>
+          {{ event_start_time }}
+          {% if content.field_event_end_date|render %}
+            {{ 'to'|t }} {{ content.field_event_end_date }}
+          {% endif %}
+        </span>
+        {% if content.field_event_location|render %}
+          <span>
+            <i class="far fa-map-marker-alt"></i>
+            {{ content.field_event_location }}
+          </span>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if node.body.summary %}
+      <p class="event__intro-text intro-text">{{ node.body.summary }}</p>
+    {% endif %}
+
+    {% if content.field_event_video|render %}
+      <figure class="event__featured-image featured-image">
+        {{ content.field_event_video }}
+        {{ content.field_event_image }}
+      </figure>
+    {% elseif content.field_event_image|render %}
+      <figure class="event__featured-image featured-image">
+        {{ content.field_event_image }}
+      </figure>
+    {% endif %}
+
+    <section class="clearfix">
+      <div class="grid-x grid-margin-x align-center">
+        <div class="cell large-8">
+          {{ content.body }}
+        </div>
+      </div>
+    </section>
+
+    {% if event_tags %}
+      <div class="tags event__tags">
+        <h2 class="tags__heading show-for-sr">{{ 'Tags'|t }}:</h2>
+        {{ oho_macros.list(event_tags) }}
+      </div>
+    {% endif %}
+  </article>
+{% endblock %}

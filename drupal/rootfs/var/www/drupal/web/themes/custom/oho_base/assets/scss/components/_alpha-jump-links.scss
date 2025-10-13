@@ -1,0 +1,27 @@
+////
+/// @group components
+/// Styles for alpha jump links.
+////
+
+.alpha-jump-links {
+  padding: rem-calc(40);
+  background-color: #eeebf2;
+
+  @media (max-width: 400px) {
+    padding: rem-calc(20);
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    display: inline-block;
+    margin: 0 .5em .5em 0;
+    color: #808080;
+    font-size: rem-calc(24);
+    font-weight: 600;
+  }
+}

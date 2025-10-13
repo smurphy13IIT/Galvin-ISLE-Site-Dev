@@ -1,0 +1,11 @@
+<section class='global-spacing--xlarge'>
+  <div class='grid-container'>
+    {% if content.field_component_title|render %}
+      <div class='section-heading global-spacing--medium'>
+        <h2>{{ content.field_component_title }}</h2>
+      </div>
+    {% endif %}
+
+    {{ content.field_component_embed }}
+  </div>
+</section>

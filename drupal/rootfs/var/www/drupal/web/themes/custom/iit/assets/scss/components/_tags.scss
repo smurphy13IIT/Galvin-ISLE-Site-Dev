@@ -1,0 +1,50 @@
+////
+/// @group components
+/// Styles for tags lists.
+////
+
+.tags,
+.full-wysiwyg .tags {
+
+  > ul {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: $sans-serif;
+
+    /// tags come in separate types and are printed in adajacent ULs
+    &:not(:last-child) {
+      margin-right: rem-calc(15);
+    }
+  }
+
+  > ul > li {
+    display: inline-flex;
+    line-height: 1.3;
+    align-items: center;
+    @include small-body();
+    @extend %fi;
+    &:before {
+      content: $flaticon-tag;
+      padding-right: rem-calc(5);
+      font-size: rem-calc(12);
+      color: $dark-gray;
+      margin-top: rem-calc(4);
+    }
+
+    &:not(:last-child) {
+      margin-right: rem-calc(15);
+    }
+  }
+}
+
+.tags {
+  section + & {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    background-image: linear-gradient(to right, $gray--dark 0, $gray--dark 4em, transparent 4em); // stylelint-disable-line
+    background-repeat: no-repeat;
+    background-size: 100% .0625em;
+  }
+}

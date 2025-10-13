@@ -1,0 +1,41 @@
+name: Galvin Islandora
+description: "IIT Subtheme for Galvin Library's Islandora repository"
+core_version_requirement: ^9 || ^10
+type: theme
+#base theme:  iit
+base theme: zurb_foundation
+# Image appears on admin/appearance
+# screenshot: images/screenshot.jpg
+
+# Uncomment these lines and change "STARTER" to your theme name if you
+# need to add custom CSS or JS
+libraries:
+ - galvin_islandora/global
+
+# Regions are output in the page.html.twig
+
+# Regions are output in the page.html.twig
+regions:
+  header_cta_nav: 'Header CTA nav'
+  search: 'Search'
+  secondary_nav: 'Secondary nav'
+  primary_nav: 'Primary nav'
+  subsection_nav: 'Subsection nav'
+  highlighted: 'Highlighted'
+  title: 'Title'
+  hero: 'Hero'
+  content_above: 'Content Above'
+  content: 'Content'
+# sidebar_first: 'Left sidebar'
+  footer_subsection: 'Footer subsection'
+  footer_upper: 'Footer upper'
+  footer_lower: 'Footer lower'
+
+# Hidden regions
+# regions_hidden[]: Page top
+# regions_hidden[]: Page bottom
+
+features:
+  - slogan
+  - favicon
+ 

@@ -1,0 +1,112 @@
+////
+/// @group components
+/// Styles for breadcrumbs.
+////
+
+/// Base Breadcrumbs
+/// ----------------
+.page--school-subsection .breadcrumbs {
+  li {
+    display: block;
+    &:first-child:before {
+      display: none;
+    }
+  }
+}
+
+.page:not(.page--school-subsection) .breadcrumbs {
+  li:first-child {
+    &:before {
+      display: none;
+    }
+    a {
+      @extend %fi;
+      font-size: 0;
+      &:before {
+        content: $flaticon-home;
+        font-size: rem-calc(14);
+      }
+    }
+  }
+}
+.breadcrumbs {
+  position: relative;
+  flex-wrap: wrap;
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 0;
+  list-style: none;
+  font-family: $sans-serif;
+  font-size: 1rem;
+  @include paddings-top(0,30,30);
+  @include margins-top(0,30,30);
+  @include margins-bottom(35,0,0);
+  @include breakpoint(small up) {
+    padding-top: rem-calc(20);
+  }
+  &:after,
+  &:before {
+    @include breakpoint(small up) {
+      content: "";
+      z-index: 2;
+      top: 0;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      background: $medium-gray;
+      height: rem-calc(1);
+    }
+  }
+  &:before {
+    z-index: 3;
+    max-width: rem-calc(30);
+    background: $accent-yellow;
+  }
+  li {
+    display: inline-block;
+    font-weight: bold;
+    font-size: rem-calc(14);
+
+    &:nth-child(n+2):before {
+      @include font-awesome;
+      margin-left: 10px;
+      padding: .666em;
+      content: fa-content($fa-var-chevron-right);
+      font-size: .75em;
+      color: $brand-gray;
+    }
+  }
+  li {
+    @include breakpoint(tiny down) {
+      display: none;
+    }
+    &:nth-last-child(2),
+    &:first-child {
+      @include breakpoint(tiny down) {
+        display: inline-block;
+      }
+    }
+  }
+  li::before {
+    margin-right: 0;
+  }
+}
+
+.hero:not(.hero--no-img) .breadcrumbs {
+  @include breakpoint(medium up) {
+    a {
+      color: $accent-yellow;
+    }
+    .active {
+      color: $white;
+    }
+    li:nth-child(n+2):before {
+      color: $white;
+    }
+  }
+}
+
+.hero.hero--no-img .breadcrumbs .active {
+  color: $text-color;
+}

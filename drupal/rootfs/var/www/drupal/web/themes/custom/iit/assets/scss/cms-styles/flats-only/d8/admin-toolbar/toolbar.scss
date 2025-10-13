@@ -1,0 +1,15 @@
+//
+// Admin Toolbar Styles
+// --------------------------------------------------
+
+// From core/modules/toolbar/css
+@import "toolbar.icons.theme";
+@import "toolbar.menu";
+@import "toolbar.module";
+@import "toolbar.theme";
+
+// From modules/contrib/admin_toolbar/css
+@import "admin.toolbar";
+
+// Additional supplemental OHO rules
+@import "supplemental";

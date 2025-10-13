@@ -1,0 +1,87 @@
+////
+/// @group menus
+/// Utility menu styles.
+////
+
+/// All Breakpoints
+/// ---------------
+.utility-menu {
+
+  a,
+  li {
+    display: block;
+  }
+
+  a {
+    font-family: $sans-serif;
+  }
+  a[href*="my.iit.edu"] {
+    display: flex;
+    @include fi('after');
+    display: flex;
+    align-items: center;
+    &:after {
+      content: $flaticon-external-alt;
+      padding-left: rem-calc(6);
+      font-size: rem-calc(13);
+    }
+  }
+}
+
+/// Condensed Utility Menu
+/// ---------------------------
+@mixin condensed-utility() {
+  .utility-menu {
+    background: $gray;
+    li + li a:before {
+      content: "";
+      background: $light-gray;
+      height: rem-calc(1);
+      width: calc(100% - 60px);
+      position: absolute;
+      top: 0;
+      left: auto;
+      right: auto;
+      opacity: .5;
+    }
+    
+    a {
+      padding: rem-calc(14 30);
+      text-align: left;
+      font-size: rem-calc(15);
+      position: relative;
+      color: $white;
+      font-weight: bold;
+      &[href*="my.iit.edu"]:after {
+        color: $accent-yellow;
+      }
+  
+      &:hover {
+        text-decoration: none;
+      }
+    }  
+  }
+}
+
+/// Large Utility Menu
+/// --------------------
+@mixin large-utility() {
+  .utility-menu {
+    ul {
+      display: flex;
+    }
+  
+    li {
+      position: relative;
+    }
+  
+    a {
+      padding: 0 1em;
+      line-height: 1;
+      font-weight: bold;
+      font-size: rem-calc(16);
+      color: #fff;
+      padding: rem-calc(10 15);
+    }  
+  }
+}

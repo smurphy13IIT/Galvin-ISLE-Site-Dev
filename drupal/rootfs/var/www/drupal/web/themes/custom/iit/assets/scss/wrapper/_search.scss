@@ -1,0 +1,176 @@
+////
+/// @group wrapper
+/// Header search styles.
+////
+
+/// All Styles & Mobile
+/// -------------------
+.site-search {
+  .search-block-form {
+    width: auto;
+    min-width: rem-calc(300);
+    padding: rem-calc(20 30);
+    background-color: $white;
+    display: flex;
+    label {
+      @include show-for-sr;
+    }
+
+    input {
+      width: 100%;
+      margin: 0;
+      padding: rem-calc(10 30 10 0);
+      border: none;
+      border-bottom: rem-calc(2) solid $light-gray;
+      box-shadow: none;
+      color: $white;
+
+      @include placeholder {
+        color: $gray--dark;
+        font-style: italic;
+      }
+    }
+    .form-item {
+      width: 100%;
+      @include flex-column(calc(100% - 20px));
+    }
+    .form-actions{
+      @include flex-column(rem-calc(20));
+      border-bottom: rem-calc(2) solid $light-gray;
+    }
+
+    button {
+      display: block;
+      margin: 0;
+      transition: color 250ms ease-in-out;
+      background-color: transparent;
+      padding: rem-calc(7 0 0 0);
+      width: 100%;
+      font-size: 0;
+      &:after {
+        content: "\f002";
+        transition: color 250ms ease-in-out;
+        color: $gray--dark;
+        font-family: "Font Awesome 5 Pro";
+        font-size: rem-calc(20);
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+/// Condensed Search
+/// -----------------------
+@mixin condensed-search() {
+  .site-search {
+    position: relative;
+    order: -1;
+
+    .search-block-form {
+      position: relative;
+      width: 100%;
+      input {
+        color: $gray--dark;
+      }
+
+    }
+
+    &__toggle {
+      display: none;
+    }
+  }
+}
+
+/// Large Search
+/// -----------------------
+@mixin large-search() {
+  .site-search {
+    order: 0;
+
+    &__toggle {
+      display: block;
+      margin: 0;
+      padding: .5em;
+      transition: color $primary-transition;
+      background-color: transparent;
+      position: absolute;
+      right: 0;
+      bottom: rem-calc(5);
+      z-index: 2;
+
+      &:before {
+        content: fa-content($fa-var-search);
+        transition: color $primary-transition;
+        color: $white;
+        font-family: $font-awesome;
+        font-size: 1.5em;
+        font-weight: 400;
+      }
+
+      &:hover {
+        background-color: transparent;
+
+        &:before {
+          color: $accent-yellow;
+        }
+      }
+
+      .search-panel-open & {
+        &:before {
+          content: fa-content($fa-var-times);
+        }
+      }
+    }
+
+    .search-block-form {
+      position: absolute;
+      z-index: 1;
+      top: 100%;
+      right: 0;
+      display: none;
+      background-color: $gray--dark;
+
+      // Open, or when JavaScript doesn't load for some reason, open the search.
+      .search-panel-open & {
+        display: flex;
+      }
+
+      input {
+        width: 20em;
+        width: 100%;
+        margin: 0;
+        padding: rem-calc(10 30 10 0);
+        border: none;
+        background: none;
+        border-bottom: rem-calc(2) solid $light-gray;
+
+        @include placeholder {
+          color: $light-gray;
+        }
+      }
+
+      button {
+        &:after {
+          color: $light-gray;
+        }
+      }
+
+    }
+  }
+}
+
+ul#search_autocomplete {
+  position: absolute;
+  top: rem-calc(80);
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.3);
+}
+#cludo-search-form-full {
+  position: relative;
+  ul#search_autocomplete {
+    top: rem-calc(60);
+  }
+}
+#search_autocomplete li {
+  padding-left: rem-calc(20);
+  padding-right: rem-calc(20);
+}

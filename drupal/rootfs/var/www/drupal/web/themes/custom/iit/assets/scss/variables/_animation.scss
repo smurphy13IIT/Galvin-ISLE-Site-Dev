@@ -1,0 +1,28 @@
+////
+/// @group variables
+/// Site-wide animations.
+////
+
+/// Animation Definitions
+/// ---------------------
+
+/// The default transition duration, in ms.
+/// @type Number
+$primary-transition-time: 250ms;
+
+/// The default transition timing function.
+/// @type String
+$primary-transition-function: ease-in-out;
+
+/// The default transition duration and timing function.
+/// @type String
+$primary-transition: $primary-transition-time $primary-transition-function;
+
+/// The default animation duration, in ms.
+/// @type Number
+$primary-animation-time: 750ms;
+
+/// The default animation duration and timing function. There is a slight delay
+/// here to account for scroll lag time.
+/// @type String
+$primary-animation: $primary-animation-time $primary-transition-function 250ms;

@@ -1,0 +1,22 @@
+////
+/// @group content-types
+/// News-specific styles.
+////
+
+/// All View Modes
+/// --------------
+.news {
+
+  &__intro-text {
+    max-width: rem-calc(map-get($breakpoints, medium));
+  }
+
+  /// Related
+  /// -------
+  &--related .news {
+
+    &__title {
+      margin-bottom: .25rem;
+    }
+  }
+}

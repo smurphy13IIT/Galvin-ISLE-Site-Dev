@@ -1,0 +1,54 @@
+////
+/// @group components
+/// Styles for the more-or-less.
+////
+
+.more-less {
+  position: relative;
+  overflow-y: hidden;
+  max-height: rem-calc(400);
+
+  &:after {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    content: '';
+    background: linear-gradient(rgba($white, 0), rgba($white, 100%));
+  }
+
+  &__toggle {
+    position: absolute;
+    z-index: 2;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .more-less-open & {
+    max-height: 10000rem;
+    padding-bottom: 5rem;
+
+    &:after {
+      background: rgba($white, 0);
+    }
+
+    .more-less__toggle {
+      bottom: -1rem;
+    }
+  }
+
+  // When JavaScript doesn't load for some reason, show the all the content and
+  // hide the button and overlay.
+  :root:not(.oho-js) & {
+    max-height: none;
+
+    &:after,
+    &__toggle {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+
+{% block content %}
+  <article class="story story--detail detail-page">
+    <section class="hero global-spacing--xlarge hero--no-img">
+      <div class="hero__content">
+        <div class="hero__content__inner">
+          <div class='grid-x grid-margin-x'>
+            <div class="global-spacing--xsmall hero__content__inner-content cell initial-12">
+              <h1>{{ node.label }}</h1>
+            </div>
+
+            {% if node.body.summary %}
+              <div class='cell initial-12 medium-8'><p>{{ node.body.summary }}</p></div>
+            {% endif %}
+
+            <div class="hero__content__inner-breadcrumbs cell initial-12">
+              {{ breadcrumbs }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% if story_subject_image %}
+      <section class='global-spacing--large grid-container section--featured-stories sequence-anim-parent'>
+        {% include '@iit/includes/outcome-story.html.twig' with {
+          image: story_subject_image,
+          title: outcome_title,
+          description: outcome_summary,
+          subject_name: outcome_subject_name,
+          degree_year: outcome_degree_year,
+        } %}
+      </section>
+    {% else %}
+      {% if story_video or story_image %}
+        {% if story_video %}
+          <section class='section--detail-page-image section--detail-page-image--video global-spacing--large'>
+            <div class='section--detail-page-image--video__container'>
+              {{ story_image }}
+              {{ story_video }}
+            </div>
+          </section>
+        {% elseif story_image %}
+          <section class='section--detail-page-image global-spacing--large'>
+            {{ story_image }}
+          </section>
+        {% endif %}
+      {% endif %}
+
+      {% if outcome_title or outcome_summary or outcome_subject_name or outcome_degree_year %}
+        <section class='global-spacing--large grid-container section--featured-stories sequence-anim-parent'>
+          {% include '@iit/includes/outcome-story.html.twig' with {
+            title: outcome_title,
+            description: outcome_summary,
+            subject_name: outcome_subject_name,
+            degree_year: outcome_degree_year,
+          } %}
+        </section>
+      {% endif %}
+    {% endif %}
+
+    <section class='section--wysiwyg section--wysiwyg--detail-page global-spacing--xlarge'>
+      <div class='grid-container'>
+        <div class='grid-container__inner full-wysiwyg'>
+          {{ content.body }}
+
+          {% if story_tags %}
+            <div class="tags news__tags">
+              <h2 class="tags__heading show-for-sr">{{ 'Tags'|t }}:</h2>
+              {{ oho_macros.list(story_tags) }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+
+    {{ content.field_gallery }}
+
+    {% if story_listing %}
+      <section class="section--related-story global-spacing--xlarge section--cards">
+        {{ story_listing }}
+      </section>
+    {% endif %}
+  </article>
+{% endblock %}

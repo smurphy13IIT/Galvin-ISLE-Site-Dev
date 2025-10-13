@@ -1,0 +1,40 @@
+name: Galvin subtheme for Foundation 6 v9+
+description: "Custom sub-theme, inherits from the Foundation base theme read <a href=\"http://foundation.zurb.com/docs/index.php\">framework documentation</a>"
+core: 8.x
+core_version_requirement: ^8 || ^9 || ^10
+type: theme
+base theme: zurb_foundation
+
+# Image appears on admin/appearance
+# screenshot: images/screenshot.jpg
+
+# Uncomment these lines and change "STARTER" to your theme name if you
+# need to add custom CSS or JS
+libraries:
+ - galvin2/global
+
+# Regions are output in the page.html.twig
+regions:
+  header_cta_nav: 'Header CTA nav'
+  search: 'Search'
+  secondary_nav: 'Secondary nav'
+  primary_nav: 'Primary nav'
+  subsection_nav: 'Subsection nav'
+  highlighted: Highlighted
+  title: Title
+  hero: 'Hero'
+  content: Content
+ # sidebar_first: 'Left sidebar'
+  footer_subsection: 'Footer subsection'
+  footer_upper: 'Footer upper'
+  footer_lower: 'Footer lower'
+
+# Hidden regions
+# regions_hidden[]: Page top
+# regions_hidden[]: Page bottom
+
+features:
+  - slogan
+  - favicon
+ 
+

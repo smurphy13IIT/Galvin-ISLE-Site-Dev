@@ -1,0 +1,42 @@
+/**
+ * OHO Interactive WYSIWYG stylesheet.
+ * Version 2019-04-08
+ * https://www.oho.com
+ */
+
+/// Import order:
+/// 1.  Encoding
+/// 2.  Variables
+/// 3.  Foundation
+/// 4.  Utilites
+/// 5.  WYSIWYG
+/// 6.  WYSIWYG Styles
+
+/// Encoding
+/// --------
+@charset 'UTF-8';
+
+/// Variables
+/// ---------
+@import 'variables/*.scss';
+
+/// Foundation
+/// ----------
+/// Source: http://foundation.zurb.com/docs/
+/// Note: We're only importing Foundation's function's and mixins, not
+/// generating CSS.
+@import 'foundation';
+
+/// Utilities
+/// ---------
+@import 'utilities/*.scss';
+
+/// WYSIWYG
+/// --------------
+@import 'global/wysiwyg';
+
+/// WYSIWYG Styles
+/// --------------
+img {
+  max-width: 100%;
+}

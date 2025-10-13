@@ -1,0 +1,271 @@
+////
+/// @group wrapper
+/// Header search styles.
+////
+/// All Styles & Mobile
+/// -------------------
+.site-search {
+    #search-block-form {
+        width: auto;
+        min-width: rem-calc(300);
+        padding: rem-calc(20 30);
+        background-color: $white;
+        display: flex;
+
+        label {
+            @include show-for-sr;
+        }
+
+        input {
+            width: 100%;
+            margin: 0;
+            padding: rem-calc(10 30 10 0);
+            border: none;
+            border-bottom: rem-calc(2) solid $light-gray;
+            box-shadow: none;
+            color: $white;
+            border-radius: 0; //remove apple-specifc border radius on input field
+            -webkit-appearance: none;
+
+            @include placeholder {
+                color: $dark-gray;
+                font-style: italic;
+            }
+        }
+
+        .form-item {
+            width: 100%;
+            @include flex-column(calc(100% - 20px));
+        }
+
+        .form-actions {
+            @include flex-column(rem-calc(20));
+            border-bottom: rem-calc(2) solid $light-gray;
+        }
+
+        button {
+            display: block;
+            margin: 0;
+            transition: color 250ms ease-in-out;
+            background-color: transparent;
+            padding: rem-calc(7 0 0 0);
+            width: 100%;
+            font-size: 0;
+
+            &:after {
+//                content: fa-content($fa-var-search);
+                content: "\f002";
+                transition: color 250ms ease-in-out;
+                color: $dark-gray;
+                font-family: $font-awesome;
+                font-size: rem-calc(20);
+                font-weight: 600;
+            }
+
+        }
+    }
+
+
+}
+
+/// Condensed Search
+/// -----------------------
+@mixin condensed-search() {
+    .site-search {
+        position: relative;
+        order: -1;
+
+        #search-block-form {
+            position: relative;
+            width: 100%;
+
+            input {
+                color: $dark-gray;
+            }
+
+        }
+
+        &__toggle {
+            display: none;
+        }
+    }
+}
+
+/// Large Search
+/// -----------------------
+@mixin large-search() {
+    .site-search {
+        order: 0;
+
+        &__toggle {
+            display: block;
+            margin: 0;
+            padding: .5em;
+            transition: color 250ms ease-in-out;
+            background-color: transparent;
+            position: absolute;
+            right: 0;
+            bottom: 5px;
+            cursor: pointer; //bottom: rem-calc(5);
+            z-index: 2;
+
+            &:before {
+                font-family: $font-awesome !important;
+  //              content: fa-content($fa-var-search); 
+                transition: color $primary-transition;
+                content: "\f002";
+                color: $white;
+                font-size: 1.5em;
+                font-weight: 600;
+            } // &[aria-expanded="true"] {
+            //   &:before {
+            //     content: fa-content($fa-var-times);
+            //}
+            //}
+            &:hover {
+                background-color: transparent;
+
+                &:before {
+                    color: $secondary-color;
+                }
+            }
+
+
+
+
+        }
+
+        #search-block-form {
+            position: absolute;
+            z-index: 1;
+            top: 100%;
+            right: 0;
+            display: none;
+            background-color: $dark-gray; // Open, or when JavaScript doesn't load for some reason, open the search.
+            &.search-panel-open {
+                display: flex;
+
+
+                + #search-toggle {
+                    &:before {
+    //                    content: fa-content($fa-var-times);
+                        content: "\f00d";
+
+                    }
+                }
+
+
+
+            }
+
+
+            input {
+                width: 20em;
+                width: 100%;
+                margin: 0;
+                padding: rem-calc(10 30 10 0);
+                border: none;
+                background: none;
+                border-bottom: rem-calc(2) solid $light-gray;
+                border-radius: 0;
+
+                @include placeholder {
+                    color: $light-gray;
+                }
+            }
+
+            button {
+
+                cursor: pointer;
+
+                &:after {
+                    color: $light-gray;
+                }
+            }
+
+        }
+    }
+
+
+    ul#search_autocomplete {
+        position: absolute;
+        top: rem-calc(80);
+        box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.3);
+    }
+
+
+    #search_autocomplete li {
+        padding-left: rem-calc(20);
+        padding-right: rem-calc(20);
+    }
+}
+
+/// SEARCH RESULTS
+
+////
+/// @group D8
+/// Search page and results styles for Drupal 8.
+////
+
+.search-results {
+    
+    form {
+        
+        margin: 1.25rem auto 1.25rem auto;
+            
+    .js-form-type-textfield {
+        
+        display: inline;
+        
+        input {
+            max-width: 65%;
+            display: inline;
+        }
+    }
+        
+        .form-actions {
+            display: inline-flex;
+            height: 3.8rem;
+        }
+    
+    
+    }
+    
+  .search-results-item {
+      
+       h2 {
+   font-size: 1.625rem;
+       margin-bottom: 1.25rem;
+    @extend %global-spacing--medium;
+  }
+      
+    margin: 0;
+  }
+  .search-results-item:not(:first-child) {
+    @include margins-top($spacing--small, $spacing--medium, $spacing--default);
+    @include paddings-top($spacing--small, $spacing--medium, $spacing--default);
+    border-top: .0625em solid $light-gray;
+  }
+    
+    .search-results-item:last-of-type {
+            @include margins-bottom($spacing--small, $spacing--medium, $spacing--default);
+                    @include paddings-bottom($spacing--small, $spacing--medium, $spacing--default);
+
+
+    }
+  .views-field-title a {
+    color: $black;
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+
+ 
+
+  .path a {
+    color: $primary-color;
+  }
+ 
+}
+

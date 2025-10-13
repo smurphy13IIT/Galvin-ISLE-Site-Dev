@@ -1,0 +1,15 @@
+{{ hero }}
+
+<div class="parallax-mask">
+  <div class="row">
+    <div class="small-12 columns medium-3">
+    </div>
+    <div class="columns small-12 medium-9">
+      {% if content.field_intro_text|render %}
+        <div class="intro-text">{{ content.field_intro_text }}</div>
+      {% endif %}
+
+      {{ content.body }}
+    </div>
+  </div>
+</div>

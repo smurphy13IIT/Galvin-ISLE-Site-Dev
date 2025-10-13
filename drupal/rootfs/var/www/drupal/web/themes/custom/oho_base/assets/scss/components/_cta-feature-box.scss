@@ -1,0 +1,43 @@
+////
+/// @group components
+/// Styles for the cta feature box.
+////
+
+.section--cta-feature-box {
+  margin-bottom: 0;
+}
+
+.cta-feature-box {
+
+  ul {
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .columns & {
+    margin-bottom: rem-calc(40);
+  }
+
+  &__heading {
+    margin: rem-calc(10 0);
+  }
+
+  &--featured {
+    display: flex;
+    align-items: center;
+
+    .cta-feature-box {
+
+      &__content {
+        position: relative;
+        z-index: 2;
+        max-width: rem-calc(400);
+        padding: rem-calc(30);
+        transform: translateX(rem-calc(-60));
+        color: $white;
+        background: $primary-color;
+      }
+    }
+  }
+}

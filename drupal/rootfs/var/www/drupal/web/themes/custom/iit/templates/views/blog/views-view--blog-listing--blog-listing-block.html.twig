@@ -1,0 +1,43 @@
+{% set classes = [
+  dom_id ? 'js-view-dom-id-' ~ dom_id,
+  'listing listing--blog',
+  'global-spacing--large',
+] %}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {{ title }}
+  {{ title_suffix }}
+
+
+  <div class="listing__form global-spacing--large">
+    <div class="grid-container">
+      <h2 class="listing__form__title h3">{{ 'Find Blogs'|t }}</h2>
+      {{ exposed }}
+    </div>
+  </div>
+
+  {{ header }}
+
+  {{ attachment_before }}
+
+  <div class="grid-container">
+    <div class="grid-x grid-margin-x">
+      <div class="cell medium-auto">
+        {{ rows }}
+        {{ empty }}
+        {{ pager }}
+      </div>
+    </div>
+  </div>
+
+  {{ attachment_after }}
+  {{ more }}
+
+  {% if footer %}
+    <footer>
+      {{ footer }}
+    </footer>
+  {% endif %}
+
+  {{ feed_icons }}
+</div>

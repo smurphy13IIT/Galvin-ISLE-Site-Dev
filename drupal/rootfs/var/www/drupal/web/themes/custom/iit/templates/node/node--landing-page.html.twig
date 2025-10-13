@@ -1,0 +1,14 @@
+<article class="landing-page">
+
+  {{ hero }}
+
+  {% if child_nav %}
+    {% include '@iit/includes/landing-nav.html.twig' with {
+      title: node.label,
+      child_nav: child_nav,
+    } %}
+  {% endif %}
+
+  {{ content.field_page_components }}
+
+</article>

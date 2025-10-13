@@ -1,0 +1,53 @@
+////
+/// @group menus
+/// Utility menu styles.
+////
+
+.utility-menu {
+
+  /// All Breakpoints
+  /// ---------------
+  a,
+  li {
+    display: block;
+  }
+
+  a {
+    font-family: $sans-serif;
+  }
+
+  /// Mobile
+  /// ------
+  @include breakpoint(medium down) {
+    border-top: 1px solid $gray;
+
+    ul {
+      column-count: 2;
+    }
+
+    a {
+      padding: .5em;
+      text-align: center;
+      color: $white;
+      font-weight: 600;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  /// Desktop
+  /// -----
+  @include breakpoint(large) {
+
+    ul {
+      display: flex;
+    }
+
+    a {
+      padding: .75em 1em;
+      line-height: 1;
+    }
+  }
+}

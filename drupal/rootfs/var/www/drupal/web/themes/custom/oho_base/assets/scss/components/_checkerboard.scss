@@ -1,0 +1,98 @@
+////
+/// @group components
+/// Styles for the checkerboard.
+////
+
+.checkerboard-item {
+  position: relative;
+
+  &__media,
+  &__info {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  &__media {
+    position: relative;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    max-width: none;
+  }
+
+  svg {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: rem-calc(200);
+    height: rem-calc(200);
+    margin: auto;
+    opacity: .45;
+  }
+
+  &__info {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__info-wrap {
+    max-width: rem-calc(540);
+    padding: rem-calc(30 20 40);
+  }
+
+  &__title {
+    margin-bottom: rem-calc(25);
+    font-size: rem-calc(24);
+  }
+
+  &__description {
+    font-size: rem-calc(14);
+
+    & + & {
+      margin-top: rem-calc(20);
+    }
+  }
+
+  @include breakpoint(medium up) {
+    display: flex;
+
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    &__image {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &__media,
+    &__info {
+      flex: 0 0 50%;
+      width: 50%;
+      max-width: 50%;
+    }
+
+    &__info {
+      align-items: center;
+    }
+
+    &__title {
+      margin-bottom: rem-calc(35);
+      font-size: rem-calc(50);
+    }
+
+    &__description {
+      font-size: rem-calc(15);
+
+      & + & {
+        margin-bottom: rem-calc(40);
+      }
+    }
+  }
+}

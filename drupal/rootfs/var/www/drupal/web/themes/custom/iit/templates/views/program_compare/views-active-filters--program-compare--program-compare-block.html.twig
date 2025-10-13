@@ -1,0 +1,12 @@
+<div tabindex='0' id='sticky-program-compare' class='sticky-program-compare'>
+  <button class='sticky-program-button'>{{ 'Your comparison list'|t }}</button>
+  <div {{ attributes }}>
+    {{ filters }}
+
+    {% if program_selection_count > 1 %}
+      <button data-options='{"touch" : false}' id="program-compare--compare-button" data-fancybox="" data-src="#program-compare-modal">
+        <span>{{ 'Compare'|t }}</span>
+      </button>
+    {% endif %}
+  </div>
+</div>

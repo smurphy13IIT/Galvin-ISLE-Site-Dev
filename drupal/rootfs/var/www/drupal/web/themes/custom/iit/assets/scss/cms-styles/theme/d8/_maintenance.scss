@@ -1,0 +1,23 @@
+////
+/// @group D8
+/// Maintentance page styles for Drupal 8.
+////
+
+.maintenance-page {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100vh;
+
+  > .main-content {
+    margin-bottom: rem-calc(100);
+    padding-top: rem-calc(40);
+  }
+
+  > footer {
+    flex: 1 1 auto;
+    align-self: flex-end;
+    width: 100%;
+    padding-top: rem-calc(20);
+  }
+}

@@ -1,0 +1,137 @@
+////
+/// @group content-types
+/// News-specific styles.
+////
+
+/// All View Modes
+/// --------------
+
+
+
+.news {
+
+  &__intro-text {
+    max-width: rem-calc(map-get($breakpoints, medium));
+}
+
+.listing-item {
+  font-family: $serif;
+}
+  /// Related
+  /// -------
+  &--related .news {
+
+    &__title {
+      margin-bottom: .25rem;
+    }
+  }
+}
+
+.section--tags {
+  .lined-section-heading {
+    margin-bottom: rem-calc($spacing--xxsmall);
+  }
+  .tags {
+    a {
+      color: $medium-gray;
+      font-weight: 600;
+    }
+    li {
+      margin-top: rem-calc(10);
+    }
+    li:before {
+      font-family: $font-awesome;
+      content: fa-content($fa-var-chevron-right);
+      color: $secondary-color;
+    }
+  }
+}
+
+// ---- in the media small listing
+.section--news-hub-media {
+  .btn {
+    margin-bottom: 0;
+  }
+  .itm-row .cell {
+    @extend %global-spacing--small;
+
+    &:last-child,
+    &:nth-last-child(2) {
+      @include breakpoint(large up) {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+.itm-small-list-item {
+  h3 {
+    font-weight: normal;
+    margin-bottom: rem-calc($spacing--xxsmall);
+  }
+  .external-link a {
+    &:after {
+      font-size: rem-calc(12);
+      margin-bottom: rem-calc(4);
+    }
+  }
+}
+
+// News Feed Block
+
+#block-views-block-news-feed-news-block {
+    
+    .block-title {
+        display: none;
+    }
+    
+    header {
+        grid-column-start: 1;
+        grid-column-end: 8;
+        //padding-left: 8.3%;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+  /*   h2 {
+
+
+        &:after {
+            content: '';
+            position: absolute;
+            height: 0.0625rem;
+            width: 100%;
+            bottom: initial;
+            top: 35px;
+            margin: auto;
+            background-color: #e4e4e4;
+        }
+    }
+
+    .btn--heading {
+        position: absolute;
+        right: 1.3rem;
+        top: -44px;
+        margin: auto;
+        height: 1.875rem;
+        width: 1.875rem;
+        padding: 0.3125rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0;
+
+        &:after {
+            content: fa-content($fa-var-angle-right);
+            font-family: $font-awesome;
+            color: #fff;
+            font-size: 1.0625rem;
+        }
+        
+       
+                
+            } */
+        } 
+        
+    
+
+

@@ -1,0 +1,20 @@
+{% if title %}
+  <div class="alpha-row">
+    <span class= "alpha-row__title">{{ title }}</span>
+  </div>
+{% endif %}
+{% for row in rows %}
+  {%
+    set row_classes = [
+      default_row_class ? 'views-row',
+    ]
+  %}
+  {% set row_attributes = row.attributes.addClass(row_classes)|render %}
+  {% if row_attributes %}
+    <div{{ row_attributes }}>
+      {{ row.content }}
+    </div>
+  {% else %}
+    {{ row.content }}
+  {% endif %}
+{% endfor %}

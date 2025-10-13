@@ -1,0 +1,43 @@
+////
+/// @group pages
+/// Marketing Landing Page Overrides
+////
+
+.page--marketing-landing {
+  .site-header__sticky-container:not(.sticky-header) {
+    border-top: 0;
+  }
+  .toolbar-horizontal.toolbar-fixed.toolbar-tray-open &:not(.page--school-subsection) .sticky-header {
+    top: 0;
+  }
+  .site-header__sticky-container.sticky-header {
+    position: relative;
+    border: none;
+  }
+  .site-header__sticky-container,
+  .site-header {
+    @include breakpoint(large) {
+      height: rem-calc(110);
+    }
+  }
+  &:not(.page--school-subsection) .sticky-header {
+    box-shadow: none;
+  }
+  .sticky-header .site-header__logo--condensed {
+    @include breakpoint(large) {
+      display: none !important;
+    }
+  }
+  .site-header .site-header__logo--condensed {
+    @include breakpoint(medium down) {
+      padding-bottom: 12px;
+    }
+  }
+  .site-header__sticky-container .site-header__logo--large {
+    @include breakpoint(large) {
+      display: block;
+      max-width: 18.75rem;
+      padding: 2.25rem 0;
+    }
+  }
+}

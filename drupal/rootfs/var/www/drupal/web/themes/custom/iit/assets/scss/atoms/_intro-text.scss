@@ -1,0 +1,10 @@
+////
+/// @group components-micro
+/// Styles for intro text.
+////
+
+.intro-text {
+  @include font-sizes(18, 20, 22);
+  line-height: 1.7;
+  font-weight: 400;
+}

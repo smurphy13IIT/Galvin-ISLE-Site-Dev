@@ -1,0 +1,80 @@
+a {
+    &.phone {
+        &:before {
+            font-family: $font-awesome;
+            content: "\f879";
+            //content: fa-content($fa-var-phone-alt);
+            font-size: 1em;
+            font-weight: 900;
+            color: $black;
+            margin-right: 0.3125rem;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    &.email {
+        &:before {
+            //content: fa-content($fa-var-envelope);
+            content: "\f0e0";
+            font-size: 1em;
+            font-weight: 900;
+            color: $black;
+            margin-right: 0.3125rem;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    &.chat {
+        &:before {
+            //content: fa-content($fa-var-comment-dots);
+            content: "\f4ad";
+            font-family: $font-awesome;
+            font-size: 1em;
+            font-weight: 900;
+            color: $black;
+            margin-right: 0.3125rem;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    &.clock {
+        &:before {
+            //content: fa-content($fa-var-clock);
+            content: "\f017";
+            font-family: $font-awesome;
+            font-size: 1em;
+            font-weight: 900;
+            color: $black;
+            margin-right: 0.5rem;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    &.suggestion {
+        &:before {
+            //content: fa-content($fa-var-lightbulb);
+            content: "\f0eb";
+            font-family: $font-awesome;
+            font-size: 1em;
+            font-weight: 900;
+            color: $black;
+            margin-right: 0.3125rem;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}

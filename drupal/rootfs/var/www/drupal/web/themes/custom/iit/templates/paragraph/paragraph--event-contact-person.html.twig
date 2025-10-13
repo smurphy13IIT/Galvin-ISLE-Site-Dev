@@ -1,0 +1,24 @@
+<article class='profile-item profile-item--horizontal'>
+  {% if content.field_component_image|render %}
+    <div class='profile-item__media profile-item__column'>
+      {{ content.field_component_image }}
+    </div>
+  {% endif %}
+  <div class='profile-item__meta profile-item__column'>
+    <h3 class='arrow-link'>{{ content.field_component_title }}</h3>
+    {% if content.field_ecp_position|render %}
+      <span class='profile__item__position'>{{ content.field_ecp_position }}</span>
+    {% endif %}
+  </div>
+  {% if content.field_ecp_phone_number|render or
+        content.field_ecp_email|render %}
+    <div class='profile-item__contact profile-item__column'>
+      {% if content.field_ecp_phone_number|render %}
+        <span class="profile-item__contact__item phone"><i class='fi flaticon-phone'></i> <span>{{ content.field_ecp_phone_number }}</span></span>
+      {% endif %}
+      {% if content.field_ecp_email|render %}
+        <span class="profile-item__contact__item email"><i class='fas fa-envelope'></i> <span>{{ content.field_ecp_email }}<span></span>
+      {% endif %}
+    </div>
+  {% endif %}
+</article>

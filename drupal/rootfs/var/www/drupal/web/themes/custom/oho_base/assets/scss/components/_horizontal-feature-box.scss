@@ -1,0 +1,20 @@
+////
+/// @group components
+/// Styles for the horizontal feature box.
+////
+
+.section--horizontal-feature-box {
+  font-family: $sans-serif;
+
+  h2 {
+    margin-top: 0;
+  }
+}
+
+.horizontal-feature-box__img {
+  margin-bottom: 20px;
+
+  @include breakpoint(medium) {
+    margin-bottom: 0;
+  }
+}

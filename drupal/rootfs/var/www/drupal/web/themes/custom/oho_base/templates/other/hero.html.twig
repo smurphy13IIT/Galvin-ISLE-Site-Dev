@@ -1,0 +1,40 @@
+<section class="hero section--global-spacing {{hero_classes}}">
+  {% if media_type != 'none' %}
+    <div class="hero__media">
+      {% if media_type == 'video' %}
+        {% if video_type == 'video' %}
+          <div class="video-feature">
+            <video id="hero" loop muted poster="{{video_poster}}">
+              <source src="{{video}}">
+            </video>
+          </div>
+        {% elseif video_type == 'iframe' %}
+          <div class="video-feature">
+            <iframe width="560" height="315" src="{{video}}" frameborder="0" allow="autoplay; encrypted-media; loop" allowfullscreen></iframe>
+          </div>
+        {% elseif video_type == 'yt_player' %}
+          <div class="video-feature">
+            <div id="bgndVideo" class="player" data-property="{videoURL:'{{video}}',containment:'body',autoPlay:true, showControls:false, mute:true, startAt:0, opacity:1, loop:true, anchor:'center,center', useOnMobile:false, mobileFallbackImage:'{{video_poster}}, optimizeDisplay:true'}"></div>
+          </div>
+        {% endif %}
+      {% endif %}
+
+      {{image}}
+    </div>
+    {% if overlay %}
+      <div class="hero__overlay" aria-hidden="true"></div>
+    {% endif %}
+  {% endif %}
+  <div class="hero__content">
+    <h1>{{title}}</h1>
+    {% if subtitle %}
+      <p>{{subtitle}}</p>
+    {% endif %}
+    {% if description %}
+      {{description}}
+    {% endif %}
+    {% if link %}
+      {{link}}
+    {% endif %}
+  </div>
+</section>

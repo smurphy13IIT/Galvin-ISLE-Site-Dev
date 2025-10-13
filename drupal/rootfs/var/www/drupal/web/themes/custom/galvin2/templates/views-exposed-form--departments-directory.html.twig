@@ -1,0 +1,37 @@
+{#
+  /**
+   * Template to override the display of the search form at /departments_directory.
+* This custom template is adapted from the Oho IIT theme and adds divs around the form content for Foundation grid layout and theming.
+   */
+#}
+
+
+{#
+/**
+ * @file
+ * Theme override of a views exposed form.
+ *
+ * Available variables:
+ * - form: A render element representing the form.
+ *
+ * @see template_preprocess_views_exposed_form()
+ */
+#}
+{% if q is not empty %}
+  {#
+    This ensures that, if clean URLs are off, the 'q' is added first,
+    as a hidden form element, so that it shows up first in the POST URL.
+  #}
+{{ q }}
+{% endif %}
+
+<div class="grid-x grid-margin-x form-with-tabs">
+  <div class="cell initial-12 medium-12 columns">
+    <div class="listing__form__submit-container">
+      {{ form.name }}
+      {{ form.actions }}
+    </div>
+  </div>
+</div>
+
+{{ form|without('name', 'actions') }} 

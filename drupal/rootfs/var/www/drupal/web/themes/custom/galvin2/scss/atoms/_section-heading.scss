@@ -1,0 +1,95 @@
+////
+/// @group components-micro
+/// Styles for section headings.
+////
+
+.lined-section-heading {
+  position: relative;
+  overflow: hidden;
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  h2 {
+    margin-bottom: 0;
+    @include breakpoint(medium up) {
+    //  @include h3;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      height: rem-calc(1);
+      width: 100%;
+      bottom: 0;
+      top: 0;
+      margin: auto;
+      background-color: $medium-gray;
+    }
+  }
+  &--linked h2 {
+    margin-bottom: 0;
+  }
+  .btn {
+    position: absolute;
+    margin-bottom: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: rem-calc(30);
+    width: rem-calc(30);
+    padding: rem-calc(5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0;
+    &:after {
+      content: fa-content($fa-var-chevron-right);
+      font-family: $font-awesome;
+      color: #fff;
+      font-size: rem-calc(17);
+    }
+  }
+
+}
+
+.section-heading {
+
+  .global-spacing--small:last-child {
+    margin-bottom: 0;
+  }
+  .btn {
+    @include breakpoint(medium) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__heading {
+    &:not(:last-child) {
+      @extend %global-spacing--xsmall;
+    }
+  }
+
+  &__subheading {
+    font-size: 20px;
+  }
+  .medium-10 {
+    @include breakpoint(medium up) {
+      padding-right: rem-calc(40);
+    }
+  }
+  .columns:nth-child(2) {
+    @include breakpoint(small down) {
+      margin-top: rem-calc(20);
+    }
+  }
+}
+
+.section--cards {
+  .lined-section-heading--linked h2 {
+   // @include h2;
+    margin-bottom: 0;
+    font-size: 3rem;
+  }
+}

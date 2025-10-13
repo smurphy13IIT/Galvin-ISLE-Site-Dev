@@ -1,0 +1,117 @@
+////
+/// @group global
+/// Styles for tables.
+////
+
+/// Base Styles
+/// -----------
+.mobile-table {
+  &:not(:last-child) {
+    @extend %global-spacing--medium;
+  }
+}
+table {
+  border-collapse: collapse;
+  border-top: 0;
+  font-family: $sans-serif;
+  font-size: rem-calc(16);
+  line-height: 1.5;
+
+  &:not(:last-child) {
+    @extend %global-spacing--medium;
+  }
+
+  &[align='left'] { // stylelint-disable-line
+    float: none;
+
+    @include breakpoint(medium) {
+      float: left;
+      margin-right: 2em;
+    }
+  }
+
+  &[align='right'] { // stylelint-disable-line
+    float: none;
+
+    @include breakpoint(medium) {
+      float: right;
+      margin-left: 2em;
+    }
+  }
+}
+
+tr:nth-child(odd) {
+  background-color: $gray--light;
+}
+thead,
+tbody {
+  vertical-align: top;
+}
+
+thead {
+  color: $white;
+  border-right: 1px solid #9F0000;
+  border-left: 1px solid #9F0000;
+  font-size: 1rem;
+  text-align: left;
+
+  th {
+    background: $primary-color;
+  }
+}
+
+tbody {
+  border-top: 0;
+  border-left: 1px solid $medium-gray;
+  th {
+    border: none;
+    background: $dark-gray;
+    color: $white;
+  }
+}
+
+tr {
+  border-bottom: 1px solid $medium-gray;
+}
+
+th {
+  padding: 1em 1.25em;
+  border-bottom: 0;
+  background: $gray--light;
+  font-weight: 600;
+  border-bottom: rem-calc(2) solid #9F0000;
+  &:not(:last-child) {
+    border-right: 1px solid #9F0000;
+  }
+}
+
+td {
+  padding: rem-calc(13 16);
+  border-right: 1px solid $medium-gray;
+}
+
+/// Responsive Tables
+/// -----------------
+/// Works in conjunction with table.js. Adds scrolling and a scroll indicator.
+@include breakpoint (medium down) {
+
+  .mobile-table {
+    margin-bottom: 2.5rem;
+
+    &--scroll {
+      overflow-y: scroll;
+      box-shadow:  inset -123px 0px 68px -30px rgba(255,255,255,1);
+      width: calc(100% + 20px);
+      th:last-child,
+      td:last-child {
+        padding-right: rem-calc(100);
+      }
+    }
+
+    table {
+      margin-bottom: 0;
+      position: relative;
+      z-index: -1;
+    }
+  }
+}

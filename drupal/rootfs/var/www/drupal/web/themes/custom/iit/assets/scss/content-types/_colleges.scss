@@ -1,0 +1,133 @@
+///
+/// @group content-types
+///
+
+// ---- Styles not related to being sticky
+.page--school,
+.page--school-subsection {
+  .site-header__sticky-container {
+    position: relative;
+  }
+}
+
+.college-nav {
+  .h2 {
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    color: $white;
+    margin-bottom: rem-calc($spacing--small);
+    display: block;
+    width: 100%;
+  }
+  span:not(.accordion__button-text):not(.h2) {
+    display: block;
+    @include breakpoint(medium down) {
+      margin-top: rem-calc(40);
+    }
+  }
+  ul {
+    @include breakpoint(medium down) {
+      padding: rem-calc(10 20);
+      background: #fff;
+    }
+    @include breakpoint(large up) {
+      display: flex;
+    }
+  }
+  li:not(:last-child) {
+    @include breakpoint(large up) {
+      padding-right: rem-calc(5);
+    }
+  }
+  li:not(:last-child) a {
+    @include breakpoint(medium down) {
+      border-bottom: rem-calc(1) solid $gray--alt;
+    }
+  }
+  li {
+    @include breakpoint(large up) {
+      display: flex;
+      a {
+        align-items: center;
+        display: flex;
+      }
+    }
+  }
+  a {
+    @include breakpoint(medium down) {
+      padding: rem-calc(10 0);
+      display: block;
+      font-size: rem-calc(16);
+    }
+    @include breakpoint(large up) {
+      @include btn;
+      @include btn-light;
+      border: none;
+      color: $text-color;
+      text-transform: none;
+      &:hover,
+      &:focus {
+        color: $white;
+        background: $brand-red;
+      }
+    }
+  }
+}
+
+.college-nav.sticky {
+  .college-nav__sticky-container {
+    /// ----- All the sticky desktop
+    position: fixed;
+    z-index: 11;
+    top: rem-calc(80);
+    background: $gray;
+    left: 0;
+    width: 100%;
+    top: 0;
+    padding-top: rem-calc(10);
+    padding-bottom: rem-calc(10);
+    @include breakpoint(small down) {
+      padding-top: rem-calc(20);
+      padding-bottom: rem-calc(20);
+      background: $brand-gray;
+    }
+
+    .h2 {
+      font-size: rem-calc(28);
+      margin-bottom: rem-calc($spacing--xsmall);
+    }
+
+    .hero--school__school-tagline {
+      display: none;
+    }
+
+    a {
+      padding: rem-calc(10 25);
+    }
+  }
+}
+
+.accordion--college {
+  .accordion__content {
+    padding: 0;
+  }
+  .accordion__button {
+    font-family: $sans-serif;
+    background-color: $white;
+    color: $text-color;
+    svg path {
+      fill: $accent-yellow;
+    }
+  }
+  .accordion__icon {
+    transform: rotate(90deg);
+  }
+  &.accordion--open > .accordion__button .accordion__icon {
+    transform: rotate(-90deg);
+  }
+}
+
+.hero--school__school-tagline {
+  margin-bottom: 1.5rem;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}

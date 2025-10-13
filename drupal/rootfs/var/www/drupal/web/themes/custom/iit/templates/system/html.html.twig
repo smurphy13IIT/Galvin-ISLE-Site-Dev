@@ -1,0 +1,58 @@
+{#
+/**
+ * @file
+ * Theme override for the basic structure of a single Drupal page.
+ */
+#}
+<!DOCTYPE html>
+<html{{ html_attributes }}>
+  <head>
+    <head-placeholder token="{{ placeholder_token|raw }}">
+    <title>{{ head_title|safe_join(' | ') }}</title>
+    <css-placeholder token="{{ placeholder_token|raw }}">
+    <js-placeholder token="{{ placeholder_token|raw }}">
+
+    <!-- Google Tag Manager dataLayer initial values for pageload -->
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+    'logged_in': '{{ logged_in|default(0) }}'
+    });
+    </script>
+    <!-- End Google Tag Manager dataLayer initial values for pageload -->
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PD4WGZ5');</script>
+    <!-- End Google Tag Manager -->
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ base_path ~ directory }}/assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ base_path ~ directory }}/assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ base_path ~ directory }}/assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="{{ base_path ~ directory }}/assets/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="{{ base_path ~ directory }}/assets/favicons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="{{ base_path ~ directory }}/assets/favicons/mstile-144x144.png">
+    <meta name="msapplication-config" content="{{ base_path ~ directory }}/assets/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="gecko_domain_verification" content="22VD00tyqbtif500006sydr2z8">
+  </head>
+  <body{{ attributes }}>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PD4WGZ5"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="skip-link">
+      <a href="#main-menu" class="element-invisible element-focusable">{{ 'Skip to main site navigation'|t }}</a>
+      <a href="#main-content" class="element-invisible element-focusable">{{ 'Skip to main content'|t }}</a>
+    </div>
+    {{ page_top }}
+    {{ page }}
+    {{ page_bottom }}
+    <js-bottom-placeholder token="{{ placeholder_token|raw }}">
+  </body>
+</html>

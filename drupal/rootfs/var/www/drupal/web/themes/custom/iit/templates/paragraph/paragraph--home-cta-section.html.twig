@@ -1,0 +1,24 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+<section class="global-spacing--large section--home-ctas">
+  <div class="section-heading">
+    <div class="grid-container">
+      <h2 class="section-heading__heading">{{ content.field_component_title }}</h2>
+      <div class="grid-x">
+        <div class="global-spacing--small cell initial-12">
+          <span class="section-heading__subheading">{{ content.field_component_body }}</span>
+        </div>
+        <div class="cell initial-12">
+          {{ oho_macros.link_field_link(content.field_hcs_cta_links, 'btn') }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="global-spacing--xlarge section--cards">
+  <div class="grid-container">
+    <div class="grid-x grid-margin-x">
+      {{ content.field_hcs_cards }}
+    </div>
+  </div>
+</section>

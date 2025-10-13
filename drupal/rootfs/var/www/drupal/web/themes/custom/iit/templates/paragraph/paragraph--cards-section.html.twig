@@ -1,0 +1,15 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+<section class="global-spacing--xlarge section--cards">
+  <div class='global-spacing--small grid-container'>
+    {% include '@iit/includes/lined-section-heading.html.twig' with {
+      title: content.field_component_title,
+      link_field: content.field_component_link
+    } %}
+  </div>
+
+  <div class="grid-container">
+    <div class="grid-x grid-margin-x">
+      {{ content.field_cs_cards }}
+    </div>
+  </div>
+</section>

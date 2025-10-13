@@ -1,0 +1,15 @@
+{#
+  /**
+   * Template to display the audience menu block.
+   */
+#}
+<nav id="audience-menu" class="audience-menu accessible-menu" data-item-open-text="Open the %s menu" data-item-close-text="Close the %s menu">
+  <ul class="menu">
+    <li class="menu-item--expanded">
+      <span class="">{{ 'Resources for'|t }}...</span>
+      {% block content %}
+        {{ content }}
+      {% endblock %}
+    </li>
+  </ul>
+</nav>

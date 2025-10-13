@@ -1,0 +1,20 @@
+global:
+  version: 1.x
+  css:
+    theme:
+      '//fonts.googleapis.com/css?family=Roboto+Slab:400,700|Source+Sans+Pro:300,400,600,700|Source+Serif+Pro&display=swap': { type: external }
+      assets/js/dist/app.css: {}
+      assets/css/theme.css: {}
+  js:
+    assets/js/dist/modernizr.js: {}
+    assets/js/src/utils/enquire.js: {}
+    assets/js/src/utils/viewport.jquery.js: {}
+    assets/js/src/utils/animation.jquery.js: {}
+    assets/js/src/modules/slick.js: {}
+    assets/js/src/modules/sticky.js: {}
+    assets/js/dist/app.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - jquery_ui/core
+    - jquery_ui_tabs/tabs

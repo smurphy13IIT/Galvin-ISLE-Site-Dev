@@ -1,0 +1,169 @@
+////
+/// @group components
+/// Styles for animations.
+////
+
+.oho-animate {
+  transition:
+    opacity $primary-animation,
+    transform $primary-animation;
+  transform: none;
+  opacity: 1;
+
+  /// Animations
+  /// ----------
+  /// The default animation state is visible. Only in conjunction with the
+  /// .oho-animate--ready class do the animations take effect. Animation is
+  /// triggered by removing .oho-animate--ready.
+  &--ready {
+    // The transition when adding .oho-animate--ready is none, so that there is
+    // no visible reversed transition when loading the page with an element
+    // already in view.
+    transition: none;
+
+    &.fade-in-up {
+      transform: translateY(5rem);
+      opacity: 0;
+    }
+
+    &.fade-in-right {
+      transform: translateX(5rem);
+      opacity: 0;
+    }
+
+    &.fade-in-down {
+      transform: translateY(-5rem);
+      opacity: 0;
+    }
+
+    &.fade-in-left {
+      transform: translateX(-5rem);
+      opacity: 0;
+    }
+  }
+}
+
+.oho-animate-sequence {
+  transition:
+    opacity $primary-animation,
+    transform $primary-animation;
+  transform: none;
+  opacity: 1;  
+}
+
+
+// ---------------------------
+// ANIMATE JS
+// This file is only to contain optional overrides to existing components for animation
+// ---------------------------
+$baseline: .6s;
+$fast: .4s;
+$slow: 1.5s;
+
+$bezier: cubic-bezier(.82,.06,.14,.97);
+$bezier--slingshot: cubic-bezier(.5,0,.38,1.47);
+
+.fade-in-up.sequence-anim-item,
+.fade-up-in.sequence-anim-item {
+	transition: transform $slow ease, opacity $baseline $bezier;
+	transform: translateY(3rem);
+	will-change: transform;
+	opacity: 0;
+	&.sequence-anim-item--active {
+		transform: none;
+		opacity: 1;
+	}
+}
+.cta-feature-box--featured.anim-item {
+	.cta-feature-box__img {
+		transition: transform $slow ease;
+		transform: translateX(60px);
+  	will-change: transform;
+	}
+	.cta-feature-box__content {
+		transition: transform $slow ease;
+  	will-change: transform;
+		transform: translateX(-120px);
+	}
+	&.anim-item--active {
+		.cta-feature-box__img {
+			transform: none;
+		}
+		.cta-feature-box__content {
+			transform: translateX(-60px);
+		}
+	}
+}
+.box-shadow-anim .text-card {
+  transition: box-shadow $slow;
+  box-shadow: 0 8px 20px 0 rgba(0,0,0,0.05);
+}
+.box-shadow-anim.sequence-anim-item--active .text-card {
+  box-shadow: 0 8px 20px 0 rgba(0,0,0,0.20);
+}
+
+// ----- pop in
+@keyframes pop-in {
+	0% {
+		transform: scale(.95);
+		opacity: 0;		
+	}
+	33.3333% {
+		transform: scale(1.03);		
+	}
+	66.6666% {
+		transform: scale(.98);
+	}
+	100% {
+		transform: none;
+		opacity: 1;
+	}
+}
+.pop-in.sequence-anim-item {
+	transform: scale(.8);
+	opacity: 0;
+  animation-duration: .9s;
+  animation-iteration-count: 1;
+  animation-timing-function: $bezier;
+	&.sequence-anim-item--active {
+		animation-name: pop-in;
+		transform: none;
+		opacity: 1;
+	}
+}
+
+// ----- pop in
+@keyframes pop-in-small {
+	0% {
+		transform: scale(.97);
+		opacity: 0;		
+	}
+	100% {
+		transform: none;
+		opacity: 1;
+	}
+}
+.pop-in-small.sequence-anim-item {
+	transform: scale(.97);
+	opacity: 0;
+  animation-duration: $slow;
+  animation-iteration-count: 1;
+  animation-timing-function: $bezier;
+	&.sequence-anim-item--active {
+		animation-name: pop-in-small;
+		transform: none;
+		opacity: 1;
+	}
+}
+
+.fade-in-left.sequence-anim-item,
+.fade-slide-from-left.sequence-anim-item {
+	transition: transform $slow $bezier--slingshot, opacity $slow $bezier;
+	transform: translateX(-3rem);
+	will-change: transform;
+	opacity: 0;
+	&.sequence-anim-item--active {
+		transform: none;
+		opacity: 1;
+	}
+}

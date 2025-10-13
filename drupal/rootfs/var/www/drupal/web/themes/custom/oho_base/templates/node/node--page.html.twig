@@ -1,0 +1,46 @@
+{#
+/**
+ * @file
+ * Template to display a general page.
+ */
+#}
+{%
+  set classes = [
+    'basic-page',
+  ]
+%}
+
+{% block sidebar %}
+  {% if sidebar_nav %}
+    <div class="cell initial-12 medium-3">
+      {{ sidebar_nav }}
+    </div>
+  {% endif %}
+{% endblock %}
+
+{% block page %}
+  <div class="columns initial-12 medium-auto">
+    {{ breadcrumbs }}
+    <article{{ attributes.addClass(classes) }}>
+      <h1>{{ node.title.value }}</h1>
+
+      {% if content.field_intro_text|render %}
+        <div class="intro-text">{{ content.field_intro_text }}</div>
+      {% endif %}
+
+      {% if content.field_header_image|render %}
+        <div class="featured-image--basic">
+          <figure>
+            {{ content.field_header_image }}
+          </figure>
+        </div>
+      {% endif %}
+
+      <section class="clearfix">
+        {% block content %}
+          {{ content.body }}
+        {% endblock %}
+      </section>
+    </article>
+  </div>
+{% endblock %}

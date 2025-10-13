@@ -1,0 +1,48 @@
+{#
+/**
+ * @file
+ * Template to display a general page.
+ */
+#}
+
+{{ hero }}
+
+{% if child_nav %}
+  {% include '@iit/includes/landing-nav.html.twig' with {
+    title: node.label,
+    child_nav: child_nav,
+  } %}
+{% endif %}
+
+{% if sidebar_nav or content.body|render or content.field_expandable_section|render %}
+  <div class="main-content">
+    <div class='grid-container'>
+      <div class='grid-x grid-margin-x'>
+        {% if sidebar_nav %}
+          <div class="cell medium-3">
+            {% include '@iit/includes/sidebar-nav.html.twig' with {
+              sidebar_nav: sidebar_nav,
+            } %}
+          </div>
+        {% endif %}
+
+        <div class="cell medium-auto global-spacing--xlarge">
+          <article class="basic-page">
+            <section class="clearfix">
+              <article class="clearfix full-wysiwyg">
+
+                {{ content.body }}
+
+                {{ content.field_expandable_section }}
+
+              </article>
+            </section>
+          </article>
+        </div>
+      </div>
+    </div>
+
+  </div>
+{% endif %}
+
+{{ content.field_page_components }}

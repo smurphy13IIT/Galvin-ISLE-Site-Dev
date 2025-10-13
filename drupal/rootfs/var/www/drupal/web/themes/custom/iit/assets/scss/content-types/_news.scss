@@ -1,0 +1,88 @@
+////
+/// @group content-types
+/// News-specific styles.
+////
+
+/// All View Modes
+/// --------------
+
+.news {
+
+  &__intro-text {
+    max-width: rem-calc(map-get($breakpoints, medium));
+}
+
+.listing-item {
+  font-family: $serif;
+}
+  /// Related
+  /// -------
+  &--related .news {
+
+    &__title {
+      margin-bottom: .25rem;
+    }
+  }
+}
+
+.section--tags {
+  .lined-section-heading {
+    margin-bottom: rem-calc($spacing--xxsmall);
+  }
+  .tags {
+    a {
+      color: $gray;
+      font-weight: 600;
+    }
+    li {
+      margin-top: rem-calc(10);
+    }
+    li:before {
+      font-family: $font-awesome;
+      content: fa-content($fa-var-chevron-right);
+      color: $accent-yellow;
+    }
+  }
+}
+
+// ---- in the media small listing
+.section--news-hub-media {
+  .btn {
+    margin-bottom: 0;
+  }
+  .itm-row .cell {
+    @extend %global-spacing--small;
+
+    &:last-child,
+    &:nth-last-child(2) {
+      @include breakpoint(large up) {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+.itm-small-list-item {
+  h3 {
+    font-weight: normal;
+    margin-bottom: rem-calc($spacing--xxsmall);
+  }
+  .external-link a {
+    &:after {
+      font-size: rem-calc(12);
+      margin-bottom: rem-calc(4);
+    }
+  }
+}
+
+// ---- in the media Medium listing
+.related-in-the-media {
+  .date {
+    margin-bottom: rem-calc(5);
+  }
+
+  &:not(:last-child) {
+    @include breakpoint(small down) {
+      margin-bottom: rem-calc(30);
+    }
+  }
+}

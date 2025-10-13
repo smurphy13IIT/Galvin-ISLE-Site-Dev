@@ -1,0 +1,14 @@
+////
+/// @group components-micro
+/// Date styles.
+////
+
+.date {
+  display: block;
+  font-family: $sans-serif;
+  font-weight: 400;
+  color: $gray;
+  i {
+    margin-right: rem-calc(5);
+  }
+}

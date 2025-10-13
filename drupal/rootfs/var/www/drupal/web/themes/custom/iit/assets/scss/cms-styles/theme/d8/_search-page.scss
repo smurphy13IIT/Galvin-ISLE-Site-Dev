@@ -1,0 +1,34 @@
+////
+/// @group D8
+/// Search page and results styles for Drupal 8.
+////
+
+.search-results {
+  .search-results-item {
+    margin: 0;
+  }
+  .search-results-item:not(:first-child) {
+    @include margins-top($spacing--small, $spacing--medium, $spacing--default);
+    @include paddings-top($spacing--small, $spacing--medium, $spacing--default);
+    border-top: .0625em solid $gray--light;
+  }
+  a {
+    color: $text-color;
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+
+  h2 {
+    @include h3;
+    @extend %global-spacing--medium;
+  }
+
+  .path {
+    color: $link-color;
+  }
+  .powered-by-cludo {
+    display: none;
+  }
+}

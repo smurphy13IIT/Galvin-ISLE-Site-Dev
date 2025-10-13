@@ -1,0 +1,36 @@
+////
+/// @group components-micro
+/// Styles for an arrow link.
+////
+
+.arrow-link {
+ display: block;
+  position: relative;
+  a {
+    display: inline;
+    color: $black;
+    &:hover {
+      text-decoration: none;
+      &:after {
+        padding-left: rem-calc(10)
+      }
+    }
+    &:after {
+      
+      font-family: "Flaticon";
+      content: $flaticon-long-arrow;
+        //content: fa-content($fa-var-long-arrow-alt-right);
+        //font-family: $font-awesome;
+      font-weight: 900;
+      transition: padding-left .3s ease;
+      padding-left: rem-calc(5);
+      color: $primary-color;
+    }
+      &:hover {
+                    text-decoration: none;
+                    &:after {
+                        padding-left: 0.625rem;
+                    }
+  }
+}
+}

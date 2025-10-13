@@ -1,0 +1,119 @@
+////
+/// @group menus
+/// Audience menu styles.
+////
+
+.audience-menu {
+
+  /// All Breakpoints
+  /// ---------------
+  a,
+  li,
+  span {
+    display: block;
+  }
+
+  a,
+  span {
+    font-family: $sans-serif;
+  }
+
+  span {
+    cursor: default;
+  }
+
+  /// Mobile
+  /// ------
+  @include breakpoint(medium down) {
+    border-top: 1px solid $gray;
+
+    /// All Levels
+    /// ----------
+    a,
+    span {
+      padding: .5em 3em .5em .5em;
+      color: $white;
+      font-size: 1.125rem;
+      font-weight: 600;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    /// Second Level
+    /// ------------
+    ul ul {
+      display: none;
+
+      li + li {
+        border-top: 1px solid $gray--dark;
+      }
+
+      a {
+        color: $text-color;
+        background-color: $gray;
+      }
+    }
+  }
+
+  /// Desktop
+  /// -----
+  @include breakpoint(large) {
+
+    /// All Levels
+    /// ----------
+    ul {
+      display: flex;
+    }
+
+    li {
+
+      &:hover {
+
+        > a,
+        > span {
+          background-color: $gray--light;
+        }
+
+        > ul {
+          display: block;
+        }
+      }
+    }
+
+    a,
+    span {
+      padding: .75em 1em;
+      color: $link-color;
+      line-height: 1;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    /// Second Level
+    /// ------------
+    ul ul {
+      position: absolute;
+      z-index: 1;
+      right: 0;
+      display: none;
+      min-width: 10rem;
+
+      li {
+        display: block;
+        margin: 0;
+      }
+
+      a {
+        background-color: $gray--light;
+
+        &:hover {
+          color: $text-color;
+        }
+      }
+    }
+  }
+}

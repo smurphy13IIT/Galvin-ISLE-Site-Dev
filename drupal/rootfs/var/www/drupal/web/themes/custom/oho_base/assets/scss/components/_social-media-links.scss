@@ -1,0 +1,25 @@
+////
+/// @group components
+/// Social media link styles.
+////
+
+.social-media {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: inline-block;
+  }
+
+  a {
+    display: block;
+    margin: 0 .25em;
+    transition: color $primary-transition;
+    font-size: 1.5rem;
+
+    &:hover {
+      color: $primary-color--dark;
+    }
+  }
+}

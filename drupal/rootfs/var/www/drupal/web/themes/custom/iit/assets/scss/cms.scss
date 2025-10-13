@@ -1,0 +1,35 @@
+/**
+ * OHO Interactive CMS stylesheet.
+ * Version 2019-04-08
+ * https://www.oho.com
+ */
+
+/// Import order:
+/// 1.  Encoding
+/// 2.  Variables
+/// 3.  Foundation
+/// 4.  Utilites
+/// 5.  Flats CMS Styles
+
+/// Encoding
+/// --------
+@charset 'UTF-8';
+
+/// Variables
+/// ---------
+@import 'variables/*.scss';
+
+/// Foundation
+/// ----------
+/// Source: http://foundation.zurb.com/docs/
+/// Note: We're only importing Foundation's function's and mixins, not
+/// generating CSS.
+@import 'foundation';
+
+/// Utilities
+/// ---------
+@import 'utilities/*.scss';
+
+/// Flats CMS Styles
+/// ----------------
+@import 'cms-styles/flats-only/d8/d8';

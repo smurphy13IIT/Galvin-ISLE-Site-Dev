@@ -1,0 +1,12 @@
+{#
+  /**
+   * Template to display the main navigation block.
+* This template adds an id, classes and foundation jquery menu attributes to the nav element
+   */
+#}
+<nav id="main-menu" class="main-menu accessible-menu dropdown" data-item-open-text="Open the %s menu" data-item-close-text="Close the %s menu" data-close-on-click-inside="false">
+{% block content %}
+    {{ content }}
+    {% endblock %}
+</nav>
+             

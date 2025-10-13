@@ -1,0 +1,10 @@
+{% if q is not empty %}
+{{ q }}
+{% endif %}
+
+<div class="search-tabs search-tabs--college-programs search-tabs--programs">
+  {{ form.program_level }}
+  <a href="{{ structure_settings.program_listing_url }}" class="btn">{{ "See all Illinois Tech Programs"|t }}</a>
+</div>
+
+{{ form|without('program_level') }}

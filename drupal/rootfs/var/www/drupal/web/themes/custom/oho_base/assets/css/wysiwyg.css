@@ -1,0 +1,72 @@
+/**
+ * OHO Interactive WYSIWYG stylesheet.
+ * Version 2019-04-08
+ * https://www.oho.com
+ */
+/**
+ * Foundation for Sites by ZURB
+ * Version 6.5.3
+ * foundation.zurb.com
+ * Licensed under MIT Open Source
+ */
+.obj-right,
+.align-right {
+  margin-bottom: 1.25em;
+}
+
+@media print, screen and (min-width: 48em) {
+  .obj-right,
+  .align-right {
+    float: right;
+    margin: 0;
+    padding: .625em 0 .625em 2em;
+  }
+  .obj-right figcaption,
+  .align-right figcaption {
+    padding: 0 0 .625em 2em;
+  }
+}
+
+.obj-right img,
+.align-right img {
+  display: block;
+}
+
+.obj-left,
+.align-left {
+  margin-bottom: 1.25em;
+}
+
+@media print, screen and (min-width: 48em) {
+  .obj-left,
+  .align-left {
+    float: left;
+    margin: 0;
+    padding: .625em 2em .625em 0;
+  }
+  .obj-left figcaption,
+  .align-left figcaption {
+    padding: 0 1em .625em 0;
+  }
+}
+
+.obj-left img,
+.align-left img {
+  display: block;
+}
+
+.obj-center,
+.align-center {
+  margin: 2.5em auto;
+}
+
+.obj-center img,
+.align-center img {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+}
+
+/*# sourceMappingURL=../maps/wysiwyg.css.map */

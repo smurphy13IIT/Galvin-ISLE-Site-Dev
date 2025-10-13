@@ -1,0 +1,191 @@
+////
+/// @group wrapper
+/// Main header styles.
+////
+
+/// Header heights.
+/// @type Number
+$mobile-header-height: 4rem;
+$desktop-header-height: 10rem;
+
+/// Header Styles
+/// -------------
+.site-header {
+  height: $mobile-header-height;
+  background-color: $gray;
+
+  > .grid-container {
+    position: relative;
+    height: 100%;
+  }
+
+  // All ULs and LIs in the header (all menu items) need these rules set.
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    position: relative;
+  }
+
+  &__logo {
+    display: block;
+    max-width: 3rem;
+    padding-top: rem-calc(10);
+  }
+
+  @include breakpoint(medium down) {
+    // When JavaScript doesn't load for some reason.
+    :root:not(.oho-js) & {
+      height: auto;
+    }
+  }
+
+  @include breakpoint(large) {
+    height: $desktop-header-height;
+
+    &__logo {
+      max-width: 6.625rem;
+      height: auto;
+    }
+  }
+}
+
+/// Fixed Header
+/// -----------
+/// A fixed header is triggered by the following class on the .page element.
+/// This class can be added via front-matter to any page template individually,
+/// or site-wide by editing the page_classes array in layouts/page.html.twig.
+.fixed-header {
+  padding-top: $mobile-header-height;
+
+  .site-header {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    /// Logged-in Adjustments
+    /// ---------------------
+    /// Note, there is a gap on mobile in the flats onsly, but this is only
+    /// because the incorrect classes are applied, as the JavaScript detection
+    /// isn't running and changing .toolbar-horizontal to .toolbar-vertical.
+    .toolbar-vertical.toolbar-fixed &,
+    .toolbar-horizontal.toolbar-fixed & {
+      top: rem-calc(39);
+    }
+
+    // The specificity here is greater than what we normally allow, but there's
+    // no way to do this with less class specificity, so we're ignoring the
+    // selectors.
+    .toolbar-horizontal.toolbar-fixed.toolbar-tray-open & { // stylelint-disable-line
+      top: rem-calc(79);
+    }
+  }
+
+  .main-menu--sticky {
+    position: static;
+    width: auto;
+    transform: translateX(0);
+  }
+
+  @include breakpoint(large) {
+    padding-top: $desktop-header-height;
+  }
+}
+
+/// Mobile Menu
+/// -----------
+.mobile-menu-button {
+  display: none;
+
+  @include breakpoint(medium down) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    width: $mobile-header-height;
+    margin: 0;
+    padding: 0;
+    background-color: $gray--dark;
+
+    &:before {
+      content: fa-content($fa-var-bars);
+      transition: color $primary-transition;
+      color: $gray;
+      font-family: $font-awesome;
+      font-size: 2em;
+      font-weight: 400;
+
+      .mobile-menu-open & {
+        content: fa-content($fa-var-times);
+      }
+    }
+
+    &:hover {
+      background-color: $gray--dark;
+
+      &:before {
+        color: $white;
+      }
+    }
+
+    // When JavaScript doesn't load for some reason, hide the button.
+    :root:not(.oho-js) & {
+      display: none;
+    }
+  }
+}
+
+.site-header__main {
+
+  @include breakpoint(medium down) {
+    position: absolute;
+    z-index: 1;
+    top: $mobile-header-height;
+    right: 0;
+    display: none;
+    flex-direction: column-reverse;
+    width: 24rem;
+    background-color: $gray--dark;
+
+    .mobile-menu-open & {
+      display: flex;
+    }
+  }
+
+  @include breakpoint(tiny down) {
+    width: 100vw;
+  }
+}
+
+/// Top Menu Area
+/// -------------
+.site-header__top {
+
+  @include breakpoint(medium down) {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column-reverse;
+  }
+
+  @include breakpoint(large) {
+    position: absolute;
+    top: 1rem;
+    right: .9375rem;
+    display: flex;
+  }
+}
+
+/// Bottom Menu Area
+/// ----------------
+.site-header__bottom {
+
+  @include breakpoint(medium down) {
+    flex: 0 0 auto;
+  }
+}

@@ -1,0 +1,24 @@
+{#
+  /**
+   * Template to display a lined section heading.
+   *
+   * Variables:
+   *  - title (string): Title. Required.
+   *  - link_field (array): A link field.
+   *  - link_url (string): Link url. Used only if link_field is empty.
+   *  - link_text (string): Link text. Used only if link_field is empty.
+   */
+#}
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+<div class="lined-section-heading {% if link_field or link_url %}lined-section-heading--linked{% endif %}">
+  {% if link_field or link_url %}
+    <h2>{{ title }}</h2>
+    {% if link_field %}
+      {{ oho_macros.link_field_link(link_field, 'btn btn--heading') }}
+    {% else %}
+      <a href="{{ link_url }}" class="btn btn--heading">{{ link_text }}</a>
+    {% endif %}
+  {% else %}
+    <h2>{{ title }}</h2>
+  {% endif %}
+</div>

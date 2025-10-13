@@ -1,0 +1,41 @@
+{%
+  set classes = [
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+    'related related--story',
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {{ title }}
+  {{ title_suffix }}
+
+  {% if header %}
+    <header>
+      {{ header }}
+    </header>
+  {% endif %}
+
+  {{ exposed }}
+  {{ attachment_before }}
+
+  <h2>{{ 'Related Stories'|t }}</h2>
+
+  <div class="grid-x grid-margin-x">
+    {{ rows }}
+    {{ empty }}
+    {{ pager }}
+  </div>
+
+  <a href="{{ structure_settings.story_listing_url }}" class="related__all btn">{{ 'View All Stories'|t }}</a>
+
+  {{ attachment_after }}
+  {{ more }}
+
+  {% if footer %}
+    <footer>
+      {{ footer }}
+    </footer>
+  {% endif %}
+
+  {{ feed_icons }}
+</div>

@@ -1,0 +1,45 @@
+////
+/// @group variables
+/// Site-wide colors.
+////
+
+/// Color Definitions
+/// -----------------
+
+/// White and black. Using variables because sometimes these can be slightly
+/// lighter or darker than the absolute values, on a per-project basis.
+/// @type Color
+$white: #ffffff;
+$black: #000000;
+
+/// The color of text.
+/// @type Color
+$text-color: #2e312f;
+
+/// The theme grays.
+/// @type Color
+$gray: #dcdce6;
+$gray--dark: mix(#000000, $gray, 40%);
+$gray--light: mix(#ffffff, $gray, 40%);
+
+/// The theme primary colors.
+/// @type Color
+$primary-color: #1ab0dc;
+$primary-color--dark: darken($primary-color, 10%);
+$primary-color--light: lighten($primary-color, 10%);
+
+/// Theme accent colors.
+/// @type Color
+$accent-green: #8dc63f;
+$accent-orange: #fe5000;
+$accent-red: #d13176;
+$accent-yellow: #ffe21a;
+
+/// Theme message colors.
+/// @type Color
+$message-success: #3c763d;
+$message-alert: #a94442;
+
+/// Color Aliases
+/// -------------
+$link-color: $primary-color;

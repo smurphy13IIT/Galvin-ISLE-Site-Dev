@@ -1,0 +1,43 @@
+{#
+  /**
+   * Template to display a section lead in.
+   *
+   * Variables:
+   *  - title (string): The title text. Required.
+   *  - description (string): Optional description text.
+   *  - link_field (array): Optional link field.
+   *    - This will change the layout so the link floats right of the description.
+   */
+#}
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+<div class="section-heading global-spacing--medium">
+  <div class="grid-container">
+    {% if description and link_field|render %}
+      <h2 class="section-heading__heading">{{ title }}</h2>
+      <div class="grid-x">
+        <div class="cell initial-12 medium-10 columns">
+          <span class="section-heading__subheading">{{ description }}</span>
+        </div>
+        <div class="cell initial-12 medium-2 columns">
+          {{ oho_macros.link_field_link(link_field, 'btn') }}
+        </div>
+      </div>
+    {% elseif description %}
+      <h2 class="section-heading__heading">{{ title }}</h2>
+      <span class="section-heading__subheading">{{ description }}</span>
+    {% elseif link_field|render %}
+      <div class="grid-x">
+        <div class="cell initial-12 medium-10 columns">
+          <h2 class="section-heading__heading">{{ title }}</h2>
+        </div>
+        <div class="cell initial-12 medium-2 columns">
+          {{ oho_macros.link_field_link(link_field, 'btn') }}
+        </div>
+      </div>
+    {% else %}
+      <div class="grid-x">
+        <h2 class="section-heading__heading">{{ title }}</h2>
+      </div>
+    {% endif %}
+  </div>
+</div>

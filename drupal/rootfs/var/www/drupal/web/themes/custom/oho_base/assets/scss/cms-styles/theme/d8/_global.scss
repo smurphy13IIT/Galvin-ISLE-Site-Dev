@@ -1,0 +1,9 @@
+////
+/// @group D8
+/// Custom global theme styles for Drupal 8.
+////
+
+// Drupal uses .element-invisible instead of .show-for-sr internally.
+.element-invisible {
+  @include show-for-sr;
+}

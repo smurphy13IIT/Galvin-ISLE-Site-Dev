@@ -1,0 +1,230 @@
+////
+/// @group global
+/// Styles neede to format content created in the WYSIWYG editor.
+////
+
+.section--body {
+  &__container {
+    max-width: rem-calc(840);
+  }
+}
+
+h4 {
+  display: inline-block;
+  position: relative;
+}
+
+h4 span::after {
+  content: "";
+  right: -50.8em;
+  left: 100%;
+  margin-left: .4em;
+  position: absolute;
+  display: block;
+  border-bottom: 1px solid $accent-yellow;
+  bottom: 5px;
+}
+
+.caption-border::after {
+  margin-top: 2%;
+  content: "";
+  display: block;
+  border-bottom: 10px solid #F6F6F6;
+}
+
+.full-wysiwyg ul > li,
+.hero__positions ul > li {
+
+  position: relative;
+  padding-left: rem-calc(20);
+
+  &:before {
+    margin-right: -0.2em;
+    margin-bottom: .2em;
+    content: "\2022";
+    display: inline-block;
+    width: 1em;
+    color: $accent-yellow;
+    font-size: 1.8em;
+    line-height: .5;
+    vertical-align: middle;
+    position: absolute;
+    left: 0;
+    top: rem-calc(3);
+  }
+}
+
+.full-wysiwyg ul ul > li::before {
+  content: "\2d";
+  display: inline-block;
+  width: 2em;
+  color: $accent-yellow;
+  font-size: 1.8em;
+  vertical-align: middle;
+  line-height: .5;
+}
+
+.hero__positions ul > li {
+  padding: 0;
+  &:before {
+    position: relative;
+    top: auto;
+  }
+}
+
+.full-wysiwyg li:not(:first-child) {
+  margin-top: rem-calc($spacing--xxsmall);
+}
+.card .full-wysiwyg h4:after {
+  display: none;
+}
+.full-wysiwyg {
+  max-width: rem-calc(960);
+  h3 {
+    color: $brand-red;
+  }
+  h4 {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    &:after {
+      content: "";
+      height: rem-calc(1);
+      background: $accent-yellow;
+      width: 100%;
+      position: absolute;
+      bottom: rem-calc(5);
+      transform: translateX(5px);
+    }
+  }
+}
+
+ul {
+  list-style: none;
+  padding-left: 5px;
+  ul,
+  ol {
+    margin-top: rem-calc(20);
+  }
+}
+
+ol:not(.breadcrumbs) {
+  list-style: none;
+  counter-reset: li;
+  padding: 0;
+  ol,
+  ul {
+    margin-top: rem-calc(20);
+  }
+}
+
+ol:not(.breadcrumbs) > li {
+  counter-increment: li;
+  position: relative;
+  padding-left: rem-calc(30);
+}
+
+ol:not(.breadcrumbs) > li::before {
+  content: counter(li) ".";
+  color: $brand-red;
+  display: inline-block;
+  width: 1em;
+  font-weight: bold;
+  margin-bottom: .3em;
+  position: absolute;
+  left: 0;
+  top: 0;
+  @include font-sizes(16,18,18);
+  line-height: 1.5;
+}
+
+/// Figures with Captions
+figure.align-center,
+figure.obj-center,
+figure.align-left,
+figure.obj-left,
+figure.align-right,
+figure.obj-right {
+  display: table;
+  figcaption {
+    display: table-caption;
+  }
+
+  .media-embed--video {
+    min-width: rem-calc(250);
+    @include breakpoint(medium) {
+      min-width: rem-calc(400);
+    }
+  }
+}
+
+.obj-right,
+.align-right {
+  @include obj-right;
+
+  img {
+    display: block;
+  }
+}
+
+.obj-left,
+.align-left {
+  @include obj-left;
+
+  img {
+    display: block;
+  }
+}
+
+.obj-center,
+.align-center {
+  @include obj-center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  img {
+    display: block;
+  }
+}
+
+[data-embed-button="ohou_media_embed"] {
+  .video-embed-field-responsive-video {
+    width: 100%;
+  }
+}
+
+/// When there is alignment on videos in a WYSIWYG
+[data-embed-button="ohou_media_embed"].align-left,
+[data-embed-button="ohou_media_embed"].align-right {
+  .video-embed-field-responsive-video {
+    @include breakpoint(medium) {
+      min-width: rem-calc(280);
+    }
+    @include breakpoint(large) {
+      min-width: rem-calc(480);
+    }
+  }
+}
+
+.media-embed--video {
+  &:not(.align-right, .align-left) {
+    min-width: 100%;
+    display: block;
+  }
+  + figcaption {
+    display: block;
+  }
+}
+
+.align-right,
+.align-left,
+.align-center {
+  > div {
+    margin: 0;
+  }
+}
+
+p a.btn {
+  margin-bottom: 0;
+}

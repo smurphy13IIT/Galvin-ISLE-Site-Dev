@@ -1,0 +1,15 @@
+<div class='cell medium-6 initial-12 global-spacing--medium'>
+  <article class="card card--unbounded card--medium card--horizontal card--specializations sequence-anim-item fade-slide-from-left">
+    <div class='card__media'>
+      {{ content.field_component_image }}
+    </div>
+    <div class="card__content sequence-anim-item fade-slide-from-left">
+      <div class="card__content__inner">
+        <h3 class="arrow-link">{{ content.field_component_title_link }}</h3>
+        {% if content.field_component_body|render %}
+          <p>{{ content.field_component_body }}</p>
+        {% endif %}
+      </div>
+    </div>
+  </article>
+</div>

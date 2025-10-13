@@ -1,0 +1,79 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+
+<article class="blog blog--detail detail-page">
+  <header class="section--blog-detail-header">
+    <div class="grid-container">
+        <div class="grid-container__inner grid-x grid-margin-x">
+          <div class="blog-detail-header--headline cell initial-12 global-spacing--xsmall">
+            <h1>{{ node.label }}</h1>
+          </div>
+
+          {% if content.field_blog_author|render %}
+          <div class="blog-detail-header--byline cell initial-12">
+              <div class="visually-hidden">{{ "Author"|t }}</div>
+              <span><i class="fi flaticon-author"></i> {{ "By"|t }} {{ content.field_blog_author }}</span>
+          </div>
+          {% endif %}
+
+          <div class="blog-detail-header--breadcrumbs cell initial-12">
+            {{ breadcrumbs }}
+          </div>
+        </div>
+    </div>
+  </header>
+
+  {% if content.field_blog_video|render %}
+    <section class="section--blog-detail-media section--blog-detail-media--featured-video global-spacing--medium">
+      <div class="grid-container">
+        <div class="grid-container__inner">
+          {{ content.field_blog_video }}
+          {% if content.field_blog_media_caption|render %}
+            <div class="blog-detail-media--featured-caption">
+              {{ content.field_blog_media_caption }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+  {% elseif content.field_blog_image|render %}
+    <section class="section--blog-detail-media section--blog-detail-media--featured-image global-spacing--medium">
+      <div class="grid-container">
+        <div class="grid-container__inner">
+          {{ content.field_blog_image }}
+          {% if content.field_blog_media_caption|render %}
+            <div class="blog-detail-media--featured-caption">
+              {{ content.field_blog_media_caption }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  <section class="section--wysiwyg section--wysiwyg--detail-page global-spacing--medium">
+    <div class="grid-container">
+      <div class="grid-container__inner full-wysiwyg">
+        {{ content.body }}
+      </div>
+    </div>
+  </section>
+
+  {# <section class="section--blog-detail-footer global-spacing--medium">
+    <div class="grid-container">
+      <div class="grid-container__inner">
+      <!-- future code placeholders for categories and tags -->
+        {% if content.field_blog_category|render %}
+          <div class="catgory">
+            {{ content.field_blog_category }}
+          </div>
+        {% endif %}
+        {% if content.field_blog_tags|render %}
+          <div class="tags">
+            {{ content.field_blog_tags }}
+          </div>
+        {% endif %}
+      </div>
+    </div> 
+  </section> #}
+
+</article>

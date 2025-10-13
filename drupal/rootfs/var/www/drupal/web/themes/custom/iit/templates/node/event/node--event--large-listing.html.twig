@@ -1,0 +1,39 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+
+<article class="listing-item listing-item--event">
+  <div class="grid-x grid-margin-x">
+    {% if content.field_event_image|render %}
+      <div class="cell initial-12 small-4 small-order-1">
+        <a class="listing-item__image" href="{{ url }}">
+          {{ content.field_event_image }}
+        </a>
+      </div>
+    {% endif %}
+
+    <div class="cell initial-12 small-8 listing-item__content-block">
+      <div class="listing-item__event-block">
+        {{ content.field_event_date }}
+      </div>
+      <div class="listing-item__content event-content">
+        <h2 class="h3 listing-item__title arrow-link global-spacing--medium"><a href="{{ url }}">{{ node.label }}</a>
+        </h2>
+        <div class='listing-item__meta'>
+          <h3 class='visually-hidden'>{{ 'Time'|t }}</h3>
+          <span class="listing-item__text time">{{ event_start_time }}
+            {% if content.field_event_end_date|render %}
+              {{ 'to'|t }} {{ content.field_event_end_date }}
+            {% endif %}</span>
+          {% if content.field_event_locations|render %}
+            <h3 class='visually-hidden'>{{ 'Locations'|t }}</h3>
+            {{ oho_macros.field_wrapper(content.field_event_locations, 'span', 'listing-item__text-location') }}
+          {% endif %}
+          <h3 class='visually-hidden'>{{ 'Locations'|t }}</h3>
+          {% if otherLocation %}
+            <span class="listing-item__text-location">{{ otherLocation }}</span>
+          {% endif %}
+        </div>
+        <p>{{ content.body }}</p>
+      </div>
+    </div>
+  </div>
+</article>

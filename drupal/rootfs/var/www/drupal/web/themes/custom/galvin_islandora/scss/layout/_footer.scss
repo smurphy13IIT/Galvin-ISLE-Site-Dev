@@ -1,0 +1,116 @@
+////
+/// @group wrapper
+/// Main footer styles.
+////
+
+.section--footer-sock {
+  color: #fff;
+  position: relative;
+  z-index: 4;
+  .section-heading {
+    margin-bottom: 0;
+  }
+  span {
+  //  @include font-sizes(16,18,18);
+  }
+  h2 {
+    font-size: 30px;
+   // @include font-sizes(24,30,30);
+    letter-spacing: rem-calc(0.29);
+    font-weight: 600;
+    @include breakpoint(medium up) {
+      letter-spacing: rem-calc(0.360);
+    }
+  }
+  a {
+    @include breakpoint(small down) {
+      display: block;
+      width: 100%;
+    }
+  }
+  a:not(:last-child) {
+    margin-bottom: rem-calc(10);
+    @include breakpoint(medium up) {
+      margin-bottom: 0;
+      margin-right: rem-calc(15);
+    }
+  }
+}
+
+.site-footer {
+  background: $dark-gray;
+  color: #fff;
+//  @include section-fade;
+  position: relative;
+  z-index: 4;
+  &:before {
+    height: rem-calc(5);
+    opacity: .5;
+  }
+  a {
+    color: #fff;
+    @include small-body;
+  }
+
+  .cell {
+    @extend %global-spacing--small;
+    &:last-child {
+      @include breakpoint(medium down) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .cell.site-footer__contact-column,
+  .cell.site-footer__campus-column,
+  .cell.site-footer__web-links-column {
+    @include breakpoint(medium up) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__contact,
+  &__campus,
+  &__web-links {
+    a:before {
+      font-family: $font-awesome !important;
+      content: "\f105";
+      //content: fa-content($fa-var-angle-right);
+      color: $secondary-color;
+      margin-right: rem-calc(5);
+      font-weight: 900;
+    }
+  }
+
+    ul {
+        list-style-type: none;
+    }
+    
+  .phone {
+    display: flex;
+    align-items: center;
+    i {
+      font-size: rem-calc(12);
+      margin-right: rem-calc(5);
+    }
+  }
+
+  &__social-media-column {
+      @include social-media-links;
+    @include breakpoint(medium) {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+    
+    .eyebrow {
+        font-size: rem-calc(18);
+  letter-spacing: rem-calc(0.18);
+  text-transform: uppercase;
+  font-weight: 600;
+  @include global-spacing--xsmall;
+  font-family: $sans-serif;
+  line-height: 1.3;
+    }
+}
+

@@ -1,0 +1,44 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+<div class='initial-12 medium-4 cell'>
+  <article class="card card--large global-spacing--medium">
+    <div class='card__content'>
+      <div class='card__content__inner'>
+        <div class="program-detail__meta__item">
+          <span class='eyebrow'>{{ content.field_program_level }}</span>
+          <h3><a href="{{ url }}">{{ node.label }}</a></h3>
+        </div>
+        <div class="program-detail__meta__item">
+          <h4 class="eyebrow">{{ 'Track'|t }}</h4>
+          {{ oho_macros.field_wrapper(content.field_program_types, 'span', 'h5') }}
+        </div>
+        <div class="program-detail__meta__item">
+          <h4 class="eyebrow">{{ 'Degree'|t }}</h4>
+          {{ oho_macros.field_wrapper(content.field_program_degrees, 'span', 'h5') }}
+        </div>
+        <div class="program-detail__meta__item">
+          <h4 class="eyebrow">{{ 'College'|t }} / {{ 'School'|t }}</h4>
+          {{ oho_macros.field_wrapper(content.field_program_schools, 'span', 'arrow-link h5') }}
+        </div>
+        <div class="card__content__inner__lower accordion" data-button-open-text="{{ 'Click to read more about this program'|t }}" data-button-close-text="{{ 'Click to read less about this program'|t }}" data-button-open-class="sidebar-menu-open" data-button-disable-at="850">
+          <button class="accordion__button mobile-accordion-toggle program-compare-card-info-toggle">
+            {{ 'Overview & Career Opportunities'|t }}
+            <span class="show-for-sr">{{ 'Click to expose navigation links on mobile'|t }}</span>
+          </button>
+          <div class='accordion__content accordion__content--program-compare full-wysiwyg'>
+            <div class="program-detail__meta__item">
+              <h4 class="h5">{{ 'Program Overview'|t }}</h4>
+              {{ content.field_program_overview }}
+            </div>
+
+            {% if content.field_program_career_paths_desc|render %}
+              <div class="program-detail__meta__item">
+                <h4 class="h5">{{ 'Career Opportunities'|t }}</h4>
+                {{ content.field_program_career_paths_desc }}
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>

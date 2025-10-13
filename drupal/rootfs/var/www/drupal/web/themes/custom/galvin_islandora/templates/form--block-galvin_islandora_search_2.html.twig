@@ -1,0 +1,4 @@
+{# /** * @file * Theme override for a 'form' element. * * Available variables: * - attributes: A list of HTML attributes
+for the wrapper element. * - children: The child elements of the form. * *
+@see\Drupal\Core\Form\FormPreprocess::preprocessForm() */ #} {% set classes = [ 'search-form', 'search-block-form', ] %}
+<form id="search-block-form" data-toggler=".search-panel-open" {{ attributes.addClass('testy') }}>{{ children }}</form>

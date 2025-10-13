@@ -1,0 +1,127 @@
+////
+/// @group components
+/// Styles for the differentiators.
+////
+
+.differentiator {
+  h3:last-child {
+    margin-bottom: 0;
+  }
+  &__content {
+    @include breakpoint(small down) {
+      padding-bottom: rem-calc(20);
+    }
+  }
+}
+
+.differentiator-line {
+  width: 100%;
+  border-bottom: 2px solid $accent-yellow;
+  margin-bottom: rem-calc($spacing--small);
+  display: block;
+  max-width: rem-calc(55);
+  @include breakpoint(small down) {
+    margin-left: rem-calc(20);
+    margin-top: rem-calc(10);
+  }
+  @include breakpoint(medium) {
+    position: absolute;
+    z-index: 1;
+    bottom: 50%;
+    left: 0;    
+    max-width: none;
+    margin-bottom: 0;
+  }
+}
+
+.differentiator__upper {
+  position: relative;
+  @extend %global-spacing--xsmall;
+  @include breakpoint(medium) {
+    min-height: rem-calc(100);
+    display: flex;
+    align-items: center;
+  }
+}
+.differentiator__content,
+.differentiator__upper__content {
+  padding: rem-calc(0 20);
+}
+.differentiator__upper__content {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  @include breakpoint(medium up) {
+    min-height: rem-calc(150); /// This keeps the yellow line vertical aligned
+    display: flex;
+    align-items: center;
+  }
+  img {
+    display: block;
+  }
+  &--number {
+    font-family: $sans-serif;
+    @include font-sizes(60,110,110);
+    @include line-heights(40,78,78);
+    color: $accent-yellow;
+    letter-spacing: -0.5px;
+    font-weight: 200;
+  }
+}
+.differentiator--container:last-child .differentiator-line {
+  display: block;
+  @include breakpoint(medium) {
+    display: none;
+  }
+}
+.differentiator--container:first-child .differentiator-line {
+  display: none;
+  @include breakpoint(medium) {
+    display: block;
+  }
+}
+.differentiator--container:not(:last-child) {
+  .differentiator__upper__content {
+    @include breakpoint(medium up) {
+      background-color: $gray--light;
+    }
+  }
+}
+
+/// Medium up only Homepage Overrides 
+@include breakpoint(medium up) {
+  .page--home {
+    .section--differentiators {
+      h2 {
+        width: 100%;
+        text-align: center;
+      }
+      .grid-x {
+        justify-content: center;
+      }
+      .section-heading__subheading {
+        p {
+          text-align: center;
+        }
+      }
+    }
+    .differentiator {
+      text-align: center;
+    }
+    .differentiator__upper__content {
+      margin-left: auto;
+      margin-right: auto;
+      background: $gray--light;
+    }
+    .differentiator-line {
+      width: calc(100% + 40px);
+      left: 50%;
+    }
+    .differentiator__upper__content--icon,
+    .differentiator__upper__content--image {
+      img {
+        min-width: rem-calc(100);
+      }
+    }
+  }
+}

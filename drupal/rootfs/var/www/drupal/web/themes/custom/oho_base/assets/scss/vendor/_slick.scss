@@ -1,0 +1,45 @@
+////
+/// @group vendor
+/// Custom styles for Slick carousels.
+////
+
+.slick {
+
+  &-arrow {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    width: rem-calc(40);
+    height: rem-calc(40);
+    padding: 0;
+    transform: translateY(-50%);
+    border: 0;
+    background: $white;
+    font-size: 0;
+
+    &:after {
+      display: block;
+      padding: .5em;
+      color: $link-color;
+      font-family: $font-awesome;
+      font-size: 1.25rem;
+      line-height: 1.1;
+    }
+  }
+
+  &-prev {
+    left: 0;
+
+    &:after {
+      content: fa-content($fa-var-chevron-left);
+    }
+  }
+
+  &-next {
+    right: 0;
+
+    &:after {
+      content: fa-content($fa-var-chevron-right);
+    }
+  }
+}

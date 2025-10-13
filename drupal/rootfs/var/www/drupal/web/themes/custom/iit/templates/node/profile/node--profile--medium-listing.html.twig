@@ -1,0 +1,25 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+
+<article class="listing-item expert-media-lisitng">
+  <div class="grid-x grid-margin-x">
+    <div class="cell initial-12 medium-2 medium-order-0">
+      {% if content.field_profile_image|render %}
+        <a href="{{ url }}">{{ content.field_profile_image }}</a>
+      {% endif %}
+    </div>
+
+    <div class="cell initial-12 medium-8">
+      <div class="listing-item__content">
+        <h2 class="h3 listing-item__title global-spacing--xxsmall arrow-link"><a
+              href="{{ url }}">{{ node.label }}</a></h2>
+        <div class="listing-item__media-subtitle listing-item__meta positions-list">
+          {{ oho_macros.field_list(content.field_profile_position) }}
+        </div>
+        <div class="listing-item__tags tags">
+          <h2 class="tags__heading show-for-sr">Tags:</h2>
+          {{ oho_macros.list(expertise_tags) }}
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

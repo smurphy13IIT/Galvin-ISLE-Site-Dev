@@ -1,0 +1,47 @@
+{% if q is not empty %}
+{{ q }}
+{% endif %}
+
+<div class='search-tabs search-tabs--programs global-spacing--medium'>
+  {{ form.program_level }}
+</div>
+
+{# {{ form.ol }} #}
+
+<div class="grid-x grid-margin-x">
+  <div class="cell initial-12 medium-12 columns">
+    <div class="listing__form__submit-container">
+      {{ form.search }}
+      {{ form.actions }}
+    </div>
+  </div>
+  <div class="cell initial-12 medium-4 columns">
+    {{ form.program_type }}
+  </div>
+  <div class="cell initial-12 medium-4 columns">
+    {{ form.program_modality }}
+  </div>
+  <div class="cell initial-12 medium-4 columns">
+    {{ form.area_of_study }}
+  </div>
+  <div class="cell initial-12 medium-4 columns">
+    {{ form.school }}
+  </div>
+  <div class="cell initial-12 medium-4 columns">
+    {{ form.organization }}
+  </div>
+  <div class="cell initial-12 medium-12 columns">
+  <fieldset class="listing__form__additional-filters">
+    <legend>Additional Filters</legend>
+      <div class="listing__form__additional-filters__itemwrapper">
+        {{ form.stem_designated }}
+        {{ form.f1_eligible }}
+      </div>
+      <div class="listing__form__additional-filters__footnotes">
+        <a href="/blog/benefits-stem-designated-degree">Learn more about STEM designated programs and their advantage for international students.</a>
+      </div>
+  </fieldset>
+  </div>
+
+  {{ form|without('program_level', 'ol', 'search', 'program_type', 'area_of_study', 'school', 'organization', 'actions', 'stem_designated', 'f1_eligible', 'program_modality') }}
+</div>

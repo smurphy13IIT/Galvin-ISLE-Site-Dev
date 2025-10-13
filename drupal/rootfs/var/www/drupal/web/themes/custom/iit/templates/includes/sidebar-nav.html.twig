@@ -1,0 +1,17 @@
+{#
+  /**
+   * Template to display a sidebar nav.
+   *
+   * Variables:
+   *  - sidebar_nav (array): A nav render array.
+   */
+#}
+<nav class="sidebar-menu accessible-menu sidebar-menu--border-levels" data-menu-open-text="Open the %s submenu" data-menu-close-text="Close the %s submenu">
+  <button class="sidebar-menu__toggle" data-button-open-text="{{ 'Click to expose navigation links on mobile'|t }}" data-button-close-text="{{ 'Click to hide navigation links on mobile'|t }}" data-button-open-class="sidebar-menu-open" data-button-disable-at="1025">
+    {{ 'More In This Section'|t }}
+    <span class="show-for-sr">{{ 'Click to expose navigation links on mobile'|t }}</span>
+  </button>
+  <div class="sidebar-menu__container">
+    {{ sidebar_nav }}
+  </div>
+</nav>

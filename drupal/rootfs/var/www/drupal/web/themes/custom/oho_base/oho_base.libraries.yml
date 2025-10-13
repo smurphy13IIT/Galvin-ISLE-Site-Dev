@@ -1,0 +1,13 @@
+global:
+  version: 1.x
+  css:
+    theme:
+      '//use.typekit.net/xlc7ymi.css': { type: external }
+      assets/js/dist/app.css: {}
+      assets/css/theme.css: {}
+  js:
+   assets/js/dist/app.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/modernizr

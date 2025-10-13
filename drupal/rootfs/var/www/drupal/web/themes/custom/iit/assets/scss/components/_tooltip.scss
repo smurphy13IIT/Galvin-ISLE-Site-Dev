@@ -1,0 +1,72 @@
+////
+/// @group components
+/// Styles for tooltips.
+////
+
+.tooltip-box {
+  position: absolute;
+  z-index: 10;
+  visibility: hidden;
+  max-width: rem-calc(300);
+  transition: opacity 300ms ease, transform 300ms ease;
+  transform: translateY(10px);
+  opacity: 0;
+}
+
+.tooltip-box--active {
+  visibility: visible;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.tooltip-box__container {
+  position: relative;
+  border: 1px solid $primary-color;
+  border-top: 20px solid $primary-color;
+
+  i {
+    position: absolute;
+    top: -19px;
+    right: 4px;
+    cursor: pointer;
+    color: $white;
+  }
+
+  .tooltip-box__content {
+    display: block;
+    padding: 15px;
+    background: $white;
+    font-size: 15px;
+  }
+}
+
+.tooltip-box-toggle:after {
+  padding-left: 10px;
+  content: '\f05a';
+  cursor: pointer;
+  transition: color 200ms ease;
+  color: #999999;
+  font-family: $font-awesome;
+}
+
+.tooltip-box-toggle--active:after {
+  color: $primary-color;
+}
+
+[id='back-to-top'] {
+  width: 100%;
+  margin-bottom: 45px;
+  text-align: center;
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  span {
+    display: block;
+  }
+}
+
+.has-tooltip-box {
+  color: $black;
+}

@@ -1,0 +1,23 @@
+<div class="columns small-12 medium-4 large-4">
+  {% if content.field_component_image|render %}
+    {{ content.field_component_image }}
+  {% elseif content.field_component_icon|render %}
+    {{ content.field_component_icon }}
+  {% else %}
+    <h3>{{ content.field_differentiator_value }}</h3>
+  {% endif %}
+
+  {% if content.field_component_title|render %}
+    <h4>
+      {% if content.field_component_title_link|render %}
+        <a href="{{ content.field_component_title_link }}">
+          {{ content.field_component_title }}
+        </a>
+      {% else %}
+        {{ content.field_component_title }}
+      {% endif %}
+    </h4>
+  {% endif %}
+
+  <p>{{ content.field_component_subtitle }}</p>
+</div>

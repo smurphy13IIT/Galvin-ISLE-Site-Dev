@@ -1,0 +1,278 @@
+////
+/// @group D8
+/// Form styles for Drupal 8.
+////
+
+/// Checkboxes and Radios
+/// ---------------------
+/// We can do the following because Drupal 8 will wrap all form elements in
+/// .form-item.
+.form-item,
+.form-type-checkbox {
+  position: relative;
+
+  [type='checkbox'],
+  [type='radio'] {
+    position: absolute;
+    top: 50%;
+    width: 2em;
+    height: 2em;
+    transition: border-color $primary-transition;
+    transform: translateY(-50%);
+    opacity: 0;
+    // Inputs don't automatically inherit font-size, so we need to declare it
+    // explicitly for the relative width and height to work.
+    font-size: inherit;
+
+    + label {
+      position: relative;
+      margin-left: 1.5em;
+      transition: color $primary-transition;
+
+      &:before {
+        position: absolute;
+        top: rem-calc(6);
+        left: -1.5em;
+        display: block;
+        width: 1em;
+        height: 1em;
+        content: '';
+        transition:
+          background $primary-transition,
+          border-color $primary-transition,
+          box-shadow $primary-transition;
+        border: .0625em solid $gray--dark;
+      }
+    }
+
+    &:disabled,
+    &:disabled + label {
+      cursor: default;
+    }
+
+    &:invalid {
+
+      + label {
+        color: $accent-red;
+
+        &:before {
+          border-color: $accent-red;
+          box-shadow: 0 0 0 .0625em $accent-red;
+        }
+      }
+    }
+  }
+
+  [type='checkbox'] {
+    height: 100%;
+    &:checked {
+
+      + label {
+
+        &:before {
+          background-color: $primary-color;
+          border-color: $primary-color;
+        }
+
+        &:after {
+          position: absolute;
+          top: rem-calc(16);
+          left: rem-calc(-18);
+          display: block;
+          width: rem-calc(4);
+          height: rem-calc(10);
+          content: '';
+          transform: rotate(45deg) translate(-100%, -50%);
+          border-width: 0 .125em .125em 0;
+          border-style: solid;
+          border-color: $white;
+        }
+      }
+
+      &:disabled + label:after {
+        border-color: $gray--dark;
+      }
+    }
+
+    &:disabled + label:before {
+      background-color: $gray--light;
+    }
+  }
+
+  [type='radio'] {
+
+    + label:before {
+      border-radius: 50%;
+      background-image:
+        radial-gradient(
+          $primary-color .25em,
+          $white .25em,
+          $white .5em,
+          $primary-color .5em
+        );
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: 0;
+    }
+
+    &:checked {
+
+      + label:before {
+        border-color: $primary-color;
+        background-size: 1em;
+      }
+
+      &:disabled + label:before {
+        border-color: $gray--dark;
+        background-image:
+          radial-gradient(
+            $gray--dark .25em,
+            $gray--light .25em,
+            $gray--light .5em,
+            $gray--dark .5em
+          );
+      }
+
+      &:invalid + label:before {
+        background-image:
+          radial-gradient(
+            $accent-red .25em,
+            $white .25em,
+            $white .5em,
+            $accent-red .5em
+          );
+      }
+    }
+
+    &:disabled + label:before {
+      background-color: $gray--light;
+    }
+  }
+}
+
+/// Required
+/// --------
+.form-required:after {
+  content: '*';
+  color: $brand-red;
+}
+
+/// Webform
+/// -------
+/// Not wrapping these in a selector to detect webforms to keep the specificity
+/// as low as possible, for easier overriding if necessary.
+.webform-element-description {
+  color: $gray--dark;
+  font-family: $sans-serif;
+  font-style: italic;
+}
+
+.required {
+
+  > label:after {
+    content: '*';
+    color: $brand-red;
+  }
+}
+
+// These two rules counteract the default text input margins when a description
+// is present.
+.form-managed-file,
+#{text-inputs()},
+select,
+textarea {
+
+  ~ .description .webform-element-description {
+    margin: 0 0 .75em;
+  }
+}
+
+[type='checkbox'],
+[type='radio'] {
+
+  ~ .description .webform-element-description {
+    margin: -.5em 0 .25em;
+  }
+}
+
+// Checkboxes and radios in groups need less top and bottom margin. Radios will
+// always be in a set, but checkboxes may not be. To detect a set of checkboxes
+// we look for a checkboxes submitting an array by searching the name for '['.
+[type='checkbox'][name*='['],
+.form-radio {
+
+  + label {
+    margin-top: .25em;
+    margin-bottom: .25em;
+  }
+}
+
+fieldset legend {
+  margin-bottom: rem-calc(10);
+  @include h4;
+}
+
+form fieldset .form-item {
+  margin-bottom: rem-calc(12) !important;
+}
+
+form .search-tabs--college-programs fieldset .form-item {
+  margin-bottom: 0 !important;
+}
+
+/// Webform File Upload
+/// -------------------
+.webform-managed-file-placeholder {
+  color: $gray--dark;
+  font-family: $sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.form-managed-file [type='submit'] {
+  margin-left: 1em;
+  padding: .75em;
+}
+
+/// Webform Widths
+/// --------------
+/// We'll get specific here when we're applying widths, because the .form-item
+/// class is a added by Drupal's form renderer, and so other forms, like those
+/// generated by Views for instance, would also get these classes added, which
+/// is not desirable.
+
+// Disabling stylelint errors about qualified selectors.
+form[class*='webform'] { // stylelint-disable-line
+
+  .form-item { // stylelint-disable-line
+    width: 100%;
+  }
+
+  // stylelint-disable
+  #{text-inputs()},
+  [type='file'],
+  [type='image'],
+  fieldset,
+  select,
+  textarea {
+    // stylelint-enable
+    width: 100%;
+    max-width: 25rem;
+  }
+}
+
+.search-tabs input:checked + label:before {
+  top: 0;
+}
+
+.ui-tooltip {
+  background: $white;
+  padding: rem-calc(20);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16);
+}
+
+.ui-datepicker-trigger {
+  margin-top: rem-calc(8);
+  margin-left: rem-calc(4);
+  float: left;
+}

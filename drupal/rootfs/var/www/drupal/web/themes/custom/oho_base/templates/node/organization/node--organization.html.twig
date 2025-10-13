@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="columns small-12 medium-8">
+    <h1>{{ label }}</h1>
+
+    {{ content.body }}
+  </div>
+  <div class="columns small-12 medium-4">
+    {{ content.field_header_image }}
+
+    {% if content.field_organization_phone_number|render or
+        content.field_organization_email|render or
+        content.field_organization_location|render or
+        content.field_organization_office_hours|render %}
+      <div class="contact">
+        <h2>{{ 'Contact Information'|t }}</h2>
+        {% if content.field_organization_email|render %}
+          <span class="fas fa-envelope">
+            {{ content.field_organization_email }}
+          </span>
+        {% endif %}
+        {% if content.field_organization_phone_number|render %}
+          <span class="fas fa-phone">
+            {{ content.field_organization_phone_number }}
+          </span>
+        {% endif %}
+        {% if content.field_organization_location|render %}
+          <span class="far fa-map-marker-alt">
+            {{ content.field_organization_location }}
+          </span>
+        {% endif %}
+        {% if content.field_organization_office_hours|render %}
+          <span class="far fa-clock">
+            {{ content.field_organization_office_hours }}
+          </span>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</div>

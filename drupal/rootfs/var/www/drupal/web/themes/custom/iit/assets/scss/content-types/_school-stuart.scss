@@ -1,0 +1,290 @@
+///
+/// @group content-types
+/// School Stuart-specific styles (group 21 pages).
+///
+
+body.group-21 {
+    .main-content {
+        h1,
+        .h1 {
+            font-family: $sans-serif;
+            font-weight: 600;
+        }
+
+        h2,
+        .h2 {
+            font-family: $sans-serif;
+            font-weight: 600;
+        }
+
+        h3, 
+        .h3 {
+            font-family: $sans-serif;
+            font-weight: 600;
+        }
+
+        h4, 
+        .h4 {
+            font-family: $sans-serif;
+            font-weight: 700;
+        }
+
+        h5, 
+        .h5 {
+            font-family: $sans-serif;
+            font-weight: 700;
+        }
+
+        h6, 
+        .h6 {
+            font-family: $sans-serif;
+            font-weight: 700;
+        }
+
+        .hero--school__school-name {
+            font-weight: 700;
+        }
+    }
+
+    .hero--stuart {
+        .hero__content {
+            background-color: #333;
+
+            @include breakpoint(large) {
+                max-width: none;
+                padding: 0;
+                align-items: stretch;
+                background-color: transparent;
+            }
+
+            .hero__content__inner {
+                align-self: stretch;
+            }
+
+            .college-nav.sticky {
+                .college-nav__sticky-container {
+                    background-color: #333;
+                }
+
+                .hero--school__school-name {
+                    font-size: 1.75rem;
+                    
+                    @include breakpoint(medium) {
+                        font-size: 1.875rem;
+                    }
+                }
+            }
+
+            .college-nav:not(.sticky) {
+                .college-nav__inner::before {
+                    @include breakpoint(large) {
+                        content: '';
+                        display: block;
+                        background-color: rgba(0,0,0,0.3);
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        right: 50%;
+                        z-index: 100;
+                    }
+                }
+
+                .hero--school__content {
+                    @include breakpoint(large) {
+                        max-width: 50%;
+                        z-index: 102;
+                        position: relative;
+                        padding-top: 2rem;
+                        padding-right: 2rem;
+                    }
+                }
+
+                .hero--school__school-name {
+                    font-size: 1.875rem;
+                    margin-bottom: 0;
+
+                    &:only-child {
+                        margin-bottom: 1.25rem;
+
+                        @include breakpoint(large) {
+                            margin-bottom: 0.75rem;
+                        }
+                    }
+
+                    @include breakpoint(small) {
+                        font-size: 2.625rem;
+                    }
+
+                    @include breakpoint(medium) {
+                        font-size: 3.125rem;
+                    }
+
+                    @include breakpoint(large) {
+                        margin-bottom: 0.75rem;
+                        font-size: 4.75rem;
+                        line-height: 0.9;
+                    }
+                }
+
+                .hero--school__school-tagline {
+                    font-size: 1.25rem;
+
+                    @include breakpoint(small) {
+                        font-size: 1.5rem;
+                    }
+
+                    @include breakpoint(medium) {
+                        font-size: 1.75rem;
+                    }
+
+                    @include breakpoint(large) {
+                        margin-bottom: 0;
+                        font-size: 1.875rem;
+                        line-height: 1.25;
+                    }
+                }
+        
+                .hero--school__nav-wrapper {
+                    @include breakpoint(large) {
+                        padding: 1.25rem;
+                        background-color: #fff;
+                        display: inline-block;
+                        position: relative;
+                        z-index: 104;
+                        box-shadow: 4px 4px 16px 0px rgba(0,0,0,0.4);
+                        bottom: calc(-2.5rem - 1px);
+                    }
+                } 
+
+                ul {
+                    @include breakpoint(large) {
+                        padding: 0;
+                    }
+                }
+
+                a {
+                    @include breakpoint(large) {
+                        padding: 0.75rem 1.1875rem;
+                        text-transform: uppercase;
+                        background-color: #000;
+                        color: #fff;
+                        font-size: 1rem;
+                    }
+
+                    &:hover, &:focus {
+                        @include breakpoint(large) {
+                            background-color: $primary-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .section--featured-links {
+        background-color: #ddd;
+
+        .featured-links--container {
+            @include breakpoint(medium) {
+                max-width: 1200px;
+                padding: 0;
+                column-gap: 0;
+                grid-template-columns: 4fr 6fr;
+            }
+        }
+
+        .featured-links--section-title {
+            font-weight: 700;
+
+            @include breakpoint(medium) {
+                padding: 0 2.5rem;
+                font-size: 2.5rem;
+            }
+
+            @include breakpoint(large) {
+                font-size: 3rem;
+            }
+        }
+
+        .featured-links--links-wrapper {
+            @include breakpoint(medium) {
+                padding: 0 2.5rem;
+            }
+        }
+
+        &.fls--no-title.fls--has-img {
+            .featured-links--description-wrapper {
+                @include breakpoint(medium) {
+                    padding: 0 2.5rem;
+                }
+
+                @include breakpoint(large) {
+                    padding: 0 2.5rem;
+                }
+            }
+        }
+
+        .featured-links--description-wrapper {
+            line-height: 1.3;
+            font-size: 1.125rem;
+            
+            @include breakpoint(medium) {
+                padding: 0 2.5rem 0 0;
+                font-size: 1.25rem;
+            }
+        }
+
+        .featured-links--links-title {
+            font-weight: 700;
+
+            @include breakpoint(medium) {
+                font-size: 2rem;
+            }
+
+            @include breakpoint(large) {
+                font-size: 2.125rem;
+            }
+
+            &::before {
+                @include breakpoint(medium) {
+                    margin-top: 0.5rem;
+                }
+
+                @include breakpoint(large) {
+                    margin-top: 0.5625rem;
+                }
+            }
+        }
+
+        .featured-links--link {
+            color: #555;
+            font-weight: 600;
+
+            &:hover, &:focus {
+                color: $primary-color;
+            }
+
+            @include breakpoint(medium) {
+                font-size: 1.5625rem;
+            }
+
+            @include breakpoint(large) {
+                font-size: 1.75rem;
+            }
+        }
+
+        .featured-links--item {
+            border-bottom: 1px solid #a0a0a0;
+        }
+    }
+
+    .section--outcomes .featured-person p {
+        font-family: $sans-serif;
+        font-weight: 600;
+    }
+
+    .section--outcomes .featured-person .arrow-link a {
+        font-family: $sans-serif;
+        font-weight: 700;
+    }
+}

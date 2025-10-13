@@ -1,0 +1,33 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+<article class='profile-item profile-item-person--horizontal'>
+  <div class='profile-item__media profile-item__column'>
+    {% if content.field_profile_image|render %}
+      <a href="{{ url }}">{{ content.field_profile_image }}</a>
+    {% endif %}
+  </div>
+  <div class='profile-item__meta profile-item__column'>
+    <h3 class='arrow-link'><a href="{{ url }}">{{ node.label }}</a></h3>
+    <div class="listing-item__tags tags">
+      <h2 class="tags__heading show-for-sr">{{ 'Tags'|t }}:</h2>
+      {{ oho_macros.list(profile_types) }}
+    </div>
+    <span class="listing-item__media-subtitle listing-item__meta positions-list">
+      {{ oho_macros.field_list(content.field_profile_position) }}
+    </span>
+  </div>
+  {% if content.field_profile_phone_number|render or
+        content.field_profile_email|render %}
+    <div class='profile-item__contact profile-item__column'>
+      {% if content.field_profile_phone_number|render %}
+        <span class="profile-item__contact__item phone">
+          <i class='fi flaticon-phone'></i> <span>{{ oho_macros.field_subset(content.field_profile_phone_number, 1, 1) }}</span>
+        </span>
+      {% endif %}
+      {% if content.field_profile_email|render %}
+        <span class="profile-item__contact__item email">
+          <i class='fas fa-envelope'></i><span class="person-email">{{ content.field_profile_email }}</span>
+        </span>
+      {% endif %}
+    </div>
+  {% endif %}
+</article>

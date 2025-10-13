@@ -1,0 +1,166 @@
+////
+/// @group global
+/// Styles relating primarily to type.
+////
+
+/// Headings
+/// --------
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include margins-bottom(20, 30, 30);
+  margin-top: 0;
+  padding: 0;
+  color: $text-color;
+  font-family: $sans-serif;
+  font-weight: 600;
+}
+
+h1,
+.h1 {
+  @include font-sizes(32, 56, 56);
+}
+
+h2,
+.h2 {
+  @include font-sizes(24, 48, 48);
+}
+
+h3,
+.h3 {
+  @include font-sizes(24, 36, 36);
+}
+
+h4,
+.h4 {
+  @include font-sizes(20, 28, 28);
+}
+
+h5,
+.h5 {
+  @include font-sizes(18, 24, 24);
+}
+
+h6,
+.h6 {
+  @include font-sizes(16, 20, 20);
+}
+
+/// Text Elements
+/// -------------
+.main-content {
+  font-weight: 300;
+}
+
+p {
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $link-color;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+em {
+  font-style: italic;
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+blockquote {
+  position: relative;
+  max-width: 745px;
+  margin: 0 auto;
+  padding: 60px 100px;
+  font-size: 20px;
+  font-style: italic;
+
+  &:before {
+    position: absolute;
+    top: 55px;
+    left: 45px;
+    display: block;
+    content: '\f10d';
+    color: $gray--light;
+    font-family: $font-awesome;
+    font-size: 45px;
+    line-height: 0;
+  }
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0 0 0 1.25em;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
+/// Alignment Classes
+/// -----------------
+.text-left {
+  text-align: left !important; // stylelint-disable-line
+}
+
+.text-right {
+  text-align: right !important; // stylelint-disable-line
+}
+
+.text-center {
+  text-align: center !important; // stylelint-disable-line
+}
+
+.text-justify {
+  text-align: justify !important; // stylelint-disable-line
+}
+
+/// Margins
+/// -------
+p,
+ul,
+ol,
+table,
+.btn {
+  @include margins-bottom(20, 30, 30);
+}
+
+/// @todo It feels like unsing top margins by default, rather than bottom
+/// margins may make these rules more manageable. As it stands now, this
+/// compiles into a crazy rule block.
+p,
+ul,
+ol,
+.intro-text,
+blockquote,
+table,
+.section--accordions,
+.btn,
+figure {
+
+  + h2,
+  + .h2,
+  + h3,
+  + .h3,
+  + h4,
+  + .h4,
+  + h5,
+  + .h5,
+  + h6,
+  + .h6 {
+    // values are not added to the margins-bottom - they overlap
+    @include margins-top(20, 60, 60);
+  }
+}

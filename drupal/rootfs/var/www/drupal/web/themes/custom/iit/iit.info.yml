@@ -1,0 +1,38 @@
+name: Illinois Institute of Technology
+type: theme
+description: 'The IIT theme.'
+#package: OHO
+base theme: oho_base
+#base theme: zurb_foundation
+screenshot: screenshot.png
+core_version_requirement: ^9 || ^10
+
+regions:
+  header_cta_nav: 'Header CTA nav'
+  search: 'Search'
+  secondary_nav: 'Secondary nav'
+  primary_nav: 'Primary nav'
+  subsection_nav: 'Subsection nav'
+  highlighted: Highlighted
+  title: Title
+  content: Content
+  footer_subsection: 'Footer subsection'
+  footer_upper: 'Footer upper'
+  footer_lower: 'Footer lower'
+
+libraries-override:
+  oho_base/global: iit/global
+  jquery_ui/core:
+    css:
+      component:
+        assets/vendor/jquery.ui/themes/base/core.css: false
+      theme:
+        assets/vendor/jquery.ui/themes/base/theme.css: false
+  jquery_ui_tabs/tabs:
+    css:
+      component:
+        jquery.ui/themes/base/tabs.css: false
+#  elf/elf_css:
+ #   css:
+  #    theme:
+   #     css/styles.css: false

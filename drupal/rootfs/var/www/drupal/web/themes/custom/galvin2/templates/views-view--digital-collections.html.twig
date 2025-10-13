@@ -1,0 +1,19 @@
+{#
+  /**
+   * Template to override the display of the digital collections view.
+* This custom template adds Foundation grid classes/elements around the view content.
+   */
+#}
+
+
+
+<div class="grid-container">
+    <div class="grid-x grid-margin-x">
+     {% if rows -%}
+    {{ rows }}
+  {% elseif empty -%}
+    {{ empty }}
+  {% endif %}
+    
+    </div>
+</div>

@@ -1,0 +1,26 @@
+name: OHO Base
+type: theme
+description: 'The OHO Base theme.'
+package: OHO
+base theme: zurb_foundation
+core: 8.x
+core_version_requirement: ^8 || ^9 || ^10
+
+
+libraries:
+  - oho_base/global
+
+libraries-override:
+  core/modernizr:
+    js:
+      assets/vendor/modernizr/modernizr.min.js: assets/js/dist/modernizr.js
+
+regions:
+  secondary_nav: 'Secondary nav'
+  primary_nav: 'Primary nav'
+  highlighted: Highlighted
+  title: Title
+  content: Content
+  sidebar_first: 'Sidebar first'
+  footer_upper: 'Footer upper'
+  footer_lower: 'Footer lower'

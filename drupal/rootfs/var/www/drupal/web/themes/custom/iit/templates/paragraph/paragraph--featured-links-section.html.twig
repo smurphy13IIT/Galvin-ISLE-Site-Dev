@@ -1,0 +1,59 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+{% set title = content.field_component_title|render %}
+{% set description = content.field_component_body|render %}
+{% set links_title = content.field_fls_links_title|render %}
+{% set links = oho_macros.link_field_list(content.field_fls_links, 'featured-links--list', 'featured-links--item', 'featured-links--link') %}
+{% set image = content.field_component_image|render %}
+{% set video = content.field_component_video|render %}
+
+{% set classes = [
+  'global-spacing--xlarge',
+  'section--featured-links',
+  'section--background',
+  'section--background--gray--light',
+  image ? 'fls--has-img' : 'fls--no-img',
+  title ? 'fls--has-title' : 'fls--no-title',
+  description ? 'fls--has-desc' : 'fls--no-desc',
+  video ? 'fls--has-video' : 'fls--no-video',
+] %}
+
+<section{{ attributes.addClass(classes) }}>
+  <div class="grid-container featured-links--container">
+  {% if title %}
+    <h2 class="featured-links--section-title">{{ title }}</h2>
+  {% endif %}
+
+  {% if description %}
+    <div class="featured-links--description-wrapper">
+      {{ description }}
+    </div>
+  {% endif %}
+
+  {% if links %}
+    <div class="featured-links--links-wrapper">
+    {% if links_title %}
+      <h3 class="featured-links--links-title">{{ links_title }}</h3>
+    {% endif %}
+      {{ links }}
+    </div>
+  {% endif %}
+
+  {% if image %}
+    <div class="featured-links--img-wrapper">
+    {% if video %}
+      <a aria-label="Click to play video" data-fancybox href="{{ video }}">
+        {{ image }}
+        <svg class="play" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             x="0px" y="0px"
+             viewBox="0 0 96 96" style="enable-background:new 0 0 96 96;" xml:space="preserve">
+          <path class="play__background" d="M93.2,0H2.5C1.1,0,0,1.1,0,2.5v90.7c0,1.4,1.1,2.5,2.5,2.5h90.7c1.4,0,2.5-1.1,2.5-2.5V2.5 C95.8,1.1,94.6,0,93.2,0z"/>
+          <path class="play__triangle" d="M66.9,50.3L38.6,72.5c-0.6,0.4-1.2,0.7-1.9,0.7c-0.5,0-0.9-0.1-1.3-0.3c-1.1-0.5-1.7-1.6-1.7-2.8V25.6 c0-1.2,0.7-2.2,1.7-2.8c1.1-0.5,2.3-0.4,3.2,0.3l28.3,22.2c0.7,0.6,1.2,1.5,1.2,2.4C68.1,48.8,67.6,49.7,66.9,50.3z"/>
+        </svg>
+      </a>
+    {% else %}
+      {{ image }}
+    {% endif %}
+    </div>
+  {% endif %}
+  </div>
+</section>

@@ -1,0 +1,13 @@
+{% import "@oho_base/includes/oho-macros.html.twig" as oho_macros %}
+<div class='cell initial-12 medium-4'>
+  <div class='global-spacing--small'>
+    {% include '@iit/includes/lined-section-heading.html.twig' with {
+      title: content.field_component_title,
+      link_field: content.field_component_title_link
+    } %}
+  </div>
+  <div class='small-body global-spacing--small'>
+    <p>{{ content.field_component_body }}</p>
+  </div>
+  {{ oho_macros.link_field_link(content.field_component_link, 'btn') }}
+</div>

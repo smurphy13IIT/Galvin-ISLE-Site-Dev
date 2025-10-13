@@ -1,0 +1,24 @@
+// Additional toolbar support styles, because we aren't running
+// the toolbar js to calculate heights or hover intent, etc.
+.toolbar-fixed {
+  padding-top: 39px;
+
+  @media screen and ( max-width: 765px ) {
+
+    .toolbar-tray {
+      display: none !important;
+    }
+  }
+
+  @media screen and ( min-width: 976px ) {
+    padding-top: 79px;
+  }
+}
+
+.toolbar-menu li:hover > ul {
+  display: block !important;
+  position: absolute;
+  width: 200px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}

@@ -1,0 +1,35 @@
+<div class="page maintenance-page">
+  {% if page.highlighted %}
+    <div class="system-region">
+      <div class="grid-container">
+        <div class="system-messages">
+          {{ page.highlighted }}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  <header class="site-header">
+    <div class="site-header__sticky-container">
+      <div class="grid-container">
+        <a class="site-header__logo site-header__logo--large" href="/">
+          <img src="{{ base_path ~ directory }}/assets/img/illinois-tech-with-seal.svg" width="530" height="130" alt="logo">
+        </a>
+        <div class="site-header__tagline">
+          <img src="{{ base_path ~ directory }}/assets/img/discover-create-solve.svg" width="257" height="19" alt="logo">
+        </div>
+        <a class="site-header__logo site-header__logo--condensed" href="/">
+          <img src="{{ base_path ~ directory }}/assets/img/illinois-tech-with-seal.svg" width="530" height="130" alt="logo">
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-wrapper">
+    <main id="main-content">
+      <div class="main-content">
+        {{ hero }}
+      </div>
+    </main>
+  </div>
+</div>

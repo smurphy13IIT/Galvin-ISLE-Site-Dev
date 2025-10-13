@@ -1,0 +1,9 @@
+uuid: 2287d926-3e8c-4fbc-b006-949c5241f3b7
+langcode: en
+status: true
+dependencies: {  }
+name: 'Resource Types (Galvin)'
+vid: resource_types_galvin
+description: null
+weight: 0
+new_revision: false

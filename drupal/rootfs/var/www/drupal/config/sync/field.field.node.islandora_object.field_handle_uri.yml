@@ -1,0 +1,23 @@
+uuid: eb87de13-dcbd-4036-a735-ee99c5f97e05
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_handle_uri
+    - node.type.islandora_object
+  module:
+    - link
+id: node.islandora_object.field_handle_uri
+field_name: field_handle_uri
+entity_type: node
+bundle: islandora_object
+label: 'Persistent Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

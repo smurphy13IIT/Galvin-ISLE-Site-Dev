@@ -1,0 +1,36 @@
+uuid: 28351416-8931-4489-a819-7fd1642211fd
+langcode: en
+status: true
+dependencies:
+  module:
+    - advanced_search
+    - islandora
+    - system
+  theme:
+    - galvin_islandora
+id: galvin_islandora_search
+theme: galvin_islandora
+region: hero
+weight: 0
+provider: null
+plugin: search_block
+settings:
+  id: search_block
+  label: Search
+  label_display: visible
+  provider: advanced_search
+  block_id: galvin_islandora_search
+  search_view_machine_name: view.solr_search_content.page_1
+  search_textfield_label: ''
+  search_placeholder: ''
+  search_submit_label: ''
+visibility:
+  media_source_mimetype:
+    id: media_source_mimetype
+    negate: false
+    context_mapping: {  }
+    mimetype: ''
+  request_path:
+    id: request_path
+    negate: false
+    pages: '<front>'

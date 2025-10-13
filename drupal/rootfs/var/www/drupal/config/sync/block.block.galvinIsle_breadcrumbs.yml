@@ -1,0 +1,22 @@
+uuid: ee970aa9-51b9-4295-a5c8-00dd2c38792c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - galvinIsle
+_core:
+  default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
+id: galvinIsle_breadcrumbs
+theme: galvinIsle
+region: meta_header
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

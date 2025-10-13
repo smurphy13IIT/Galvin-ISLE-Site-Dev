@@ -1,0 +1,31 @@
+uuid: c11b078d-5983-4a49-8122-34a7d9d686cf
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:942777d7-b872-40fb-acdb-c5f202d68f16'
+  module:
+    - block_content
+    - islandora
+  theme:
+    - galvin_islandora
+id: galvin_islandora_stickyheaderbuttons
+theme: galvin_islandora
+region: header_cta_nav
+weight: 0
+provider: null
+plugin: 'block_content:942777d7-b872-40fb-acdb-c5f202d68f16'
+settings:
+  id: 'block_content:942777d7-b872-40fb-acdb-c5f202d68f16'
+  label: 'Sticky header buttons'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  media_source_mimetype:
+    id: media_source_mimetype
+    negate: false
+    context_mapping: {  }
+    mimetype: ''

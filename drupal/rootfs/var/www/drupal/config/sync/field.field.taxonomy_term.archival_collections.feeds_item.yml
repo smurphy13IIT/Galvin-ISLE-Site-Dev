@@ -1,0 +1,31 @@
+uuid: 3121a7e3-09ad-4d99-aec9-dff7e8f85d08
+langcode: en
+status: true
+dependencies:
+  config:
+    - feeds.feed_type.archivesspace
+    - field.storage.taxonomy_term.feeds_item
+    - taxonomy.vocabulary.archival_collections
+  module:
+    - feeds
+id: taxonomy_term.archival_collections.feeds_item
+field_name: feeds_item
+entity_type: taxonomy_term
+bundle: archival_collections
+label: 'Feeds item'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:feeds_feed'
+  handler_settings:
+    target_bundles:
+      archivesspace: archivesspace
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: feeds_item

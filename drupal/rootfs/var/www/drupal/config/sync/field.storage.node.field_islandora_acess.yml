@@ -1,0 +1,20 @@
+uuid: a2ec1826-2cbb-4eec-962e-aaee31624da6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_islandora_acess
+field_name: field_islandora_acess
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

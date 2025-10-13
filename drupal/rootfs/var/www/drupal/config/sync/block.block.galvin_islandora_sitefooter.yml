@@ -1,0 +1,31 @@
+uuid: 3ea8f1b7-fea4-495b-8fcb-c595de9b3c8d
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:ff64303b-2eb2-4e74-a8a6-2449c15d1562'
+  module:
+    - block_content
+    - islandora
+  theme:
+    - galvin_islandora
+id: galvin_islandora_sitefooter
+theme: galvin_islandora
+region: footer_lower
+weight: 0
+provider: null
+plugin: 'block_content:ff64303b-2eb2-4e74-a8a6-2449c15d1562'
+settings:
+  id: 'block_content:ff64303b-2eb2-4e74-a8a6-2449c15d1562'
+  label: 'Site Footer'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  media_source_mimetype:
+    id: media_source_mimetype
+    negate: false
+    context_mapping: {  }
+    mimetype: ''

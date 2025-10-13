@@ -17,9 +17,9 @@ dependencies:
     - field.storage.node.field_lcc_classification
     - field.storage.node.field_linked_agent
     - field.storage.node.field_member_of
+    - field.storage.node.field_model
     - field.storage.node.field_oclc_number
     - field.storage.node.field_physical_form
-    - field.storage.node.field_publisher
     - field.storage.node.field_resource_type
     - field.storage.node.field_rights
     - field.storage.node.field_subject
@@ -230,6 +230,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_member_of
+  field_model:
+    label: Model
+    datasource_id: 'entity:node'
+    property_path: field_model
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_model
   field_oclc_number:
     label: 'OCLC Number'
     datasource_id: 'entity:node'
@@ -248,22 +256,6 @@ field_settings:
         - field.storage.node.field_physical_form
       module:
         - taxonomy
-  field_publisher:
-    label: 'Publisher (string)'
-    datasource_id: 'entity:node'
-    property_path: field_publisher
-    type: string
-    dependencies:
-      config:
-        - field.storage.node.field_publisher
-  field_publisher_fulltext:
-    label: Publisher
-    datasource_id: 'entity:node'
-    property_path: field_publisher
-    type: text
-    dependencies:
-      config:
-        - field.storage.node.field_publisher
   field_resource_type:
     label: 'Resource Type'
     datasource_id: 'entity:node'

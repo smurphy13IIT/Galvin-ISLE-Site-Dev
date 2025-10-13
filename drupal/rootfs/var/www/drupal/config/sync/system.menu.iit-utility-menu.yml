@@ -1,0 +1,8 @@
+uuid: 7365f06b-b0a7-4490-b58f-4a8cd388b9c5
+langcode: en
+status: true
+dependencies: {  }
+id: iit-utility-menu
+label: 'IIT Utility Menu'
+description: 'Gray bar from iit.edu'
+locked: false

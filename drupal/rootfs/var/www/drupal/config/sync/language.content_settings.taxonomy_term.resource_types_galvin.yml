@@ -1,0 +1,11 @@
+uuid: 90e6c8da-9aa7-4b82-bfb1-382809c1d3ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.resource_types_galvin
+id: taxonomy_term.resource_types_galvin
+target_entity_type_id: taxonomy_term
+target_bundle: resource_types_galvin
+default_langcode: site_default
+language_alterable: false

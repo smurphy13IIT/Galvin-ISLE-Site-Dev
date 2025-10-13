@@ -1,0 +1,27 @@
+uuid: b8cc666a-4943-4b42-b497-6f4e532a1c16
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.tools
+  module:
+    - system
+  theme:
+    - oho_base
+_core:
+  default_config_hash: 3A7RkBjCuahANmSDs8hmGnNjxbV3_eiulegW88ecRpk
+id: oho_base_tools
+theme: oho_base
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'system_menu_block:tools'
+settings:
+  id: 'system_menu_block:tools'
+  label: Tools
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

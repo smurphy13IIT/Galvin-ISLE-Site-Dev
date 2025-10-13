@@ -1,0 +1,22 @@
+uuid: 791a18ad-f7ae-4ed6-b368-dd94ce27ec18
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - iit
+_core:
+  default_config_hash: iLsnkroCNXMJqpfxJPPEnV9pCoAbnxLOr4-1Aai7zUA
+id: iit_powered
+theme: iit
+region: header_cta_nav
+weight: -6
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

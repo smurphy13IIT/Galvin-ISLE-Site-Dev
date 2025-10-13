@@ -1,0 +1,31 @@
+uuid: b0e8f844-7fe2-4e24-8a33-d4ae70a14e79
+langcode: en
+status: true
+dependencies:
+  module:
+    - advanced_search
+    - islandora
+  theme:
+    - olivero
+id: olivero_search
+theme: olivero
+region: hero
+weight: 0
+provider: null
+plugin: search_block
+settings:
+  id: search_block
+  label: Search
+  label_display: visible
+  provider: advanced_search
+  block_id: olivero_search
+  search_view_machine_name: view.archive.page_1
+  search_textfield_label: ''
+  search_placeholder: ''
+  search_submit_label: ''
+visibility:
+  media_source_mimetype:
+    id: media_source_mimetype
+    negate: false
+    context_mapping: {  }
+    mimetype: ''

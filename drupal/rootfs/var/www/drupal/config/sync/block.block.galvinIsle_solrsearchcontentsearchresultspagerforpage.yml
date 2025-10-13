@@ -1,0 +1,43 @@
+uuid: fb3583dd-6f5e-45f6-b8e9-d81b28c75cb2
+langcode: en
+status: true
+dependencies:
+  module:
+    - advanced_search
+    - context
+    - islandora
+  theme:
+    - galvinIsle
+id: galvinIsle_solrsearchcontentsearchresultspagerforpage
+theme: galvinIsle
+region: content
+weight: -12
+provider: null
+plugin: 'advanced_search_result_pager:solr_search_content__page_1'
+settings:
+  id: 'advanced_search_result_pager:solr_search_content__page_1'
+  label: 'Solr search content: Search Results Pager for Page'
+  label_display: '0'
+  provider: advanced_search
+visibility:
+  user_status:
+    id: user_status
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    user_status:
+      viewing_profile: '0'
+      logged_viewing_profile: '0'
+      own_page_true: '0'
+      field_value: '0'
+    user_fields: uid
+  view_inclusion:
+    id: view_inclusion
+    negate: false
+    view_inclusion:
+      view-solr_search_content-page_1: view-solr_search_content-page_1
+  media_source_mimetype:
+    id: media_source_mimetype
+    negate: false
+    context_mapping: {  }
+    mimetype: ''

@@ -1,0 +1,51 @@
+uuid: dbcfb470-aa57-49e1-9adb-f702d8c4d7a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.rights.field_authority_link
+    - field.field.taxonomy_term.rights.field_uri
+    - taxonomy.vocabulary.rights
+  module:
+    - controlled_access_terms
+    - link
+    - text
+id: taxonomy_term.rights.default
+targetEntityType: taxonomy_term
+bundle: rights
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_authority_link:
+    type: authority_formatter_default
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: _blank
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_uri:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

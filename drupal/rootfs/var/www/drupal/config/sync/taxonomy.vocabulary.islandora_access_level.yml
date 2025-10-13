@@ -1,0 +1,9 @@
+uuid: 38420005-f979-4755-8071-ff055bd03158
+langcode: en
+status: true
+dependencies: {  }
+name: 'Islandora Access Level'
+vid: islandora_access_level
+description: 'This taxonomy controls object access via the Permissions by Term module'
+weight: 0
+new_revision: false

@@ -368,6 +368,7 @@ display:
     display_plugin: block
     position: 2
     display_options:
+      title: 'Media Display'
       empty:
         view:
           id: view
@@ -390,6 +391,7 @@ display:
           view_mode: pdfjs
       defaults:
         empty: false
+        title: false
         style: false
         row: false
       display_description: ''
@@ -409,6 +411,7 @@ display:
     display_plugin: block
     position: 5
     display_options:
+      title: 'Media Display'
       empty: {  }
       filters:
         status:
@@ -477,6 +480,7 @@ display:
           view_mode: pdfjs
       defaults:
         empty: false
+        title: false
         style: false
         row: false
         filters: false

@@ -1,0 +1,20 @@
+uuid: 27eb7929-35c2-4d2d-b655-e9ab50f63bb7
+langcode: en
+status: true
+dependencies:
+  theme:
+    - oho_base
+_core:
+  default_config_hash: iL16bexVNDVUyQ-OkjHI1SxNSSwo4di1lgHNiIpamvk
+id: oho_base_local_actions
+theme: oho_base
+region: content
+weight: -20
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

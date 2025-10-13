@@ -44,6 +44,40 @@ reactions:
         views_label: ''
         items_per_page: none
         third_party_settings: {  }
+      9286818f-a118-46c6-afd8-88b40736bef8:
+        uuid: 9286818f-a118-46c6-afd8-88b40736bef8
+        id: 'views_block:media_display_blocks-openseadragon'
+        label: ''
+        provider: views
+        label_display: visible
+        region: content
+        weight: '0'
+        custom_id: views_block_media_display_blocks_openseadragon
+        theme: galvinIsle
+        css_class: ''
+        unique: 0
+        context_id: openseadragon_single_page_
+        context_mapping: {  }
+        views_label: ''
+        items_per_page: none
+        third_party_settings: {  }
+      ec3017de-2511-4730-8109-53a44633acd0:
+        uuid: ec3017de-2511-4730-8109-53a44633acd0
+        id: 'views_block:media_display_blocks-openseadragon'
+        label: ''
+        provider: views
+        label_display: visible
+        region: content_above
+        weight: '0'
+        custom_id: views_block_media_display_blocks_openseadragon
+        theme: galvin_islandora
+        css_class: ''
+        unique: 0
+        context_id: openseadragon_single_page_
+        context_mapping: {  }
+        views_label: ''
+        items_per_page: none
+        third_party_settings: {  }
     include_default_blocks: 1
     saved: false
 weight: -6

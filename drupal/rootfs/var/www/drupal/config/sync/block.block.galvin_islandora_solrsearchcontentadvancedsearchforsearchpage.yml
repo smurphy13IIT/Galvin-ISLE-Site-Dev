@@ -1,0 +1,28 @@
+uuid: dd78b02b-4a6b-4868-8fd0-26eae4a0b5c7
+langcode: en
+status: false
+dependencies:
+  module:
+    - advanced_search
+    - islandora
+  theme:
+    - galvin_islandora
+id: galvin_islandora_solrsearchcontentadvancedsearchforsearchpage
+theme: galvin_islandora
+region: search
+weight: 0
+provider: null
+plugin: 'advanced_search_block:solr_search_content__page_1'
+settings:
+  id: 'advanced_search_block:solr_search_content__page_1'
+  label: 'Solr search content: Advanced Search for Search Page'
+  label_display: visible
+  provider: advanced_search
+  fields: {  }
+  context_filter: null
+visibility:
+  media_source_mimetype:
+    id: media_source_mimetype
+    negate: false
+    context_mapping: {  }
+    mimetype: ''

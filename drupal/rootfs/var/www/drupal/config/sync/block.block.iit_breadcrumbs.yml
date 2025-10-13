@@ -1,0 +1,22 @@
+uuid: 2b2a7ca1-86c8-4264-a2f1-d6478752da75
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - iit
+_core:
+  default_config_hash: F9razTMNH9dD3hmzkpIPTFwJeYqb-XBSgYMGRdB0I68
+id: iit_breadcrumbs
+theme: iit
+region: header_cta_nav
+weight: -3
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

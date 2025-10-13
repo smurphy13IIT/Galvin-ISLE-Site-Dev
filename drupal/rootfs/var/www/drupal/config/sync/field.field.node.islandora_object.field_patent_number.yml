@@ -1,0 +1,19 @@
+uuid: 1d2d0cc5-776b-49c2-b32a-d8c8ef4df8e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_patent_number
+    - node.type.islandora_object
+id: node.islandora_object.field_patent_number
+field_name: field_patent_number
+entity_type: node
+bundle: islandora_object
+label: 'Patent Number'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

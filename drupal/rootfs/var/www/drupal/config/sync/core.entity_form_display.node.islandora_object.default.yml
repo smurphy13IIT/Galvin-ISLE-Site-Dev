@@ -4,7 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.node.islandora_object.field_abstract
+    - field.field.node.islandora_object.field_access
     - field.field.node.islandora_object.field_alt_title
+    - field.field.node.islandora_object.field_archival_collection
     - field.field.node.islandora_object.field_classification
     - field.field.node.islandora_object.field_coordinates
     - field.field.node.islandora_object.field_coordinates_text
@@ -12,19 +14,29 @@ dependencies:
     - field.field.node.islandora_object.field_date_captured
     - field.field.node.islandora_object.field_date_modified
     - field.field.node.islandora_object.field_date_valid
+    - field.field.node.islandora_object.field_department
     - field.field.node.islandora_object.field_description
     - field.field.node.islandora_object.field_dewey_classification
+    - field.field.node.islandora_object.field_digital_origin
+    - field.field.node.islandora_object.field_doi
     - field.field.node.islandora_object.field_edition
     - field.field.node.islandora_object.field_edtf_date
     - field.field.node.islandora_object.field_edtf_date_created
     - field.field.node.islandora_object.field_edtf_date_issued
+    - field.field.node.islandora_object.field_embargo_note
     - field.field.node.islandora_object.field_extent
+    - field.field.node.islandora_object.field_format
     - field.field.node.islandora_object.field_frequency
     - field.field.node.islandora_object.field_full_title
+    - field.field.node.islandora_object.field_funding_note
     - field.field.node.islandora_object.field_genre
     - field.field.node.islandora_object.field_geographic_subject
+    - field.field.node.islandora_object.field_handle_uri
     - field.field.node.islandora_object.field_identifier
+    - field.field.node.islandora_object.field_ipro_note
     - field.field.node.islandora_object.field_isbn
+    - field.field.node.islandora_object.field_islandora_acess
+    - field.field.node.islandora_object.field_issn
     - field.field.node.islandora_object.field_language
     - field.field.node.islandora_object.field_lcc_classification
     - field.field.node.islandora_object.field_linked_agent
@@ -33,20 +45,32 @@ dependencies:
     - field.field.node.islandora_object.field_mode_of_issuance
     - field.field.node.islandora_object.field_model
     - field.field.node.islandora_object.field_note
+    - field.field.node.islandora_object.field_note_degree_awarded
+    - field.field.node.islandora_object.field_note_source
     - field.field.node.islandora_object.field_oclc_number
+    - field.field.node.islandora_object.field_part_of
+    - field.field.node.islandora_object.field_patent_number
     - field.field.node.islandora_object.field_physical_form
+    - field.field.node.islandora_object.field_physical_location
     - field.field.node.islandora_object.field_pid
     - field.field.node.islandora_object.field_place_published
     - field.field.node.islandora_object.field_place_published_country
+    - field.field.node.islandora_object.field_provenance_note
     - field.field.node.islandora_object.field_publisher
+    - field.field.node.islandora_object.field_publisher_taxonomy
+    - field.field.node.islandora_object.field_related_object
     - field.field.node.islandora_object.field_representative_image
     - field.field.node.islandora_object.field_resource_type
     - field.field.node.islandora_object.field_rights
+    - field.field.node.islandora_object.field_rights_statement
     - field.field.node.islandora_object.field_subject
     - field.field.node.islandora_object.field_subject_general
     - field.field.node.islandora_object.field_subjects_name
+    - field.field.node.islandora_object.field_submission_email
     - field.field.node.islandora_object.field_table_of_contents
     - field.field.node.islandora_object.field_temporal_subject
+    - field.field.node.islandora_object.field_thesis_note
+    - field.field.node.islandora_object.field_version
     - field.field.node.islandora_object.field_viewer_override
     - field.field.node.islandora_object.field_weight
     - node.type.islandora_object
@@ -54,6 +78,7 @@ dependencies:
     - controlled_access_terms
     - field_group
     - geolocation
+    - link
     - media_library
     - path
     - text
@@ -104,7 +129,6 @@ third_party_settings:
         required_fields: true
     group_publication_details:
       children:
-        - field_publisher
         - field_place_published
         - field_place_published_country
         - field_edtf_date_issued
@@ -113,6 +137,7 @@ third_party_settings:
         - field_edtf_date
         - field_edition
         - group_issuance
+        - field_publisher
       label: 'Publication Details and Dates'
       region: content
       parent_name: ''
@@ -313,11 +338,31 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  field_access:
+    type: entity_reference_autocomplete
+    weight: 31
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_alt_title:
     type: string_textfield
     weight: 2
     region: content
     settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_archival_collection:
+    type: entity_reference_autocomplete
+    weight: 47
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
@@ -379,6 +424,16 @@ content:
       intervals: true
       sets: false
     third_party_settings: {  }
+  field_department:
+    type: entity_reference_autocomplete
+    weight: 29
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_description:
     type: string_textarea
     weight: 7
@@ -394,6 +449,24 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_digital_origin:
+    type: entity_reference_autocomplete
+    weight: 30
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_doi:
+    type: link_default
+    weight: 44
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
   field_edition:
     type: string_textfield
@@ -418,7 +491,7 @@ content:
     region: content
     settings:
       strict_dates: false
-      intervals: false
+      intervals: true
       sets: false
     third_party_settings: {  }
   field_edtf_date_issued:
@@ -430,11 +503,29 @@ content:
       intervals: false
       sets: false
     third_party_settings: {  }
+  field_embargo_note:
+    type: string_textfield
+    weight: 41
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_extent:
     type: string_textfield
     weight: 12
     region: content
     settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_format:
+    type: entity_reference_autocomplete
+    weight: 28
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
@@ -454,6 +545,14 @@ content:
     region: content
     settings:
       rows: 2
+      placeholder: ''
+    third_party_settings: {  }
+  field_funding_note:
+    type: string_textfield
+    weight: 39
+    region: content
+    settings:
+      size: 60
       placeholder: ''
     third_party_settings: {  }
   field_genre:
@@ -476,6 +575,14 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_handle_uri:
+    type: link_default
+    weight: 32
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
   field_identifier:
     type: string_textfield
     weight: 16
@@ -484,9 +591,35 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_ipro_note:
+    type: string_textfield
+    weight: 37
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_isbn:
     type: string_textfield
     weight: 17
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_islandora_acess:
+    type: entity_reference_autocomplete
+    weight: 123
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_issn:
+    type: string_textfield
+    weight: 35
     region: content
     settings:
       size: 60
@@ -562,9 +695,41 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  field_note_degree_awarded:
+    type: string_textfield
+    weight: 42
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_note_source:
+    type: string_textarea
+    weight: 43
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_oclc_number:
     type: string_textfield
     weight: 18
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_part_of:
+    type: string_textfield
+    weight: 34
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_patent_number:
+    type: string_textfield
+    weight: 36
     region: content
     settings:
       size: 60
@@ -578,6 +743,14 @@ content:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_physical_location:
+    type: string_textarea
+    weight: 48
+    region: content
+    settings:
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_pid:
@@ -606,9 +779,35 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_provenance_note:
+    type: string_textarea
+    weight: 40
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_publisher:
     type: string_textfield
-    weight: 8
+    weight: 121
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_publisher_taxonomy:
+    type: entity_reference_autocomplete
+    weight: 122
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_related_object:
+    type: string_textfield
+    weight: 49
     region: content
     settings:
       size: 60
@@ -633,6 +832,16 @@ content:
     region: content
     settings:
       rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_rights_statement:
+    type: entity_reference_autocomplete
+    weight: 33
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
       placeholder: ''
     third_party_settings: {  }
   field_subject:
@@ -665,6 +874,14 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_submission_email:
+    type: email_default
+    weight: 45
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
   field_table_of_contents:
     type: text_textarea
     weight: 10
@@ -676,6 +893,24 @@ content:
   field_temporal_subject:
     type: entity_reference_autocomplete
     weight: 13
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_thesis_note:
+    type: string_textfield
+    weight: 38
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_version:
+    type: entity_reference_autocomplete
+    weight: 46
     region: content
     settings:
       match_operator: CONTAINS

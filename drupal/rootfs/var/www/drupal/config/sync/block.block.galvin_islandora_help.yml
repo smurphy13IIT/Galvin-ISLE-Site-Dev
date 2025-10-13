@@ -1,0 +1,22 @@
+uuid: d14175e4-d13c-457c-a36a-606926bb1a56
+langcode: en
+status: false
+dependencies:
+  module:
+    - help
+  theme:
+    - galvin_islandora
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: galvin_islandora_help
+theme: galvin_islandora
+region: header_cta_nav
+weight: -5
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

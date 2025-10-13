@@ -1,0 +1,23 @@
+uuid: fa02ab6c-b9b0-4c3f-a6eb-e5d470c3f080
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_uri
+    - taxonomy.vocabulary.rights
+  module:
+    - link
+id: taxonomy_term.rights.field_uri
+field_name: field_uri
+entity_type: taxonomy_term
+bundle: rights
+label: URI
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

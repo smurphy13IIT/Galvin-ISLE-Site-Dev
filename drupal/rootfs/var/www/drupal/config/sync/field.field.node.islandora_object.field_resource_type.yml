@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_resource_type
     - node.type.islandora_object
-    - taxonomy.vocabulary.resource_types
+    - taxonomy.vocabulary.resource_types_galvin
 _core:
   default_config_hash: U3ctHIWpnakahZ6NcXFvfn_kRkcItqP3wz8MmICO2Ss
 id: node.islandora_object.field_resource_type
@@ -19,10 +19,10 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:taxonomy_term'
+  handler: 'default:filter_existing_terms'
   handler_settings:
     target_bundles:
-      resource_types: resource_types
+      resource_types_galvin: resource_types_galvin
     sort:
       field: name
       direction: asc

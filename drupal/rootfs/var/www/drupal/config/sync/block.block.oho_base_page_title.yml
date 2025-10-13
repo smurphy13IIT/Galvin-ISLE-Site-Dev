@@ -1,0 +1,20 @@
+uuid: 45b3186a-dba5-4477-975e-63de23ab876c
+langcode: en
+status: true
+dependencies:
+  theme:
+    - oho_base
+_core:
+  default_config_hash: tS1kHkuBQNDSVEzKTHhm4u00uNOm0EfJrtrN95qtXTY
+id: oho_base_page_title
+theme: oho_base
+region: content
+weight: -50
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

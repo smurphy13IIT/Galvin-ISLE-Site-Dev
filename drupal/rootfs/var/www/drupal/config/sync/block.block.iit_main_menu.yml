@@ -1,0 +1,27 @@
+uuid: 613dc9e2-b23e-4ba7-ad96-0c43baa775a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - system
+  theme:
+    - iit
+_core:
+  default_config_hash: 55zEI9IS274xKs1JU_PlTq0vVIEt1qVYBdYR7oqyR6I
+id: iit_main_menu
+theme: iit
+region: header_cta_nav
+weight: -5
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 1
+  expand_all_items: false
+visibility: {  }

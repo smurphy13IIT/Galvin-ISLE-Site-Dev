@@ -43,6 +43,37 @@ reactions:
         context_mapping: {  }
         iiif_manifest_url: '/node/[node:nid]/manifest'
         third_party_settings: {  }
+      7b7af517-692c-4f48-b247-e94c65336509:
+        uuid: 7b7af517-692c-4f48-b247-e94c65336509
+        id: mirador_block
+        label: 'Mirador block'
+        provider: islandora_mirador
+        label_display: visible
+        region: content
+        custom_id: mirador_block
+        theme: galvinIsle
+        css_class: ''
+        unique: 0
+        context_id: mirador_block_single_image_items
+        context_mapping: {  }
+        iiif_manifest_url: '/node/[node:nid]/manifest'
+        third_party_settings: {  }
+      b216b614-663c-4791-ba6a-c048f51d80b9:
+        uuid: b216b614-663c-4791-ba6a-c048f51d80b9
+        id: mirador_block
+        label: 'Mirador block'
+        provider: islandora_mirador
+        label_display: visible
+        region: content_above
+        weight: '0'
+        custom_id: mirador_block
+        theme: galvin_islandora
+        css_class: ''
+        unique: 0
+        context_id: mirador_block_single_image_items
+        context_mapping: {  }
+        iiif_manifest_url: '/node/[node:nid]/manifest'
+        third_party_settings: {  }
     include_default_blocks: 1
     saved: false
 weight: -8

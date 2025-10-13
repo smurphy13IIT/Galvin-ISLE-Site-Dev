@@ -1,0 +1,22 @@
+uuid: dae4ab6e-303f-40db-b60a-a87b0ff9ff87
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - galvinIsle
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: galvinIsle_help
+theme: galvinIsle
+region: meta_header
+weight: -5
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

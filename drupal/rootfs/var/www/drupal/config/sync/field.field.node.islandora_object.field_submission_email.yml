@@ -1,0 +1,19 @@
+uuid: c2e33d60-a96c-44b4-aad5-5c0583574464
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_submission_email
+    - node.type.islandora_object
+id: node.islandora_object.field_submission_email
+field_name: field_submission_email
+entity_type: node
+bundle: islandora_object
+label: 'Submission Email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

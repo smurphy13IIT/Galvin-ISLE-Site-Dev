@@ -1,0 +1,22 @@
+uuid: 39d88a35-345a-4fab-85d9-a9c026b1512e
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - iit
+_core:
+  default_config_hash: dqzHPrWKOFZg0C2LSS89u9zn02nkQbAjqMC5H5IMtgw
+id: iit_messages
+theme: iit
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

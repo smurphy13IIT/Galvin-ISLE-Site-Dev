@@ -1,0 +1,19 @@
+uuid: 2b56fc1d-9b50-43f7-9032-8650cc4266d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_funding_note
+    - node.type.islandora_object
+id: node.islandora_object.field_funding_note
+field_name: field_funding_note
+entity_type: node
+bundle: islandora_object
+label: 'Funding Note'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

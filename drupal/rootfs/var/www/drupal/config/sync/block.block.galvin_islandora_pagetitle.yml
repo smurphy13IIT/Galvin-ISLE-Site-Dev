@@ -1,0 +1,25 @@
+uuid: 71989e94-4ee6-4948-bf51-6bc0e8779e02
+langcode: en
+status: true
+dependencies:
+  module:
+    - islandora
+  theme:
+    - galvin_islandora
+id: galvin_islandora_pagetitle
+theme: galvin_islandora
+region: content_above
+weight: -21
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility:
+  media_source_mimetype:
+    id: media_source_mimetype
+    negate: false
+    context_mapping: {  }
+    mimetype: ''

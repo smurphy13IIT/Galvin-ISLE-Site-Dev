@@ -1,0 +1,8 @@
+uuid: e2cd961a-ed33-4f2e-af48-1329ab8d50a7
+langcode: en
+status: true
+dependencies: {  }
+id: audience-menu
+label: 'Audience Menu'
+description: '"Resources for..." menu from iit.edu'
+locked: false

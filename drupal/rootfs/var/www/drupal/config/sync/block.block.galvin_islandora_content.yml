@@ -1,0 +1,28 @@
+uuid: b4f776b9-a90a-4dd5-9ff9-43c9224777d2
+langcode: en
+status: true
+dependencies:
+  module:
+    - islandora
+    - system
+  theme:
+    - galvin_islandora
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: galvin_islandora_content
+theme: galvin_islandora
+region: content
+weight: -20
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility:
+  media_source_mimetype:
+    id: media_source_mimetype
+    negate: false
+    context_mapping: {  }
+    mimetype: ''

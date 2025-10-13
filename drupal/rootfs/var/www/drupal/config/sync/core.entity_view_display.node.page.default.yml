@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
+    - field.field.node.page.field_publisher
     - node.type.page
   module:
     - text
@@ -41,6 +42,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 10
+    region: content
+  field_publisher:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 102
     region: content
   links:
     weight: 101

@@ -1,0 +1,23 @@
+uuid: 2072503f-4ea9-4d28-9804-50ad1a8d4054
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_uri
+    - taxonomy.vocabulary.access_condition
+  module:
+    - link
+id: taxonomy_term.access_condition.field_uri
+field_name: field_uri
+entity_type: taxonomy_term
+bundle: access_condition
+label: URI
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

@@ -1,0 +1,22 @@
+uuid: e0059d45-c30d-4a40-a3a6-0b718049eb60
+langcode: en
+status: true
+dependencies:
+  theme:
+    - galvin_islandora
+_core:
+  default_config_hash: nGE3EoPQQaQCuqTUtZgw0-KIzmrqdKDzdNQf2JyPUt4
+id: galvin_islandora_primary_local_tasks
+theme: galvin_islandora
+region: highlighted
+weight: -22
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

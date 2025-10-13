@@ -1,0 +1,11 @@
+uuid: a462ce4e-4cd3-4b90-a392-0a426b2f6dca
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.archival_collections
+id: taxonomy_term.archival_collections
+target_entity_type_id: taxonomy_term
+target_bundle: archival_collections
+default_langcode: site_default
+language_alterable: false

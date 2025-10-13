@@ -1,0 +1,19 @@
+uuid: f217aaf5-6676-4381-a3bf-347838ed4668
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ipro_note
+    - node.type.islandora_object
+id: node.islandora_object.field_ipro_note
+field_name: field_ipro_note
+entity_type: node
+bundle: islandora_object
+label: 'IPRO Track'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

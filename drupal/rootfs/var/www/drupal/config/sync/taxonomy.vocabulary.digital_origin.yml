@@ -1,0 +1,9 @@
+uuid: d2788bc5-864c-4bc7-94c8-92b9c4e612ad
+langcode: en
+status: true
+dependencies: {  }
+name: 'Digital origin'
+vid: digital_origin
+description: 'The method by which the resource achieved digital form.'
+weight: 0
+new_revision: false

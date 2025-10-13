@@ -1,0 +1,19 @@
+uuid: 301b1b04-fcb4-4cdf-8058-9c376dc578b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_thesis_note
+    - node.type.islandora_object
+id: node.islandora_object.field_thesis_note
+field_name: field_thesis_note
+entity_type: node
+bundle: islandora_object
+label: 'Thesis Note'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

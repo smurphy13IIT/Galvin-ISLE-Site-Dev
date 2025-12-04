@@ -1,1 +1,16 @@
-// Non-modular or client styles for the .l-content region.
+.main-content {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.main {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 70%;
+    flex: 1 1 70%;
+}
+
+//main block
+#block-galvin-islandora-content.block-system-main-block {
+    flex-grow: 3.25;
+    flex-basis: 70%;
+}

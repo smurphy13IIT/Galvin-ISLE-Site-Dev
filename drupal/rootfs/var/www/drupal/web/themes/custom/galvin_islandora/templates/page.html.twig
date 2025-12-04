@@ -48,7 +48,7 @@
 <!-- <header id="header" class="site-header"> -->
     <header id="header" class="site-header" data-sticky-container> 
     <!-- <div class="site-header__sticky-container"> -->
-        <div class="site-header__sticky-container sticky" data-sticky data-margin-top="0" data-anchor="main-content"> 
+        <div class="site-header__sticky-container sticky" data-sticky data-margin-top="0" data-anchor="main-wrapper"> 
         <div class="grid-container">
             <div class="header-btns header-btns--sticky">
                 <div class="grid-container">
@@ -57,6 +57,7 @@
             </div>
             <div class="grid-x grid-margin-x">
                 <div class="cell auto">
+                    {{ page.header }}
                     <a class="site-header__logo site-header__logo--large" href="/">
                         <img src="{{ base_path ~ directory }}/images/PVGLIBRARY_horiz_lockup_2019.png" width="530" height="130" alt="logo">
                     </a>
@@ -103,7 +104,7 @@
     </div>
 </header>
 
-<main id="main-content">
+<main id="main-wrapper">
 {{ page.highlighted }}
     {{ page.title }}
     {{ page.hero }}
@@ -111,9 +112,10 @@
           <div class="grid-container">
            <div class="grid-x grid-margin-x">
             <!--  <div class="cell auto"> -->
-
+               {{ page.content_above }}
+               {{ page.sidebar_first}}
         {{ page.subsection_nav }}
-	{{ page.content_above }}
+	
         {{ page.content }}
         {{ page.body }}
     </div>

@@ -10,26 +10,27 @@ base theme: zurb_foundation
 # Uncomment these lines and change "STARTER" to your theme name if you
 # need to add custom CSS or JS
 libraries:
- - galvin_islandora/global
+  - galvin_islandora/global
 
 # Regions are output in the page.html.twig
 
 # Regions are output in the page.html.twig
 regions:
-  header_cta_nav: 'Header CTA nav'
-  search: 'Search'
-  secondary_nav: 'Secondary nav'
-  primary_nav: 'Primary nav'
-  subsection_nav: 'Subsection nav'
-  highlighted: 'Highlighted'
-  title: 'Title'
-  hero: 'Hero'
-  content_above: 'Content Above'
-  content: 'Content'
-# sidebar_first: 'Left sidebar'
-  footer_subsection: 'Footer subsection'
-  footer_upper: 'Footer upper'
-  footer_lower: 'Footer lower'
+  header: "Header"
+  header_cta_nav: "Header CTA nav"
+  search: "Search"
+  secondary_nav: "Secondary nav"
+  primary_nav: "Primary nav"
+  subsection_nav: "Subsection nav"
+  highlighted: "Highlighted"
+  title: "Title"
+  hero: "Hero"
+  content_above: "Content Above"
+  content: "Content"
+  sidebar_first: "Left sidebar"
+  footer_subsection: "Footer subsection"
+  footer_upper: "Footer upper"
+  footer_lower: "Footer lower"
 
 # Hidden regions
 # regions_hidden[]: Page top
@@ -38,4 +39,3 @@ regions:
 features:
   - slogan
   - favicon
- 

@@ -48,14 +48,15 @@
 
 // --- Font Awesome ---
 //@import 'vendor/fontawesome/scss/*';
-@import 'vendor/fontawesome/scss/_variables.scss';
-@import 'vendor/fontawesome/scss/fontawesome.scss';
-@import 'vendor/fontawesome/scss/solid.scss';
-@import 'vendor/fontawesome/scss/brands.scss';
+@import "vendor/fontawesome/scss/_variables.scss";
+@import "vendor/fontawesome/scss/fontawesome.scss";
+@import "vendor/fontawesome/scss/solid.scss";
+@import "vendor/fontawesome/scss/brands.scss";
+@import "vendor/fontawesome/scss/regular.scss";
 
 // customize variables
 //@use './fontawesome/variables' with (
-  // customizing $font-path
+// customizing $font-path
 //  $font-path: '../webfonts',
 //);
 
@@ -83,19 +84,19 @@
 @include foundation-typography;
 
 // Grids (choose one)
-@include foundation-xy-grid-classes($base-grid: true,
-    $margin-grid: true,
-    $padding-grid: true,
-    $block-grid: true,
-    $collapse: true,
-    $offset: true,
-    $vertical-grid: true,
-    $frame-grid: false);
- @include foundation-grid;
+@include foundation-xy-grid-classes(
+  $base-grid: true,
+  $margin-grid: true,
+  $padding-grid: true,
+  $block-grid: true,
+  $collapse: true,
+  $offset: true,
+  $vertical-grid: true,
+  $frame-grid: false
+);
+@include foundation-grid;
 @include foundation-flex-grid;
 @include foundation-flex-classes;
-
-
 
 // Generic components
 @include foundation-button;
@@ -162,53 +163,54 @@
 
 // --- Base ---
 // Drupal-specific styles copied from base theme. (Required)
-@import 'base/drupal';
+@import "base/drupal";
 // Import your mixins early so they can be used by other partials. (optional)
- @import 'base/mixins';
-  @import 'base/common';
+@import "base/mixins";
+@import "base/common";
 // @import "base/elements";
 
 // --- Layout ---
 // Each section of the document has it's own partial seperated out to improve
 // developer experience. Additionally, grids can be declared in layouts as well.
-@import 'layout/header';
-@import 'layout/main';
-@import 'layout/aside';
-@import 'layout/grid';
-@import 'layout/footer';
-@import 'layout/contact-panel';
-@import 'layout/hero';
+@import "layout/header";
+@import "layout/main";
+@import "layout/aside";
+@import "layout/grid";
+@import "layout/footer";
+@import "layout/contact-panel";
+@import "layout/hero";
+@import "layout/sidebar-first";
 
 //Atoms
-@import 'atoms/flaticons';
-@import 'atoms/dates';
-@import 'atoms/arrow-link';
-@import 'atoms/buttons';
-@import 'atoms/section-heading';
-@import 'atoms/links';
-
+@import "atoms/flaticons";
+@import "atoms/dates";
+@import "atoms/arrow-link";
+@import "atoms/buttons";
+@import "atoms/section-heading";
+@import "atoms/links";
+@import "atoms/fields";
 
 // --- Modules ---
-@import 'modules/block';
-@import 'modules/button';
-@import 'modules/search';
+@import "modules/block";
+@import "modules/button";
+@import "modules/search";
 
 //Menus
-@import 'menus/menus';
+@import "menus/menus";
 
 // INIT NAVIGATION IMPORT
-@import 'menus/_init-navigation.scss';
+@import "menus/_init-navigation.scss";
 
 // --- States ---
 // @import "states/collapse";
 
 // --- Global ---
-@import 'global/common';
-@import 'global/type';
+@import "global/common";
+@import "global/type";
 //@import 'global/forms';
 
 // --- Themes ---
 // @import "theme/button-light";
 
 //Google Fonts Import
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Source+Sans+Pro:wght@300;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Source+Sans+Pro:wght@300;400;700&display=swap");

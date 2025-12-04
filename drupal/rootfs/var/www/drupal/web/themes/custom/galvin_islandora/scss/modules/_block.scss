@@ -10,15 +10,20 @@
   overflow: hidden;
 }*/
 
+// Breadcrumbs block
+
+#block-galvin-islandora-breadcrumbs {
+    margin-top: 1.5rem;
+}
 
 /// Set width for media views
 
 #block-mirador-block,
 .block-views-block-media-display-blocks-source,
 .block-views-block-media-display-blocks-pdfjs,
-.block-views-block-media-display-blocks-source  {
-width: 100%;
-
+.block-views-block-media-display-blocks-source {
+    width: 100%;
+    max-width: 1000px;
 }
 
 /// QuickInfo Block -- GLobal Styling
@@ -32,7 +37,7 @@ width: 100%;
         a {
             &.phone {
                 &:before {
-                   // content: fa-content($fa-var-phone-alt);
+                    // content: fa-content($fa-var-phone-alt);
                     font-family: $font-awesome;
                     font-size: 1em;
                     font-weight: 900;
@@ -230,7 +235,7 @@ body.path-frontpage {
         //top: 3em;
 
         &:before {
-           // content: fa-content($fa-var-angle-right);
+            // content: fa-content($fa-var-angle-right);
             font-family: $font-awesome;
             font-size: 2em;
             font-weight: 900;
@@ -518,4 +523,29 @@ section [class*="block-grid-"] > li {
     @include breakpoint(small down) {
         margin-top: rem-calc(-$spacing--large);
     }
+}
+
+//ETD message block
+#block-galvin-islandora-thesesanddissertationsaccessmessage p {
+    padding: 0.25em 0.5em;
+    color: #bd0e2f;
+    font-size: 1em;
+    border: 1px solid #bd0e2f;
+}
+
+//OAI-PMH Links block
+
+.block-galvin-islandora-views-block-oai-pmh-item-links-block-1 {
+    width: 100%;
+}
+
+//Collection description blocks
+.collection-description {
+    margin-bottom: 2.5em;
+}
+
+//Media metadata block {
+#block-galvin-islandora-views-block-media-metadata-source,
+#block-views-block-media-metadata-source {
+    width: 100%;
 }

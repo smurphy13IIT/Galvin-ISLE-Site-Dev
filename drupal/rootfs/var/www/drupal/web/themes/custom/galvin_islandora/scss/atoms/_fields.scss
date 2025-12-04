@@ -1,0 +1,30 @@
+.node--type-islandora-object .view-mode-full.node__content,
+#block-galvin-islandora-views-block-media-metadata-source,
+#block-views-block-media-metadata-source {
+    .field,
+    .views-field {
+        display: flex;
+        flex-flow: row wrap;
+        padding: 0.5rem 0;
+        border-top: 0.0625em solid #f4f4f4;
+        .field__label {
+            display: inline-block;
+            flex-basis: 20%;
+            font-weight: 600;
+
+            ::after {
+                content: ":";
+            }
+        }
+        .field__item {
+            display: block;
+            flex-basis: 76%;
+        }
+        p {
+            display: inline-block;
+        }
+        a {
+            display: inline-block;
+        }
+    }
+}

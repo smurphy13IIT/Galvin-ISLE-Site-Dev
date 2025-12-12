@@ -464,6 +464,9 @@ services:
     solr-prod:
         <<: [*prod, *solr]
         labels:
+        # Uncomment the line below and comment the line after it to enable the Solr UI.
+        # WARNING - This would give anyone access to the Solr index, which is a security risk.
+        #    <<: [*solr-labels]
             <<: [*traefik-disable, *solr-labels]
         # Ensure drupal mounts the shared volumes first.
         depends_on:

@@ -1,6 +1,6 @@
 .main-content {
-    display: flex;
-    flex-flow: row nowrap;
+    // display: flex;
+    // flex-flow: row nowrap;
 }
 
 .main {
@@ -9,8 +9,9 @@
     flex: 1 1 70%;
 }
 
-//main block
-#block-galvin-islandora-content.block-system-main-block {
+//main block & main collection view block
+#block-galvin-islandora-content.block-system-main-block,
+#block-galvin-islandora-views-block-solr-search-content-block-1 {
     flex-grow: 3.25;
     flex-basis: 70%;
 }

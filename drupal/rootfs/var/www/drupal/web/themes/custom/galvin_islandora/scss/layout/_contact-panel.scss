@@ -71,7 +71,6 @@
         color: $primary-color;
     }
 
-
     &__detail span i {
         padding-right: 5px;
         font-size: rem-calc(14);
@@ -86,7 +85,6 @@
     }
 
     @include breakpoint(medium down) {
-
         &__detail__item:last-child {
             display: block;
             margin-top: 10px;
@@ -109,40 +107,33 @@
     }
 
     .staff-resources {
-
         p {
             margin-top: 2rem;
 
-
-
             a {
                 color: $black;
-                font-size: .75rem;
+                font-size: 0.75rem;
             }
         }
     }
-    
+
     //Social Media
-@include social-media-links;
+    @include social-media-links;
 
-ul.social-media {
+    ul.social-media {
+        list-style-type: none;
 
-    list-style-type: none;
+        li {
+            display: inline-block;
 
-    li {
-        display: inline-block;
-
-        &:not(:last-child) {
-            margin-right: 0.625rem;
+            &:not(:last-child) {
+                margin-right: 0.625rem;
+            }
+            a {
+                color: $brand-red;
+            }
         }
-        a {
-         color:$brand-red; 
-        }
-        
     }
-}
-
-    
 }
 
 // ---- Office Detail
@@ -184,7 +175,6 @@ ul.social-media {
     margin-top: 1.875rem;
 
     a {
-
         @include breakpoint(medium down) {
             display: block;
 
@@ -193,18 +183,11 @@ ul.social-media {
             &:last-of-type {
                 margin-bottom: 0;
             }
-
         }
 
         img {
             max-width: 160px;
             margin-right: 100px;
-
-
-
-
-
         }
     }
 }
-

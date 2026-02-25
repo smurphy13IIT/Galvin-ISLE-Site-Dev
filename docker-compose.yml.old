@@ -57,7 +57,7 @@ volumes:
     drupal-private-files: {}
     drupal-public-files: {}
     drupal-solr-config: {}
-#    fcrepo-data: {}
+    fcrepo-data: {}
     mariadb-data: {}
     solr-data: {}
 
@@ -402,8 +402,7 @@ services:
             traefik.http.routers.fcrepo_https.tls: true
             traefik.http.services.fcrepo.loadbalancer.server.port: 8080
         volumes:
-            - /nfs/islandora/fcrepo-data:/data:rw
-#            - fcrepo-data:/data:rw
+            - fcrepo-data:/data:rw
         networks:
             default:
                 aliases: # Allow access without using the `-dev` or `-prod` suffix.
@@ -475,8 +474,7 @@ services:
                 condition: service_healthy
     traefik-dev: &traefik
         <<: [*dev, *common]
-#        image: traefik:v3.4.4@sha256:9b0e9d788816d722703eae57ebf8b4d52ad98e02b76f0362d5a040ef46902ef7
-        image: traefik:v3.6.7
+        image: traefik:v3.4.4@sha256:9b0e9d788816d722703eae57ebf8b4d52ad98e02b76f0362d5a040ef46902ef7
         command: >-
             --api.insecure=true
             --api.dashboard=true

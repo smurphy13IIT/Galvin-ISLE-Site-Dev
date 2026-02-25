@@ -12,10 +12,7 @@
 /// @param {Color} $start-color - The start color of the gradient.
 /// @param {Color} $end-color - The end color of the gradient.
 /// Source: https://stackoverflow.com/a/17212432
-@mixin animation-bgcolor-swipe(
-  $start-color: $accent-orange,
-  $end-color: $accent-red
-) {
+@mixin animation-bgcolor-swipe($start-color: $accent-orange, $end-color: $accent-red) {
   background-image: linear-gradient(to left, $start-color 50%, $end-color 50%);
   background-position: right bottom;
   background-size: 200% 100%;
@@ -47,7 +44,7 @@
   }
 
   &:not(:last-child) {
-    @include margins-bottom(10,10,20);
+    @include margins-bottom(10, 10, 20);
   }
   &:hover,
   &:focus {
@@ -69,7 +66,6 @@
     color: $white;
   }
 }
-
 
 // Rules for Eyebrow text
 @mixin eyebrow {
@@ -100,14 +96,16 @@
     &:hover {
       text-decoration: none;
       &:after {
-        padding-left: rem-calc(10)
+        padding-left: rem-calc(10);
       }
     }
     &:after {
-        font-family: "Flaticon";
-      content: $flaticon-long-arrow;
+      //  font-family: "Flaticon";
+      //  content: $flaticon-long-arrow;
+      content: "\f061";
+      font-family: $font-awesome;
       font-weight: 800;
-      transition: padding-left .3s ease;
+      transition: padding-left 0.3s ease;
       padding-left: rem-calc(5);
       color: $primary-color;
     }
@@ -122,10 +120,10 @@
   @include breakpoint(tiny) {
     float: left;
     margin: 0;
-    padding: .625em 35px .625em 0;
+    padding: 0.625em 35px 0.625em 0;
 
     figcaption {
-      padding: 0 35px .625em 0;
+      padding: 0 35px 0.625em 0;
     }
   }
 }
@@ -138,10 +136,10 @@
   @include breakpoint(tiny) {
     float: right;
     margin: 0;
-    padding: .625em 0 .625em 2em;
+    padding: 0.625em 0 0.625em 2em;
 
     figcaption {
-      padding: 0 0 .625em 35px;
+      padding: 0 0 0.625em 35px;
     }
   }
 }
@@ -153,7 +151,6 @@
 
 /// Generates placeholder selectors for all major browsers.
 @mixin placeholder {
-
   &::-webkit-input-placeholder {
     @content;
   }
@@ -182,13 +179,12 @@
 //------
 
 @mixin padded-row {
-  @include grid-row()
+  @include grid-row();
 }
 
 .padded-row {
-  @include grid-row()
+  @include grid-row();
 }
-
 
 /// Generate grid columns on a selector.
 ///
@@ -304,7 +300,6 @@
   }
 }
 
-
 @mixin bottoms($small-value, $medium-value, $large-value) {
   margin-top: rem-calc($small-value);
 
@@ -408,8 +403,8 @@
   }
 }
 
-$box-shadow-common: 0px 2px 10px 0px rgba(0,0,0,0.3);
-$box-shadow--less: 0 1px 3px 0 rgba(0,0,0,0.16);
+$box-shadow-common: 0px 2px 10px 0px rgba(0, 0, 0, 0.3);
+$box-shadow--less: 0 1px 3px 0 rgba(0, 0, 0, 0.16);
 
 @mixin box-shadow() {
   box-shadow: $box-shadow-common;
@@ -430,7 +425,7 @@ $box-shadow--less: 0 1px 3px 0 rgba(0,0,0,0.16);
     position: absolute;
     width: 100%;
     max-width: $accent-width;
-    background: $accent-color
+    background: $accent-color;
   }
 }
 @mixin offset-text-rule($selector, $text-background, $border-color) {
@@ -441,7 +436,7 @@ $box-shadow--less: 0 1px 3px 0 rgba(0,0,0,0.16);
     padding-right: rem-calc(5);
     background: $text-background;
     &:after {
-      content: '';
+      content: "";
       height: rem-calc(1);
       width: 100%;
       left: 0;
@@ -456,7 +451,7 @@ $box-shadow--less: 0 1px 3px 0 rgba(0,0,0,0.16);
 
 /// small body
 @mixin small-body() {
-  @include font-sizes(14,14,16);
+  @include font-sizes(14, 14, 16);
 }
 
 @mixin section-fade() {
@@ -466,7 +461,7 @@ $box-shadow--less: 0 1px 3px 0 rgba(0,0,0,0.16);
     width: 100%;
     height: rem-calc(3);
     opacity: 0.15;
-    background-image: linear-gradient(180deg, #000000 0%, rgba(0,0,0,0.00) 100%);
+    background-image: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
     z-index: 1;
     position: absolute;
     top: 0;
@@ -480,33 +475,31 @@ $box-shadow--less: 0 1px 3px 0 rgba(0,0,0,0.16);
 }
 
 @mixin social-media-links {
-    .social-media {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  .social-media {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 
-  li {
-    display: inline-block;
-    &:not(:last-child) {
-      margin-right: rem-calc(10);
-    }
+    li {
+      display: inline-block;
+      &:not(:last-child) {
+        margin-right: rem-calc(10);
+      }
       //Hide the text
       i {
-          //text-indent: -9999px;
+        //text-indent: -9999px;
       }
-  }
+    }
 
-  a {
-    display: block;
-    //transition: color $primary-transition;
-    font-size: rem-calc(27);
-    line-height: 1;
+    a {
+      display: block;
+      //transition: color $primary-transition;
+      font-size: rem-calc(27);
+      line-height: 1;
 
-    &:hover {
-      color: $secondary-color;
+      &:hover {
+        color: $secondary-color;
+      }
     }
   }
 }
-}
-
-

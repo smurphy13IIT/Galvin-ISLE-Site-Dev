@@ -13,76 +13,88 @@ h6 {
 }
 
 @mixin h1 {
-  @include font-sizes(30,48,70);
+  @include font-sizes(30, 48, 70);
   line-height: 1.1;
-  @include margins-bottom(15,20,20);
+  @include margins-bottom(15, 20, 20);
   font-family: $serif;
   letter-spacing: rem-calc(-1);
   font-weight: 400;
 }
 
-h1, .h1, %h1 {
+h1,
+.h1,
+%h1 {
   @include h1;
 }
 
 @mixin h2 {
-  @include font-sizes(30,30,48);
+  @include font-sizes(30, 30, 48);
   line-height: 1.2;
-  @include margins-bottom(15,20,20);
+  @include margins-bottom(15, 20, 20);
   font-family: $serif;
   font-weight: 400;
-  letter-spacing: rem-calc(-.5);
+  letter-spacing: rem-calc(-0.5);
 }
 
-h2, .h2, %h2 {
+h2,
+.h2,
+%h2 {
   @include h2;
 }
 
 @mixin h3 {
-  @include font-sizes(20,24,26);
+  @include font-sizes(20, 24, 26);
   line-height: 1.4;
-  @include margins-bottom(15,20,20);
+  @include margins-bottom(15, 20, 20);
   font-family: $serif;
   font-weight: 400;
 }
 
-h3, .h3, %h3 {
+h3,
+.h3,
+%h3 {
   @include h3;
 }
 
 @mixin h4 {
-  @include font-sizes(18,18,20);
+  @include font-sizes(18, 18, 20);
   line-height: 1.4;
-  @include margins-bottom(10,10,15);
+  @include margins-bottom(10, 10, 15);
   font-family: $serif;
-  font-weight: 700;
+  font-weight: 400;
 }
 
-h4, %h4, .h4 {
+h4,
+%h4,
+.h4 {
   @include h4;
 }
 
 @mixin h5 {
-  @include font-sizes(17,17,18);
+  @include font-sizes(17, 17, 18);
   line-height: 1.4;
-  @include margins-bottom(10,10,15);
+  @include margins-bottom(10, 10, 15);
   font-family: $serif;
   font-weight: 700;
 }
 
-%h5, h5, .h5 {
+%h5,
+h5,
+.h5 {
   @include h5;
 }
 
 @mixin h6 {
-  @include font-sizes(16,16,17);
+  @include font-sizes(16, 16, 17);
   line-height: 1.4;
-  @include margins-bottom(10,10,15);
+  @include margins-bottom(10, 10, 15);
   font-family: $sans-serif;
   font-weight: 700;
 }
 
-h6, .h6, %h6 {
+h6,
+.h6,
+%h6 {
   @include h6;
 }
 
@@ -116,10 +128,10 @@ blockquote {
   position: relative;
   max-width: none;
   margin: 0 auto;
-  @include font-sizes(20,24,24);
+  @include font-sizes(20, 24, 24);
   font-family: $serif-alternate;
-  @include paddings-top(20,30,30);
-  @include paddings-bottom(30,50,50);
+  @include paddings-top(20, 30, 30);
+  @include paddings-bottom(30, 50, 50);
   @include fi(before);
 
   @include breakpoint(medium up) {
@@ -139,7 +151,7 @@ blockquote {
     line-height: 1;
     font-weight: 600;
     font-size: rem-calc(40);
-    @include margins-bottom(20,0,0);
+    @include margins-bottom(20, 0, 0);
     @include breakpoint(medium up) {
       font-size: rem-calc(45);
       position: absolute;
@@ -184,8 +196,7 @@ p,
 .intro-text,
 ul,
 ol,
-.btn
- {
+.btn {
   margin-bottom: 0;
   &:not(:last-child) {
     @extend %global-spacing--xsmall;
@@ -207,7 +218,6 @@ table,
 .section--accordions,
 .btn,
 figure {
-
   + h2,
   + .h2,
   + h3,
@@ -225,7 +235,7 @@ figure {
 
 .arrow-link,
 %arrow-link {
- @include link-arrow;
+  @include link-arrow;
 }
 
 @mixin eyebrow {
@@ -245,6 +255,12 @@ figure {
 
 .intro-text,
 %intro-text {
-  @include font-sizes(18,20,22);
+  @include font-sizes(18, 20, 22);
   line-height: 1.7;
+}
+
+.icon::before {
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
 }

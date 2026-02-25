@@ -24,7 +24,6 @@
             text-decoration: none;
         }
 
-
         &:after {
             display: none;
         }
@@ -70,14 +69,12 @@
             li {
                 width: 100%;
                 cursor: pointer;
-
             }
         }
 
         > ul > li a,
         > ul > li span {
             display: block;
-
         }
 
         > ul > li + li a,
@@ -139,9 +136,7 @@
         }
 
         li {
-
             &:hover {
-
                 > a,
                 > span {
                     background-color: #610000;
@@ -161,9 +156,8 @@
         } /// Second Level
         /// ------------
         ul {
-
             // Change the number here to include more right side dropdowns.
-            > li:nth-last-child(-n+1) > ul {
+            > li:nth-last-child(-n + 1) > ul {
                 right: 0;
             }
 
@@ -181,7 +175,7 @@
                 }
 
                 li:not(:last-child) a {
-                    border-bottom: rem-calc(1) solid rgba( $light-gray, .14);
+                    border-bottom: rem-calc(1) solid rgba($light-gray, 0.14);
                     margin-bottom: rem-calc(5);
                 }
 
@@ -245,7 +239,7 @@
             position: relative;
             font-weight: 600;
             color: #000;
-              line-height: 1.75em;
+            line-height: 1.75em;
 
             &:hover {
                 text-decoration: none;
@@ -262,7 +256,7 @@
             top: 0;
             left: 0;
             right: 0;
-            opacity: .5;
+            opacity: 0.5;
             margin: auto;
         } /// Second Level
         /// ------------
@@ -292,19 +286,18 @@
         &.accessible-menu .menu-item__button {
             left: auto;
             right: rem-calc(10);
-            opacity: 1; 
+            opacity: 1;
             //top: rem-calc(12);
-           top: .5rem;
+            top: 0.5rem;
             bottom: auto; //padding: rem-calc(2);
-            padding: .125rem;
+            padding: 0.125rem;
             background-color: rgba(0, 0, 0, 0);
             &:before {
                 font-family: $font-awesome;
-               // content: fa-content($fa-var-angle-right);
+                // content: fa-content($fa-var-angle-right);
                 color: #fff;
                 font-weight: 900;
                 font-size: rem-calc(22);
-
             }
         }
         ul {
@@ -317,7 +310,6 @@
         }
 
         li {
-
             &.is-dropdown-submenu-parent {
                 /* &:after {
                 font-family: $font-awesome;
@@ -345,7 +337,6 @@
 
             &:hover,
             &:focus {
-
                 background-color: $white;
 
                 > a {
@@ -362,7 +353,7 @@
         a,
         span {
             padding: rem-calc(10.5 18 15 18);
-          
+
             font-size: rem-calc(16);
 
             &:hover {
@@ -384,7 +375,7 @@
                 right: rem-calc(10);
                 &:before {
                     font-family: $font-awesome;
-//                    content: fa-content($fa-var-angle-down);
+                    //                    content: fa-content($fa-var-angle-down);
                     font-weight: 900;
                     color: $secondary-color;
                 }
@@ -449,9 +440,6 @@
 
 //Utility Menu
 .utility-menu {
-
-
-
     a,
     li {
         display: block;
@@ -491,7 +479,7 @@
             top: 0;
             left: auto;
             right: auto;
-            opacity: .5;
+            opacity: 0.5;
         }
 
         a {
@@ -543,13 +531,11 @@
 /// Styles for all sizes
 /// ---------------------
 .accessible-menu {
-
     li {
         position: relative;
     }
 
     .menu-item {
-
         & button {
             position: absolute;
             border: none;
@@ -557,7 +543,6 @@
         }
 
         &--expanded {
-
             > ul {
                 display: block;
             }
@@ -574,9 +559,7 @@
 /// Condensed Menu
 /// -------------------
 @mixin condensed-accessible-menu() {
-
     .menu-item {
-
         &__button,
         button {
             position: absolute;
@@ -585,7 +568,7 @@
             width: rem-calc(60);
             height: rem-calc(54);
             margin: 0;
-            padding: .375em;
+            padding: 0.375em;
             color: transparent;
             background-color: transparent;
             font-size: 0;
@@ -597,13 +580,12 @@
                 background-color: transparent;
             }
 
-
             &:before {
                 display: inline-block;
                 width: 100%;
                 color: $brand-red;
                 font-family: $font-awesome;
-               // content: fa-content($fa-var-angle-right);
+                // content: fa-content($fa-var-angle-right);
                 font-weight: 900;
                 line-height: rem-calc(37);
                 font-size: 1.5rem;
@@ -611,7 +593,6 @@
         }
 
         &--open {
-
             > .menu-item button:before,
             > button:before {
                 //content: fa-content($fa-var-angle-down);
@@ -625,7 +606,6 @@
 /// Large Menu
 /// -------------------
 @mixin large-accessible-menu() {
-
     .accessible-menu .menu-item__button,
     .accessible-menu button {
         position: absolute;
@@ -641,7 +621,7 @@
 
         &:before {
             width: 100%;
-           // content: fa-content($fa-var-chevron-right);
+            // content: fa-content($fa-var-chevron-right);
             color: $white;
             font-family: $font-awesome;
             font-size: 16px;
@@ -654,10 +634,9 @@
         }
 
         &--expanded {
-
             > .menu-item button:before,
             > button:before {
-             //   content: fa-content($fa-var-chevron-down);
+                //   content: fa-content($fa-var-chevron-down);
                 font-weight: 900;
             }
         }
@@ -720,8 +699,8 @@
         @include breakpoint(medium up) {
             @include btn;
             @include btn-light;
-            background: #FFFFFF;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.20);
+            background: #ffffff;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
             width: 100%;
             display: flex;
             justify-content: center;
@@ -796,7 +775,6 @@
     }
 
     .menu-item {
-
         &__button {
             top: 0;
             right: 0;
@@ -822,7 +800,7 @@
 
             &:before {
                 font-family: $font-awesome;
-               // content: fa-content($fa-var-chevron-right);
+                // content: fa-content($fa-var-chevron-right);
                 font-size: rem-calc(13);
                 color: $brand-red;
                 text-align: center;
@@ -848,10 +826,9 @@
         }
 
         &--open {
-
             > .menu-item__button:before {
                 color: $brand-gray;
-//                content: fa-content($fa-var-chevron-down);
+                //                content: fa-content($fa-var-chevron-down);
             }
         }
     } /// Mobile
@@ -877,18 +854,18 @@
             padding-right: rem-calc(45);
 
             &:after {
-//                @include fa-icon();
+                //                @include fa-icon();
                 position: absolute;
                 top: 50%;
                 right: rem-calc(20);
-               // content: fa-content($fa-var-chevron-down);
+                // content: fa-content($fa-var-chevron-down);
                 transform: translateY(-50%);
                 font-family: $font-awesome;
                 font-size: rem-calc(13);
                 font-weight: 900;
 
                 .sidebar-menu-open & {
-  //                  content: fa-content($fa-var-chevron-up);
+                    //                  content: fa-content($fa-var-chevron-up);
                 }
             }
 
@@ -905,7 +882,6 @@
     } /// Desktop
     /// -------
     @include breakpoint(medium) {
-
         &__container {
             // Override any inline style set by jQuery's animations.
             display: block !important; // stylelint-disable-line
@@ -918,19 +894,17 @@
 // A mixin to create border padding selectors.
 // Set depth to the maximum number of visible levels to avoid extra output.
 @mixin border-levels($depth) {
-    $selector: '';
+    $selector: "";
 
     @for $i from 0 through $depth {
-
         & #{$selector} a {
             border-left-width: rem-calc(1) * $i;
         }
-        $selector: append($selector, #{' li'}); // stylelint-disable-line
+        $selector: append($selector, #{" li"}); // stylelint-disable-line
     }
 }
 
 .sidebar-menu--border-levels {
-
     li {
         @include border-levels(3);
 
@@ -945,19 +919,17 @@
 // A mixin to create padding selectors.
 // Set depth to the maximum number of visible levels to avoid extra output.
 @mixin padding-levels($depth) {
-    $selector: '';
+    $selector: "";
 
     @for $i from 0 through $depth {
-
         & #{$selector} a {
             padding-left: 1em + (1em * $i);
         }
-        $selector: append($selector, #{' li'}); // stylelint-disable-line
+        $selector: append($selector, #{" li"}); // stylelint-disable-line
     }
 }
 
 .sidebar-menu--padding-levels {
-
     li {
         @include padding-levels(3);
     }
@@ -978,6 +950,39 @@
     }
 }
 
+// Browse Menu
 
-
-
+#block-galvin-islandora-browse-2 {
+    margin-top: 3rem;
+    h2 {
+        font-size: 2.125rem;
+        margin-bottom: 0.25rem;
+    }
+    a {
+        color: #fff;
+        margin-right: 1rem;
+        margin-bottom: 0;
+        background-color: #fefefe;
+        font-weight: 700;
+        padding: 0.78125rem 2.1875rem;
+        margin-top: 1rem;
+        font-size: 1rem;
+        text-decoration: none;
+        color: #0a0a0a;
+        // &:before {
+        //content: "\f061";
+        //font-family: "Font Awesome 7 Free";
+        //font-weight: 800;
+        //-webkit-transition: padding-right 0.3s ease;
+        //transition: padding-left 0.3s ease;
+        //padding-right: 0.3125rem;
+        //color: #cc0000;
+        // }
+        &:hover,
+        &active {
+            //color: $secondary-color;
+            color: #fff;
+            background-color: #c00;
+        }
+    }
+}

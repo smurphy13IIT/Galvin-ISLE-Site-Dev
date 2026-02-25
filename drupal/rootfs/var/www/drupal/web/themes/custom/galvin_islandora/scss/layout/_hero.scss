@@ -40,13 +40,13 @@ GLOBAL HERO STYLES
         justify-content: center;
         width: 100%;
         background: $hero-background-fallback;
-        max-height: calc(100vh - 250px);
+        max-height: calc(100vh - 350px);
     }
 
     .breadcrumbs,
     .eyebrow {
         @include breakpoint(medium) {
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.50);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
     }
 
@@ -126,7 +126,7 @@ GLOBAL HERO STYLES
         content: "";
         right: -26.8em;
         left: 100%;
-        margin-left: .4em;
+        margin-left: 0.4em;
         position: absolute;
         display: block;
         border-bottom: 1px solid #d8d8d8;
@@ -138,7 +138,7 @@ GLOBAL HERO STYLES
     p {
         @include breakpoint(medium) {
             color: $white;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.50);
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
         }
     }
 
@@ -160,11 +160,12 @@ GLOBAL HERO STYLES
 
     .button {
         background-color: $white;
-        padding: .78125rem 2.1875rem;
+        padding: 0.78125rem 2.1875rem;
         margin-top: 1rem;
         font-size: 1rem;
         text-decoration: none;
         color: $black;
+        font-weight: 500;
 
         &:hover {
             background-color: $primary-color;
@@ -175,10 +176,7 @@ GLOBAL HERO STYLES
             background-color: $primary-color;
             color: $white;
         }
-
     }
-
-
 
     @include breakpoint(medium) {
         position: absolute;
@@ -200,10 +198,9 @@ GLOBAL HERO STYLES
     opacity: 0.94;
     display: block;
 
-
     @include breakpoint(small down) {
         background: linear-gradient(180deg, rgba(0, 0, 0, 0) 18%, rgba (0, 0, 0, 0.75) 56%);
-        opacity: .94;
+        opacity: 0.94;
     }
 }
 
@@ -213,40 +210,12 @@ FRONT PAGE HERO
 
 body.path-frontpage {
     .hero__media {
-
-        background-image: url(/themes/custom/galvin2/images/Galvin_018.JPG);
+        background-image: url(/themes/custom/galvin_islandora/images/Islandora-hero.jpg);
         background-position: 0% 20%;
         background-size: cover;
 
-
         @include breakpoint(small down) {
             background-position: 60% 20%;
-        }
-    }
-}
-
-
-/* UASC PAGE HERO */
-
-body.section-uasc {
-
-    .hero {
-        h2 {
-            font-size: 2.45rem;
-            margin-bottom: 3rem;
-
-            @include breakpoint(small down) {
-                //margin-top: -15.5rem;
-                margin-bottom: 1rem;
-                color: $black;
-            }
-        }
-
-        .hero__media {
-            // background-image: url(/themes/custom/galvin/images/uasc-stacks.jpg);
-            background-image: url(/themes/custom/galvin2/images/MainBldgFront.jpg);
-            background-position: center 95%;
-            background-size: cover;
         }
     }
 }
@@ -309,7 +278,6 @@ HERO VIDEO IMAGE WITH PARALLAX
             top: 0;
             object-fit: cover;
             object-position: center;
-
         }
     }
 
@@ -389,7 +357,6 @@ HERO VIDEO IMAGE WITH PARALLAX
 /// ------- COLLEGES HERO
 // --- when a hero comes before the college intro hero intro
 .page--school-subsection {
-
     .hero--no-img {
         padding-top: 0;
     }
@@ -461,7 +428,6 @@ HERO VIDEO IMAGE WITH PARALLAX
 }
 
 .hero {
-
     video,
     img {
         position: fixed;
@@ -497,7 +463,7 @@ HERO VIDEO IMAGE WITH PARALLAX
         h1,
         h2 {
             color: $white;
-            @include global-spacing--xlarge;
+            //@include global-spacing--xlarge;
 
             @include breakpoint(small down) {
                 //margin-top: rem-calc(-136);
@@ -506,5 +472,4 @@ HERO VIDEO IMAGE WITH PARALLAX
             }
         }
     }
-
 }

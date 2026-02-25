@@ -4,11 +4,14 @@
 ////
 /// All Styles & Mobile
 /// -------------------
+
+///This is all code to style the header bar search field, which I don't think we'll use on this site?
+
 .header-search {
     width: 100%;
     background-color: #f4f4f4;
     box-shadow: inset 0 0 2px #d8d8d8;
-    padding-top: 2.25rem;
+    padding-top: 2.5rem;
 
     .search-form-2 {
         max-width: 65.666%;
@@ -94,6 +97,10 @@
             padding: rem-calc(7 0 0 0);
             width: 100%;
             font-size: 0;
+
+            &:form-submit {
+                font-weight: 600;
+            }
 
             &:after {
                 //                content: fa-content($fa-var-search);
@@ -226,6 +233,44 @@
     }
 }
 
+///Hero Search
+
+.hero {
+    #search-form {
+        position: relative;
+
+        input#edit-search-textfield {
+            font-size: 1.75rem;
+            font-weight: 200;
+        }
+        input.success {
+            width: 100%;
+            display: inline-block;
+            background-image: url(/themes/custom/galvin_islandora/images/search.svg);
+            background-color: rgba(0, 0, 0, 0);
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-size: contain;
+            -webkit-filter: brightness(0);
+            filter: brightness(5);
+            //font-size: 2rem;
+            right: 2rem;
+            margin: 0;
+            height: 10%;
+
+            &:hover {
+                filter: brightness(0);
+            }
+        }
+
+        .form-actions {
+            right: 0.75rem;
+            top: 0.3rem;
+            position: absolute;
+            height: 3.5rem;
+        }
+    }
+}
 /// SEARCH RESULTS
 
 .block-galvin-islandora-solrsearchcontentsearchresultspagerforpage,
@@ -238,12 +283,22 @@
             padding: 5px;
         }
         .pager__link--is-active {
+            background-color: #fff;
+            background-size: 40px 40px;
+            color: #000;
+            font-weight: 600;
             border: 1px solid #ff9900;
+            text-decoration: none;
             &:hover {
                 background-color: #ff9900;
                 color: #000000;
             }
         }
+    }
+
+    .form-select {
+        color: #c00;
+        border: 1px solid #c00;
     }
 }
 
@@ -258,11 +313,23 @@
         padding: 1.625rem 0;
         .views-field {
             &.views-field-did-image {
-                width: 15%;
+                //width: 15%;
+                max-height: 220px;
 
                 i {
                     font-size: 5rem;
                 }
+                img {
+                    webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.3);
+                    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.3);
+                            max-height: 220px;
+                
+                }
+            }
+            &.views-field-field-resource-type,
+            &.views-field-field-model {
+                color: #c00;
+                margin-bottom: 1.25rem;
             }
 
             flex-flow: row wrap;
@@ -322,6 +389,7 @@
     }
     .views-field-title a {
         color: $black;
+        margin-bottom: none;
         &:hover,
         &:focus {
             text-decoration: none;
@@ -333,19 +401,82 @@
     }
 }
 
+///Pagination
+nav.pager {
+    a {
+        color: #c00;
+        font-weight: 600;
+    }
+    .current a {
+        background-color: #cc0000;
+        background-size: 40px 40px;
+        color: #ffffff;
+        font-weight: 600;
+    }
+}
+
 //FACETS
 
-.block-facet--links {
+.block-facets {
     margin-bottom: 2em;
+    padding-bottom: 1em;
+    &:not(:last-of-type) {
+        border-bottom: 1px solid #e5e5e5;
+    }
+
     h2 {
         font-size: 1.17em;
         margin: 0.5em 0;
     }
-    .item-list__links {
-        margin-bottom: 0;
+    ul.item-list__links {
+        margin-bottom: 0.5em;
 
         li.facet-item::marker {
             content: none;
+        }
+    }
+    .facets-soft-limit-link {
+        /*&:after {
+            font-family: $font-awesome;
+            content: "\f107";
+            margin-left: 0.25em;
+        }
+        &.open {
+            &:after {
+                font-family: $font-awesome;
+                content: "\f106";
+            }
+        }*/
+    }
+    .facets-widget-range_slider {
+        max-width: 90%;
+        ul {
+            list-style-type: none;
+        }
+    }
+    .facets-widget-range_nouislider {
+        ul {
+            padding-right: 1.25em;
+            margin-bottom: 3em;
+            list-style-type: none;
+            li {
+                .js-form-type-textfield {
+                    max-width: 45%;
+                    display: inline-block;
+                    margin: 0 2%;
+                }
+
+                label {
+                    display: block;
+                }
+                input {
+                    //width: 50%;
+                    display: inline;
+                }
+                .noUi-connect {
+                    background-color: #c00;
+                }
+            }
         }
     }
 }

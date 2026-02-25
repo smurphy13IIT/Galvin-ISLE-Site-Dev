@@ -48,7 +48,7 @@
         "php": "^7.4 || ^8",
         "bower-asset/jquery-ui-slider-pips": "^2.0",
         "composer/installers": "^2.0",
-        "cweagans/composer-patches": "*",
+        "cweagans/composer-patches": "^1.7",
         "discoverygarden/dgi_image_discovery": "^1",
         "discoverygarden/embargo": "^1.7",
         "drupal/admin_toolbar": "^3.1",
@@ -163,9 +163,6 @@
         "patches": {
             "twistor/flysystem-stream-wrapper": {
                 "PHP 8.2 deprecation warning": "assets/patches/flysystem-stream-wrapper.patch"
-            },
-            "drupal/flysystem": {
-                "Fix issue with image styles": "https://www.drupal.org/files/issues/2025-03-18/3513799-3-image-style-generation.patch"
             }
         }
     },

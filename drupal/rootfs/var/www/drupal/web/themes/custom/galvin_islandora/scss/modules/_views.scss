@@ -1,0 +1,61 @@
+.dept-list {
+    ul {
+        li {
+            font-size: 1.625rem;
+            margin-bottom: 0.3125rem;
+            color: #0a0a0a;
+            margin-top: 1.25rem;
+            padding-top: 1.25rem;
+
+            &:not(:first-child) {
+                border-top: 0.0625em solid #f4f4f4;
+            }
+        }
+    }
+}
+
+.taxonomy-related-objects {
+
+    .views-row {
+        //display: flex;
+        border-bottom: 0.0625em solid #f4f4f4;
+        padding: 1.625rem 0;
+        .views-field {
+            &.views-field-did-image {
+                //width: 15%;
+        
+
+                i {
+                    font-size: 5rem;
+                }
+                img {
+                    webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.3);
+                    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.3);
+                            max-height: 220px;
+                }
+            }
+            &.views-field-field-resource-type,
+            &.views-field-field-model {
+                color: #c00;
+                margin-bottom: 1.25rem;
+            }
+
+            flex-flow: row wrap;
+            //padding: 0.5rem 0;
+            //border-top: 0.0625em solid #f4f4f4;
+            display: flex;
+
+            .field__label {
+                display: inline-block;
+                flex-basis: 20%;
+                font-weight: 600;
+            }
+
+            .field__item {
+                flex-basis: 76%;
+                display: block;
+            }
+        }
+    }
+
+}

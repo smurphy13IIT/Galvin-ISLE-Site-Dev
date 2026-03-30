@@ -151,8 +151,6 @@ services:
             default:
                 aliases: # Allow access without using the `-dev` or `-prod` suffix.
                     - fits
-        volumes:
-            - ./fits-service.properties.filesize-fix:/opt/tomcat/webapps/fits/WEB-INF/classes/fits-service.properties
     fits-prod:
         <<: [*prod, *fits]
     homarus-dev: &homarus
@@ -495,9 +493,8 @@ services:
                 condition: service_healthy
     traefik-dev: &traefik
         <<: [*dev, *common]
-        image: traefik:v3.6.8@sha256:90099f8948c828ecf0ababd711a4359a2443eba12261c1df2f548a3b1d815938
 #        image: traefik:v3.4.4@sha256:9b0e9d788816d722703eae57ebf8b4d52ad98e02b76f0362d5a040ef46902ef7
-#        image: traefik:v3.6.7
+        image: traefik:v3.6.7
         command: >-
             --api.insecure=true
             --api.dashboard=true

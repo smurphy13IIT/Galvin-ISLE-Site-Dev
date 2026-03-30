@@ -1,6 +1,7 @@
 .node--type-islandora-object .view-mode-full.node__content,
 #block-galvin-islandora-views-block-media-metadata-source,
-#block-views-block-media-metadata-source {
+#block-views-block-media-metadata-source,
+.node--type-islandora-object .view-mode-collection.node__content {
     .field,
     .views-field {
         display: flex;

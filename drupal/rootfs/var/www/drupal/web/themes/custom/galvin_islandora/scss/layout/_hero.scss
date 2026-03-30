@@ -40,7 +40,8 @@ GLOBAL HERO STYLES
         justify-content: center;
         width: 100%;
         background: $hero-background-fallback;
-        max-height: calc(100vh - 350px);
+        //max-height: calc(100vh - 350px);
+        max-height: 50vh;
     }
 
     .breadcrumbs,
@@ -94,9 +95,10 @@ GLOBAL HERO STYLES
 
 .hero__content {
     z-index: 3;
-    padding: rem-calc(20 20 0);
+    padding: rem-calc(150 20 0);
     @include grid-row;
     width: 100%;
+    height: 100%;
 
     @include breakpoint(medium) {
         display: flex;

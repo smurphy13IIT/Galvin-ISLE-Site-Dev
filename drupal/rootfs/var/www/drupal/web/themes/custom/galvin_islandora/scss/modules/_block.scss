@@ -548,6 +548,12 @@ section [class*="block-grid-"] > li {
     margin-bottom: 2.5em;
 }
 
+.compound-parent {
+    padding: 2.5rem;
+    background: #f4f4f4;
+    margin-bottom: 2.5em;
+}
+
 //Media metadata block {
 #block-galvin-islandora-views-block-media-metadata-source,
 #block-views-block-media-metadata-source {
@@ -563,8 +569,8 @@ section [class*="block-grid-"] > li {
         display: flex;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-        flex-direction: column;
+        // -ms-flex-direction: column;
+        // flex-direction: column;
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         -webkit-box-pack: justify;
@@ -572,10 +578,15 @@ section [class*="block-grid-"] > li {
         justify-content: space-between;
         max-height: 4em;
     }
+    h3 {
+        display: block;
+    }
     a {
-        color: #fff;
-        font-weight: bold;
-        &::before {
+        color: #000;
+        font-family: "Roboto Slab", serif;
+        font-weight: 400;
+        font-size: 1.5rem;
+        &::after {
             color: #cc0000;
             font-size: 1.125rem;
             font-family: $font-awesome;

@@ -151,8 +151,6 @@ services:
             default:
                 aliases: # Allow access without using the `-dev` or `-prod` suffix.
                     - fits
-        volumes:
-            - ./fits-service.properties.filesize-fix:/opt/tomcat/webapps/fits/WEB-INF/classes/fits-service.properties
     fits-prod:
         <<: [*prod, *fits]
     homarus-dev: &homarus
@@ -323,24 +321,6 @@ services:
             DRUPAL_DEFAULT_SITE_URL: "${DOMAIN}"
             DRUPAL_DEFAULT_SOLR_CORE: "default"
             DRUSH_OPTIONS_URI: "https://${DOMAIN}" # Used by docker/drupal/rootfs/usr/local/share/custom/install.sh
-            PHP_POST_MAX_SIZE: "100G"
-            PHP_UPLOAD_MAX_FILESIZE: "100G"
-            PHP_MEMORY_LIMIT: "1G"
-            NGINX_CLIENT_BODY_TIMEOUT: 3600s
-            NGINX_FASTCGI_CONNECT_TIMEOUT: 3600s
-            NGINX_FASTCGI_READ_TIMEOUT: 3600s
-            NGINX_FASTCGI_SEND_TIMEOUT: 3600s
-            NGINX_KEEPALIVE_TIMEOUT: 3600s
-            NGINX_LINGERING_TIMEOUT: 50s
-            NGINX_PROXY_CONNECT_TIMEOUT: 3600s
-            NGINX_PROXY_READ_TIMEOUT: 3600s
-            NGINX_PROXY_SEND_TIMEOUT: 3600s
-            NGINX_SEND_TIMEOUT: 3600s
-            PHP_DEFAULT_SOCKET_TIMEOUT: 3600
-            PHP_MAX_EXECUTION_TIME: 3600
-            PHP_MAX_INPUT_TIME: 3600
-            PHP_PROCESS_CONTROL_TIMEOUT: 3600
-            PHP_REQUEST_TERMINATE_TIMEOUT: 3600
         labels:
             <<: [*traefik-enable, *traefik-https-redirect-middleware, *traefik-drupal-labels]
             traefik.http.routers.drupal_http.rule: &traefik-host-drupal-prod Host(`${DOMAIN}`)
@@ -364,7 +344,7 @@ services:
             - ./drupal/rootfs/var/www/drupal/web/modules/custom:/var/www/drupal/web/modules/custom:z,rw,${CONSISTENCY}
             - ./drupal/rootfs/var/www/drupal/web/themes/custom:/var/www/drupal/web/themes/custom:z,rw,${CONSISTENCY}
             - &drupal-solr-config drupal-solr-config:/opt/solr/server/solr/default:z,rw
-            #- /var/www/html/Galvin-ISLE-Site-Dev/php-upload.ini:/etc/php83/conf.d/03_upload.ini:ro
+            - /var/www/html/Galvin-ISLE-Site-Dev/php-upload.ini:/etc/php83/conf.d/03_upload.ini:ro
         networks:
             default:
                 aliases: # Allow access without using the `-dev` or `-prod` suffix.
@@ -495,9 +475,8 @@ services:
                 condition: service_healthy
     traefik-dev: &traefik
         <<: [*dev, *common]
-        image: traefik:v3.6.8@sha256:90099f8948c828ecf0ababd711a4359a2443eba12261c1df2f548a3b1d815938
 #        image: traefik:v3.4.4@sha256:9b0e9d788816d722703eae57ebf8b4d52ad98e02b76f0362d5a040ef46902ef7
-#        image: traefik:v3.6.7
+        image: traefik:v3.6.7
         command: >-
             --api.insecure=true
             --api.dashboard=true

@@ -190,12 +190,14 @@
 @import "atoms/section-heading";
 @import "atoms/links";
 @import "atoms/fields";
+@import "atoms/pagination";
 
 // --- Modules ---
 @import "modules/block";
 @import "modules/button";
 @import "modules/search";
 @import "modules/views";
+@import "modules/islandora";
 
 //Menus
 @import "menus/menus";

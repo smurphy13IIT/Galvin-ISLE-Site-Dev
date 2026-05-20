@@ -124,18 +124,6 @@ services:
             default:
                 aliases: # Allow access without using the `-dev` or `-prod` suffix.
                     - alpaca
-        environment:
-            CAMEL_LOG_BODY: "true"
-            CAMEL_LOG_HEADERS: "true"
-            CAMEL_LOG_DEBUG: "true"         # log bodies when passing through log processors
-            CAMEL_TRACING: "true"           # enable step-by-step tracing of routes
-            CAMEL_TRACE_FILTER: "*"         # optional, trace all routes
-            CAMEL_MESSAGE_HISTORY: "true"   # store full message history in Camel
-            CAMEL_MESSAGE_HISTORY_MAX_SIZE: "5000"  # max number of exchanges stored
-            JAVA_OPTS: >
-             -Dorg.slf4j.simpleLogger.log.org.apache.camel.component.http=DEBUG
-             -Dorg.slf4j.simpleLogger.log.org.apache.http=DEBUG
-             -Dorg.slf4j.simpleLogger.log.org.apache.http.wire=DEBUG
         depends_on:
             activemq-dev:
                 condition: service_healthy

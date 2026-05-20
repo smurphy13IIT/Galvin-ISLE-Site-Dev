@@ -9,3 +9,30 @@
         }
     }
 }
+
+.extracted-text {
+
+    .field--name-uid,
+    .field--name-created {
+        display: none;
+    }
+    
+    .field--name-field-media-file {
+        .field__label {
+            display: inline;
+            font-weight: 600;
+            margin-right: 2rem;
+        }
+        .field__item {
+            display: inline;
+        }
+        margin-bottom: 1rem;
+    }
+    
+    .field--name-field-edited-text {
+        .field__label {
+            font-weight: 600;
+        }
+    }
+    
+}

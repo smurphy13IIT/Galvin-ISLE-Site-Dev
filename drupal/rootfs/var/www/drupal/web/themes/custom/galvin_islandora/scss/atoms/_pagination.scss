@@ -1,0 +1,4 @@
+.pagination-next a::after, .pagination-next.disabled::after {
+    display: none;
+    content: "";
+}

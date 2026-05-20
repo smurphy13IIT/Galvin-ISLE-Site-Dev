@@ -1,8 +1,3 @@
-{# Customized version of Views fields display (views-view-fields.html.twig) for solr search result display
-Uses if/then to single out image field in line 41, wraps the rest of the fields in a search-meta-column div for styling
-Also omits printing any field info if it's empty so field labels aren't printed for empty fields
-#}
-
 {#
 /**
  * @file
@@ -36,6 +31,9 @@ Also omits printing any field info if it's empty so field labels aren't printed 
  * @ingroup themeable
  */
 #}
+
+
+
 {% for field in fields -%}
 {# {{ dump(field) }}  Inspect the row data #}
 {%- if field.class == "did-image" -%}

@@ -563,6 +563,7 @@ section [class*="block-grid-"] > li {
 //Learn More block on front page
 #block-galvin-islandora-learnmore {
     margin-top: 2rem;
+    width: 100%;
     #learnmore-links {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -579,27 +580,19 @@ section [class*="block-grid-"] > li {
         max-height: 4em;
     }
     h3 {
-        display: block;
+        display: flex;
+        flex-basis: 100%;
     }
+    span {
+        width: 20%;
     a {
         color: #000;
-        font-family: "Roboto Slab", serif;
-        font-weight: 400;
-        font-size: 1.5rem;
-        &::after {
-            color: #cc0000;
-            font-size: 1.125rem;
-            font-family: $font-awesome;
-            content: "\f061";
-            padding-right: 0.625rem;
-            -webkit-transition: color 0.4s ease 0s;
-            transition: color 0.4s ease 0s;
-        }
         &:hover,
         &:active {
             color: #ff9900;
         }
     }
+}
 }
 ///ETD message block
 .etd-message {
@@ -627,13 +620,59 @@ section [class*="block-grid-"] > li {
             }
         }
     }
+    .views-row {
+        margin-bottom: 1.5rem;
     .views-col {
         padding: 1rem;
         .views-field-did-image {
             margin-bottom: 0.5rem;
+            width: 200px;
+            //height: 200px;
+
+            .field-content {
+                width: 200px;
+                //height: 200px;
+                object-fit: cover;
+                display: block;
+
+                a {
+                    display: block;
+                    height: 150px;
+                    width: 150px;
+
+                    img {
+                        height: 100%;
+                        width: 100%;
+                        object-fit: none;
+                        object-position: top;
+                        webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.3);
+                        -webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.3);
+                        box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.3);
+                    }
+                }
+            }
         }
         .views-field-title {
             line-height: 1.25;
         }
     }
+    }
 }
+
+//Extracted Text
+
+#extracted-text {
+    display: none;
+    
+}
+
+#extracted-text.expanded {
+
+        display: inline;
+    .views-row {
+        max-height: 200px;
+        overflow-y: scroll;
+        background-color: #f4f4f4;
+    }
+    }
+

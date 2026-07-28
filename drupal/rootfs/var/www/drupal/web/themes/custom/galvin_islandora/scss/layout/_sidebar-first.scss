@@ -5,4 +5,8 @@
     flex-grow: 0;
     flex-shrink: 1;
     padding-right: 2.5rem;
+    
+     @include breakpoint(small down) {
+     flex: 0 1 100%;    
+    }
 }

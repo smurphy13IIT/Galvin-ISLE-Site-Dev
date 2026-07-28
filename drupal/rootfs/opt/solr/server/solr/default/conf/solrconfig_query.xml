@@ -44,4 +44,5 @@
 -->
   <query name="queryResultWindowSize">20</query>
   <query name="queryResultMaxDocsCached">200</query>
-  <query name="maxBooleanClauses">1024</query>
+ <!--  <query name="maxBooleanClauses">1024</query> -->
+  <query name="maxBooleanClauses">18000</query>

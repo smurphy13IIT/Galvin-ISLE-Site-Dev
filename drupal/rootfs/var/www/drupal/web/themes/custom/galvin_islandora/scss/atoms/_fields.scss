@@ -1,7 +1,8 @@
 .node--type-islandora-object .view-mode-full.node__content,
 #block-galvin-islandora-views-block-media-metadata-source,
 #block-views-block-media-metadata-source,
-.node--type-islandora-object .view-mode-collection.node__content {
+.node--type-islandora-object .view-mode-collection.node__content,
+.taxonomy-related-objects{
     .field,
     .views-field {
         display: flex;
@@ -12,6 +13,9 @@
             display: inline-block;
             flex-basis: 20%;
             font-weight: 600;
+            @include breakpoint(small down) {
+                    flex-basis: 100%;
+                }
 
             ::after {
                 content: ":";
@@ -20,6 +24,10 @@
         .field__item {
             display: block;
             flex-basis: 76%;
+            @include breakpoint(small down) {
+                    flex-basis: 100%;
+                padding-left: 20px;
+                }
         }
         p {
             display: inline-block;

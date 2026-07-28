@@ -1,12 +1,18 @@
 .main-content {
     // display: flex;
     // flex-flow: row nowrap;
+    
+    @include breakpoint(medium down) {
+     padding: 20px;   
+    }
 }
 
 .main {
     -webkit-box-flex: 1;
     -ms-flex: 1 1 70%;
     flex: 1 1 70%;
+    
+    
 }
 
 //main block & main collection view block
@@ -14,4 +20,8 @@
 #block-galvin-islandora-views-block-solr-search-content-block-1 {
     flex-grow: 3.25;
     flex-basis: 70%;
+}
+
+.node--view-mode-collection {
+    flex-grow: 4;
 }

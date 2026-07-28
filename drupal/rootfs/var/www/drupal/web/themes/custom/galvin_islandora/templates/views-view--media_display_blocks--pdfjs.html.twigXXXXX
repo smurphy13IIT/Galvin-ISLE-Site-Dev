@@ -30,12 +30,13 @@
  * @see \Drupal\views\Hook\ViewsThemeHooks::preprocessViewsView()
  */
 #}
+
 {%
   set classes = [
     dom_id ? 'js-view-dom-id-' ~ dom_id,
   ]
 %}
-<div{{ attributes.addClass(classes) }}>
+<div{{ attributes.addClass(classes) }} id="pdfjs" class=" position-top off-canvas-content" data-off-canvas-content>
   {{ title_prefix }}
   {{ title }}
   {{ title_suffix }}
@@ -48,7 +49,7 @@
 
   {{ exposed }}
   {{ attachment_before }}
-<div id="extracted-text" data-toggler=".expanded" data-transition="overlap">
+
   {% if rows -%}
     {{ rows }}
   {% elseif empty -%}
@@ -58,7 +59,6 @@
 
   {{ attachment_after }}
   {{ more }}
-  </div>
   {% if footer %}
     <footer>
       {{ footer }}
@@ -66,4 +66,4 @@
   {% endif %}
 
   {{ feed_icons }}
-</div>
+</d>

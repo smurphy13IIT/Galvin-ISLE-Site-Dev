@@ -294,7 +294,7 @@
             background-color: rgba(0, 0, 0, 0);
             &:before {
                 font-family: $font-awesome;
-                // content: fa-content($fa-var-angle-right);
+                content: "\f105";
                 color: #fff;
                 font-weight: 900;
                 font-size: rem-calc(22);
@@ -375,7 +375,7 @@
                 right: rem-calc(10);
                 &:before {
                     font-family: $font-awesome;
-                    //                    content: fa-content($fa-var-angle-down);
+                    content: "\f107";
                     font-weight: 900;
                     color: $secondary-color;
                 }
@@ -585,7 +585,7 @@
                 width: 100%;
                 color: $brand-red;
                 font-family: $font-awesome;
-                // content: fa-content($fa-var-angle-right);
+                content: "\f105";
                 font-weight: 900;
                 line-height: rem-calc(37);
                 font-size: 1.5rem;
@@ -595,7 +595,7 @@
         &--open {
             > .menu-item button:before,
             > button:before {
-                //content: fa-content($fa-var-angle-down);
+                content: "\f107";
                 color: $brand-gray;
             }
         }
@@ -621,7 +621,7 @@
 
         &:before {
             width: 100%;
-            // content: fa-content($fa-var-chevron-right);
+            content: "\f105";
             color: $white;
             font-family: $font-awesome;
             font-size: 16px;
@@ -636,7 +636,7 @@
         &--expanded {
             > .menu-item button:before,
             > button:before {
-                //   content: fa-content($fa-var-chevron-down);
+                content: "\f107";
                 font-weight: 900;
             }
         }
@@ -800,7 +800,7 @@
 
             &:before {
                 font-family: $font-awesome;
-                // content: fa-content($fa-var-chevron-right);
+                content: "\f105";
                 font-size: rem-calc(13);
                 color: $brand-red;
                 text-align: center;
@@ -828,7 +828,7 @@
         &--open {
             > .menu-item__button:before {
                 color: $brand-gray;
-                //                content: fa-content($fa-var-chevron-down);
+                               content: "\f107";
             }
         }
     } /// Mobile
@@ -858,14 +858,14 @@
                 position: absolute;
                 top: 50%;
                 right: rem-calc(20);
-                // content: fa-content($fa-var-chevron-down);
+                content: "\f107";
                 transform: translateY(-50%);
                 font-family: $font-awesome;
                 font-size: rem-calc(13);
                 font-weight: 900;
 
                 .sidebar-menu-open & {
-                    //                  content: fa-content($fa-var-chevron-up);
+                                 content: "\f106";
                 }
             }
 

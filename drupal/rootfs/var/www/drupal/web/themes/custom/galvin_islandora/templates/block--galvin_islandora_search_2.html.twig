@@ -1,4 +1,4 @@
-{# /** * Template to display the site search */ #}
+{# /** * Template to display the site search on every page but the front page */ #}
 
  <div class="site-search header-search">
      <div class="grid-container">
@@ -23,11 +23,11 @@
     <div class="cell initial-12 medium-12 columns">
   {{ title_prefix }}
   {% if label %}
-    <h2 {{ title_attributes }}>{{ label }}</h2>
+    <h1 {{ title_attributes }}>{{ label }}</h1>
   {% endif %}
   {{ title_suffix }}
   {% block content %}
-    <div {{ content_attributes.addClass('content', 'container-inline','search-form-2') }}>
+    <div {{ content_attributes.addClass('content', 'container-inline','search-form-2')  }}>
       {{ content }}
     </div>
   {% endblock %}

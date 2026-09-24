@@ -1,6 +1,6 @@
 name: Galvin Islandora
 description: "IIT Subtheme for Galvin Library's Islandora repository"
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^9 || ^10 || ^11
 type: theme
 #base theme:  iit
 base theme: zurb_foundation

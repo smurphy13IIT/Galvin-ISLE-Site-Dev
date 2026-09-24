@@ -496,6 +496,14 @@ nav.pager {
             label {
                 font-size: 1.0625rem;
                 display: inline;
+                line-height: 1.6;
+            }
+            
+            [type=checkbox] {
+                margin-bottom: 10px;
+                height: 1rem;
+                vertical-align: middle;
+                    vertical-align: -webkit-baseline-middle;
             }
 
             [checked="checked"] {

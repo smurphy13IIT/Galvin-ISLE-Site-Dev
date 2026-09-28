@@ -544,6 +544,34 @@ nav.pager {
         ul {
             list-style-type: none;
         }
+        
+        .ui-slider-pips [class*=ui-slider-pip-initial] {
+    font-weight: bold;
+    color: #000
+}
+
+.ui-slider-pips .ui-slider-pip-initial-2 {
+    color: #000
+}
+
+.ui-slider-pips [class*=ui-slider-pip-selected] {
+    font-weight: bold;
+    color: #000
+}
+
+.ui-slider-pips .ui-slider-pip-inrange {
+    color: #000
+}
+
+.ui-slider-pips .ui-slider-pip-selected-2 {
+    color: #000
+}
+
+.ui-slider-pips [class*=ui-slider-pip-selected] .ui-slider-line,.ui-slider-pips .ui-slider-pip-inrange .ui-slider-line {
+    background: #000
+}
+
+        
     }
     .facets-widget-range_nouislider {
         ul {
